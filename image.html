@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پس‌زمینه متحرک موزیک</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* افزودن افکت Transition برای نرم‌تر شدن تعویض عکس‌ها */
+        .bg-transition {
+            transition: background-image 0.8s ease-in-out;
+        }
+    </style>
+</head>
+<body class="m-0 p-0 overflow-x-hidden bg-black text-white">
+
+    <div id="dynamic-bg" class="fixed inset-0 w-full h-full bg-no-repeat bg-center bg-cover bg-transition -z-10"></div>
+
+    <main class="relative z-10 min-h-screen flex flex-col items-center justify-center bg-black/40 backdrop-blur-sm p-4">
+        <div class="text-center p-8 bg-black/60 rounded-2xl border border-white/10 max-w-xl shadow-2xl">
+            <h1 class="text-3xl font-bold mb-4 tracking-wide text-amber-400">اتاق استودیو دیجیتال</h1>
+            <p class="text-gray-300 leading-relaxed text-sm md:text-base">
+                تصاویر پس‌زمینه هر ۲ ثانیه یک‌بار به صورت خودکار و با افکت محو شدن نرم (Fade) تغییر می‌کنند.
+            </p>
+        </div>
+    </main>
+
+    <script>
+        // ۱. آدرس یا مسیر فایل‌های تصاویر خود را اینجا مشخص کنید
+        const images = [
+            '1.jpg',
+            '2.jpg',
+            '3.jpg',
+            '4.jpg',
+            '5.jpg',
+            '6.jpg'
+        ];
+
+        let currentIndex = 0;
+        const bgElement = document.getElementById('dynamic-bg');
+
+        // تابع تغییر تصویر پس‌زمینه
+        function changeBackground() {
+            // تغییر آدرس تصویر عنصر پس‌زمینه
+            bgElement.style.backgroundImage = `url('${images[currentIndex]}')`;
+            
+            // رفتن به تصویر بعدی و بازگشت به صفر در صورت رسیدن به انتهای لیست
+            currentIndex = (currentIndex + 1) % images.length;
+        }
+
+        // اجرای اولیه تابع برای بارگذاری اولین تصویر بدون تاخیر
+        changeBackground();
+
+        // تنظیم تایمر روی ۲۰۰۰ میلی‌ثانیه (۲ ثانیه)
+        setInterval(changeBackground, 2000);
+    </script>
+</body>
+</html>

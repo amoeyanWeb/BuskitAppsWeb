@@ -206,21 +206,192 @@
           >
         </nav>
 
-        <div class="flex items-center gap-4">
-          <!-- انتخابگر زبان در هدر -->
-          <div class="relative inline-block text-right">
-            <select
-              id="langSelect"
-              onchange="changeLanguage(this.value)"
-              class="bg-white-400 text-[rgba(185,28,28,0.9)] text-xs font-semibold rounded-xl px-3 py-2 border border-slate-700 focus:outline-none focus:border-accentNeon cursor-pointer transition-colors"
+        <div class="flex items-center gap-3">
+          <!-- انتخابگر زبان در هدر (کاستوم، با پرچم واقعی) -->
+          <div class="relative inline-block text-right" id="langDropdownWrap">
+            <button
+              type="button"
+              id="langDropdownBtn"
+              onclick="toggleLangDropdown()"
+              aria-haspopup="listbox"
+              aria-expanded="false"
+              class="flex items-center gap-2 bg-black/40 text-white text-xs font-semibold rounded-xl px-3 py-2 border border-white/20 hover:bg-black/55 focus:outline-none focus:border-accentNeon cursor-pointer transition-colors"
             >
-              <option value="fa">فارسی (FA)</option>
-              <option value="en">English (EN)</option>
-              <option value="tr">Türkçe (TR)</option>
-            </select>
+              <img
+                id="langDropdownFlag"
+                src="https://flagcdn.com/24x18/ir.png"
+                srcset="https://flagcdn.com/48x36/ir.png 2x"
+                width="20"
+                height="15"
+                alt=""
+                class="rounded-[2px] shrink-0"
+              />
+              <span id="langDropdownLabel">فارسی</span>
+              <svg
+                id="langDropdownChevron"
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-3 h-3 transition-transform duration-200"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+
+            <ul
+              id="langDropdownList"
+              role="listbox"
+              class="hidden absolute left-0 mt-2 w-40 rounded-xl overflow-hidden border border-slate-700 bg-darkCard/95 backdrop-blur-xl shadow-xl z-50 text-xs font-semibold"
+            >
+              <li
+                role="option"
+                data-lang="fa"
+                onclick="selectLanguage('fa')"
+                class="flex items-center gap-2 px-3 py-2.5 text-slate-200 hover:bg-white/10 hover:text-accentNeon cursor-pointer transition-colors"
+              >
+                <img
+                  src="https://flagcdn.com/24x18/ir.png"
+                  srcset="https://flagcdn.com/48x36/ir.png 2x"
+                  width="20"
+                  height="15"
+                  alt=""
+                  class="rounded-[2px] shrink-0"
+                />
+                <span>فارسی</span>
+              </li>
+              <li
+                role="option"
+                data-lang="en"
+                onclick="selectLanguage('en')"
+                class="flex items-center gap-2 px-3 py-2.5 text-slate-200 hover:bg-white/10 hover:text-accentNeon cursor-pointer transition-colors"
+              >
+                <img
+                  src="https://flagcdn.com/24x18/gb.png"
+                  srcset="https://flagcdn.com/48x36/gb.png 2x"
+                  width="20"
+                  height="15"
+                  alt=""
+                  class="rounded-[2px] shrink-0"
+                />
+                <span>English</span>
+              </li>
+              <li
+                role="option"
+                data-lang="tr"
+                onclick="selectLanguage('tr')"
+                class="flex items-center gap-2 px-3 py-2.5 text-slate-200 hover:bg-white/10 hover:text-accentNeon cursor-pointer transition-colors"
+              >
+                <img
+                  src="https://flagcdn.com/24x18/tr.png"
+                  srcset="https://flagcdn.com/48x36/tr.png 2x"
+                  width="20"
+                  height="15"
+                  alt=""
+                  class="rounded-[2px] shrink-0"
+                />
+                <span>Türkçe</span>
+              </li>
+            </ul>
           </div>
+
+          <!-- دکمه منوی همبرگر (فقط موبایل) -->
+          <button
+            id="mobileMenuBtn"
+            onclick="toggleMobileMenu()"
+            aria-label="باز و بسته کردن منو"
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+            class="md:hidden relative flex flex-col justify-center items-center gap-[5px] w-10 h-10 rounded-xl border border-white/15 bg-black/25 hover:bg-black/40 transition-colors shrink-0"
+          >
+            <span
+              id="hamburgerLine1"
+              class="block w-5 h-[2px] bg-white rounded-full transition-all duration-300 origin-center"
+            ></span>
+            <span
+              id="hamburgerLine2"
+              class="block w-5 h-[2px] bg-white rounded-full transition-all duration-300 origin-center"
+            ></span>
+            <span
+              id="hamburgerLine3"
+              class="block w-5 h-[2px] bg-white rounded-full transition-all duration-300 origin-center"
+            ></span>
+          </button>
         </div>
       </div>
+
+      <!-- منوی موبایل (کشویی) -->
+      <nav
+        id="mobileMenu"
+        class="md:hidden hidden flex-col gap-1 mt-4 pt-4 border-t border-white/10 text-sm font-medium max-w-7xl mx-auto"
+      >
+        <a
+          href="#hero"
+          id="navHomeMobile"
+          onclick="closeMobileMenu()"
+          class="py-3 px-3 rounded-lg hover:bg-white/5 hover:text-accentNeon transition-colors"
+          >خانه</a
+        >
+        <a
+          href="#Aboutme"
+          id="navAboutmeMobile"
+          onclick="closeMobileMenu()"
+          class="py-3 px-3 rounded-lg hover:bg-white/5 hover:text-accentNeon transition-colors"
+          >درباره من</a
+        >
+        <a
+          href="#LiveFX"
+          id="navLiveFXMobile"
+          onclick="closeMobileMenu()"
+          class="py-3 px-3 rounded-lg hover:bg-white/5 hover:text-accentNeon transition-colors"
+          >LiveFX چیست</a
+        >
+        <a
+          href="#features"
+          id="navFeaturesMobile"
+          onclick="closeMobileMenu()"
+          class="py-3 px-3 rounded-lg hover:bg-white/5 hover:text-accentNeon transition-colors"
+          >چرا LiveFX</a
+        >
+        <a
+          href="#UsersReview"
+          id="navUsersReviewMobile"
+          onclick="closeMobileMenu()"
+          class="py-3 px-3 rounded-lg hover:bg-white/5 hover:text-accentNeon transition-colors"
+          >نظر کاربران</a
+        >
+        <a
+          href="#videos"
+          id="navVideosMobile"
+          onclick="closeMobileMenu()"
+          class="py-3 px-3 rounded-lg hover:bg-white/5 hover:text-accentNeon transition-colors"
+          >اجراهای زنده</a
+        >
+        <a
+          href="#shop"
+          id="navShopMobile"
+          onclick="closeMobileMenu()"
+          class="py-3 px-3 rounded-lg hover:bg-white/5 hover:text-accentNeon transition-colors"
+          >فروشگاه</a
+        >
+        <a
+          href="#Messageme"
+          id="navMessagemeMobile"
+          onclick="closeMobileMenu()"
+          class="py-3 px-3 rounded-lg hover:bg-white/5 hover:text-accentNeon transition-colors"
+          >پرسش و پاسخ</a
+        >
+        <a
+          href="#Contacts"
+          id="navContactsMobile"
+          onclick="closeMobileMenu()"
+          class="py-3 px-3 rounded-lg hover:bg-white/5 hover:text-accentNeon transition-colors"
+          >تماس با من</a
+        >
+      </nav>
     </header>
 
     <!-- Hero Section -->
@@ -250,14 +421,14 @@
         </span> -->
         <h3
           class="text-4xl md:text-2xl font-extrabold text-white mb-6 leading-tight"
-          id="heroHeadline"
+          id="heroAppLabel"
         >
         اپلیکیشن
         </h1>
-        <h1 class="text-4xl md:text-7xl font-extrabold text-white mb-6 leading-tight"
-          id="heroHeadline">
+        <h1 class="text-4xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
         Buskit-LiveFX</h1>
           <span
+            id="heroTagline"
             class="text-2xl md:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-accentNeon to-teal-400"
             >آرزوی هر نوازنده</span
           >
@@ -286,7 +457,7 @@
             id="heroShopBtn"
             class="w-full sm:w-auto px-8 py-4 bg-slate-800 hover:bg-slate-700 text-white font-medium rounded-xl border border-slate-700 transition-all duration-300 text-center"
           >
-            مشاهده انواع لایسنس
+            مشاهده انواع لایسنس‌ها
           </a>
         </div>
       </div>
@@ -449,12 +620,14 @@
           <!-- سمت راست: متن -->
           <div class="space-y-6 text-justify">
             <h2
+              id="aboutTitle"
               class="text-4xl font-bold text-white mb-8 drop-shadow-[0_4px_12px_rgba(0,0,0,1)]"
             >
               درباره من
             </h2>
 
             <p
+              id="aboutP1"
               class="text-slate-200 leading-relaxed text-[17px] drop-shadow-[0_3px_10px_rgba(0,0,0,1)]"
             >
               من
@@ -465,6 +638,7 @@
             </p>
 
             <p
+              id="aboutP2"
               class="text-slate-200 leading-relaxed text-[17px] drop-shadow-[0_3px_10px_rgba(0,0,0,1)]"
             >
               بر آن شدم تا چکیده نیازهای نوازندگان اجراهای زنده در خیابان،
@@ -475,6 +649,7 @@
             </p>
 
             <p
+              id="aboutP3"
               class="text-slate-200 leading-relaxed text-[17px] drop-shadow-[0_3px_10px_rgba(0,0,0,0.9)]"
             >
               هر یک از این تجهیزات بخشی از نیازهای هر نوازنده یا خواننده را
@@ -483,6 +658,7 @@
               دست خواهید آورد.
             </p>
                 <p
+              id="aboutP4"
               class="text-slate-200 leading-relaxed text-[17px] drop-shadow-[0_3px_10px_rgba(0,0,0,0.9)]"
             >
             این وب سایت صرفا به اپلیکیشنهای تلفن همراه مجموعه Buskit میپردازد که در حال حاضر اپلی کیشن  Buskit LiveFX  برای سیستم عامل اندروید آماده بهره برداری بوده که یک اپلیکیشن همراه و به شدت مورد نیاز کلیه نوازندگان میباشد. 
@@ -494,6 +670,7 @@
               class="aspect-[4/5] w-full max-w-[360px] rounded-3xl overflow-hidden border border-accentNeon/30 shadow-2xl"
             >
               <img
+                id="aboutImg"
                 src="./bg-rec.webp"
                 alt="محمد رضا عموئیان - نوازنده سه تار"
                 class="w-full h-full object-cover opacity-85 hover:scale-105 transition-transform duration-700"
@@ -516,11 +693,13 @@
       <div class="max-w-6xl mx-auto relative z-10">
         <div class="text-center mb-16">
           <h2
+            id="liveFXTitle"
             class="text-4xl font-bold text-white mb-4 drop-shadow-[0_4px_12px_rgba(0,0,0,1)]"
           >
             LiveFX چیست؟
           </h2>
           <p
+            id="liveFXSubtitle"
             class="text-slate-300 max-w-2xl mx-auto text-lg drop-shadow-[0_3px_10px_rgba(0,0,0,1)]"
           >
             یک اپلیکیشن Real-Time واقعی و بدون تأخیر، ابزاری بدون جایگزین
@@ -531,13 +710,13 @@
         <div
           class="space-y-6 text-justify max-w-4xl mx-auto text-slate-200 leading-relaxed text-[17px]"
         >
-          <p class="drop-shadow-[0_3px_10px_rgba(0,0,0,1)]">
+          <p id="liveFXP1" class="drop-shadow-[0_3px_10px_rgba(0,0,0,1)]">
             اپلیکیشن باسکیت لایو افکت، یک اپلیکیشن همراه Real-Time واقعی
             (بدون تأخیر) و ابزاری بدون جایگزین برای هر نوازنده یا خواننده
             می‌باشد.
           </p>
 
-          <p class="drop-shadow-[0_3px_10px_rgba(0,0,0,1)]">
+          <p id="liveFXP2" class="drop-shadow-[0_3px_10px_rgba(0,0,0,1)]">
             این اپلیکیشن امکان اضافه کردن انواع افکت‌های صوتی زیر را فراهم
             می‌کند که می‌توان همزمان کلیه‌ی آن‌ها را نیز روی صوت ورودی اعمال
             نمود. همچنین امکان ضبط و ذخیره‌سازی مستقیم قطعات اجرا شده پس از
@@ -546,50 +725,62 @@
 
           <div class="flex flex-wrap gap-2 justify-center py-2">
             <span
+              id="liveFXTag1"
               class="px-4 py-1.5 rounded-full text-sm bg-accentNeon/10 text-accentNeon border border-accentNeon/20"
               >اکولایزر</span
             >
             <span
+              id="liveFXTag2"
               class="px-4 py-1.5 rounded-full text-sm bg-accentNeon/10 text-accentNeon border border-accentNeon/20"
               >کمپرسور</span
             >
             <span
+              id="liveFXTag3"
               class="px-4 py-1.5 rounded-full text-sm bg-accentNeon/10 text-accentNeon border border-accentNeon/20"
               >فلنجر</span
             >
             <span
+              id="liveFXTag4"
               class="px-4 py-1.5 rounded-full text-sm bg-accentNeon/10 text-accentNeon border border-accentNeon/20"
               >فیزر</span
             >
             <span
+              id="liveFXTag5"
               class="px-4 py-1.5 rounded-full text-sm bg-accentNeon/10 text-accentNeon border border-accentNeon/20"
               >دیلی</span
             >
             <span
+              id="liveFXTag6"
               class="px-4 py-1.5 rounded-full text-sm bg-accentNeon/10 text-accentNeon border border-accentNeon/20"
               >انواع ریورب</span
             >
             <span
+              id="liveFXTag7"
               class="px-4 py-1.5 rounded-full text-sm bg-accentNeon/10 text-accentNeon border border-accentNeon/20"
               >لیمیتر</span
             >
             <span
+              id="liveFXTag8"
               class="px-4 py-1.5 rounded-full text-sm bg-accentNeon/10 text-accentNeon border border-accentNeon/20"
               >اکسایتر</span
             >
             <span
+              id="liveFXTag9"
               class="px-4 py-1.5 rounded-full text-sm bg-accentNeon/10 text-accentNeon border border-accentNeon/20"
               >کوروس</span
             >
             <span
+              id="liveFXTag10"
               class="px-4 py-1.5 rounded-full text-sm bg-accentNeon/10 text-accentNeon border border-accentNeon/20"
               >نویز گیت</span
             >
             <span
+              id="liveFXTag11"
               class="px-4 py-1.5 rounded-full text-sm bg-accentNeon/10 text-accentNeon border border-accentNeon/20"
               >پری‌امپ</span
             >
             <span
+              id="liveFXTag12"
               class="px-4 py-1.5 rounded-full text-sm bg-accentNeon/10 text-accentNeon border border-accentNeon/20"
               >لو پس فیلتر</span
             >
@@ -598,10 +789,11 @@
           <div
             class="bg-darkCard/50 border border-slate-800 rounded-2xl p-5 my-6"
           >
-            <p class="text-slate-400 text-sm mb-3 text-center">
+            <p id="liveFXChainLabel" class="text-slate-400 text-sm mb-3 text-center">
               زنجیره‌ی این افکت‌ها بصورت زیر در نظر گرفته شده است:
             </p>
             <p
+              id="liveFXChainText"
               class="text-accentNeon text-lg font-mono text-center leading-loose"
               dir="rtl"
             >
@@ -609,30 +801,30 @@
               فلنجر ← فیزر ← اکسایتر ← دیلی ← ریورب ← اکتاو ← لوپس فیلتر ←
               لیمیتر
             </p><br>
-            <div class="text-accentNeon text-sm font-mono text-center leading-loose"> 
+            <div id="liveFXChainNote" class="text-accentNeon text-sm font-mono text-center leading-loose"> 
                در انتهای زنجیره نیز یک ماژول output gain در نظر گرفته شده که گین کل مجموعه را به یکباره کاهش یا افزایش میدهد
             </div>
           </div>
 
-          <p class="drop-shadow-[0_3px_10px_rgba(0,0,0,1)]">
+          <p id="liveFXP3" class="drop-shadow-[0_3px_10px_rgba(0,0,0,1)]">
             این دستگاه صوت ورودی را از طریق میکروفون اکسترنال دریافت کرده،
             پروسس لازم و انتخاب شده را روی آن انجام داده و خروجی را به‌صورت
             همزمان و بدون تأخیر به خروجی هدفون گوشی ارسال می‌دارد.
           </p>
 
-          <p class="drop-shadow-[0_3px_10px_rgba(0,0,0,1)]">
+          <p id="liveFXP4" class="drop-shadow-[0_3px_10px_rgba(0,0,0,1)]">
             علاوه بر افکت‌های مذکور، امکان لود کردن تیونر کروماتیک برای کوک
             کردن هر نوع ساز و همچنین لود کردن بکینگ‌ترک برای تمرین همنوازی یا
             اجرای هم‌زمان یا هم‌نوازی مجدد با نواخته‌های خود یا دیگران وجود
             دارد.
           </p>
 
-          <p class="drop-shadow-[0_3px_10px_rgba(0,0,0,1)]">
+          <p id="liveFXP5" class="drop-shadow-[0_3px_10px_rgba(0,0,0,1)]">
             از خصوصیات دیگر این اپ، مجهز بودن به مترونوم فلکسیبل می‌باشد که
             هرگونه فیگور ریتمیکی را به سادگی امکان اجرا می‌دهد.
           </p>
 
-          <p class="drop-shadow-[0_3px_10px_rgba(0,0,0,1)]">
+          <p id="liveFXP6" class="drop-shadow-[0_3px_10px_rgba(0,0,0,1)]">
             برای ورود صدای ساز یا خواننده به تلفن همراه به‌سادگی می‌توان از
             هدست گوشی که مجهز به میکروفون و هدفون است استفاده نمود، اما در
             صورتی که بخواهید خروجی را به آمپلی‌فایر متصل کنید، لازم است از
@@ -644,39 +836,100 @@
             رویایی خواهید بود.
           </p>
 
-          <p class="drop-shadow-[0_3px_10px_rgba(0,0,0,1)]">
+          <p id="liveFXP7" class="drop-shadow-[0_3px_10px_rgba(0,0,0,1)]">
             از مزایای این دستگاه، عدم نیاز به سیستم صوتی و تجهیزات گران‌قیمت
             و حرفه‌ای برای داشتن طنینی صدایی حرفه‌ای و گوش‌نواز می‌باشد.
           </p>
         </div>
 
         <!-- گالری اسکرین‌شات‌های اپلیکیشن -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-16 max-w-4xl mx-auto">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 mt-16 max-w-6xl mx-auto">
           <div
-            class="rounded-3xl overflow-hidden border border-accentNeon/30 shadow-2xl bg-darkCard"
+            class="aspect-[9/19.5] rounded-2xl overflow-hidden border border-accentNeon/30 shadow-2xl bg-darkCard"
           >
             <img
+              id="liveFXGalleryImg1"
               src="./app-screens/livefx-screen-home.jpg"
               alt="نمای اصلی اپلیکیشن باسکیت لایو افکت"
-              class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+              class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
+              loading="lazy"
             />
           </div>
           <div
-            class="rounded-3xl overflow-hidden border border-accentNeon/30 shadow-2xl bg-darkCard"
+            class="aspect-[9/19.5] rounded-2xl overflow-hidden border border-accentNeon/30 shadow-2xl bg-darkCard"
           >
             <img
+              id="liveFXGalleryImg2"
               src="./app-screens/livefx-screen-compressor.jpg"
               alt="تنظیمات کمپرسور در اپلیکیشن باسکیت لایو افکت"
-              class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+              class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
+              loading="lazy"
             />
           </div>
           <div
-            class="rounded-3xl overflow-hidden border border-accentNeon/30 shadow-2xl bg-darkCard"
+            class="aspect-[9/19.5] rounded-2xl overflow-hidden border border-accentNeon/30 shadow-2xl bg-darkCard"
           >
             <img
+              id="liveFXGalleryImg3"
               src="./app-screens/livefx-screen-reverb.jpg"
               alt="انواع ریورب در اپلیکیشن باسکیت لایو افکت"
-              class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+              class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+            />
+          </div>
+          <div
+            class="aspect-[9/19.5] rounded-2xl overflow-hidden border border-accentNeon/30 shadow-2xl bg-darkCard"
+          >
+            <img
+              id="liveFXGalleryImg4"
+              src="./app-screens/livefx-screen-menu.jpg"
+              alt="منوی امکانات اپلیکیشن باسکیت لایو افکت"
+              class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+            />
+          </div>
+          <div
+            class="aspect-[9/19.5] rounded-2xl overflow-hidden border border-accentNeon/30 shadow-2xl bg-darkCard"
+          >
+            <img
+              id="liveFXGalleryImg5"
+              src="./app-screens/livefx-screen-main.jpg"
+              alt="صفحه اصلی افکت‌ها و مترونوم اپلیکیشن باسکیت لایو افکت"
+              class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+            />
+          </div>
+          <div
+            class="aspect-[9/19.5] rounded-2xl overflow-hidden border border-accentNeon/30 shadow-2xl bg-darkCard"
+          >
+            <img
+              id="liveFXGalleryImg6"
+              src="./app-screens/livefx-screen-backingtrack.jpg"
+              alt="بارگذاری بکینگ‌ترک در اپلیکیشن باسکیت لایو افکت"
+              class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+            />
+          </div>
+          <div
+            class="aspect-[9/19.5] rounded-2xl overflow-hidden border border-accentNeon/30 shadow-2xl bg-darkCard"
+          >
+            <img
+              id="liveFXGalleryImg7"
+              src="./app-screens/livefx-screen-eq.jpg"
+              alt="اکولایزر ۹ باند در اپلیکیشن باسکیت لایو افکت"
+              class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+            />
+          </div>
+          <div
+            class="aspect-[9/19.5] rounded-2xl overflow-hidden border border-accentNeon/30 shadow-2xl bg-darkCard"
+          >
+            <img
+              id="liveFXGalleryImg8"
+              src="./app-screens/livefx-screen-main2.jpg"
+              alt="نمای دیگری از صفحه افکت‌های اپلیکیشن باسکیت لایو افکت"
+              class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
+              loading="lazy"
             />
           </div>
         </div>
@@ -691,11 +944,12 @@
     >
       <div class="max-w-4xl mx-auto text-center">
         <h2
+          id="contactTitle"
           class="text-4xl font-bold text-white mb-4 drop-shadow-[0_6px_20px_rgba(0,0,0,0.9)]"
         >
           تماس با من
         </h2>
-        <p class="text-slate-400 mb-12 max-w-md mx-auto">
+        <p id="contactDesc" class="text-slate-400 mb-12 max-w-md mx-auto">
           برای دریافت اطلاعات بیشتر، مشاوره و خرید با من در ارتباط باشید
         </p>
 
@@ -711,10 +965,10 @@
             >
               💬
             </div>
-            <div class="text-right">
-              <p class="text-sm text-emerald-400 font-medium">واتساپ</p>
-              <p class="text-white font-semibold text-xl tracking-wider">
-                905312691609+
+            <div>
+              <p id="contactWhatsappLabel" class="text-sm text-emerald-400 font-medium">واتساپ</p>
+              <p class="text-white font-semibold text-xl tracking-wider" dir="ltr">
+                +905312691609
               </p>
             </div>
           </a>
@@ -730,9 +984,9 @@
             >
               📷
             </div>
-            <div class="text-right">
-              <p class="text-sm text-pink-400 font-medium">اینستاگرام</p>
-              <p class="text-white font-semibold text-xl">@BuskitApps</p>
+            <div>
+              <p id="contactInstagramLabel" class="text-sm text-pink-400 font-medium">اینستاگرام</p>
+              <p class="text-white font-semibold text-xl" dir="ltr">@BuskitApps</p>
             </div>
           </a>
 
@@ -746,9 +1000,9 @@
             >
               ✉️
             </div>
-            <div class="text-right">
-              <p class="text-sm text-blue-400 font-medium">ایمیل</p>
-              <p class="text-white font-semibold text-xl break-all">
+            <div>
+              <p id="contactEmailLabel" class="text-sm text-blue-400 font-medium">ایمیل</p>
+              <p class="text-white font-semibold text-xl break-all" dir="ltr">
                 BuskitApps@gmail.com
               </p>
             </div>
@@ -763,9 +1017,9 @@
             >
               📍
             </div>
-            <div class="text-right">
-              <p class="text-sm text-amber-400 font-medium">محل اقامت</p>
-              <p class="text-white font-semibold text-xl">استانبول، ترکیه</p>
+            <div>
+              <p id="contactLocationLabel" class="text-sm text-amber-400 font-medium">محل اقامت</p>
+              <p id="contactLocationValue" class="text-white font-semibold text-xl">استانبول، ترکیه</p>
             </div>
           </div>
         </div>
@@ -927,13 +1181,13 @@
           </div>
           <h3
             class="text-xl font-bold text-white mb-3 drop-shadow-[0_5px_18px_rgba(0,0,0,0.9)] text-justify"
-            id="f3Title"
+            id="f4Title"
           >
             سازگاری
           </h3>
           <p
             class="text-slate-400 text-sm leading-relaxed drop-shadow-[0_4px_12px_rgba(0,0,0,0.85)]"
-            id="f3Desc"
+            id="f4Desc"
           >
             سازگار با انواع گوشی های بازار حتی مدلهای نسبتا قدیمی، قابلیت کار با
             هدست نرمال گوشی، قابلیت کار با irig همچنین قابل استفاده با دستگاه
@@ -963,13 +1217,13 @@
           </div>
           <h3
             class="text-xl font-bold text-white mb-3 drop-shadow-[0_5px_18px_rgba(0,0,0,0.9)] text-justify"
-            id="f3Title"
+            id="f5Title"
           >
             امکان تست رایگان
           </h3>
           <p
             class="text-slate-400 text-sm leading-relaxed drop-shadow-[0_4px_12px_rgba(0,0,0,0.85)]"
-            id="f3Desc"
+            id="f5Desc"
           >
             لایسنس 5 روزه رایگان تست نرم افزار و قابلیت های آن وهمچنین بررسی
             سازگاری با دستگاه تلفن همراه یا تبلت هنرمندان گرامی
@@ -998,13 +1252,13 @@
           </div>
           <h3
             class="text-xl font-bold text-white mb-3 drop-shadow-[0_5px_18px_rgba(0,0,0,0.9)] text-justify"
-            id="f3Title"
+            id="f6Title"
           >
             انواع پکیج های موجود
           </h3>
           <p
             class="text-slate-400 text-sm leading-relaxed drop-shadow-[0_4px_12px_rgba(0,0,0,0.85)]"
-            id="f3Desc"
+            id="f6Desc"
           >
             لایسنس استفاده از این نرم افزار به پنج روش برای هنرمندان گرامی آماده
             و قابل ارائه است 5 روزه رایگان، یک ماهه ، یه ساله ، مادام العمر و
@@ -1021,8 +1275,8 @@
     >
       <div class="max-w-5xl mx-auto">
         <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold text-white mb-4">نظر کاربران</h2>
-          <p class="text-slate-400 max-w-xl mx-auto">
+          <h2 id="reviewsTitle" class="text-3xl font-bold text-white mb-4">نظر کاربران</h2>
+          <p id="reviewsDesc" class="text-slate-400 max-w-xl mx-auto ">
             تجربه‌ی خودت از استفاده از باسکیت رو با بقیه‌ی نوازندگان به اشتراک
             بذار.
           </p>
@@ -1041,6 +1295,7 @@
               <div>
                 <label
                   for="reviewName"
+                  id="reviewNameLabel"
                   class="block text-slate-400 text-xs mb-1.5"
                   >نام:</label
                 >
@@ -1054,6 +1309,7 @@
               <div>
                 <label
                   for="reviewEmail"
+                  id="reviewEmailLabel"
                   class="block text-slate-400 text-xs mb-1.5"
                   >ایمیل (اختیاری):</label
                 >
@@ -1067,7 +1323,7 @@
             </div>
 
             <div>
-              <label class="block text-slate-400 text-xs mb-2"
+              <label id="reviewRatingLabel" class="block text-slate-400 text-xs mb-2"
                 >امتیاز شما:</label
               >
               <div
@@ -1081,9 +1337,8 @@
             </div>
 
             <div>
-              <label class="block text-slate-400 text-xs mb-3"
-                >نظر شما درباره‌ی موارد زیر چیه؟ (اختیاری — اگه پر نکنی، بر اساس
-                امتیازی که با ستاره دادی به‌صورت خودکار تخمین زده می‌شه)</label
+              <label id="reviewQuestionsLabel" class="block text-slate-400 text-xs mb-3"
+                >نظر شما درباره‌ی موارد زیر چیه؟</label
               >
               <div id="questionsPicker" class="space-y-4"></div>
             </div>
@@ -1105,7 +1360,7 @@
           id="reviewsSummary"
           class="max-w-2xl mx-auto mb-6 p-5 bg-darkCard/40 border border-white/10 rounded-2xl"
         >
-          <p class="text-slate-300 text-sm font-semibold mb-4 text-center">
+          <p id="reviewsSummaryTitle" class="text-slate-300 text-sm font-semibold mb-4 text-center">
             جمع‌بندی نظرات تا این لحظه
           </p>
           <div id="summaryRows" class="space-y-3"></div>
@@ -1139,16 +1394,17 @@
           <p class="text-slate-400 max-w-xl mx-auto" id="shopDesc">
             لایسنس‌های نرم‌افزاری و محصولات دیگر را می‌توانید از این بخش تهیه
             کنید.
-          </p><br>
-          <p class="text-slate-400 max-w-xl mx-auto" id="shopDesc">
+          </p><br />
+          <p class="text-slate-400 max-w-xl mx-auto" id="shopDescPayment">
            برای دریافت لایسنس های نرم افزارهای خریداری شده پس از ارسال فیش واریزی به واتس آپ با شماره 00905312691609 لایسنس از طریق همان شماره ارسال خواهدشد
-          </p><br>
-          <p class="text-slate-400 max-w-xl mx-auto" id="shopDesc">
-           برای دریافت سخت افزارهای خریداری شده پس از ارسال فیش واریزی به واتس آپ با شماره 00905312691609 و اعلام آدرس ، تجهیزات مربوطه ارسال خواهند شد           </p>
+          </p><br />
+          <p class="text-slate-400 max-w-xl mx-auto" id="shopDescHardware">
+           برای دریافت سخت افزارهای خریداری شده پس از ارسال فیش واریزی به واتس آپ با شماره 00905312691609 و اعلام آدرس ، تجهیزات مربوطه ارسال خواهند شد
+          </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Product Card 1 () -->
+          <!-- Product Card 1 -->
           <div
             class="bg-darkCard rounded-3xl p-8 border-2 border-accentNeon/40 relative shadow-2xl flex flex-col justify-between glow-effect transition-all duration-300"
           >
@@ -1159,91 +1415,33 @@
               لایسنس دائمی - طلایی
             </div>
             <div>
-              
               <span
-                class="text-slate-400 text-sm mb-6 leading-relaxed"
+                class="text-slate-400 text-sm mb-6 leading-relaxed block"
                 id="p1Desc"
-              >
-                نام محصول :
-            </span>
+              >نام محصول :</span>
               <h4 class="text-2xl font-bold text-white mb-2" id="p1Title">
                 Buskit-LiveFX application
               </h4>
-              <br>
+              <br />
               <ul
                 class="space-y-3 text-sm text-slate-300 mb-8"
                 id="p1BulletList"
               >
-              <li class="flex items-center gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    class="w-4 h-4 text-accentNeon"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M4.5 12.75l6 6 9-13.5"
-                    />
-                  </svg>
-                  <span id="p1B1">این لایسنس مادائم العمر فعال است </span>
+                <li class="flex items-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-accentNeon shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                  <span id="p1B1">این لایسنس مادام‌العمر فعال است</span>
                 </li>
                 <li class="flex items-center gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    class="w-4 h-4 text-accentNeon"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M4.5 12.75l6 6 9-13.5"
-                    />
-                  </svg>
-                  <span id="p1B1">کلیه افکتها  و امکانات اپلی کییشن فعال است  </span>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-accentNeon shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                  <span id="p1B2">کلیه افکت‌ها و امکانات اپلیکیشن فعال است</span>
                 </li>
                 <li class="flex items-center gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    class="w-4 h-4 text-accentNeon"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M4.5 12.75l6 6 9-13.5"
-                    />
-                  </svg>
-                  <span id="p1B2">پشتیبانی فنی و آپدیت مادام‌العمر</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-accentNeon shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                  <span id="p1B3">پشتیبانی فنی و آپدیت مادام‌العمر</span>
                 </li>
                 <li class="flex items-center gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    class="w-4 h-4 text-accentNeon"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M4.5 12.75l6 6 9-13.5"
-                    />
-                  </svg>
-                  <span id="p1B3"
-                    >در کلیه محصولات نرم افزاری بعدی مشمول 50% تخفیف خواد
-                    بود</span
-                  >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-accentNeon shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                  <span id="p1B4">در کلیه محصولات نرم‌افزاری بعدی مشمول ۵۰٪ تخفیف خواهید بود</span>
                 </li>
               </ul>
             </div>
@@ -1267,100 +1465,48 @@
               </div>
               <button
                 id="p1Btn"
-                onclick="triggerModalPurchase()"
+                onclick="triggerModalPurchase('p1')"
                 class="w-full py-3.5 bg-gradient-to-r from-accentBlue to-indigo-600 hover:from-indigo-600 hover:to-accentBlue text-white font-bold rounded-xl shadow-lg transition-all duration-300 text-center"
               >
-                خرید 
+                خرید
               </button>
             </div>
           </div>
 
           <!-- Product Card 2 -->
-       <div
+          <div
             class="bg-darkCard rounded-3xl p-8 border-2 border-accentNeon/40 relative shadow-2xl flex flex-col justify-between glow-effect transition-all duration-300"
           >
             <div
               class="absolute -top-4 right-6 bg-accentNeon text-darkBg text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider"
               id="p2Badge"
             >
-              لایسنس دائمی 
+              لایسنس دائمی
             </div>
             <div>
-             <span
-                class="text-slate-400 text-sm mb-6 leading-relaxed"
-                id="p1Desc"
-              >
-                نام محصول :
-            </span>
-              <h4 class="text-2xl font-bold text-white mb-2" id="p1Title">
+              <span
+                class="text-slate-400 text-sm mb-6 leading-relaxed block"
+                id="p2Desc"
+              >نام محصول :</span>
+              <h4 class="text-2xl font-bold text-white mb-2" id="p2Title">
                 Buskit-LiveFX application
               </h4>
-              <br>
+              <br />
               <ul
                 class="space-y-3 text-sm text-slate-300 mb-8"
-                id="p1BulletList"
+                id="p2BulletList"
               >
                 <li class="flex items-center gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    class="w-4 h-4 text-accentNeon"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M4.5 12.75l6 6 9-13.5"
-                    />
-                  </svg>
-                  <span id="p1B1">این لایسنس مادائم العمر فعال است </span>
-                </li>
-                 <li class="flex items-center gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    class="w-4 h-4 text-accentNeon"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M4.5 12.75l6 6 9-13.5"
-                    />
-                  </svg>
-                  <span id="p1B1">کلیه افکتها و امکانات اپلی کیشن فعال است</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-accentNeon shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                  <span id="p2B1">این لایسنس مادام‌العمر فعال است</span>
                 </li>
                 <li class="flex items-center gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    class="w-4 h-4 text-accentNeon"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M4.5 12.75l6 6 9-13.5"
-                    />
-                  </svg>
-                  <span id="p1B2">پشتیبانی فنی و آپدیت مادام‌العمر</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-accentNeon shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                  <span id="p2B2">کلیه افکت‌ها و امکانات اپلیکیشن فعال است</span>
                 </li>
                 <li class="flex items-center gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    class="w-4 h-4 text-accentNeon"
-                  >
-               
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-accentNeon shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                  <span id="p2B3">پشتیبانی فنی و آپدیت مادام‌العمر</span>
                 </li>
               </ul>
             </div>
@@ -1368,117 +1514,64 @@
               <div
                 class="border border-indigo-600 rounded-xl px-4 py-4 mb-6 flex justify-between items-baseline"
               >
-                <span class="text-slate-400 text-sm" id="p1PriceLabel"
+                <span class="text-slate-400 text-sm" id="p2PriceLabel"
                   >قیمت لایسنس:</span
                 >
                 <div>
                   <span
                     class="text-2xl font-extrabold text-white"
-                    id="p1PriceVal"
+                    id="p2PriceVal"
                     >1000</span
                   >
-                  <span class="text-xs text-slate-400 mr-1" id="p1Currency"
+                  <span class="text-xs text-slate-400 mr-1" id="p2Currency"
                     >لیر</span
                   >
                 </div>
               </div>
               <button
-                id="p1Btn"
-                onclick="triggerModalPurchase()"
+                id="p2Btn"
+                onclick="triggerModalPurchase('p2')"
                 class="w-full py-3.5 bg-gradient-to-r from-accentBlue to-indigo-600 hover:from-indigo-600 hover:to-accentBlue text-white font-bold rounded-xl shadow-lg transition-all duration-300 text-center"
               >
-                خرید 
+                خرید
               </button>
             </div>
           </div>
 
           <!-- Product Card 3 -->
-        <div
+          <div
             class="bg-darkCard rounded-3xl p-8 border-2 border-accentNeon/40 relative shadow-2xl flex flex-col justify-between glow-effect transition-all duration-300"
           >
             <div
               class="absolute -top-4 right-6 bg-accentNeon text-darkBg text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider"
               id="p3Badge"
             >
-              لایسنس یک ساله 
+              لایسنس یک ساله
             </div>
             <div>
               <span
-                class="text-slate-400 text-sm mb-6 leading-relaxed"
-                id="p1Desc"
-              >
-                نام محصول :
-            </span>
-              <h4 class="text-2xl font-bold text-white mb-2" id="p1Title">
+                class="text-slate-400 text-sm mb-6 leading-relaxed block"
+                id="p3Desc"
+              >نام محصول :</span>
+              <h4 class="text-2xl font-bold text-white mb-2" id="p3Title">
                 Buskit-LiveFX application
               </h4>
-              <br>
+              <br />
               <ul
                 class="space-y-3 text-sm text-slate-300 mb-8"
-                id="p1BulletList"
+                id="p3BulletList"
               >
-
                 <li class="flex items-center gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    class="w-4 h-4 text-accentNeon"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M4.5 12.75l6 6 9-13.5"
-                    />
-                  </svg>
-                  <span id="p1B1">این لایسنس تنها یکسال از زمان اولین فعال سازی معتبر خواهد بود </span>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-accentNeon shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                  <span id="p3B1">این لایسنس تنها یک سال از زمان اولین فعال‌سازی معتبر خواهد بود</span>
                 </li>
                 <li class="flex items-center gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    class="w-4 h-4 text-accentNeon"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M4.5 12.75l6 6 9-13.5"
-                    />
-                  </svg>
-                  <span id="p1B1">کلیه افکتها و امکانات اپلی کیشن  فعال است </span>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-accentNeon shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                  <span id="p3B2">کلیه افکت‌ها و امکانات اپلیکیشن فعال است</span>
                 </li>
                 <li class="flex items-center gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    class="w-4 h-4 text-accentNeon"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M4.5 12.75l6 6 9-13.5"
-                    />
-                  </svg>
-                  <span id="p1B2">پشتیبانی فنی و آپدیت یکساله</span>
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    class="w-4 h-4 text-accentNeon"
-                  >
-               
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-accentNeon shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                  <span id="p3B3">پشتیبانی فنی و آپدیت یک‌ساله</span>
                 </li>
               </ul>
             </div>
@@ -1486,250 +1579,64 @@
               <div
                 class="border border-indigo-600 rounded-xl px-4 py-4 mb-6 flex justify-between items-baseline"
               >
-                <span class="text-slate-400 text-sm" id="p1PriceLabel"
+                <span class="text-slate-400 text-sm" id="p3PriceLabel"
                   >قیمت لایسنس:</span
                 >
                 <div>
                   <span
                     class="text-2xl font-extrabold text-white"
-                    id="p1PriceVal"
+                    id="p3PriceVal"
                     >500</span
                   >
-                  <span class="text-xs text-slate-400 mr-1" id="p1Currency"
+                  <span class="text-xs text-slate-400 mr-1" id="p3Currency"
                     >لیر</span
                   >
                 </div>
               </div>
               <button
-                id="p1Btn"
-                onclick="triggerModalPurchase()"
+                id="p3Btn"
+                onclick="triggerModalPurchase('p3')"
                 class="w-full py-3.5 bg-gradient-to-r from-accentBlue to-indigo-600 hover:from-indigo-600 hover:to-accentBlue text-white font-bold rounded-xl shadow-lg transition-all duration-300 text-center"
               >
-                خرید 
+                خرید
               </button>
             </div>
           </div>
 
-  <!-- Product Card 4 -->
-        <div
+          <!-- Product Card 4 -->
+          <div
             class="bg-darkCard rounded-3xl p-8 border-2 border-accentNeon/40 relative shadow-2xl flex flex-col justify-between glow-effect transition-all duration-300"
           >
             <div
               class="absolute -top-4 right-6 bg-accentNeon text-darkBg text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider"
               id="p4Badge"
             >
-              لایسنس یک ماهه 
+              لایسنس یک ماهه
             </div>
             <div>
               <span
-                class="text-slate-400 text-sm mb-6 leading-relaxed"
-                id="p1Desc"
-              >
-                نام محصول :
-            </span>
-              <h4 class="text-2xl font-bold text-white mb-2" id="p1Title">
+                class="text-slate-400 text-sm mb-6 leading-relaxed block"
+                id="p4Desc"
+              >نام محصول :</span>
+              <h4 class="text-2xl font-bold text-white mb-2" id="p4Title">
                 Buskit-LiveFX application
               </h4>
-              <br>
+              <br />
               <ul
                 class="space-y-3 text-sm text-slate-300 mb-8"
-                id="p1BulletList"
+                id="p4BulletList"
               >
                 <li class="flex items-center gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    class="w-4 h-4 text-accentNeon"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M4.5 12.75l6 6 9-13.5"
-                    />
-                  </svg>
-                  <span id="p1B1">این لایسنس تنها یک ماه از تاریخ اولین فعال سازی معتبر خواهد بود </span>
-                </li>
-                 <li class="flex items-center gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    class="w-4 h-4 text-accentNeon"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M4.5 12.75l6 6 9-13.5"
-                    />
-                  </svg>
-                  <span id="p1B1">کلیه افکتها و امکانات اپلی کیشن فعال است </span>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-accentNeon shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                  <span id="p4B1">این لایسنس تنها یک ماه از تاریخ اولین فعال‌سازی معتبر خواهد بود</span>
                 </li>
                 <li class="flex items-center gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    class="w-4 h-4 text-accentNeon"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M4.5 12.75l6 6 9-13.5"
-                    />
-                  </svg>
-                  <span id="p1B2">پشتیبانی فنی و آپدیت یک ماهه</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-accentNeon shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                  <span id="p4B2">کلیه افکت‌ها و امکانات اپلیکیشن فعال است</span>
                 </li>
                 <li class="flex items-center gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    class="w-4 h-4 text-accentNeon"
-                  >
-               
-                </li>
-              </ul>
-            </div>
-            <div>
-             <div
-                class="border border-indigo-600 rounded-xl px-4 py-4 mb-6 flex justify-between items-baseline"
-              >
-                <span class="text-slate-400 text-sm" id="p1PriceLabel"
-                  >قیمت لایسنس:</span
-                >
-                <div>
-                  <span
-                    class="text-2xl font-extrabold text-white"
-                    id="p1PriceVal"
-                    >100</span
-                  >
-                  <span class="text-xs text-slate-400 mr-1" id="p1Currency"
-                    >لیر</span
-                  >
-                </div>
-              </div>
-              <button
-                id="p1Btn"
-                onclick="triggerModalPurchase()"
-                class="w-full py-3.5 bg-gradient-to-r from-accentBlue to-indigo-600 hover:from-indigo-600 hover:to-accentBlue text-white font-bold rounded-xl shadow-lg transition-all duration-300 text-center"
-              >
-                خرید 
-              </button>
-            </div>
-          </div>
-
-  <!-- Product Card 5 -->
-        <div
-            class="bg-darkCard rounded-3xl p-8 border-2 border-accentNeon/40 relative shadow-2xl flex flex-col justify-between glow-effect transition-all duration-300"
-          >
-            <div
-              class="absolute -top-4 right-6 bg-accentNeon text-darkBg text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider"
-              id="p5Badge"
-            >
-              لایسنس رایگان 
-            </div>
-            <div>
-               <span
-                class="text-slate-400 text-sm mb-6 leading-relaxed"
-                id="p1Desc"
-              >
-                نام محصول :
-            </span>
-              <h4 class="text-2xl font-bold text-white mb-2" id="p1Title">
-                Buskit-LiveFX application
-              </h4>
-              <br>
-              <ul
-                class="space-y-3 text-sm text-slate-300 mb-8"
-                id="p1BulletList"
-              >
-                <li class="flex items-center gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    class="w-4 h-4 text-accentNeon"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M4.5 12.75l6 6 9-13.5"
-                    />
-                  </svg>
-                  <span id="p1B1">این لایسنس تنها پنج روز از تاریخ اولین فعال سازی معتبر خواهد بود </span>
-                </li>
-                    <li class="flex items-center gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    class="w-4 h-4 text-accentNeon"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M4.5 12.75l6 6 9-13.5"
-                    />
-                  </svg>
-                  <span id="p1B2">کلیه افکتها و امکانات اپلی کیشن فعال میباشد</span>
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    class="w-4 h-4 text-accentNeon"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M4.5 12.75l6 6 9-13.5"
-                    />
-                  </svg>
-                  <span id="p1B2">پشتیبانی فنی و آپدیت  پنج روزه</span>
-                </li>
-                     <li class="flex items-center gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    class="w-4 h-4 text-accentNeon"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M4.5 12.75l6 6 9-13.5"
-                    />
-                  </svg>
-                  <span id="p1B1">BUSKIT-APP-5DAYS-FREE  : لایسنس  </span>
-                </li>
-                <li class="flex items-center gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    class="w-4 h-4 text-accentNeon"
-                  >
-               
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-accentNeon shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                  <span id="p4B3">پشتیبانی فنی و آپدیت یک‌ماهه</span>
                 </li>
               </ul>
             </div>
@@ -1737,30 +1644,91 @@
               <div
                 class="border border-indigo-600 rounded-xl px-4 py-4 mb-6 flex justify-between items-baseline"
               >
-                <span class="text-slate-400 text-sm" id="p1PriceLabel"
+                <span class="text-slate-400 text-sm" id="p4PriceLabel"
                   >قیمت لایسنس:</span
                 >
                 <div>
                   <span
                     class="text-2xl font-extrabold text-white"
-                    id="p1PriceVal"
-                    > 0 </span
+                    id="p4PriceVal"
+                    >100</span
                   >
-                  <span class="text-xs text-slate-400 mr-1" id="p1Currency"
-                    > لیر </span
+                  <span class="text-xs text-slate-400 mr-1" id="p4Currency"
+                    >لیر</span
                   >
                 </div>
               </div>
-              <!-- <button
-                id="p1Btn"
-                onclick="triggerModalPurchase()"
+              <button
+                id="p4Btn"
+                onclick="triggerModalPurchase('p4')"
                 class="w-full py-3.5 bg-gradient-to-r from-accentBlue to-indigo-600 hover:from-indigo-600 hover:to-accentBlue text-white font-bold rounded-xl shadow-lg transition-all duration-300 text-center"
               >
-                خرید و ثبت فیش واریز
-              </button> -->
+                خرید
+              </button>
             </div>
           </div>
 
+          <!-- Product Card 5 -->
+          <div
+            class="bg-darkCard rounded-3xl p-8 border-2 border-accentNeon/40 relative shadow-2xl flex flex-col justify-between glow-effect transition-all duration-300"
+          >
+            <div
+              class="absolute -top-4 right-6 bg-accentNeon text-darkBg text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider"
+              id="p5Badge"
+            >
+              لایسنس رایگان
+            </div>
+            <div>
+              <span
+                class="text-slate-400 text-sm mb-6 leading-relaxed block"
+                id="p5Desc"
+              >نام محصول :</span>
+              <h4 class="text-2xl font-bold text-white mb-2" id="p5Title">
+                Buskit-LiveFX application
+              </h4>
+              <br />
+              <ul
+                class="space-y-3 text-sm text-slate-300 mb-8"
+                id="p5BulletList"
+              >
+                <li class="flex items-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-accentNeon shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                  <span id="p5B1">این لایسنس تنها پنج روز از تاریخ اولین فعال‌سازی معتبر خواهد بود</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-accentNeon shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                  <span id="p5B2">کلیه افکت‌ها و امکانات اپلیکیشن فعال است</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-accentNeon shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                  <span id="p5B3">پشتیبانی فنی و آپدیت پنج‌روزه</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-accentNeon shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                  <span id="p5B4"><span id="p5LicenseLabel">لایسنس:</span> <span dir="ltr">BUSKIT-APP-5DAYS-FREE</span></span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <div
+                class="border border-indigo-600 rounded-xl px-4 py-4 mb-6 flex justify-between items-baseline"
+              >
+                <span class="text-slate-400 text-sm" id="p5PriceLabel"
+                  >قیمت لایسنس:</span
+                >
+                <div>
+                  <span
+                    class="text-2xl font-extrabold text-white"
+                    id="p5PriceVal"
+                    >0</span
+                  >
+                  <span class="text-xs text-slate-400 mr-1" id="p5Currency"
+                    >لیر</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
 
         </div>
       </div>
@@ -1773,8 +1741,8 @@
     >
       <div class="max-w-3xl mx-auto">
         <div class="text-center mb-16">
-          <h2 class="text-3xl font-bold text-white mb-4">پرسش و پاسخ</h2>
-          <p class="text-slate-400 max-w-xl mx-auto">
+          <h2 id="qaTitle" class="text-3xl font-bold text-white mb-4">پرسش و پاسخ</h2>
+          <p id="qaDesc" class="text-slate-400 max-w-xl mx-auto">
             سوالت رو برام بنویس، در اولین فرصت پاسخ می‌دم و جوابش همینجا زیر
             پیامت نمایش داده می‌شه.
           </p>
@@ -1792,6 +1760,7 @@
             <div>
               <label
                 for="questionName"
+                id="qaNameLabel"
                 class="block text-slate-400 text-xs mb-1.5"
                 >نام:</label
               >
@@ -1806,6 +1775,7 @@
             <div>
               <label
                 for="questionMessage"
+                id="qaMessageLabel"
                 class="block text-slate-400 text-xs mb-1.5"
                 >پیام / سوال شما:</label
               >
@@ -2045,17 +2015,79 @@
           dir: "rtl",
           title: "اپلیکیشن باسکیت | لایو افکت حرفه‌ای ساز",
           navHome: "خانه",
-          navVideos: "اجراهای زنده",
+          navAboutme: "درباره من",
+          navLiveFX: "LiveFX چیست",
           navFeatures: "چرا LiveFX",
+          navUsersReview: "نظر کاربران",
+          navVideos: "اجراهای زنده",
           navShop: "فروشگاه",
+          navMessageme: "پرسش و پاسخ",
+          navContacts: "تماس با من",
           headerCTA: "تهیه لایسنس پرو",
           heroBadge: "نسخه جدید لایو افکت نسل جدید صادر شد",
+          heroAppLabel: "اپلیکیشن",
+          heroTagline: "آرزوی هر نوازنده",
           heroHeadline:
             'استودیوی افکت حرفه‌ای زنده، <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-accentNeon to-teal-400">در جیب و همراه شما</span>',
           heroDesc:
             "باسکیت (Buskit) یک اپلیکیشن پردازش آنی و افکت‌گذاری زنده روی صدای ساز و میکروفون است. بدون تأخیر، با بالاترین کیفیت استودیویی روی استیج یا هنگام تمرین بنوازید.",
           heroDownloadBtn: "دانلود رایگان اپلیکیشن",
-          heroShopBtn: "مشاهده لایسنس پرو",
+          heroShopBtn: "مشاهده انواع لایسنس‌ها",
+          aboutTitle: "درباره من",
+          aboutP1:
+            'من <span class="text-accentNeon font-semibold">محمد رضا عموئیان</span>، مهندس الکترونیک با بیش از <span class="text-white font-medium">۴۰ سال تجربه طراحی مدارات الکترونیک و پیاده‌سازی انواع نرم‌افزارهای کامپیوتری و در عین حال</span> نوازندگی و اجرای موسیقی هستم.',
+          aboutP2:
+            'بر آن شدم تا چکیده نیازهای نوازندگان اجراهای زنده در خیابان، گروه‌های کوچک و اجراهای خصوصی و شخصی را در قالب مجموعه سخت‌افزارها و نرم‌افزارهایی با نام تجاری <span class="text-accentNeon font-bold">Buskit</span> به تدریج در اختیار علاقمندان قرار دهم.',
+          aboutP3:
+            "هر یک از این تجهیزات بخشی از نیازهای هر نوازنده یا خواننده را برطرف خواهد کرد. مطمئن هستم که با بکارگیری از هر یک از این تجهیزات، تجربه و لذت فراموش‌نشدنی از نوازندگی و اجرای موسیقی به دست خواهید آورد.",
+          aboutP4:
+            "این وب‌سایت صرفاً به اپلیکیشن‌های تلفن همراه مجموعه Buskit می‌پردازد که در حال حاضر اپلیکیشن Buskit LiveFX برای سیستم‌عامل اندروید آماده بهره‌برداری بوده که یک اپلیکیشن همراه و به‌شدت مورد نیاز کلیه نوازندگان می‌باشد.",
+          aboutImgAlt: "محمد رضا عموئیان - نوازنده سه‌تار",
+          liveFXTitle: "LiveFX چیست؟",
+          liveFXSubtitle:
+            "یک اپلیکیشن Real-Time واقعی و بدون تأخیر، ابزاری بدون جایگزین برای هر نوازنده یا خواننده",
+          liveFXP1:
+            "اپلیکیشن باسکیت لایو افکت، یک اپلیکیشن همراه Real-Time واقعی (بدون تأخیر) و ابزاری بدون جایگزین برای هر نوازنده یا خواننده می‌باشد.",
+          liveFXP2:
+            "این اپلیکیشن امکان اضافه کردن انواع افکت‌های صوتی زیر را فراهم می‌کند که می‌توان همزمان کلیه‌ی آن‌ها را نیز روی صوت ورودی اعمال نمود. همچنین امکان ضبط و ذخیره‌سازی مستقیم قطعات اجرا شده پس از اعمال افکت‌های انتخابی روی حافظه‌ی گوشی تلفن همراه را نیز دارد.",
+          liveFXTag1: "اکولایزر",
+          liveFXTag2: "کمپرسور",
+          liveFXTag3: "فلنجر",
+          liveFXTag4: "فیزر",
+          liveFXTag5: "دیلی",
+          liveFXTag6: "انواع ریورب",
+          liveFXTag7: "لیمیتر",
+          liveFXTag8: "اکسایتر",
+          liveFXTag9: "کوروس",
+          liveFXTag10: "نویز گیت",
+          liveFXTag11: "پری‌امپ",
+          liveFXTag12: "لو پس فیلتر",
+          liveFXChainLabel: "زنجیره‌ی این افکت‌ها بصورت زیر در نظر گرفته شده است:",
+          liveFXChainText:
+            "پری‌امپ ← نویز گیت ← کمپرسور ← اکولایزر ← اوردرایو ← کوروس ← فلنجر ← فیزر ← اکسایتر ← دیلی ← ریورب ← اکتاو ← لوپس فیلتر ← لیمیتر",
+          liveFXChainNote:
+            "در انتهای زنجیره نیز یک ماژول output gain در نظر گرفته شده که گین کل مجموعه را به یکباره کاهش یا افزایش میدهد",
+          liveFXP3:
+            "این دستگاه صوت ورودی را از طریق میکروفون اکسترنال دریافت کرده، پروسس لازم و انتخاب شده را روی آن انجام داده و خروجی را به‌صورت همزمان و بدون تأخیر به خروجی هدفون گوشی ارسال می‌دارد.",
+          liveFXP4:
+            "علاوه بر افکت‌های مذکور، امکان لود کردن تیونر کروماتیک برای کوک کردن هر نوع ساز و همچنین لود کردن بکینگ‌ترک برای تمرین همنوازی یا اجرای هم‌زمان یا هم‌نوازی مجدد با نواخته‌های خود یا دیگران وجود دارد.",
+          liveFXP5:
+            "از خصوصیات دیگر این اپ، مجهز بودن به مترونوم فلکسیبل می‌باشد که هرگونه فیگور ریتمیکی را به سادگی امکان اجرا می‌دهد.",
+          liveFXP6:
+            "برای ورود صدای ساز یا خواننده به تلفن همراه به‌سادگی می‌توان از هدست گوشی که مجهز به میکروفون و هدفون است استفاده نمود، اما در صورتی که بخواهید خروجی را به آمپلی‌فایر متصل کنید، لازم است از دستگاه‌های موجود iRig و یا در صورت درخواست، دستگاه سخت‌افزاری Brig که از مجموعه دستگاه‌های سری Buskit می‌باشد، به‌عنوان سخت‌افزار همراه این اپلیکیشن استفاده نمایید. صدای خروجیِ پردازش شده توسط گوشی نیز از طریق همین دستگاه به ورودی آگزیلاری یا ورودی گیتار هر نوع آمپلی‌فایر حتی آماتور منتقل می‌شود و شاهد صدایی رویایی خواهید بود.",
+          liveFXP7:
+            "از مزایای این دستگاه، عدم نیاز به سیستم صوتی و تجهیزات گران‌قیمت و حرفه‌ای برای داشتن طنینی صدایی حرفه‌ای و گوش‌نواز می‌باشد.",
+          liveFXGalleryAlt1: "نمای اصلی اپلیکیشن باسکیت لایو افکت",
+          liveFXGalleryAlt2: "تنظیمات کمپرسور در اپلیکیشن باسکیت لایو افکت",
+          liveFXGalleryAlt3: "انواع ریورب در اپلیکیشن باسکیت لایو افکت",
+          liveFXGalleryAlt4: "منوی امکانات اپلیکیشن باسکیت لایو افکت",
+          liveFXGalleryAlt5:
+            "صفحه اصلی افکت‌ها و مترونوم اپلیکیشن باسکیت لایو افکت",
+          liveFXGalleryAlt6:
+            "بارگذاری بکینگ‌ترک در اپلیکیشن باسکیت لایو افکت",
+          liveFXGalleryAlt7: "اکولایزر ۹ باند در اپلیکیشن باسکیت لایو افکت",
+          liveFXGalleryAlt8:
+            "نمای دیگری از صفحه افکت‌های اپلیکیشن باسکیت لایو افکت",
           videosTitle: "ویدیوهای اجرای زنده با باسکیت",
           videosDesc:
             "طنین و قدرت واقعی پردازش آنی را در اجراهای زیر با سازهای مختلف بشنوید و تماشا کنید.",
@@ -2080,31 +2112,57 @@
           f2Title: "پری‌ست‌های منعطف و کاستوم",
           f2Desc:
             "بانک کاملی از افکت‌های پرکاربرد (Reverb, Delay, Chorus, Overdrive) با قابلیت شخصی‌سازی تک‌تک پارامترها و ذخیره آن‌ها.",
-          f3Title: "اتصال پایدار و ایمن",
+          f3Title: "امکانات",
           f3Desc:
-            "سازگار با انواع کارت صداهای اکسترنال، اینترفیس‌های موبایل و کابل‌های تبدیل استاندارد موجود در بازار موسیقی.",
+            'امکانات این اپلیکیشن برای نوازندگان بسیار جذاب است نظیر: <ul class="list-disc pr-5 space-y-1"><li>امکان لود و همنوازی با ریتم‌های از پیش تعیین شده یا ترکی که خود نوازنده قبلاً اجرا کرده</li><li>امکان ذخیره قطعه نواخته شده روی حافظه گوشی با کیفیت بالا و گوش کردن آن در آینده</li><li>مترونوم منعطف که قابلیت اجرا هرگونه ریتم چه ساده و یا ترکیبی و چه لنگ را دارد</li><li>مجهز بودن به انواع افکت‌های مرسوم و پرکاربرد برای جلوه دادن به صدای ساز</li></ul>',
+          f4Title: "سازگاری",
+          f4Desc:
+            "سازگار با انواع گوشی های بازار حتی مدلهای نسبتا قدیمی، قابلیت کار با هدست نرمال گوشی، قابلیت کار با irig همچنین قابل استفاده با دستگاه BuskitGo از همین مجموعه.",
+          f5Title: "امکان تست رایگان",
+          f5Desc:
+            "لایسنس 5 روزه رایگان تست نرم افزار و قابلیت های آن وهمچنین بررسی سازگاری با دستگاه تلفن همراه یا تبلت هنرمندان گرامی",
+          f6Title: "انواع پکیج های موجود",
+          f6Desc:
+            "لایسنس استفاده از این نرم افزار به پنج روش برای هنرمندان گرامی آماده و قابل ارائه است 5 روزه رایگان، یک ماهه ، یه ساله ، مادام العمر و طلایی تا هنرمندان گرامی با هر شرایط و سلیقه ای امکان تهیه این نرم افزار را داشته باشند",
           shopTitle: "فروشگاه و محصولات",
           shopDesc:
             "لایسنس‌های نرم‌افزاری و محصولات دیگر را می‌توانید از این بخش تهیه کنید.",
-          p1Badge: "محصول اصلی",
-          p1Title: "لایسنس دائمی اپ باسکیت (Pro)",
-          p1Desc:
-            "فعال‌سازی تمامی افکت‌ها، پری‌ست‌های پریمیوم و آپدیت‌های آینده بدون محدودیت زمان.",
-          p1B1: "باز شدن تمام افکت‌های حرفه‌ای",
-          p1B2: "پشتیبانی فنی و آپدیت مادام‌العمر",
-          p1B3: "امکان نصب روی دو دستگاه همزمان",
-          p1PriceLabel: "قیمت لایسنس:",
-          p1PriceVal: "490,000",
-          p1Currency: "تومان",
-          p1Btn: "خرید و ثبت فیش واریز",
-          p2Title: "بافر امپلیفایر اختصاصی باسکیت",
-          p2Desc:
-            "سخت‌افزار جانبی JFET فوق خطی جهت تطبیق امپدانس کامل سازهای سنتی با ورودی گوشی (به‌زودی).",
-          p2Status: "به‌زودی مجهز به سیستم سفارش‌دهی خواهد شد",
-          p3Title: "پکیج پری‌ست‌های استودیویی",
-          p3Desc:
-            "مجموعه تنظیمات آماده و مهندسی‌شده برای سازهای تار، سه‌تار و عود توسط اساتید موسیقی (به‌زودی).",
-          p3Status: "به‌زودی مجهز به سیستم سفارش‌دهی خواهد شد",
+          shopDescPayment:
+            "برای دریافت لایسنس های نرم افزارهای خریداری شده پس از ارسال فیش واریزی به واتس آپ با شماره 00905312691609 لایسنس از طریق همان شماره ارسال خواهدشد",
+          shopDescHardware:
+            "برای دریافت سخت افزارهای خریداری شده پس از ارسال فیش واریزی به واتس آپ با شماره 00905312691609 و اعلام آدرس ، تجهیزات مربوطه ارسال خواهند شد",
+          shopProductNameLabel: "نام محصول :",
+          shopPriceLabel: "قیمت لایسنس:",
+          shopCurrency: "لیر",
+          shopBuyBtn: "خرید",
+          shopProductTitle: "Buskit-LiveFX application",
+          p1Badge: "لایسنس دائمی - طلایی",
+          p1B1: "این لایسنس مادام‌العمر فعال است",
+          p1B2: "کلیه افکت‌ها و امکانات اپلیکیشن فعال است",
+          p1B3: "پشتیبانی فنی و آپدیت مادام‌العمر",
+          p1B4: "در کلیه محصولات نرم‌افزاری بعدی مشمول ۵۰٪ تخفیف خواهید بود",
+          p1PriceVal: "1500",
+          p2Badge: "لایسنس دائمی",
+          p2B1: "این لایسنس مادام‌العمر فعال است",
+          p2B2: "کلیه افکت‌ها و امکانات اپلیکیشن فعال است",
+          p2B3: "پشتیبانی فنی و آپدیت مادام‌العمر",
+          p2PriceVal: "1000",
+          p3Badge: "لایسنس یک ساله",
+          p3B1: "این لایسنس تنها یک سال از زمان اولین فعال‌سازی معتبر خواهد بود",
+          p3B2: "کلیه افکت‌ها و امکانات اپلیکیشن فعال است",
+          p3B3: "پشتیبانی فنی و آپدیت یک‌ساله",
+          p3PriceVal: "500",
+          p4Badge: "لایسنس یک ماهه",
+          p4B1: "این لایسنس تنها یک ماه از تاریخ اولین فعال‌سازی معتبر خواهد بود",
+          p4B2: "کلیه افکت‌ها و امکانات اپلیکیشن فعال است",
+          p4B3: "پشتیبانی فنی و آپدیت یک‌ماهه",
+          p4PriceVal: "100",
+          p5Badge: "لایسنس رایگان",
+          p5B1: "این لایسنس تنها پنج روز از تاریخ اولین فعال‌سازی معتبر خواهد بود",
+          p5B2: "کلیه افکت‌ها و امکانات اپلیکیشن فعال است",
+          p5B3: "پشتیبانی فنی و آپدیت پنج‌روزه",
+          p5LicenseLabel: "لایسنس:",
+          p5PriceVal: "0",
           disabledTxt: "ناموجود",
           footerTxt:
             "© 2026 اپلیکیشن باسکیت (Buskit). تمامی حقوق برای طراح و توسعه‌دهنده محفوظ است.",
@@ -2125,22 +2183,133 @@
           alertNoFile: "لطفاً ابتدا تصویر فیش واریزی را بارگذاری کنید.",
           alertSuccess:
             "با تشکر، فیش واریزی و اطلاعات شما با موفقیت ثبت شد. پس از بررسی و تایید واریز، لایسنس برای شما ارسال خواهد شد.",
+          contactTitle: "تماس با من",
+          contactDesc: "برای دریافت اطلاعات بیشتر، مشاوره و خرید با من در ارتباط باشید",
+          contactWhatsappLabel: "واتساپ",
+          contactInstagramLabel: "اینستاگرام",
+          contactEmailLabel: "ایمیل",
+          contactLocationLabel: "محل اقامت",
+          contactLocationValue: "استانبول، ترکیه",
+          reviewsTitle: "نظر کاربران",
+          reviewsDesc:
+            "تجربه‌ی خودت از استفاده از باسکیت رو با بقیه‌ی نوازندگان به اشتراک بذار.",
+          reviewNameLabel: "نام:",
+          reviewEmailLabel: "ایمیل (اختیاری):",
+          reviewRatingLabel: "امتیاز شما:",
+          reviewQuestionsLabel:
+            "نظر شما درباره‌ی موارد زیر چیه؟ (اختیاری — اگه پر نکنی، بر اساس امتیازی که با ستاره دادی به‌صورت خودکار تخمین زده می‌شه)",
+          reviewSubmitBtn: "ثبت نظر",
+          reviewSubmittingTxt: "در حال ارسال...",
+          reviewsSummaryTitle: "جمع‌بندی نظرات تا این لحظه",
+          reviewsLoading: "در حال بارگذاری نظرات...",
+          reviewsEmptyTxt: "هنوز نظری ثبت نشده. اولین نفر باش!",
+          reviewsLoadErrorTxt: "بارگذاری نظرات با خطا مواجه شد.",
+          reviewErrName: "لطفاً نامت رو پر کن.",
+          reviewErrRating: "امتیاز رو باید پر کنی.",
+          reviewErrSubmit: "ثبت نظر با خطا مواجه شد. لطفاً دوباره تلاش کن.",
+          reviewQuestions: [
+            { short: "کیفیت صدا", label: "کیفیت صدا و افکت‌ها" },
+            { short: "تاخیر", label: "میزان تاخیر (Latency) هنگام اجرا" },
+            { short: "سادگی استفاده", label: "سادگی و راحتی استفاده از اپلیکیشن" },
+            { short: "سازگاری", label: "سازگاری با گوشی/دستگاه شما" },
+            { short: "امکانات", label: "امکانات اپلیکیشن" },
+          ],
+          answerExcellent: "عالی",
+          answerGood: "خوب",
+          answerBad: "بد",
+          answerDontKnow: "نمی‌دونم",
+          qaTitle: "پرسش و پاسخ",
+          qaDesc:
+            "سوالت رو برام بنویس، در اولین فرصت پاسخ می‌دم و جوابش همینجا زیر پیامت نمایش داده می‌شه.",
+          qaNameLabel: "نام:",
+          qaMessageLabel: "پیام / سوال شما:",
+          qaSubmitBtn: "ارسال پیام",
+          qaSubmittingTxt: "در حال ارسال...",
+          qaLoading: "در حال بارگذاری پیام‌ها...",
+          qaEmptyTxt: "هنوز پیامی ثبت نشده. اولین نفر باش!",
+          qaLoadErrorTxt: "بارگذاری پیام‌ها با خطا مواجه شد.",
+          qaErrName: "لطفاً نامت رو پر کن.",
+          qaErrMessage: "لطفاً پیامت رو بنویس.",
+          qaErrSubmit: "ارسال پیام با خطا مواجه شد. لطفاً دوباره تلاش کن.",
+          qaReplyLabel: "پاسخ من:",
+          qaAwaitingReplyTxt: "در انتظار پاسخ...",
         },
         en: {
           dir: "ltr",
           title: "Buskit App | Professional Audio Live FX for Instruments",
           navHome: "Home",
-          navVideos: "Live Sessions",
+          navAboutme: "About Me",
+          navLiveFX: "What is LiveFX",
           navFeatures: "Features",
+          navUsersReview: "Reviews",
+          navVideos: "Live Sessions",
           navShop: "Products",
+          navMessageme: "Q&A",
+          navContacts: "Contact Me",
           headerCTA: "Get Pro License",
           heroBadge: "New generation of live audio effects released",
+          heroAppLabel: "App",
+          heroTagline: "The Dream of Every Musician",
           heroHeadline:
             'Professional Live FX Studio, <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-accentNeon to-teal-400">Right inside your pocket</span>',
           heroDesc:
             "Buskit is a real-time low-latency audio processing and live effects application for musical instruments and microphones. Perform on stage or practice flawlessly.",
           heroDownloadBtn: "Download App Free",
-          heroShopBtn: "View Pro License",
+          heroShopBtn: "View License Plans",
+          aboutTitle: "About Me",
+          aboutP1:
+            'I am <span class="text-accentNeon font-semibold">Mohammad Reza Amouian</span>, an electronics engineer with over <span class="text-white font-medium">40 years of experience designing electronic circuits and developing various computer software</span>, while also being a musician and live performer.',
+          aboutP2:
+            'I set out to gradually offer musicians performing on the street, in small bands, and at private events the exact tools they need, through a line of hardware and software under the brand <span class="text-accentNeon font-bold">Buskit</span>.',
+          aboutP3:
+            "Each piece of this equipment covers part of what every musician or singer needs. I'm confident that using any of these tools will give you an unforgettable experience and real joy in playing and performing music.",
+          aboutP4:
+            "This website is dedicated solely to Buskit's mobile applications. Currently, the Buskit LiveFX app is available for Android and is a highly essential companion app for every musician.",
+          aboutImgAlt: "Mohammad Reza Amouian - Setar Player",
+          liveFXTitle: "What is LiveFX?",
+          liveFXSubtitle:
+            "A true real-time, zero-latency app — an irreplaceable tool for every musician or singer.",
+          liveFXP1:
+            "The Buskit LiveFX app is a true real-time (zero-latency) companion app and an irreplaceable tool for every musician or singer.",
+          liveFXP2:
+            "This app lets you add a wide range of audio effects, all of which can be applied to the input signal at the same time. It can also record and save your performances directly to your phone's storage after the selected effects have been applied.",
+          liveFXTag1: "Equalizer",
+          liveFXTag2: "Compressor",
+          liveFXTag3: "Flanger",
+          liveFXTag4: "Phaser",
+          liveFXTag5: "Delay",
+          liveFXTag6: "Reverb Types",
+          liveFXTag7: "Limiter",
+          liveFXTag8: "Exciter",
+          liveFXTag9: "Chorus",
+          liveFXTag10: "Noise Gate",
+          liveFXTag11: "PreAmp",
+          liveFXTag12: "Low Pass Filter",
+          liveFXChainLabel: "The effects chain is arranged as follows:",
+          liveFXChainText:
+            "PreAmp → Noise Gate → Compressor → Equalizer → Overdrive → Chorus → Flanger → Phaser → Exciter → Delay → Reverb → Octave → Low Pass Filter → Limiter",
+          liveFXChainNote:
+            "At the end of the chain there is also an Output Gain module that lets you raise or lower the level of the whole chain at once.",
+          liveFXP3:
+            "The app captures the input signal through an external microphone, applies the selected processing to it, and sends the output to the phone's headphone jack simultaneously and without any delay.",
+          liveFXP4:
+            "In addition to the effects above, you can load a chromatic tuner to tune any instrument, as well as load backing tracks to practice playing along with others or to perform again alongside your own or someone else's recordings.",
+          liveFXP5:
+            "Another feature of this app is its flexible metronome, which makes it easy to play any rhythmic pattern.",
+          liveFXP6:
+            "To get the sound of your instrument or voice into your phone, you can simply use a headset equipped with both a microphone and headphones. However, if you want to connect the output to an amplifier, you'll need one of the available iRig devices, or — on request — the Brig hardware unit from the Buskit product line, as hardware companion for this app. The processed output from the phone is then sent through this device to the aux or guitar input of any amplifier, even an entry-level one, giving you a dreamlike sound.",
+          liveFXP7:
+            "One of the advantages of this device is that you don't need an expensive, professional sound system to get a professional, pleasant tone.",
+          liveFXGalleryAlt1: "Main screen of the Buskit LiveFX app",
+          liveFXGalleryAlt2: "Compressor settings in the Buskit LiveFX app",
+          liveFXGalleryAlt3: "Reverb types in the Buskit LiveFX app",
+          liveFXGalleryAlt4: "Menu of features in the Buskit LiveFX app",
+          liveFXGalleryAlt5:
+            "Effects and metronome main screen in the Buskit LiveFX app",
+          liveFXGalleryAlt6: "Loading a backing track in the Buskit LiveFX app",
+          liveFXGalleryAlt7: "9-band equalizer in the Buskit LiveFX app",
+          liveFXGalleryAlt8:
+            "Another view of the effects screen in the Buskit LiveFX app",
           videosTitle: "Live Performances with Buskit",
           videosDesc:
             "Listen and watch the real power of ultra-low latency real-time sound processing across various instruments.",
@@ -2165,31 +2334,57 @@
           f2Title: "Flexible & Custom Presets",
           f2Desc:
             "A rich library of core effects (Reverb, Delay, Chorus, Overdrive) with independent parameter controls and unlimited user preset slots.",
-          f3Title: "Solid Hardware Stability",
+          f3Title: "Features",
           f3Desc:
-            "Fully compatible with external class-compliant USB audio interfaces, mobile link cables, and instrument preamps.",
+            'This app offers a set of features musicians love, including: <ul class="list-disc pr-5 space-y-1"><li>Loading and playing along with preset rhythms or your own previously recorded tracks</li><li>Saving your performances in high quality directly to your phone\'s storage to listen to later</li><li>A flexible metronome capable of playing any rhythm — simple, compound, or odd meters</li><li>A wide range of popular, widely used effects to enhance your instrument\'s sound</li></ul>',
+          f4Title: "Compatibility",
+          f4Desc:
+            "Compatible with virtually all phones on the market, even fairly old models. Works with a standard phone headset, with iRig hardware, and with the BuskitGo device from the same product line.",
+          f5Title: "Free Trial",
+          f5Desc:
+            "A free 5-day license to test the software and its features, and to check compatibility with your phone or tablet.",
+          f6Title: "Available Packages",
+          f6Desc:
+            "Licensing for this software is offered in five options to suit every artist's needs and budget: a free 5-day trial, monthly, yearly, lifetime, and gold packages.",
           shopTitle: "Store & Shop",
           shopDesc:
             "Get your digital software licenses or explore upcoming physical integration units below.",
-          p1Badge: "MAIN PRODUCT",
-          p1Title: "Buskit Permanent Pro License",
-          p1Desc:
-            "Unlock all elite audio effects, premium factory presets, and lifetime future updates with absolutely no subscriptions.",
-          p1B1: "Unlock all professional audio modules",
-          p1B2: "Lifetime technical support & feature updates",
-          p1B3: "Simultaneous authorization on 2 devices",
-          p1PriceLabel: "License Price:",
-          p1PriceVal: "15",
-          p1Currency: "USD",
-          p1Btn: "Buy & Upload Receipt",
-          p2Title: "Buskit Dedicated Buffer Amplifier",
-          p2Desc:
-            "Ultra-linear JFET companion hardware unit tailored for perfectly matching high-impedance traditional pickups with phones (Coming Soon).",
-          p2Status: "Pre-order framework will be activated soon",
-          p3Title: "Premium Studio Preset Expansions",
-          p3Desc:
-            "Pre-engineered banks curated specifically for acoustic instruments like Oud, Tar, and Saz by music masters (Coming Soon).",
-          p3Status: "Pre-order framework will be activated soon",
+          shopDescPayment:
+            "To receive your purchased software license, send your payment receipt to WhatsApp number +90 531 269 16 09 — the license will be sent to you through the same number.",
+          shopDescHardware:
+            "To receive your purchased hardware, send your payment receipt along with your shipping address to WhatsApp number +90 531 269 16 09 — the equipment will then be shipped to you.",
+          shopProductNameLabel: "Product Name:",
+          shopPriceLabel: "License Price:",
+          shopCurrency: "TL",
+          shopBuyBtn: "Buy",
+          shopProductTitle: "Buskit-LiveFX application",
+          p1Badge: "Lifetime License – Gold",
+          p1B1: "This license is active for a lifetime",
+          p1B2: "All effects and app features are unlocked",
+          p1B3: "Lifetime technical support and updates",
+          p1B4: "50% discount on all future software products",
+          p1PriceVal: "1500",
+          p2Badge: "Lifetime License",
+          p2B1: "This license is active for a lifetime",
+          p2B2: "All effects and app features are unlocked",
+          p2B3: "Lifetime technical support and updates",
+          p2PriceVal: "1000",
+          p3Badge: "1-Year License",
+          p3B1: "This license is valid for one year from the first activation",
+          p3B2: "All effects and app features are unlocked",
+          p3B3: "One year of technical support and updates",
+          p3PriceVal: "500",
+          p4Badge: "1-Month License",
+          p4B1: "This license is valid for one month from the first activation",
+          p4B2: "All effects and app features are unlocked",
+          p4B3: "One month of technical support and updates",
+          p4PriceVal: "100",
+          p5Badge: "Free License",
+          p5B1: "This license is valid for five days from the first activation",
+          p5B2: "All effects and app features are unlocked",
+          p5B3: "Five days of technical support and updates",
+          p5LicenseLabel: "License:",
+          p5PriceVal: "0",
           disabledTxt: "Out of Stock",
           footerTxt:
             "© 2026 Buskit Audio App. All rights reserved for the designer & developer.",
@@ -2210,22 +2405,135 @@
           alertNoFile: "Please upload your payment receipt image first.",
           alertSuccess:
             "Thank you! Your payment receipt and contact details have been submitted. The license will be generated after verification.",
+          contactTitle: "Contact Me",
+          contactDesc:
+            "Get in touch for more information, consultation, or purchasing",
+          contactWhatsappLabel: "WhatsApp",
+          contactInstagramLabel: "Instagram",
+          contactEmailLabel: "Email",
+          contactLocationLabel: "Location",
+          contactLocationValue: "Istanbul, Turkey",
+          reviewsTitle: "User Reviews",
+          reviewsDesc:
+            "Share your experience using Buskit with fellow musicians.",
+          reviewNameLabel: "Name:",
+          reviewEmailLabel: "Email (optional):",
+          reviewRatingLabel: "Your Rating:",
+          reviewQuestionsLabel:
+            "What do you think about the following? (Optional — if you skip this, it will be estimated automatically from the star rating you gave)",
+          reviewSubmitBtn: "Submit Review",
+          reviewSubmittingTxt: "Submitting...",
+          reviewsSummaryTitle: "Summary of Reviews So Far",
+          reviewsLoading: "Loading reviews...",
+          reviewsEmptyTxt: "No reviews yet. Be the first!",
+          reviewsLoadErrorTxt: "Failed to load reviews.",
+          reviewErrName: "Please enter your name.",
+          reviewErrRating: "Please select a rating.",
+          reviewErrSubmit: "Failed to submit review. Please try again.",
+          reviewQuestions: [
+            { short: "Sound Quality", label: "Sound and effects quality" },
+            { short: "Latency", label: "Latency while performing" },
+            { short: "Ease of Use", label: "Simplicity and ease of use of the app" },
+            { short: "Compatibility", label: "Compatibility with your phone/device" },
+            { short: "Features", label: "The app's features and capabilities" },
+          ],
+          answerExcellent: "Excellent",
+          answerGood: "Good",
+          answerBad: "Poor",
+          answerDontKnow: "Not sure",
+          qaTitle: "Q&A",
+          qaDesc:
+            "Write your question here — I'll reply as soon as possible and the answer will show up right below your message.",
+          qaNameLabel: "Name:",
+          qaMessageLabel: "Your Message / Question:",
+          qaSubmitBtn: "Send Message",
+          qaSubmittingTxt: "Sending...",
+          qaLoading: "Loading messages...",
+          qaEmptyTxt: "No messages yet. Be the first!",
+          qaLoadErrorTxt: "Failed to load messages.",
+          qaErrName: "Please enter your name.",
+          qaErrMessage: "Please write your message.",
+          qaErrSubmit: "Failed to send message. Please try again.",
+          qaReplyLabel: "My Reply:",
+          qaAwaitingReplyTxt: "Awaiting reply...",
         },
         tr: {
           dir: "ltr",
           title: "Buskit App | Enstrümanlar İçin Profesyonel Canlı Efekt",
           navHome: "Anasayfa",
-          navVideos: "Canlı Performans",
+          navAboutme: "Hakkımda",
+          navLiveFX: "LiveFX Nedir",
           navFeatures: "Özellikler",
+          navUsersReview: "Yorumlar",
+          navVideos: "Canlı Performans",
           navShop: "Ürünler",
+          navMessageme: "Soru & Cevap",
+          navContacts: "İletişim",
           headerCTA: "Pro Lisans Al",
           heroBadge: "Yeni nesil canlı ses efekti uygulaması yayınlandı",
+          heroAppLabel: "Uygulama",
+          heroTagline: "Her Müzisyenin Hayali",
           heroHeadline:
             'Profesyonel Canlı Efekt Stüdyosu, <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-accentNeon to-teal-400">Her Zaman Cebinizde</span>',
           heroDesc:
             "Buskit, müzik enstrümanları ve mikrofonlar için tasarlanmış gerçek zamanlı, ultra düşük gecikmeli bir ses işleme ve canlı efekt uygulamasıdır. Sahnede veya pratik yaparken kusursuz çalın.",
           heroDownloadBtn: "Uygulamayı Ücretsiz İndir",
-          heroShopBtn: "Pro Lisansı İncele",
+          heroShopBtn: "Lisans Planlarını Görüntüle",
+          aboutTitle: "Hakkımda",
+          aboutP1:
+            '<span class="text-accentNeon font-semibold">Mohammad Reza Amouian</span> benim; elektronik devre tasarımı ve çeşitli bilgisayar yazılımları geliştirme konusunda <span class="text-white font-medium">40 yılı aşkın deneyime</span> sahip bir elektronik mühendisiyim ve aynı zamanda bir müzisyen ve canlı performans sanatçısıyım.',
+          aboutP2:
+            'Sokakta, küçük gruplarda ve özel etkinliklerde performans sergileyen müzisyenlerin ihtiyaçlarının özünü, <span class="text-accentNeon font-bold">Buskit</span> markası altında donanım ve yazılım ürünleri hâline getirip zamanla ilgilenenlerin hizmetine sunmaya karar verdim.',
+          aboutP3:
+            "Bu ekipmanların her biri, her müzisyenin veya şarkıcının ihtiyaçlarının bir bölümünü karşılayacaktır. Bu ekipmanlardan herhangi birini kullanarak müzik çalmanın ve performans sergilemenin unutulmaz bir deneyimini ve keyfini yaşayacağınızdan eminim.",
+          aboutP4:
+            "Bu web sitesi yalnızca Buskit'in mobil uygulamalarına odaklanmaktadır. Şu anda Buskit LiveFX uygulaması Android işletim sistemi için kullanıma hazırdır ve tüm müzisyenler için son derece gerekli bir mobil uygulamadır.",
+          aboutImgAlt: "Mohammad Reza Amouian - Setar Sanatçısı",
+          liveFXTitle: "LiveFX Nedir?",
+          liveFXSubtitle:
+            "Gerçek zamanlı ve gecikmesiz bir uygulama; her müzisyen veya şarkıcı için vazgeçilmez bir araç.",
+          liveFXP1:
+            "Buskit LiveFX uygulaması, gerçek zamanlı (gecikmesiz) bir mobil uygulama ve her müzisyen veya şarkıcı için vazgeçilmez bir araçtır.",
+          liveFXP2:
+            "Bu uygulama, giriş sesine aynı anda uygulanabilen çok çeşitli ses efektleri eklemenize olanak tanır. Ayrıca seçilen efektler uygulandıktan sonra performanslarınızı doğrudan telefonunuzun hafızasına kaydedip saklayabilirsiniz.",
+          liveFXTag1: "Ekolayzer",
+          liveFXTag2: "Kompresör",
+          liveFXTag3: "Flanger",
+          liveFXTag4: "Phaser",
+          liveFXTag5: "Delay",
+          liveFXTag6: "Reverb Çeşitleri",
+          liveFXTag7: "Limiter",
+          liveFXTag8: "Exciter",
+          liveFXTag9: "Chorus",
+          liveFXTag10: "Noise Gate",
+          liveFXTag11: "Pre-Amp",
+          liveFXTag12: "Low Pass Filtre",
+          liveFXChainLabel: "Bu efektlerin sırası aşağıdaki gibidir:",
+          liveFXChainText:
+            "Pre-Amp → Noise Gate → Kompresör → Ekolayzer → Overdrive → Chorus → Flanger → Phaser → Exciter → Delay → Reverb → Oktav → Low Pass Filtre → Limiter",
+          liveFXChainNote:
+            "Zincirin sonunda, tüm zincirin genel seviyesini bir kerede artırıp azaltabilen bir Output Gain modülü de bulunur.",
+          liveFXP3:
+            "Bu cihaz, harici bir mikrofon aracılığıyla giriş sesini alır, seçilen işlemi ona uygular ve çıkışı eş zamanlı ve gecikmesiz olarak telefonun kulaklık çıkışına gönderir.",
+          liveFXP4:
+            "Yukarıdaki efektlere ek olarak, herhangi bir enstrümanı akort etmek için kromatik akort cihazı yükleyebilir; ayrıca kendi ya da başkalarının kayıtlarıyla birlikte çalmak veya yeniden birlikte performans sergilemek için backing track yükleyebilirsiniz.",
+          liveFXP5:
+            "Bu uygulamanın bir başka özelliği de esnek metronomudur; bu sayede her türlü ritmik figürü kolayca çalabilirsiniz.",
+          liveFXP6:
+            "Enstrüman veya ses sinyalini telefona aktarmak için mikrofonlu ve kulaklıklı bir kulaklık seti kullanmanız yeterlidir. Ancak çıkışı bir amfiye bağlamak isterseniz, mevcut iRig cihazlarından birine veya talep üzerine Buskit ürün ailesinden Brig donanım cihazına, bu uygulamanın donanım eşlikçisi olarak ihtiyacınız olacaktır. Telefon tarafından işlenen çıkış sesi, bu cihaz aracılığıyla her türlü amatör amfinin bile aux veya gitar girişine iletilir ve rüya gibi bir ses elde edersiniz.",
+          liveFXP7:
+            "Bu cihazın avantajlarından biri, profesyonel ve hoş bir ses tonu elde etmek için pahalı, profesyonel bir ses sistemine ihtiyaç duymamanızdır.",
+          liveFXGalleryAlt1: "Buskit LiveFX uygulamasının ana ekranı",
+          liveFXGalleryAlt2: "Buskit LiveFX uygulamasında kompresör ayarları",
+          liveFXGalleryAlt3: "Buskit LiveFX uygulamasında reverb çeşitleri",
+          liveFXGalleryAlt4: "Buskit LiveFX uygulamasında özellikler menüsü",
+          liveFXGalleryAlt5:
+            "Buskit LiveFX uygulamasında efektler ve metronom ana ekranı",
+          liveFXGalleryAlt6:
+            "Buskit LiveFX uygulamasında backing track yükleme",
+          liveFXGalleryAlt7: "Buskit LiveFX uygulamasında 9 bantlı ekolayzer",
+          liveFXGalleryAlt8:
+            "Buskit LiveFX uygulamasında efektler ekranının başka bir görünümü",
           videosTitle: "Buskit ile Canlı Performanslar",
           videosDesc:
             "Farklı enstrümanlarda gerçek zamanlı ses işlemenin ve ultra düşük gecikmenin gücünü dinleyin ve izleyin.",
@@ -2250,31 +2558,57 @@
           f2Title: "Esnek ve Özel Hazır Ayarlar",
           f2Desc:
             "Bağımsız parametre kontrollerine ve sınırsız kullanıcı kayıt yuvasına sahip zengin efekt kitaplığı (Reverb, Delay, Chorus, Overdrive).",
-          f3Title: "Güçlü Donanım Uyumluluğu",
+          f3Title: "Özellikler",
           f3Desc:
-            "Harici USB ses kartları, mobil bağlantı arayüzleri ve enstrüman preamfileri ile tamamen uyumludur.",
+            'Bu uygulama, müzisyenlerin seveceği birçok özellik sunar, örneğin: <ul class="list-disc pr-5 space-y-1"><li>Önceden tanımlanmış ritimleri veya kendi kaydettiğiniz parçaları yükleyip birlikte çalabilme</li><li>Çaldığınız parçayı yüksek kalitede doğrudan telefon hafızasına kaydedip daha sonra dinleyebilme</li><li>Basit, bileşik veya aksak her türlü ritmi çalabilen esnek bir metronom</li><li>Enstrümanınızın sesini zenginleştiren yaygın ve sık kullanılan efektlere sahip olma</li></ul>',
+          f4Title: "Uyumluluk",
+          f4Desc:
+            "Piyasadaki hemen hemen tüm telefonlarla, hatta oldukça eski modellerle bile uyumludur. Telefonun standart kulaklık setiyle, iRig donanımıyla ve aynı üründen BuskitGo cihazıyla çalışabilir.",
+          f5Title: "Ücretsiz Deneme İmkanı",
+          f5Desc:
+            "Yazılımı ve özelliklerini test etmek, ayrıca telefon veya tabletinizle uyumluluğunu kontrol etmek için 5 günlük ücretsiz deneme lisansı.",
+          f6Title: "Mevcut Paketler",
+          f6Desc:
+            "Bu yazılımın lisansı, her sanatçının ihtiyacına ve bütçesine uygun beş farklı seçenekle sunulur: 5 günlük ücretsiz deneme, aylık, yıllık, ömür boyu ve altın paket.",
           shopTitle: "Mağaza ve Ürünler",
           shopDesc:
             "Yazılım lisanslarınızı satın alabilir veya yakında çıkacak fiziksel ürünlerimizi aşağıdan inceleyebilirsiniz.",
-          p1Badge: "ANA ÜRÜN",
-          p1Title: "Buskit Ömür Boyu Pro Lisansı",
-          p1Desc:
-            "Abonelik olmadan tüm elit ses efektlerini, premium fabrika ayarlarnı ve gelecekteki güncellemeleri sınırsızca etkinleştirin.",
-          p1B1: "Tüm profesyonel ses modüllerinin kilidini açın",
-          p1B2: "Ömür boyu teknik destek ve özellik güncellemeleri",
-          p1B3: "Aynı anda 2 cihazda eşzamanlı kurulum imkanı",
-          p1PriceLabel: "Lisans Ücreti:",
-          p1PriceVal: "500",
-          p1Currency: "TL",
-          p1Btn: "Satın Al & Dekont Yükle",
-          p2Title: "Buskit Özel Tampon Amplifikatör (Buffer)",
-          p2Desc:
-            "Geleneksel yüksek empedanslı enstrüman manyetiklerini telefonlarla mükemmel şekilde eşleştirmek için tasarlanmış ultra lineer JFET ek donanımı (Yakında).",
-          p2Status: "Ön sipariş sistemi yakında aktif edilecektir",
-          p3Title: "Premium Stüdyo Preset Paketleri",
-          p3Desc:
-            "Müzik ustaları tarafından Ud, Tar ve Saz gibi akustik enstrümanlar için özel olarak tasarlanmış hazır ses bankaları (Yakında).",
-          p3Status: "Ön sipariş sistemi yakında aktif edilecektir",
+          shopDescPayment:
+            "Satın aldığınız yazılım lisansını almak için ödeme dekontunuzu +90 531 269 16 09 numaralı WhatsApp hattına gönderin; lisansınız aynı numara üzerinden size iletilecektir.",
+          shopDescHardware:
+            "Satın aldığınız donanımı teslim almak için ödeme dekontunuzu adresinizle birlikte +90 531 269 16 09 numaralı WhatsApp hattına gönderin; ilgili ekipman adresinize gönderilecektir.",
+          shopProductNameLabel: "Ürün Adı:",
+          shopPriceLabel: "Lisans Ücreti:",
+          shopCurrency: "TL",
+          shopBuyBtn: "Satın Al",
+          shopProductTitle: "Buskit-LiveFX application",
+          p1Badge: "Ömür Boyu Lisans – Altın",
+          p1B1: "Bu lisans ömür boyu aktiftir",
+          p1B2: "Tüm efektler ve uygulama özellikleri açıktır",
+          p1B3: "Ömür boyu teknik destek ve güncellemeler",
+          p1B4: "Sonraki tüm yazılım ürünlerinde %50 indirim",
+          p1PriceVal: "1500",
+          p2Badge: "Ömür Boyu Lisans",
+          p2B1: "Bu lisans ömür boyu aktiftir",
+          p2B2: "Tüm efektler ve uygulama özellikleri açıktır",
+          p2B3: "Ömür boyu teknik destek ve güncellemeler",
+          p2PriceVal: "1000",
+          p3Badge: "1 Yıllık Lisans",
+          p3B1: "Bu lisans ilk aktivasyondan itibaren bir yıl geçerlidir",
+          p3B2: "Tüm efektler ve uygulama özellikleri açıktır",
+          p3B3: "Bir yıllık teknik destek ve güncellemeler",
+          p3PriceVal: "500",
+          p4Badge: "1 Aylık Lisans",
+          p4B1: "Bu lisans ilk aktivasyondan itibaren bir ay geçerlidir",
+          p4B2: "Tüm efektler ve uygulama özellikleri açıktır",
+          p4B3: "Bir aylık teknik destek ve güncellemeler",
+          p4PriceVal: "100",
+          p5Badge: "Ücretsiz Lisans",
+          p5B1: "Bu lisans ilk aktivasyondan itibaren beş gün geçerlidir",
+          p5B2: "Tüm efektler ve uygulama özellikleri açıktır",
+          p5B3: "Beş günlük teknik destek ve güncellemeler",
+          p5LicenseLabel: "Lisans:",
+          p5PriceVal: "0",
           disabledTxt: "Stokta Yok",
           footerTxt:
             "© 2026 Buskit Audio App. Tüm hakları tasarımcı ve geliştiriciye aittir.",
@@ -2297,6 +2631,57 @@
           alertNoFile: "Lütfen önce ödeme dekontu görselini yükleyin.",
           alertSuccess:
             "Teşekkürler! Ödeme dekontunuz ve iletişim bilgileriniz başarıyla kaydedildi. Lisansınız doğrulamanın ardından gönderilecektir.",
+          contactTitle: "İletişime Geçin",
+          contactDesc:
+            "Daha fazla bilgi, danışmanlık ve satın alma için benimle iletişime geçin",
+          contactWhatsappLabel: "WhatsApp",
+          contactInstagramLabel: "Instagram",
+          contactEmailLabel: "E-posta",
+          contactLocationLabel: "Konum",
+          contactLocationValue: "İstanbul, Türkiye",
+          reviewsTitle: "Kullanıcı Yorumları",
+          reviewsDesc:
+            "Buskit'i kullanma deneyimini diğer müzisyenlerle paylaş.",
+          reviewNameLabel: "Ad:",
+          reviewEmailLabel: "E-posta (isteğe bağlı):",
+          reviewRatingLabel: "Puanınız:",
+          reviewQuestionsLabel:
+            "Aşağıdakiler hakkında ne düşünüyorsun? (İsteğe bağlı — doldurmazsan, verdiğin yıldız puanına göre otomatik olarak tahmin edilir)",
+          reviewSubmitBtn: "Yorumu Gönder",
+          reviewSubmittingTxt: "Gönderiliyor...",
+          reviewsSummaryTitle: "Şu Ana Kadarki Yorum Özeti",
+          reviewsLoading: "Yorumlar yükleniyor...",
+          reviewsEmptyTxt: "Henüz yorum yapılmadı. İlk sen ol!",
+          reviewsLoadErrorTxt: "Yorumlar yüklenirken hata oluştu.",
+          reviewErrName: "Lütfen adını gir.",
+          reviewErrRating: "Bir puan seçmelisin.",
+          reviewErrSubmit: "Yorum gönderilirken hata oluştu. Lütfen tekrar dene.",
+          reviewQuestions: [
+            { short: "Ses Kalitesi", label: "Ses ve efekt kalitesi" },
+            { short: "Gecikme", label: "Performans sırasındaki gecikme (Latency) süresi" },
+            { short: "Kullanım Kolaylığı", label: "Uygulamanın kullanım basitliği ve kolaylığı" },
+            { short: "Uyumluluk", label: "Telefonunuz/cihazınızla uyumluluğu" },
+            { short: "Özellikler", label: "Uygulamanın özellikleri ve imkanları" },
+          ],
+          answerExcellent: "Mükemmel",
+          answerGood: "İyi",
+          answerBad: "Kötü",
+          answerDontKnow: "Bilmiyorum",
+          qaTitle: "Soru & Cevap",
+          qaDesc:
+            "Sorunu buraya yaz, en kısa sürede cevaplarım ve cevap mesajının hemen altında görünecek.",
+          qaNameLabel: "Ad:",
+          qaMessageLabel: "Mesajınız / Sorunuz:",
+          qaSubmitBtn: "Mesaj Gönder",
+          qaSubmittingTxt: "Gönderiliyor...",
+          qaLoading: "Mesajlar yükleniyor...",
+          qaEmptyTxt: "Henüz mesaj yok. İlk sen ol!",
+          qaLoadErrorTxt: "Mesajlar yüklenirken hata oluştu.",
+          qaErrName: "Lütfen adını gir.",
+          qaErrMessage: "Lütfen mesajını yaz.",
+          qaErrSubmit: "Mesaj gönderilirken hata oluştu. Lütfen tekrar dene.",
+          qaReplyLabel: "Cevabım:",
+          qaAwaitingReplyTxt: "Cevap bekleniyor...",
         },
       };
 
@@ -2319,18 +2704,97 @@
 
         // منوی هدر
         document.getElementById("navHome").innerText = data.navHome;
-        document.getElementById("navVideos").innerText = data.navVideos;
+        document.getElementById("navAboutme").innerText = data.navAboutme;
+        document.getElementById("navLiveFX").innerText = data.navLiveFX;
         document.getElementById("navFeatures").innerText = data.navFeatures;
+        document.getElementById("navUsersReview").innerText =
+          data.navUsersReview;
+        document.getElementById("navVideos").innerText = data.navVideos;
         document.getElementById("navShop").innerText = data.navShop;
-        document.getElementById("headerCTA").innerText = data.headerCTA;
+        document.getElementById("navMessageme").innerText = data.navMessageme;
+        document.getElementById("navContacts").innerText = data.navContacts;
+
+        // منوی موبایل (همبرگری)
+        document.getElementById("navHomeMobile").innerText = data.navHome;
+        document.getElementById("navAboutmeMobile").innerText =
+          data.navAboutme;
+        document.getElementById("navLiveFXMobile").innerText = data.navLiveFX;
+        document.getElementById("navFeaturesMobile").innerText =
+          data.navFeatures;
+        document.getElementById("navUsersReviewMobile").innerText =
+          data.navUsersReview;
+        document.getElementById("navVideosMobile").innerText = data.navVideos;
+        document.getElementById("navShopMobile").innerText = data.navShop;
+        document.getElementById("navMessagemeMobile").innerText =
+          data.navMessageme;
+        document.getElementById("navContactsMobile").innerText =
+          data.navContacts;
+        const headerCTAEl = document.getElementById("headerCTA");
+        if (headerCTAEl) headerCTAEl.innerText = data.headerCTA;
 
         // بخش هیرو
-        document.getElementById("heroBadge").innerText = data.heroBadge;
-        document.getElementById("heroHeadline").innerHTML = data.heroHeadline;
+        const heroBadgeEl = document.getElementById("heroBadge");
+        if (heroBadgeEl) heroBadgeEl.innerText = data.heroBadge;
+        document.getElementById("heroAppLabel").innerText = data.heroAppLabel;
+        document.getElementById("heroTagline").innerText = data.heroTagline;
         document.getElementById("heroDesc").innerText = data.heroDesc;
         document.getElementById("heroDownloadBtn").innerText =
           data.heroDownloadBtn;
         document.getElementById("heroShopBtn").innerText = data.heroShopBtn;
+
+        // بخش درباره من
+        document.getElementById("aboutTitle").innerText = data.aboutTitle;
+        document.getElementById("aboutP1").innerHTML = data.aboutP1;
+        document.getElementById("aboutP2").innerHTML = data.aboutP2;
+        document.getElementById("aboutP3").innerText = data.aboutP3;
+        document.getElementById("aboutP4").innerText = data.aboutP4;
+        document.getElementById("aboutImg").alt = data.aboutImgAlt;
+
+        // بخش LiveFX چیست
+        document.getElementById("liveFXTitle").innerText = data.liveFXTitle;
+        document.getElementById("liveFXSubtitle").innerText =
+          data.liveFXSubtitle;
+        document.getElementById("liveFXP1").innerText = data.liveFXP1;
+        document.getElementById("liveFXP2").innerText = data.liveFXP2;
+        document.getElementById("liveFXTag1").innerText = data.liveFXTag1;
+        document.getElementById("liveFXTag2").innerText = data.liveFXTag2;
+        document.getElementById("liveFXTag3").innerText = data.liveFXTag3;
+        document.getElementById("liveFXTag4").innerText = data.liveFXTag4;
+        document.getElementById("liveFXTag5").innerText = data.liveFXTag5;
+        document.getElementById("liveFXTag6").innerText = data.liveFXTag6;
+        document.getElementById("liveFXTag7").innerText = data.liveFXTag7;
+        document.getElementById("liveFXTag8").innerText = data.liveFXTag8;
+        document.getElementById("liveFXTag9").innerText = data.liveFXTag9;
+        document.getElementById("liveFXTag10").innerText = data.liveFXTag10;
+        document.getElementById("liveFXTag11").innerText = data.liveFXTag11;
+        document.getElementById("liveFXTag12").innerText = data.liveFXTag12;
+        document.getElementById("liveFXChainLabel").innerText =
+          data.liveFXChainLabel;
+        document.getElementById("liveFXChainText").innerText =
+          data.liveFXChainText;
+        document.getElementById("liveFXChainNote").innerText =
+          data.liveFXChainNote;
+        document.getElementById("liveFXP3").innerText = data.liveFXP3;
+        document.getElementById("liveFXP4").innerText = data.liveFXP4;
+        document.getElementById("liveFXP5").innerText = data.liveFXP5;
+        document.getElementById("liveFXP6").innerText = data.liveFXP6;
+        document.getElementById("liveFXP7").innerText = data.liveFXP7;
+        document.getElementById("liveFXGalleryImg1").alt =
+          data.liveFXGalleryAlt1;
+        document.getElementById("liveFXGalleryImg2").alt =
+          data.liveFXGalleryAlt2;
+        document.getElementById("liveFXGalleryImg3").alt =
+          data.liveFXGalleryAlt3;
+        document.getElementById("liveFXGalleryImg4").alt =
+          data.liveFXGalleryAlt4;
+        document.getElementById("liveFXGalleryImg5").alt =
+          data.liveFXGalleryAlt5;
+        document.getElementById("liveFXGalleryImg6").alt =
+          data.liveFXGalleryAlt6;
+        document.getElementById("liveFXGalleryImg7").alt =
+          data.liveFXGalleryAlt7;
+        document.getElementById("liveFXGalleryImg8").alt =
+          data.liveFXGalleryAlt8;
 
         // بخش ویدیوها
         document.getElementById("videosTitle").innerText = data.videosTitle;
@@ -2353,29 +2817,53 @@
         document.getElementById("f2Title").innerText = data.f2Title;
         document.getElementById("f2Desc").innerText = data.f2Desc;
         document.getElementById("f3Title").innerText = data.f3Title;
-        document.getElementById("f3Desc").innerText = data.f3Desc;
+        document.getElementById("f3Desc").innerHTML = data.f3Desc;
+        document.getElementById("f4Title").innerText = data.f4Title;
+        document.getElementById("f4Desc").innerText = data.f4Desc;
+        document.getElementById("f5Title").innerText = data.f5Title;
+        document.getElementById("f5Desc").innerText = data.f5Desc;
+        document.getElementById("f6Title").innerText = data.f6Title;
+        document.getElementById("f6Desc").innerText = data.f6Desc;
 
-        // بخش محصولات
+        // بخش محصولات (هر ۵ کارت محصول، نه فقط اولی)
         document.getElementById("shopTitle").innerText = data.shopTitle;
         document.getElementById("shopDesc").innerText = data.shopDesc;
-        document.getElementById("p1Badge").innerText = data.p1Badge;
-        document.getElementById("p1Title").innerText = data.p1Title;
-        document.getElementById("p1Desc").innerText = data.p1Desc;
-        document.getElementById("p1B1").innerText = data.p1B1;
-        document.getElementById("p1B2").innerText = data.p1B2;
-        document.getElementById("p1B3").innerText = data.p1B3;
-        document.getElementById("p1PriceLabel").innerText = data.p1PriceLabel;
-        document.getElementById("p1PriceVal").innerText = data.p1PriceVal;
-        document.getElementById("p1Currency").innerText = data.p1Currency;
-        document.getElementById("p1Btn").innerText = data.p1Btn;
+        document.getElementById("shopDescPayment").innerText =
+          data.shopDescPayment;
+        document.getElementById("shopDescHardware").innerText =
+          data.shopDescHardware;
 
-        document.getElementById("p2Title").innerText = data.p2Title;
-        document.getElementById("p2Desc").innerText = data.p2Desc;
-        document.getElementById("p2Status").innerText = data.p2Status;
+        ["p1", "p2", "p3", "p4", "p5"].forEach((pid) => {
+          const badgeEl = document.getElementById(pid + "Badge");
+          if (badgeEl) badgeEl.innerText = data[pid + "Badge"];
 
-        document.getElementById("p3Title").innerText = data.p3Title;
-        document.getElementById("p3Desc").innerText = data.p3Desc;
-        document.getElementById("p3Status").innerText = data.p3Status;
+          const descEl = document.getElementById(pid + "Desc");
+          if (descEl) descEl.innerText = data.shopProductNameLabel;
+
+          const titleEl = document.getElementById(pid + "Title");
+          if (titleEl) titleEl.innerText = data.shopProductTitle;
+
+          ["B1", "B2", "B3", "B4"].forEach((bKey) => {
+            const bEl = document.getElementById(pid + bKey);
+            if (bEl && data[pid + bKey]) bEl.innerText = data[pid + bKey];
+          });
+
+          const priceLabelEl = document.getElementById(pid + "PriceLabel");
+          if (priceLabelEl) priceLabelEl.innerText = data.shopPriceLabel;
+
+          const priceValEl = document.getElementById(pid + "PriceVal");
+          if (priceValEl) priceValEl.innerText = data[pid + "PriceVal"];
+
+          const currencyEl = document.getElementById(pid + "Currency");
+          if (currencyEl) currencyEl.innerText = data.shopCurrency;
+
+          const btnEl = document.getElementById(pid + "Btn");
+          if (btnEl) btnEl.innerText = data.shopBuyBtn;
+        });
+
+        const p5LicenseLabelEl = document.getElementById("p5LicenseLabel");
+        if (p5LicenseLabelEl)
+          p5LicenseLabelEl.innerText = data.p5LicenseLabel;
 
         const disabledButtons = document.querySelectorAll(".btn-disabled-txt");
         disabledButtons.forEach((btn) => (btn.innerText = data.disabledTxt));
@@ -2416,12 +2904,70 @@
         document.getElementById("fullName").placeholder = data.placeholderName;
         document.getElementById("userContact").placeholder =
           data.placeholderContact;
+
+        // بخش تماس با من
+        document.getElementById("contactTitle").innerText = data.contactTitle;
+        document.getElementById("contactDesc").innerText = data.contactDesc;
+        document.getElementById("contactWhatsappLabel").innerText =
+          data.contactWhatsappLabel;
+        document.getElementById("contactInstagramLabel").innerText =
+          data.contactInstagramLabel;
+        document.getElementById("contactEmailLabel").innerText =
+          data.contactEmailLabel;
+        document.getElementById("contactLocationLabel").innerText =
+          data.contactLocationLabel;
+        document.getElementById("contactLocationValue").innerText =
+          data.contactLocationValue;
+
+        // بخش نظر کاربران
+        document.getElementById("reviewsTitle").innerText = data.reviewsTitle;
+        document.getElementById("reviewsDesc").innerText = data.reviewsDesc;
+        document.getElementById("reviewNameLabel").innerText =
+          data.reviewNameLabel;
+        document.getElementById("reviewEmailLabel").innerText =
+          data.reviewEmailLabel;
+        document.getElementById("reviewRatingLabel").innerText =
+          data.reviewRatingLabel;
+        document.getElementById("reviewQuestionsLabel").innerText =
+          data.reviewQuestionsLabel;
+        document.getElementById("reviewSubmitBtn").innerText =
+          data.reviewSubmitBtn;
+        document.getElementById("reviewsSummaryTitle").innerText =
+          data.reviewsSummaryTitle;
+        const reviewsLoadingEl = document.getElementById("reviewsLoading");
+        if (reviewsLoadingEl) reviewsLoadingEl.innerText = data.reviewsLoading;
+
+        // بخش پرسش و پاسخ
+        document.getElementById("qaTitle").innerText = data.qaTitle;
+        document.getElementById("qaDesc").innerText = data.qaDesc;
+        document.getElementById("qaNameLabel").innerText = data.qaNameLabel;
+        document.getElementById("qaMessageLabel").innerText =
+          data.qaMessageLabel;
+        document.getElementById("questionSubmitBtn").innerText =
+          data.qaSubmitBtn;
+        const questionsLoadingEl = document.getElementById("questionsLoading");
+        if (questionsLoadingEl) questionsLoadingEl.innerText = data.qaLoading;
+
+        // بازسازی محتوای دینامیک (سوالات ارزیابی، نظرات و پیام‌های ثبت‌شده) با زبان جدید
+        if (typeof renderQuestionsPicker === "function") {
+          renderQuestionsPicker();
+        }
+        if (typeof renderReviews === "function" && lastReviewsSnapshot) {
+          renderReviews(lastReviewsSnapshot);
+        }
+        if (typeof renderQuestions === "function" && lastQuestionsSnapshot) {
+          renderQuestions(lastQuestionsSnapshot);
+        }
       }
 
-      function triggerModalPurchase() {
+      function triggerModalPurchase(productKey) {
         const data = translations[currentLang];
-        const fullPriceStr = data.p1PriceVal + " " + data.p1Currency;
-        openPurchaseModal(data.p1Title, fullPriceStr);
+        const pid = productKey || "p1";
+        const priceVal = data[pid + "PriceVal"];
+        const badge = data[pid + "Badge"];
+        const fullPriceStr = priceVal + " " + data.shopCurrency;
+        const productLabel = data.shopProductTitle + " — " + badge;
+        openPurchaseModal(productLabel, fullPriceStr);
       }
 
       function openPurchaseModal(productName, productPrice) {
@@ -2490,26 +3036,36 @@
       let selectedRating = 0;
       const MAX_REVIEW_WORDS = 50;
 
-      // ۵ سوال ارزیابی + برچسب کوتاه برای نمایش در لیست نظرات
-      const REVIEW_QUESTIONS = [
-        { label: "کیفیت صدا و افکت‌ها", short: "کیفیت صدا" },
-        { label: "میزان تاخیر (Latency) هنگام اجرا", short: "تاخیر" },
-        { label: "سادگی و راحتی استفاده از اپلیکیشن", short: "سادگی استفاده" },
-        { label: "سازگاری با گوشی/دستگاه شما", short: "سازگاری" },
-        { label: "پشتیبانی و راهنمایی دریافتی", short: "پشتیبانی" },
-      ];
-      const ANSWER_OPTIONS = ["عالی", "خوب", "بد", "نمی‌دونم"];
+      // کلیدهای ثابت (زبان‌مستقل) سوالات ارزیابی و گزینه‌های پاسخ.
+      // برچسب نمایشی هرکدام از آبجکت translations[currentLang] خوانده می‌شود.
+      const REVIEW_QUESTION_KEYS = [0, 1, 2, 3, 4];
+      const ANSWER_KEYS = ["excellent", "good", "bad", "dontknow"];
 
-      // پاسخ فعلی هر سوال (index -> پاسخ یا null)
-      let questionAnswers = new Array(REVIEW_QUESTIONS.length).fill(null);
+      function getReviewQuestions() {
+        return translations[currentLang].reviewQuestions;
+      }
 
-      // نگاشت امتیاز ستاره‌ای به پاسخ‌های پیش‌فرض ۵ سوال، وقتی کاربر سوالات را پر نکرده
+      function getAnswerLabel(key) {
+        const data = translations[currentLang];
+        const map = {
+          excellent: data.answerExcellent,
+          good: data.answerGood,
+          bad: data.answerBad,
+          dontknow: data.answerDontKnow,
+        };
+        return map[key] || key;
+      }
+
+      // پاسخ فعلی هر سوال (index -> کلید پاسخ یا null)
+      let questionAnswers = new Array(REVIEW_QUESTION_KEYS.length).fill(null);
+
+      // نگاشت امتیاز ستاره‌ای به کلیدهای پاسخ پیش‌فرض ۵ سوال، وقتی کاربر سوالات را پر نکرده
       const RATING_TO_DEFAULT_ANSWERS = {
-        5: ["عالی", "عالی", "عالی", "عالی", "عالی"],
-        4: ["عالی", "عالی", "عالی", "عالی", "خوب"],
-        3: ["عالی", "عالی", "خوب", "خوب", "بد"],
-        2: ["عالی", "خوب", "خوب", "بد", "بد"],
-        1: ["خوب", "خوب", "بد", "بد", "بد"],
+        5: ["excellent", "excellent", "excellent", "excellent", "excellent"],
+        4: ["excellent", "excellent", "excellent", "excellent", "good"],
+        3: ["excellent", "excellent", "good", "good", "bad"],
+        2: ["excellent", "good", "good", "bad", "bad"],
+        1: ["good", "good", "bad", "bad", "bad"],
       };
 
       // رندر ۵ ستاره‌ی قابل کلیک
@@ -2560,8 +3116,9 @@
       function renderQuestionsPicker() {
         const container = document.getElementById("questionsPicker");
         container.innerHTML = "";
+        const questions = getReviewQuestions();
 
-        REVIEW_QUESTIONS.forEach((q, qIndex) => {
+        questions.forEach((q, qIndex) => {
           const row = document.createElement("div");
           row.className =
             "flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 bg-darkBg/60 border border-slate-800 rounded-xl px-4 py-3";
@@ -2574,13 +3131,18 @@
           const optionsWrap = document.createElement("div");
           optionsWrap.className = "flex items-center gap-2 flex-wrap";
 
-          ANSWER_OPTIONS.forEach((opt) => {
+          ANSWER_KEYS.forEach((key) => {
             const btn = document.createElement("button");
             btn.type = "button";
-            btn.innerText = opt;
+            btn.innerText = getAnswerLabel(key);
+            btn.dataset.key = key;
+            const isSelected = questionAnswers[qIndex] === key;
             btn.className =
-              "answer-opt text-xs px-3 py-1.5 rounded-full border border-slate-700 text-slate-400 hover:border-accentNeon transition-colors";
-            btn.addEventListener("click", () => setQuestionAnswer(qIndex, opt));
+              "answer-opt text-xs px-3 py-1.5 rounded-full border transition-colors " +
+              (isSelected
+                ? "border-accentNeon text-accentNeon bg-accentNeon/10"
+                : "border-slate-700 text-slate-400 hover:border-accentNeon");
+            btn.addEventListener("click", () => setQuestionAnswer(qIndex, key));
             optionsWrap.appendChild(btn);
           });
 
@@ -2589,12 +3151,12 @@
         });
       }
 
-      function setQuestionAnswer(qIndex, answer) {
-        questionAnswers[qIndex] = answer;
+      function setQuestionAnswer(qIndex, key) {
+        questionAnswers[qIndex] = key;
         const rows = document.querySelectorAll("#questionsPicker > div");
         const buttons = rows[qIndex].querySelectorAll(".answer-opt");
         buttons.forEach((btn) => {
-          if (btn.innerText === answer) {
+          if (btn.dataset.key === key) {
             btn.classList.remove("border-slate-700", "text-slate-400");
             btn.classList.add(
               "border-accentNeon",
@@ -2613,7 +3175,7 @@
       }
 
       function resetQuestionAnswers() {
-        questionAnswers = new Array(REVIEW_QUESTIONS.length).fill(null);
+        questionAnswers = new Array(REVIEW_QUESTION_KEYS.length).fill(null);
         document
           .querySelectorAll("#questionsPicker .answer-opt")
           .forEach((btn) => {
@@ -2639,17 +3201,18 @@
       async function submitReview(event) {
         event.preventDefault();
         hideReviewError();
+        const data = translations[currentLang];
 
         const name = document.getElementById("reviewName").value.trim();
         const email = document.getElementById("reviewEmail").value.trim();
         const rating = Number(document.getElementById("reviewRating").value);
 
         if (!name) {
-          showReviewError("لطفاً نامت رو پر کن.");
+          showReviewError(data.reviewErrName);
           return;
         }
         if (!rating || rating < 1 || rating > 5) {
-          showReviewError("امتیاز رو باید پر کنی.");
+          showReviewError(data.reviewErrRating);
           return;
         }
 
@@ -2664,7 +3227,7 @@
 
         const submitBtn = document.getElementById("reviewSubmitBtn");
         submitBtn.disabled = true;
-        submitBtn.innerText = "در حال ارسال...";
+        submitBtn.innerText = data.reviewSubmittingTxt;
 
         try {
           await db.collection("reviews").add({
@@ -2680,10 +3243,10 @@
           resetQuestionAnswers();
         } catch (err) {
           console.error("خطا در ثبت نظر:", err);
-          showReviewError("ثبت نظر با خطا مواجه شد. لطفاً دوباره تلاش کن.");
+          showReviewError(data.reviewErrSubmit);
         } finally {
           submitBtn.disabled = false;
-          submitBtn.innerText = "ثبت نظر";
+          submitBtn.innerText = data.reviewSubmitBtn;
         }
       }
 
@@ -2704,38 +3267,58 @@
       }
 
       function answersLineHtml(answers) {
-        return REVIEW_QUESTIONS.map((q, idx) => {
-          const answer = answers && answers[idx] ? answers[idx] : "—";
-          return `<span class="whitespace-nowrap">${escapeHtml(
-            q.short,
-          )}: <span class="text-slate-200">${escapeHtml(answer)}</span></span>`;
-        }).join('<span class="text-slate-700 mx-1">·</span>');
+        const questions = getReviewQuestions();
+        return questions
+          .map((q, idx) => {
+            const key = answers && answers[idx] ? answers[idx] : null;
+            const answerTxt = key ? getAnswerLabel(key) : "—";
+            return `<span class="whitespace-nowrap">${escapeHtml(
+              q.short,
+            )}: <span class="text-slate-200">${escapeHtml(
+              answerTxt,
+            )}</span></span>`;
+          })
+          .join('<span class="text-slate-700 mx-1">·</span>');
       }
 
       function updateSummary(snapshot) {
+        const questions = getReviewQuestions();
         // شمارش عالی/خوب/بد به تفکیک هر سوال (بر اساس ایندکس)
-        const counts = REVIEW_QUESTIONS.map(() => ({
-          ali: 0,
-          khoob: 0,
+        const counts = questions.map(() => ({
+          excellent: 0,
+          good: 0,
           bad: 0,
         }));
 
         snapshot.forEach((doc) => {
-          const answers = doc.data().answers || [];
+          const docData = doc.data();
+          let answers = docData.answers || [];
+
+          // اگه این نظر (مثلاً نظرات قدیمی‌تر از اضافه شدن ۵ سوال) هیچ پاسخ
+          // معتبری نداره، از روی همون امتیاز ستاره‌ای تخمین می‌زنیم تا توی
+          // خلاصه‌ی درصدها هم لحاظ بشه (این کار مستقل از زبان فعلی سایته).
+          const hasValidAnswers = answers.some(
+            (a) => a === "excellent" || a === "good" || a === "bad",
+          );
+          if (!hasValidAnswers) {
+            const rating = Number(docData.rating) || 0;
+            answers = RATING_TO_DEFAULT_ANSWERS[rating] || [];
+          }
+
           answers.forEach((a, idx) => {
             if (!counts[idx]) return;
-            if (a === "عالی") counts[idx].ali++;
-            else if (a === "خوب") counts[idx].khoob++;
-            else if (a === "بد") counts[idx].bad++;
+            if (a === "excellent") counts[idx].excellent++;
+            else if (a === "good") counts[idx].good++;
+            else if (a === "bad") counts[idx].bad++;
           });
         });
 
         const rowsContainer = document.getElementById("summaryRows");
         rowsContainer.innerHTML = "";
 
-        REVIEW_QUESTIONS.forEach((q, idx) => {
+        questions.forEach((q, idx) => {
           const c = counts[idx];
-          const total = c.ali + c.khoob + c.bad;
+          const total = c.excellent + c.good + c.bad;
           const pct = (n) => (total === 0 ? 0 : Math.round((n / total) * 100));
 
           const row = document.createElement("div");
@@ -2744,9 +3327,15 @@
           row.innerHTML = `
             <span class="text-slate-300">${escapeHtml(q.short)}</span>
             <span class="flex items-center gap-3 font-semibold">
-              <span class="text-emerald-400">عالی: ${pct(c.ali)}%</span>
-              <span class="text-sky-400">خوب: ${pct(c.khoob)}%</span>
-              <span class="text-rose-400">بد: ${pct(c.bad)}%</span>
+              <span class="text-emerald-400">${escapeHtml(
+                getAnswerLabel("excellent"),
+              )}: ${pct(c.excellent)}%</span>
+              <span class="text-sky-400">${escapeHtml(
+                getAnswerLabel("good"),
+              )}: ${pct(c.good)}%</span>
+              <span class="text-rose-400">${escapeHtml(
+                getAnswerLabel("bad"),
+              )}: ${pct(c.bad)}%</span>
             </span>
           `;
           rowsContainer.appendChild(row);
@@ -2759,8 +3348,7 @@
         updateSummary(snapshot);
 
         if (snapshot.empty) {
-          list.innerHTML =
-            '<p class="text-slate-500 text-sm text-center py-6">هنوز نظری ثبت نشده. اولین نفر باش!</p>';
+          list.innerHTML = `<p class="text-slate-500 text-sm text-center py-6">${translations[currentLang].reviewsEmptyTxt}</p>`;
           return;
         }
 
@@ -2780,15 +3368,20 @@
         });
       }
 
+      let lastReviewsSnapshot = null;
+
       function loadReviews() {
         db.collection("reviews")
           .orderBy("createdAt", "desc")
           .onSnapshot(
-            (snapshot) => renderReviews(snapshot),
+            (snapshot) => {
+              lastReviewsSnapshot = snapshot;
+              renderReviews(snapshot);
+            },
             (err) => {
               console.error("خطا در بارگذاری نظرات:", err);
               document.getElementById("reviewsList").innerHTML =
-                '<p class="text-rose-400 text-sm text-center py-6">بارگذاری نظرات با خطا مواجه شد.</p>';
+                `<p class="text-rose-400 text-sm text-center py-6">${translations[currentLang].reviewsLoadErrorTxt}</p>`;
             },
           );
       }
@@ -2808,6 +3401,7 @@
       async function submitQuestion(event) {
         event.preventDefault();
         hideQuestionError();
+        const data = translations[currentLang];
 
         const name = document.getElementById("questionName").value.trim();
         const message = document
@@ -2815,17 +3409,17 @@
           .value.trim();
 
         if (!name) {
-          showQuestionError("لطفاً نامت رو پر کن.");
+          showQuestionError(data.qaErrName);
           return;
         }
         if (!message) {
-          showQuestionError("لطفاً پیامت رو بنویس.");
+          showQuestionError(data.qaErrMessage);
           return;
         }
 
         const submitBtn = document.getElementById("questionSubmitBtn");
         submitBtn.disabled = true;
-        submitBtn.innerText = "در حال ارسال...";
+        submitBtn.innerText = data.qaSubmittingTxt;
 
         try {
           await db.collection("questions").add({
@@ -2839,28 +3433,32 @@
           document.getElementById("questionForm").reset();
         } catch (err) {
           console.error("خطا در ثبت پیام:", err);
-          showQuestionError("ارسال پیام با خطا مواجه شد. لطفاً دوباره تلاش کن.");
+          showQuestionError(data.qaErrSubmit);
         } finally {
           submitBtn.disabled = false;
-          submitBtn.innerText = "ارسال پیام";
+          submitBtn.innerText = data.qaSubmitBtn;
         }
       }
 
       function formatQuestionDate(timestamp) {
         if (!timestamp || !timestamp.toDate) return "";
-        return timestamp.toDate().toLocaleDateString("fa-IR", {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        });
+        const localeMap = { fa: "fa-IR", en: "en-US", tr: "tr-TR" };
+        return timestamp.toDate().toLocaleDateString(
+          localeMap[currentLang] || "en-US",
+          {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          },
+        );
       }
 
       function renderQuestions(snapshot) {
         const list = document.getElementById("questionsList");
+        const data = translations[currentLang];
 
         if (snapshot.empty) {
-          list.innerHTML =
-            '<p class="text-slate-500 text-sm text-center py-6">هنوز پیامی ثبت نشده. اولین نفر باش!</p>';
+          list.innerHTML = `<p class="text-slate-500 text-sm text-center py-6">${data.qaEmptyTxt}</p>`;
           return;
         }
 
@@ -2885,30 +3483,152 @@
             ${
               q.reply
                 ? `<div class="mt-4 pt-4 border-t border-slate-800 flex gap-2">
-                    <span class="text-accentNeon text-xs font-bold shrink-0">پاسخ من:</span>
+                    <span class="text-accentNeon text-xs font-bold shrink-0">${escapeHtml(
+                      data.qaReplyLabel,
+                    )}</span>
                     <p class="text-slate-300 text-sm leading-relaxed whitespace-pre-line">${escapeHtml(
                       q.reply,
                     )}</p>
                   </div>`
-                : `<p class="mt-3 text-slate-500 text-xs">در انتظار پاسخ...</p>`
+                : `<p class="mt-3 text-slate-500 text-xs">${escapeHtml(
+                    data.qaAwaitingReplyTxt,
+                  )}</p>`
             }
           `;
           list.appendChild(item);
         });
       }
 
+      let lastQuestionsSnapshot = null;
+
       function loadQuestions() {
         db.collection("questions")
           .orderBy("createdAt", "desc")
           .onSnapshot(
-            (snapshot) => renderQuestions(snapshot),
+            (snapshot) => {
+              lastQuestionsSnapshot = snapshot;
+              renderQuestions(snapshot);
+            },
             (err) => {
               console.error("خطا در بارگذاری پیام‌ها:", err);
               document.getElementById("questionsList").innerHTML =
-                '<p class="text-rose-400 text-sm text-center py-6">بارگذاری پیام‌ها با خطا مواجه شد.</p>';
+                `<p class="text-rose-400 text-sm text-center py-6">${translations[currentLang].qaLoadErrorTxt}</p>`;
             },
           );
       }
+
+      // ====== انتخابگر زبان کاستوم (با پرچم واقعی) ======
+      const langFlags = {
+        fa: {
+          flag: "https://flagcdn.com/24x18/ir.png",
+          flag2x: "https://flagcdn.com/48x36/ir.png",
+          label: "فارسی",
+        },
+        en: {
+          flag: "https://flagcdn.com/24x18/gb.png",
+          flag2x: "https://flagcdn.com/48x36/gb.png",
+          label: "English",
+        },
+        tr: {
+          flag: "https://flagcdn.com/24x18/tr.png",
+          flag2x: "https://flagcdn.com/48x36/tr.png",
+          label: "Türkçe",
+        },
+      };
+
+      let langDropdownOpen = false;
+
+      function toggleLangDropdown() {
+        langDropdownOpen = !langDropdownOpen;
+        const list = document.getElementById("langDropdownList");
+        const btn = document.getElementById("langDropdownBtn");
+        const chevron = document.getElementById("langDropdownChevron");
+
+        if (langDropdownOpen) {
+          list.classList.remove("hidden");
+          btn.setAttribute("aria-expanded", "true");
+          chevron.style.transform = "rotate(180deg)";
+        } else {
+          list.classList.add("hidden");
+          btn.setAttribute("aria-expanded", "false");
+          chevron.style.transform = "";
+        }
+      }
+
+      function closeLangDropdown() {
+        if (!langDropdownOpen) return;
+        langDropdownOpen = false;
+        document.getElementById("langDropdownList").classList.add("hidden");
+        document
+          .getElementById("langDropdownBtn")
+          .setAttribute("aria-expanded", "false");
+        document.getElementById("langDropdownChevron").style.transform = "";
+      }
+
+      function selectLanguage(lang) {
+        const info = langFlags[lang];
+        if (info) {
+          const flagEl = document.getElementById("langDropdownFlag");
+          flagEl.src = info.flag;
+          flagEl.srcset = info.flag2x + " 2x";
+          document.getElementById("langDropdownLabel").innerText =
+            info.label;
+        }
+        closeLangDropdown();
+        changeLanguage(lang);
+      }
+
+      // بستن منوی زبان با کلیک بیرون از آن
+      document.addEventListener("click", (e) => {
+        const wrap = document.getElementById("langDropdownWrap");
+        if (wrap && !wrap.contains(e.target)) closeLangDropdown();
+      });
+
+      // ====== منوی همبرگری موبایل ======
+      let mobileMenuOpen = false;
+
+      function toggleMobileMenu() {
+        mobileMenuOpen = !mobileMenuOpen;
+        const menu = document.getElementById("mobileMenu");
+        const btn = document.getElementById("mobileMenuBtn");
+        const l1 = document.getElementById("hamburgerLine1");
+        const l2 = document.getElementById("hamburgerLine2");
+        const l3 = document.getElementById("hamburgerLine3");
+
+        if (mobileMenuOpen) {
+          menu.classList.remove("hidden");
+          menu.classList.add("flex");
+          btn.setAttribute("aria-expanded", "true");
+          l1.style.transform = "translateY(7px) rotate(45deg)";
+          l2.style.opacity = "0";
+          l3.style.transform = "translateY(-7px) rotate(-45deg)";
+        } else {
+          menu.classList.add("hidden");
+          menu.classList.remove("flex");
+          btn.setAttribute("aria-expanded", "false");
+          l1.style.transform = "";
+          l2.style.opacity = "1";
+          l3.style.transform = "";
+        }
+      }
+
+      function closeMobileMenu() {
+        if (!mobileMenuOpen) return;
+        mobileMenuOpen = false;
+        const menu = document.getElementById("mobileMenu");
+        const btn = document.getElementById("mobileMenuBtn");
+        menu.classList.add("hidden");
+        menu.classList.remove("flex");
+        btn.setAttribute("aria-expanded", "false");
+        document.getElementById("hamburgerLine1").style.transform = "";
+        document.getElementById("hamburgerLine2").style.opacity = "1";
+        document.getElementById("hamburgerLine3").style.transform = "";
+      }
+
+      // اگر صفحه به حالت دسکتاپ بزرگ‌تر شد، منوی موبایل به‌صورت خودکار بسته شود
+      window.addEventListener("resize", () => {
+        if (window.innerWidth >= 768) closeMobileMenu();
+      });
 
       renderStarPicker();
       renderQuestionsPicker();

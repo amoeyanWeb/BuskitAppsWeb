@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fa" dir="rtl">
+<html lang="tr" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -226,7 +226,7 @@
                 alt=""
                 class="rounded-[2px] shrink-0"
               />
-              <span id="langDropdownLabel">فارسی</span>
+           <span id="langDropdownLabel">Türkçe</span>
               <svg
                 id="langDropdownChevron"
                 xmlns="http://www.w3.org/2000/svg"
@@ -710,10 +710,8 @@
         <div
           class="space-y-6 text-justify max-w-4xl mx-auto text-slate-200 leading-relaxed text-[17px]"
         >
-          <p id="liveFXP1" class="drop-shadow-[0_3px_10px_rgba(0,0,0,1)]">
-            اپلیکیشن باسکیت لایو افکت، یک اپلیکیشن همراه Real-Time واقعی
-            (بدون تأخیر) و ابزاری بدون جایگزین برای هر نوازنده یا خواننده
-            می‌باشد.
+          <p id="liveFXP1" class="text-center drop-shadow-[0_3px_10px_rgba(0,0,0,1)]">
+            اپلیکیشن باسکیت لایو افکت، فراتر از یک اپلیکیشن همراه با امکاناتی که در رویای هر نوازنده جلوه میکند
           </p>
 
           <p id="liveFXP2" class="drop-shadow-[0_3px_10px_rgba(0,0,0,1)]">
@@ -1191,7 +1189,7 @@
           >
             سازگار با انواع گوشی های بازار حتی مدلهای نسبتا قدیمی، قابلیت کار با
             هدست نرمال گوشی، قابلیت کار با irig همچنین قابل استفاده با دستگاه
-            BuskitGo از همین مجموعه.
+            Brig از همین مجموعه.
           </p>
         </div>
         <div
@@ -1461,6 +1459,7 @@
                   <span class="text-xs text-slate-400 mr-1" id="p1Currency"
                     >لیر</span
                   >
+                  <div class="text-[11px] text-slate-500 mt-1" id="p1RialVal"></div>
                 </div>
               </div>
               <button
@@ -1526,6 +1525,7 @@
                   <span class="text-xs text-slate-400 mr-1" id="p2Currency"
                     >لیر</span
                   >
+                  <div class="text-[11px] text-slate-500 mt-1" id="p2RialVal"></div>
                 </div>
               </div>
               <button
@@ -1591,6 +1591,7 @@
                   <span class="text-xs text-slate-400 mr-1" id="p3Currency"
                     >لیر</span
                   >
+                  <div class="text-[11px] text-slate-500 mt-1" id="p3RialVal"></div>
                 </div>
               </div>
               <button
@@ -1656,6 +1657,7 @@
                   <span class="text-xs text-slate-400 mr-1" id="p4Currency"
                     >لیر</span
                   >
+                  <div class="text-[11px] text-slate-500 mt-1" id="p4RialVal"></div>
                 </div>
               </div>
               <button
@@ -1725,6 +1727,7 @@
                   <span class="text-xs text-slate-400 mr-1" id="p5Currency"
                     >لیر</span
                   >
+                  <div class="text-[11px] text-slate-500 mt-1" id="p5RialVal"></div>
                 </div>
               </div>
             </div>
@@ -1860,6 +1863,10 @@
             <span id="modalProductPrice" class="text-accentNeon font-bold"
               >0</span
             >
+            <span
+              id="modalProductPriceRial"
+              class="text-slate-500 text-xs block mt-1"
+            ></span>
           </p>
 
           <!-- Accounts Info Box -->
@@ -1880,7 +1887,7 @@
                   >کارت بانکی ایران (ملت):</span
                 >
                 <button
-                  onclick="copyToClipboard('6037991234567890', this)"
+                  onclick="copyToClipboard('6104337333623831', this)"
                   class="text-xs text-accentNeon hover:underline flex items-center gap-1 copy-btn-txt"
                 >
                   کپی شماره کارت
@@ -1889,13 +1896,13 @@
               <p
                 class="text-white font-mono tracking-wider text-left bg-darkBg px-2 py-1.5 rounded border border-slate-800"
               >
-                ۶۰۳۷-۹۹۱۲-۳۴۵۶-۷۸۹۰
+                6104-3373-3362-3831
               </p>
               <p
                 class="text-slate-500 text-[11px] mt-0.5 text-left"
                 id="mBankIranOwner"
               >
-                به نام محمدرضا امیریام
+                به نام محمدرضا عموئیان
               </p>
             </div>
 
@@ -1906,7 +1913,7 @@
                   >حساب لیر ترکیه (Ziraat Bank):</span
                 >
                 <button
-                  onclick="copyToClipboard('TR120001000000001234567890', this)"
+                  onclick="copyToClipboard('TR100001000835962786005001', this)"
                   class="text-xs text-accentNeon hover:underline flex items-center gap-1 copy-btn-txt"
                 >
                   کپی IBAN
@@ -1915,7 +1922,7 @@
               <p
                 class="text-white font-mono tracking-wider text-left bg-darkBg px-2 py-1.5 rounded border border-slate-800 text-xs overflow-x-auto"
               >
-                TR12 0001 0000 0000 1234 5678 90
+                TR 1000 0100 0835 96278600 5001
               </p>
               <p class="text-slate-500 text-[11px] mt-0.5 text-left">
                 MohammadReza Amoeyan
@@ -2047,7 +2054,7 @@
           liveFXSubtitle:
             "یک اپلیکیشن Real-Time واقعی و بدون تأخیر، ابزاری بدون جایگزین برای هر نوازنده یا خواننده",
           liveFXP1:
-            "اپلیکیشن باسکیت لایو افکت، یک اپلیکیشن همراه Real-Time واقعی (بدون تأخیر) و ابزاری بدون جایگزین برای هر نوازنده یا خواننده می‌باشد.",
+           "اپلیکیشن باسکیت لایو افکت، فراتر از یک اپلیکیشن همراه با امکاناتی که تنها در رویای هر نوازنده جلوه میکند",
           liveFXP2:
             "این اپلیکیشن امکان اضافه کردن انواع افکت‌های صوتی زیر را فراهم می‌کند که می‌توان همزمان کلیه‌ی آن‌ها را نیز روی صوت ورودی اعمال نمود. همچنین امکان ضبط و ذخیره‌سازی مستقیم قطعات اجرا شده پس از اعمال افکت‌های انتخابی روی حافظه‌ی گوشی تلفن همراه را نیز دارد.",
           liveFXTag1: "اکولایزر",
@@ -2117,7 +2124,7 @@
             'امکانات این اپلیکیشن برای نوازندگان بسیار جذاب است نظیر: <ul class="list-disc pr-5 space-y-1"><li>امکان لود و همنوازی با ریتم‌های از پیش تعیین شده یا ترکی که خود نوازنده قبلاً اجرا کرده</li><li>امکان ذخیره قطعه نواخته شده روی حافظه گوشی با کیفیت بالا و گوش کردن آن در آینده</li><li>مترونوم منعطف که قابلیت اجرا هرگونه ریتم چه ساده و یا ترکیبی و چه لنگ را دارد</li><li>مجهز بودن به انواع افکت‌های مرسوم و پرکاربرد برای جلوه دادن به صدای ساز</li></ul>',
           f4Title: "سازگاری",
           f4Desc:
-            "سازگار با انواع گوشی های بازار حتی مدلهای نسبتا قدیمی، قابلیت کار با هدست نرمال گوشی، قابلیت کار با irig همچنین قابل استفاده با دستگاه BuskitGo از همین مجموعه.",
+            "سازگار با انواع گوشی های بازار حتی مدلهای نسبتا قدیمی، قابلیت کار با هدست نرمال گوشی، قابلیت کار با irig همچنین قابل استفاده با دستگاه Brig از همین مجموعه.",
           f5Title: "امکان تست رایگان",
           f5Desc:
             "لایسنس 5 روزه رایگان تست نرم افزار و قابلیت های آن وهمچنین بررسی سازگاری با دستگاه تلفن همراه یا تبلت هنرمندان گرامی",
@@ -2134,8 +2141,10 @@
           shopProductNameLabel: "نام محصول :",
           shopPriceLabel: "قیمت لایسنس:",
           shopCurrency: "لیر",
-          shopBuyBtn: "خرید",
+          rialLabel: "ریال",
+          millionLabel: "میلیون",
           shopProductTitle: "Buskit-LiveFX application",
+          shopBuyBtn:"خرید",
           p1Badge: "لایسنس دائمی - طلایی",
           p1B1: "این لایسنس مادام‌العمر فعال است",
           p1B2: "کلیه افکت‌ها و امکانات اپلیکیشن فعال است",
@@ -2169,7 +2178,7 @@
           mPriceLabel: "قیمت:",
           mBankHeading: "حساب‌های بانکی جهت واریز وجه:",
           mBankIranLabel: "کارت بانکی ایران (ملت):",
-          mBankIranOwner: "به نام محمدرضا امیریام",
+          mBankIranOwner: "به نام محمدرضا عموئیان",
           mBankTrLabel: "حساب لیر ترکیه (Ziraat Bank):",
           copyBtnTxt: "کپی شماره کارت",
           copyIbanTxt: "کپی IBAN",
@@ -2240,7 +2249,7 @@
           navHome: "Home",
           navAboutme: "About Me",
           navLiveFX: "What is LiveFX",
-          navFeatures: "Features",
+          navFeatures: "Why LiveFX",
           navUsersReview: "Reviews",
           navVideos: "Live Sessions",
           navShop: "Products",
@@ -2270,7 +2279,7 @@
           liveFXSubtitle:
             "A true real-time, zero-latency app — an irreplaceable tool for every musician or singer.",
           liveFXP1:
-            "The Buskit LiveFX app is a true real-time (zero-latency) companion app and an irreplaceable tool for every musician or singer.",
+           "Buskit LiveFX: Far beyond a mobile app. An irreplaceable tool with features every musician only dreams of.",
           liveFXP2:
             "This app lets you add a wide range of audio effects, all of which can be applied to the input signal at the same time. It can also record and save your performances directly to your phone's storage after the selected effects have been applied.",
           liveFXTag1: "Equalizer",
@@ -2339,7 +2348,7 @@
             'This app offers a set of features musicians love, including: <ul class="list-disc pr-5 space-y-1"><li>Loading and playing along with preset rhythms or your own previously recorded tracks</li><li>Saving your performances in high quality directly to your phone\'s storage to listen to later</li><li>A flexible metronome capable of playing any rhythm — simple, compound, or odd meters</li><li>A wide range of popular, widely used effects to enhance your instrument\'s sound</li></ul>',
           f4Title: "Compatibility",
           f4Desc:
-            "Compatible with virtually all phones on the market, even fairly old models. Works with a standard phone headset, with iRig hardware, and with the BuskitGo device from the same product line.",
+            "Compatible with virtually all phones on the market, even fairly old models. Works with a standard phone headset, with iRig hardware, and with the Brig device from the same product line.",
           f5Title: "Free Trial",
           f5Desc:
             "A free 5-day license to test the software and its features, and to check compatibility with your phone or tablet.",
@@ -2356,9 +2365,10 @@
           shopProductNameLabel: "Product Name:",
           shopPriceLabel: "License Price:",
           shopCurrency: "TL",
-          shopBuyBtn: "Buy",
-          shopProductTitle: "Buskit-LiveFX application",
+          rialLabel: "Rial",
+          millionLabel: "Million",
           p1Badge: "Lifetime License – Gold",
+          shopBuyBtn:"Get It Now",
           p1B1: "This license is active for a lifetime",
           p1B2: "All effects and app features are unlocked",
           p1B3: "Lifetime technical support and updates",
@@ -2391,7 +2401,7 @@
           mPriceLabel: "Price:",
           mBankHeading: "Bank Wire / Transfer Details for Payment:",
           mBankIranLabel: "Iran Bank Account (Mellat Card):",
-          mBankIranOwner: "Cardholder: MohammadReza AmiriAn",
+          mBankIranOwner: "Cardholder: MohammadReza Amoeyan",
           mBankTrLabel: "Turkey Lira Account (Ziraat Bank):",
           copyBtnTxt: "Copy Card",
           copyIbanTxt: "Copy IBAN",
@@ -2463,7 +2473,7 @@
           navHome: "Anasayfa",
           navAboutme: "Hakkımda",
           navLiveFX: "LiveFX Nedir",
-          navFeatures: "Özellikler",
+          navFeatures: "Neden LiveFX",
           navUsersReview: "Yorumlar",
           navVideos: "Canlı Performans",
           navShop: "Ürünler",
@@ -2493,7 +2503,7 @@
           liveFXSubtitle:
             "Gerçek zamanlı ve gecikmesiz bir uygulama; her müzisyen veya şarkıcı için vazgeçilmez bir araç.",
           liveFXP1:
-            "Buskit LiveFX uygulaması, gerçek zamanlı (gecikmesiz) bir mobil uygulama ve her müzisyen veya şarkıcı için vazgeçilmez bir araçtır.",
+           "Buskit LiveFX; her müzisyenin sadece rüyalarında görebileceği özellikleriyle, bir mobil uygulamanın çok ötesinde.",
           liveFXP2:
             "Bu uygulama, giriş sesine aynı anda uygulanabilen çok çeşitli ses efektleri eklemenize olanak tanır. Ayrıca seçilen efektler uygulandıktan sonra performanslarınızı doğrudan telefonunuzun hafızasına kaydedip saklayabilirsiniz.",
           liveFXTag1: "Ekolayzer",
@@ -2563,7 +2573,7 @@
             'Bu uygulama, müzisyenlerin seveceği birçok özellik sunar, örneğin: <ul class="list-disc pr-5 space-y-1"><li>Önceden tanımlanmış ritimleri veya kendi kaydettiğiniz parçaları yükleyip birlikte çalabilme</li><li>Çaldığınız parçayı yüksek kalitede doğrudan telefon hafızasına kaydedip daha sonra dinleyebilme</li><li>Basit, bileşik veya aksak her türlü ritmi çalabilen esnek bir metronom</li><li>Enstrümanınızın sesini zenginleştiren yaygın ve sık kullanılan efektlere sahip olma</li></ul>',
           f4Title: "Uyumluluk",
           f4Desc:
-            "Piyasadaki hemen hemen tüm telefonlarla, hatta oldukça eski modellerle bile uyumludur. Telefonun standart kulaklık setiyle, iRig donanımıyla ve aynı üründen BuskitGo cihazıyla çalışabilir.",
+            "Piyasadaki hemen hemen tüm telefonlarla, hatta oldukça eski modellerle bile uyumludur. Telefonun standart kulaklık setiyle, iRig donanımıyla ve aynı üründen Brig cihazıyla çalışabilir.",
           f5Title: "Ücretsiz Deneme İmkanı",
           f5Desc:
             "Yazılımı ve özelliklerini test etmek, ayrıca telefon veya tabletinizle uyumluluğunu kontrol etmek için 5 günlük ücretsiz deneme lisansı.",
@@ -2580,8 +2590,9 @@
           shopProductNameLabel: "Ürün Adı:",
           shopPriceLabel: "Lisans Ücreti:",
           shopCurrency: "TL",
-          shopBuyBtn: "Satın Al",
-          shopProductTitle: "Buskit-LiveFX application",
+          rialLabel: "Riyal",
+          millionLabel: "Milyon",
+          shopBuyBtn:"Şimdi Satın Al",
           p1Badge: "Ömür Boyu Lisans – Altın",
           p1B1: "Bu lisans ömür boyu aktiftir",
           p1B2: "Tüm efektler ve uygulama özellikleri açıktır",
@@ -2615,7 +2626,7 @@
           mPriceLabel: "Fiyat:",
           mBankHeading: "Ödeme İçin Banka Hesap Bilgileri / Havale:",
           mBankIranLabel: "İran Banka Hesabı (Mellat Kart):",
-          mBankIranOwner: "Hesap Sahibi: MohammadReza AmiriAn",
+          mBankIranOwner: "Hesap Sahibi: MohammadReza Amoeyan",
           mBankTrLabel: "Türkiye Lira Hesabı (Ziraat Bankası):",
           copyBtnTxt: "Kodu Kopyala",
           copyIbanTxt: "IBAN Kopyala",
@@ -2685,7 +2696,79 @@
         },
       };
 
-      let currentLang = "fa";
+      let currentLang = "tr";
+
+      // ====== نرخ لحظه‌ای تبدیل لیر ترکیه به ریال ایران ======
+      // منبع اصلی: ExchangeRate-API (open.er-api.com) — سرویس رایگان بدون نیاز به کلید
+      // اگه دسترسی مستقیم به این آدرس (به هر دلیلی، مثل CORS) با خطا مواجه بشه،
+      // از یک پراکسی عمومی به‌عنوان مسیر دوم استفاده می‌کنیم تا صفحه خالی نمونه.
+      let tryToIrrRate = null; // آخرین نرخ دریافت‌شده (۱ لیر معادل چند ریال است)
+      const TRY_IRR_SOURCE_URL = "https://open.er-api.com/v6/latest/TRY";
+      const TRY_IRR_FALLBACK_URL =
+        "https://api.allorigins.win/raw?url=" +
+        encodeURIComponent(TRY_IRR_SOURCE_URL);
+
+      async function fetchJsonWithFallback() {
+        try {
+          const res = await fetch(TRY_IRR_SOURCE_URL);
+          if (!res.ok) throw new Error("HTTP " + res.status);
+          return await res.json();
+        } catch (directErr) {
+          console.warn(
+            "دسترسی مستقیم به open.er-api.com ناموفق بود، تلاش از طریق پراکسی:",
+            directErr
+          );
+          const res2 = await fetch(TRY_IRR_FALLBACK_URL);
+          if (!res2.ok) throw new Error("HTTP " + res2.status);
+          return await res2.json();
+        }
+      }
+
+      async function fetchTryToIrrRate() {
+        try {
+          const json = await fetchJsonWithFallback();
+          if (json && json.result === "success" && json.rates && json.rates.IRR) {
+            tryToIrrRate = json.rates.IRR;
+            updateRialPrices();
+          } else {
+            console.error("پاسخ نامعتبر از سرویس نرخ ارز:", json);
+          }
+        } catch (err) {
+          console.error("خطا در دریافت نرخ لیر به ریال (هر دو مسیر ناموفق بودند):", err);
+        }
+      }
+
+      // معادل ریالی هر قیمت رو کنار همون قیمت (لیر) می‌نویسه
+      // مبلغ ریالی رو به «میلیون» رند می‌کنه (برای اعداد کوچیک‌تر از ۱۰ میلیون، یک رقم اعشار نگه می‌داره)
+      function formatRialAmount(rialAmount, data) {
+        const rialLabel = (data && data.rialLabel) || "ریال";
+        const millionLabel = (data && data.millionLabel) || "میلیون";
+        const millions = rialAmount / 1000000;
+        const rounded =
+          millions >= 10 ? Math.round(millions) : Math.round(millions * 10) / 10;
+        return `≈ ${rounded.toLocaleString("fa-IR")} ${millionLabel} ${rialLabel}`;
+      }
+
+      function updateRialPrices() {
+        if (!tryToIrrRate) return;
+        const data = translations[currentLang];
+        ["p1", "p2", "p3", "p4", "p5"].forEach((pid) => {
+          const valEl = document.getElementById(pid + "PriceVal");
+          const rialEl = document.getElementById(pid + "RialVal");
+          if (!valEl || !rialEl) return;
+          const liraPrice = parseFloat(valEl.innerText);
+          if (!liraPrice || isNaN(liraPrice) || liraPrice <= 0) {
+            rialEl.innerText = "";
+            return;
+          }
+          const rialAmount = Math.round(liraPrice * tryToIrrRate);
+          rialEl.innerText = formatRialAmount(rialAmount, data);
+        });
+      }
+
+      // دریافت اولیه‌ی نرخ و به‌روزرسانی خودکار آن هر یک ساعت
+      fetchTryToIrrRate();
+      setInterval(fetchTryToIrrRate, 60 * 60 * 1000);
 
       function changeLanguage(lang) {
         currentLang = lang;
@@ -2958,6 +3041,11 @@
         if (typeof renderQuestions === "function" && lastQuestionsSnapshot) {
           renderQuestions(lastQuestionsSnapshot);
         }
+
+        // به‌روزرسانی معادل ریالی قیمت‌ها با زبان جدید (از نرخ کش‌شده استفاده می‌کند)
+        if (typeof updateRialPrices === "function") {
+          updateRialPrices();
+        }
       }
 
       function triggerModalPurchase(productKey) {
@@ -2967,12 +3055,22 @@
         const badge = data[pid + "Badge"];
         const fullPriceStr = priceVal + " " + data.shopCurrency;
         const productLabel = data.shopProductTitle + " — " + badge;
-        openPurchaseModal(productLabel, fullPriceStr);
+
+        let rialStr = "";
+        const liraNum = parseFloat(priceVal);
+        if (tryToIrrRate && liraNum > 0) {
+          const rialAmount = Math.round(liraNum * tryToIrrRate);
+          rialStr = formatRialAmount(rialAmount, data);
+        }
+
+        openPurchaseModal(productLabel, fullPriceStr, rialStr);
       }
 
-      function openPurchaseModal(productName, productPrice) {
+      function openPurchaseModal(productName, productPrice, productPriceRial) {
         document.getElementById("modalProductName").innerText = productName;
         document.getElementById("modalProductPrice").innerText = productPrice;
+        document.getElementById("modalProductPriceRial").innerText =
+          productPriceRial || "";
 
         const modal = document.getElementById("purchaseModal");
         modal.classList.remove("hidden");
@@ -3028,7 +3126,7 @@
 
       // بارگذاری اولیه با زبان پیش‌فرض (فارسی)
       window.addEventListener("DOMContentLoaded", () => {
-        changeLanguage("fa");
+        changeLanguage("tr");
       });
 
       // ====== بخش نظر کاربران (ذخیره در Firebase Firestore) ======

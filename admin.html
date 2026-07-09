@@ -52,10 +52,12 @@
         <div>
           <label class="block text-slate-400 text-xs mb-1.5">ایمیل:</label>
           <input
-            type="email"
+            type="text"
             id="adminEmail"
             required
             dir="ltr"
+            autocomplete="off"
+            value="A.M@   K..P..M.."
             class="w-full bg-[#0d0e12] border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00f5d4] transition-colors font-mono text-left"
           />
         </div>
@@ -67,6 +69,8 @@
             id="adminPassword"
             required
             dir="ltr"
+            autocomplete="new-password"
+            value=""
             class="w-full bg-[#0d0e12] border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00f5d4] transition-colors font-mono text-left"
           />
         </div>
@@ -79,6 +83,14 @@
           class="w-full py-3 bg-[#00f5d4] text-[#0d0e12] font-bold rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50"
         >
           ورود
+        </button>
+
+        <button
+          type="button"
+          onclick="handleForgotPassword()"
+          class="w-full text-center text-xs text-slate-400 hover:text-[#00f5d4] transition-colors"
+        >
+          رمز عبور رو فراموش کردم
         </button>
       </form>
     </div>
@@ -96,6 +108,37 @@
         >
           خروج
         </button>
+      </div>
+
+      <!-- آمار بازدید سایت -->
+      <div
+        class="mb-8 p-5 bg-[#161920] border border-white/10 rounded-2xl flex items-center justify-between"
+      >
+        <div>
+          <p class="text-slate-400 text-xs mb-1">تعداد بازدید سایت</p>
+          <p id="siteVisitsCount" class="text-2xl font-bold text-[#00f5d4]">
+            در حال بارگذاری...
+          </p>
+        </div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-9 h-9 text-slate-600"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+          />
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+          />
+        </svg>
       </div>
 
       <!-- تب‌ها -->
@@ -207,8 +250,40 @@
       }
 
       function handleLogout() {
-        auth.signOut();
+        auth.signOut().then(() => {
+          window.location.href = "./index.html";
+        });
       }
+
+      function handleForgotPassword() {
+        const email = document.getElementById("adminEmail").value.trim();
+        const errEl = document.getElementById("loginError");
+        errEl.classList.remove("text-emerald-400");
+        errEl.classList.add("text-rose-400");
+
+        if (!email) {
+          errEl.innerText = "اول ایمیل ادمین رو در فیلد بالا وارد کن.";
+          errEl.classList.remove("hidden");
+          return;
+        }
+
+        auth
+          .sendPasswordResetEmail(email)
+          .then(() => {
+            errEl.classList.remove("text-rose-400");
+            errEl.classList.add("text-emerald-400");
+            errEl.innerText =
+              "لینک بازیابی رمز عبور به ایمیل " + email + " ارسال شد. صندوق ورودی (و اسپم) رو چک کن.";
+            errEl.classList.remove("hidden");
+          })
+          .catch((err) => {
+            console.error("خطا در ارسال ایمیل بازیابی:", err);
+            errEl.innerText = "ارسال لینک بازیابی ناموفق بود. ایمیل رو بررسی کن.";
+            errEl.classList.remove("hidden");
+          });
+      }
+
+      let siteVisitDecremented = false;
 
       auth.onAuthStateChanged((user) => {
         if (user) {
@@ -216,11 +291,47 @@
           document.getElementById("adminPanel").classList.remove("hidden");
           document.getElementById("adminUserLabel").innerText = user.email;
           loadAdminQuestions();
+          loadSiteVisits();
+
+          // هر بار که وارد پنل ادمین می‌شویم، یک بازدید (که خودمان برای رسیدن به این صفحه ایجاد کردیم) کم می‌شود
+          if (!siteVisitDecremented) {
+            siteVisitDecremented = true;
+            decrementSiteVisits();
+          }
         } else {
           document.getElementById("loginGate").classList.remove("hidden");
           document.getElementById("adminPanel").classList.add("hidden");
         }
       });
+
+      // ====== آمار بازدید سایت ======
+      function loadSiteVisits() {
+        const el = document.getElementById("siteVisitsCount");
+        db.collection("stats")
+          .doc("siteVisits")
+          .get()
+          .then((doc) => {
+            const count = doc.exists ? doc.data().count || 0 : 0;
+            el.innerText = count.toLocaleString("fa-IR");
+          })
+          .catch((err) => {
+            console.error("خطا در دریافت آمار بازدید:", err);
+            el.innerText = "—";
+          });
+      }
+
+      function decrementSiteVisits() {
+        db.collection("stats")
+          .doc("siteVisits")
+          .set(
+            { count: firebase.firestore.FieldValue.increment(-1) },
+            { merge: true },
+          )
+          .then(() => loadSiteVisits())
+          .catch((err) => {
+            console.error("خطا در کم‌کردن آمار بازدید:", err);
+          });
+      }
 
       // ====== نمایش و مدیریت پیام‌ها ======
       function escapeHtml(str) {

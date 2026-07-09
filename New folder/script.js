@@ -21,6 +21,24 @@ const translations = {
     heroDownloadBtnLiveFX: "دانلود رایگان LiveFX",
     heroDownloadBtnLMT: "دانلود رایگان Live Music Tools",
     heroDownloadBtnLMTpro: "دانلود رایگان Live Music Tools(PRO)",
+    heroTipLiveFX1: "13 افکت",
+    heroTipLiveFX2: "تیونر کروماتیک",
+    heroTipLiveFX3: "مترونوم فلکسیبل",
+    heroTipLiveFX4: "بیش از 35 تنظیم پیش‌فرض",
+    heroTipLMT1: "13 افکت",
+    heroTipLMT2: "تیونر کروماتیک",
+    heroTipLMT3: "مترونوم فلکسیبل",
+    heroTipLMT4: "بیش از 35 تنظیم پیش‌فرض",
+    heroTipLMT5: "امکان ضبط صدا",
+    heroTipLMT6: "امکان لود بکینگ ترک",
+    heroTipLMT7: "امکان تغییر سرعت بکینگ ترک",
+    heroTipPro1: "15 افکت",
+    heroTipPro2: "بیش از 40 تنظیم پیش‌فرض",
+    heroTipPro3: "تیونر کروماتیک + میکروتونال",
+    heroTipPro4: "مترونوم فلکسیبل",
+    heroTipPro5: "امکان ضبط صدا",
+    heroTipPro6: "امکان لود بکینگ ترک",
+    heroTipPro7: "امکان تغییر سرعت بکینگ ترک بدون تغییر فرکانس",
 
     aboutTitle: "درباره من",
     aboutP1:
@@ -129,11 +147,12 @@ const translations = {
     shopBuyBtn: "خرید",
 
     p1Badge: "لایسنس مادام‌العمر LiveFX",
+    p1Title: "لایسنس مادام العمراپلیکیشن LiveFX",
     p1B1: "این لایسنس برای همیشه فعال باقی می‌ماند",
     p1B2: "قفل تمام افکت‌ها و قابلیت‌های برنامه باز می‌شود",
     p1B3: "شامل پشتیبانی فنی و به‌روزرسانی‌های مادام‌العمر",
     p1B4: "شامل ۵۰ درصد تخفیف برای تمام محصولات نرم‌افزاری آینده",
-    p1PriceVal: "1500",
+    p1PriceVal: "1000",
 
     p2Badge: "لایسنس ۱ ماهه LMT",
     p2Title: "لایسنس یک ماهه اپلیکیشن Live Music Tools",
@@ -143,18 +162,21 @@ const translations = {
     p2PriceVal: "150",
 
     p3Badge: "لایسنس ۱ ساله LiveFX",
+    p3Title: "لایسنس یک ساله اپلیکیشن LiveFX",
     p3B1: "معتبر دقیقاً به مدت یک سال از تاریخ اولین فعال‌سازی",
     p3B2: "قفل تمام افکت‌ها و قابلیت‌های برنامه باز می‌شود",
     p3B3: "شامل یک سال پشتیبانی فنی و به‌روزرسانی",
-    p3PriceVal: "500",
+    p3PriceVal: "600",
 
     p4Badge: "لایسنس ۱ ماهه LiveFX",
+    p4Title: "لایسنس یک ماهه اپلیکیشن LiveFX",
     p4B1: "معتبر دقیقاً به مدت یک ماه از تاریخ اولین فعال‌سازی",
     p4B2: "قفل تمام افکت‌ها و قابلیت‌های برنامه باز می‌شود",
     p4B3: "شامل یک ماه پشتیبانی فنی و به‌روزرسانی",
     p4PriceVal: "100",
 
     p5Badge: "لایسنس رایگان",
+    p5Title: " لایسنس رایگان برای هر سه نسخه اپلیکیشن ",
     p5B1: "معتبر دقیقاً به مدت پنج روز از تاریخ اولین فعال‌سازی",
     p5B2: "قفل تمام افکت‌ها و قابلیت‌های برنامه باز می‌شود",
     p5B3: "شامل پنج روز پشتیبانی فنی و به‌روزرسانی",
@@ -200,7 +222,7 @@ const translations = {
     p10B2: "قفل تمام افکت‌ها و قابلیت‌های برنامه باز می‌شود",
     p10B3: "شامل پشتیبانی فنی و به‌روزرسانی‌های مادام‌العمر",
     p10B4: "۲۵ درصد تخفیف برای تمام اپلیکیشن‌ها و به‌روزرسانی‌های آینده",
-    p10PriceVal: "1800",
+    p10PriceVal: "1350",
 
     p11Badge: "سخت‌افزار",
     p11Desc: "نام محصول",
@@ -218,7 +240,7 @@ const translations = {
     p13Desc: "نام محصول",
     p13Title: "کابل استریو",
     p13B1: "کابل صدا استریو ۳.۵ میلی‌متری دو سر فیش (نری به نری)",
-    p13PriceVal: "200",
+    p13PriceVal: "130",
 
     p14Badge: "سخت‌افزار",
     p14Desc: "نام محصول",
@@ -364,6 +386,24 @@ const translations = {
     heroDownloadBtnLiveFX: "Download LiveFX for Free",
     heroDownloadBtnLMT: "Download Live Music Tools for Free",
     heroDownloadBtnLMTpro: "Download Live Music Tools (PRO) for Free",
+    heroTipLiveFX1: "13 Effects",
+    heroTipLiveFX2: "Chromatic Tuner",
+    heroTipLiveFX3: "Flexible Metronome",
+    heroTipLiveFX4: "35+ Built-in Presets",
+    heroTipLMT1: "13 Effects",
+    heroTipLMT2: "Chromatic Tuner",
+    heroTipLMT3: "Flexible Metronome",
+    heroTipLMT4: "35+ Built-in Presets",
+    heroTipLMT5: "Audio Recording",
+    heroTipLMT6: "Backing Track Loading",
+    heroTipLMT7: "Backing Track Speed Change",
+    heroTipPro1: "15 Effects",
+    heroTipPro2: "40+ Built-in Presets",
+    heroTipPro3: "Chromatic + Microtonal Tuner",
+    heroTipPro4: "Flexible Metronome",
+    heroTipPro5: "Audio Recording",
+    heroTipPro6: "Backing Track Loading",
+    heroTipPro7: "Backing Track Speed Change Without Pitch Shift",
 
     aboutTitle: "About Me",
     aboutP1:
@@ -474,11 +514,12 @@ const translations = {
     shopBuyBtn: "Buy",
 
     p1Badge: "Lifetime LiveFX License ",
+    p1Title: "Lifetime LiveFX application license ",
     p1B1: "This license remains active forever",
     p1B2: "All application effects and features are unlocked",
     p1B3: "Lifetime technical support and updates included",
     p1B4: "Entitles you to a 50% discount on all future software products",
-    p1PriceVal: "1500",
+    p1PriceVal: "1000",
 
     p2Badge: "1-Month LMT License",
     p2Title: "One month Live Music Tools APP license",
@@ -488,18 +529,21 @@ const translations = {
     p2PriceVal: "150",
 
     p3Badge: "1-Year LiveFX License",
+    p3Title: "One year LiveFX application license",
     p3B1: "Valid for exactly one year from the first activation date",
     p3B2: "All application effects and features are unlocked",
     p3B3: "One year of technical support and updates included",
-    p3PriceVal: "500",
+    p3PriceVal: "600",
 
     p4Badge: "1-Month LiveFX License",
+    p4Title: "One month LiveFX application license",
     p4B1: "Valid for exactly one month from the first activation date",
     p4B2: "All application effects and features are unlocked",
     p4B3: "One month of technical support and updates included",
     p4PriceVal: "100",
 
     p5Badge: "Free License",
+    p5Title: "Free license for all three applications LiveFX, LMT, LMT(PRO)",
     p5B1: "Valid for exactly five days from the first activation date",
     p5B2: "All application effects and features are unlocked",
     p5B3: "Five days of technical support and updates included",
@@ -545,7 +589,7 @@ const translations = {
     p10B2: "All application effects and features are unlocked",
     p10B3: "Lifetime technical support and updates included",
     p10B4: "25% discount for all future APPs and updates ",
-    p10PriceVal: "1800",
+    p10PriceVal: "1350",
 
     p11Badge: "Hardware",
     p11Desc: "Product name",
@@ -563,7 +607,7 @@ const translations = {
     p13Desc: "Product name",
     p13Title: "Stereo cable",
     p13B1: "3.5mm Male to Male Stereo Audio Cable",
-    p13PriceVal: "200",
+    p13PriceVal: "130",
 
     p14Badge: "Hardware",
     p14Desc: "Product name",
@@ -711,6 +755,24 @@ const translations = {
     heroDownloadBtnLiveFX: "Ücretsiz LiveFX İndir",
     heroDownloadBtnLMT: "Ücretsiz Live Music Tools İndir",
     heroDownloadBtnLMTpro: "Ücretsiz Live Music Tools (PRO) İndir",
+    heroTipLiveFX1: "13 Efekt",
+    heroTipLiveFX2: "Kromatik Akort Aleti",
+    heroTipLiveFX3: "Esnek Metronom",
+    heroTipLiveFX4: "35'ten fazla hazır ayar",
+    heroTipLMT1: "13 Efekt",
+    heroTipLMT2: "Kromatik Akort Aleti",
+    heroTipLMT3: "Esnek Metronom",
+    heroTipLMT4: "35'ten fazla hazır ayar",
+    heroTipLMT5: "Ses kaydı özelliği",
+    heroTipLMT6: "Altyapı parçası yükleme",
+    heroTipLMT7: "Altyapı parçası hızını değiştirme",
+    heroTipPro1: "15 Efekt",
+    heroTipPro2: "40'tan fazla hazır ayar",
+    heroTipPro3: "Kromatik + Mikrotonal Akort Aleti",
+    heroTipPro4: "Esnek Metronom",
+    heroTipPro5: "Ses kaydı özelliği",
+    heroTipPro6: "Altyapı parçası yükleme",
+    heroTipPro7: "Perde bozulmadan altyapı parçası hızını değiştirme",
 
     aboutTitle: "Hakkımda",
     aboutP1:
@@ -820,39 +882,43 @@ const translations = {
     shopProductTitle: "Buskit-LiveFX application",
     shopBuyBtn: "Satın Al",
     p1Badge: "Ömür Boyu LiveFX Lisansı",
+    p1Title: "Ömür boyu LiveFX uygulama lisansı",
     p1B1: "Bu lisans sonsuza kadar aktif kalır",
-    p1B2: "Tüm uygulama efektleri ve özelliklerinin kilidi açılır",
+    p1B2: "Tüm uygulama efektlerinin ve özelliklerinin kilidi açılır",
     p1B3: "Ömür boyu teknik destek ve güncellemeler dahildir",
     p1B4: "Gelecekteki tüm yazılım ürünlerinde %50 indirim hakkı sağlar",
-    p1PriceVal: "1500",
+    p1PriceVal: "1000",
 
     p2Badge: "1 Aylık LMT Lisansı",
-    p2Title: "Bir aylık LMT APP lisansı",
+    p2Title: "Bir aylık Live Music Tools UYGULAMA lisansı",
     p2B1: "İlk aktivasyon tarihinden itibaren tam bir ay boyunca geçerlidir",
-    p2B2: "Tüm uygulama efektleri ve özelliklerinin kilidi açılır",
+    p2B2: "Tüm uygulama efektlerinin ve özelliklerinin kilidi açılır",
     p2B3: "Bir aylık teknik destek ve güncellemeler dahildir",
     p2PriceVal: "150",
 
     p3Badge: "1 Yıllık LiveFX Lisansı",
+    p3Title: "Bir yıllık LiveFX uygulama lisansı",
     p3B1: "İlk aktivasyon tarihinden itibaren tam bir yıl boyunca geçerlidir",
-    p3B2: "Tüm uygulama efektleri ve özelliklerinin kilidi açılır",
+    p3B2: "Tüm uygulama efektlerinin ve özelliklerinin kilidi açılır",
     p3B3: "Bir yıllık teknik destek ve güncellemeler dahildir",
-    p3PriceVal: "500",
+    p3PriceVal: "600",
 
     p4Badge: "1 Aylık LiveFX Lisansı",
+    p4Title: "Bir aylık LiveFX uygulama lisansı",
     p4B1: "İlk aktivasyon tarihinden itibaren tam bir ay boyunca geçerlidir",
-    p4B2: "Tüm uygulama efektleri ve özelliklerinin kilidi açılır",
+    p4B2: "Tüm uygulama efektlerinin ve özelliklerinin kilidi açılır",
     p4B3: "Bir aylık teknik destek ve güncellemeler dahildir",
     p4PriceVal: "100",
 
     p5Badge: "Ücretsiz Lisans",
+    p5Title:
+      "Üç uygulamanın tamamı için (LiveFX, LMT, LMT(PRO)) ücretsiz lisans",
     p5B1: "İlk aktivasyon tarihinden itibaren tam beş gün boyunca geçerlidir",
-    p5B2: "Tüm uygulama efektleri ve özelliklerinin kilidi açılır",
+    p5B2: "Tüm uygulama efektlerinin ve özelliklerinin kilidi açılır",
     p5B3: "Beş günlük teknik destek ve güncellemeler dahildir",
     p5LicenseLabel: "Lisans:",
     p5PriceVal: "0",
-    disabledTxt: "Stokta Yok",
-
+    disabledTxt: "Tükendi",
     p6Badge: "1 yıllık LMT Lisansı",
     p6Desc: "Ürün adı",
     p6Title: "Bir yıllık LMT APP lisansı",
@@ -891,7 +957,7 @@ const translations = {
     p10B2: "Tüm uygulama efektleri ve özelliklerinin kilidi açılır",
     p10B3: "Ömür boyu teknik destek ve güncellemeler dahildir",
     p10B4: "Gelecekteki tüm uygulamalar ve güncellemeler için %25 indirim",
-    p10PriceVal: "1800",
+    p10PriceVal: "1350",
 
     p11Badge: "Donanım",
     p11Desc: "Ürün adı",
@@ -910,7 +976,7 @@ const translations = {
     p13Title: "Stereo kablo",
     p13BulletList: "p13BulletList",
     p13B1: "3.5mm Erkek - Erkek Stereo Ses Kablosu",
-    p13PriceVal: "200",
+    p13PriceVal: "130",
 
     p14Badge: "Donanım",
     p14Desc: "Ürün adı",
@@ -1186,6 +1252,15 @@ function changeLanguage(lang) {
     data.heroDownloadBtnLMT;
   document.getElementById("heroDownloadBtnPro").innerText =
     data.heroDownloadBtnLMTpro;
+
+  // تولتیپ‌های سه دکمه دانلود در بخش هیرو
+  ["heroTipLiveFX1", "heroTipLiveFX2", "heroTipLiveFX3", "heroTipLiveFX4",
+   "heroTipLMT1", "heroTipLMT2", "heroTipLMT3", "heroTipLMT4", "heroTipLMT5", "heroTipLMT6", "heroTipLMT7",
+   "heroTipPro1", "heroTipPro2", "heroTipPro3", "heroTipPro4", "heroTipPro5", "heroTipPro6", "heroTipPro7"
+  ].forEach((tipId) => {
+    const tipEl = document.getElementById(tipId);
+    if (tipEl && data[tipId]) tipEl.innerText = data[tipId];
+  });
 
   // بخش درباره من
   document.getElementById("aboutTitle").innerText = data.aboutTitle;
@@ -2332,6 +2407,28 @@ window.addEventListener("resize", () => {
   if (window.innerWidth >= 768) closeMobileMenu();
 });
 
+// ====== زیرمنوی Buskit-Tools در منوی موبایل ======
+let buskitToolsSubmenuOpen = false;
+
+function toggleBuskitToolsSubmenu() {
+  buskitToolsSubmenuOpen = !buskitToolsSubmenuOpen;
+  const submenu = document.getElementById("navBuskitToolsMobileSubmenu");
+  const btn = document.getElementById("navBuskitToolsMobileBtn");
+  const chevron = document.getElementById("navBuskitToolsMobileChevron");
+
+  if (buskitToolsSubmenuOpen) {
+    submenu.classList.remove("hidden");
+    submenu.classList.add("flex");
+    btn.setAttribute("aria-expanded", "true");
+    chevron.style.transform = "rotate(180deg)";
+  } else {
+    submenu.classList.add("hidden");
+    submenu.classList.remove("flex");
+    btn.setAttribute("aria-expanded", "false");
+    chevron.style.transform = "";
+  }
+}
+
 renderStarPicker();
 renderQuestionsPicker();
 loadReviews();
@@ -2358,3 +2455,22 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     }
   });
 });
+
+// ====== ورود مخفی به پنل ادمین با ۵ کلیک روی لوگو ======
+let logoClickCount = 0;
+let logoClickTimer = null;
+
+function handleLogoClick() {
+  logoClickCount++;
+
+  if (logoClickTimer) clearTimeout(logoClickTimer);
+  logoClickTimer = setTimeout(() => {
+    logoClickCount = 0;
+  }, 1500); // اگر ظرف ۱.۵ ثانیه ۵ کلیک ثبت نشه، شمارش صفر می‌شه
+
+  if (logoClickCount >= 5) {
+    logoClickCount = 0;
+    clearTimeout(logoClickTimer);
+    window.location.href = "./admin.html";
+  }
+}

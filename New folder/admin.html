@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>پنل مدیریت پرسش و پاسخ | Buskit</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script>
+      // ====== تنظیمات Firebase ======
+      // دقیقاً همون مقادیری که در index.html استفاده کردی رو اینجا هم بذار
+      const firebaseConfig = {
+        apiKey: "AIzaSyDO6bqHivptMf3SuwX3cBj3i_bD_jc1z7M",
+        authDomain: "buskitlivefxsite.firebaseapp.com",
+        projectId: "buskitlivefxsite",
+        storageBucket: "buskitlivefxsite.firebasestorage.app",
+        messagingSenderId: "403517891310",
+        appId: "1:403517891310:web:c177190040e590c4cd09ff",
+        measurementId: "G-1WCJB15HP0",
+      };
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+      const auth = firebase.auth();
+    </script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap");
+      body {
+        font-family: "Vazirmatn", Tahoma, sans-serif;
+        background-color: #0d0e12;
+        color: #e2e8f0;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen antialiased">
+    <!-- صفحه ورود -->
+    <div
+      id="loginGate"
+      class="min-h-screen flex items-center justify-center px-4"
+    >
+      <form
+        id="loginForm"
+        onsubmit="handleLogin(event)"
+        class="w-full max-w-sm p-8 bg-[#161920] border border-white/10 rounded-3xl space-y-5"
+      >
+        <h1 class="text-xl font-bold text-white text-center mb-2">ورود مدیر</h1>
+
+        <div>
+          <label class="block text-slate-400 text-xs mb-1.5">ایمیل:</label>
+          <input
+            type="text"
+            id="adminEmail"
+            required
+            dir="ltr"
+            autocomplete="off"
+            value="A.M@   K..P..M.."
+            class="w-full bg-[#0d0e12] border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00f5d4] transition-colors font-mono text-left"
+          />
+        </div>
+
+        <div>
+          <label class="block text-slate-400 text-xs mb-1.5">رمز عبور:</label>
+          <input
+            type="password"
+            id="adminPassword"
+            required
+            dir="ltr"
+            autocomplete="new-password"
+            value=""
+            class="w-full bg-[#0d0e12] border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00f5d4] transition-colors font-mono text-left"
+          />
+        </div>
+
+        <p id="loginError" class="text-rose-400 text-xs hidden"></p>
+
+        <button
+          type="submit"
+          id="loginBtn"
+          class="w-full py-3 bg-[#00f5d4] text-[#0d0e12] font-bold rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50"
+        >
+          ورود
+        </button>
+
+        <button
+          type="button"
+          onclick="handleForgotPassword()"
+          class="w-full text-center text-xs text-slate-400 hover:text-[#00f5d4] transition-colors"
+        >
+          رمز عبور رو فراموش کردم
+        </button>
+      </form>
+    </div>
+
+    <!-- پنل مدیریت -->
+    <div id="adminPanel" class="hidden max-w-4xl mx-auto px-4 md:px-6 py-10">
+      <div class="flex items-center justify-between mb-8">
+        <div>
+          <h1 class="text-2xl font-bold text-white">پنل مدیریت</h1>
+          <p id="adminUserLabel" class="text-slate-500 text-xs mt-1"></p>
+        </div>
+        <button
+          onclick="handleLogout()"
+          class="text-sm text-slate-400 hover:text-rose-400 transition-colors"
+        >
+          خروج
+        </button>
+      </div>
+
+      <!-- آمار بازدید سایت -->
+      <div
+        class="mb-8 p-5 bg-[#161920] border border-white/10 rounded-2xl flex items-center justify-between"
+      >
+        <div>
+          <p class="text-slate-400 text-xs mb-1">تعداد بازدید سایت</p>
+          <p id="siteVisitsCount" class="text-2xl font-bold text-[#00f5d4]">
+            در حال بارگذاری...
+          </p>
+        </div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-9 h-9 text-slate-600"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+          />
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+          />
+        </svg>
+      </div>
+
+      <!-- تب‌ها -->
+      <div class="flex gap-2 mb-8 border-b border-white/10">
+        <button
+          id="tabBtnQuestions"
+          onclick="switchTab('questions')"
+          class="px-4 py-2.5 text-sm font-bold text-[#00f5d4] border-b-2 border-[#00f5d4] transition-colors"
+        >
+          پرسش و پاسخ
+        </button>
+        <button
+          id="tabBtnReviews"
+          onclick="switchTab('reviews')"
+          class="px-4 py-2.5 text-sm font-bold text-slate-500 border-b-2 border-transparent hover:text-slate-300 transition-colors"
+        >
+          نظرات کاربران
+        </button>
+      </div>
+
+      <!-- تب پرسش و پاسخ -->
+      <div id="tabPanelQuestions">
+        <div id="adminQuestionsList" class="flex flex-col gap-5">
+          <p class="text-slate-500 text-sm text-center py-6">
+            در حال بارگذاری پیام‌ها...
+          </p>
+        </div>
+      </div>
+
+      <!-- تب نظرات کاربران -->
+      <div id="tabPanelReviews" class="hidden">
+        <div
+          id="adminReviewsSummary"
+          class="mb-6 p-5 bg-[#161920] border border-white/10 rounded-2xl text-sm text-slate-400"
+        ></div>
+        <div id="adminReviewsList" class="flex flex-col gap-5">
+          <p class="text-slate-500 text-sm text-center py-6">
+            در حال بارگذاری نظرات...
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // باید دقیقاً همون لیست سوالاتی باشه که در index.html استفاده شده
+      // (ترتیب و تعداد باید یکی باشه، چون answers[idx] بر اساس همین ترتیبه)
+      const REVIEW_QUESTIONS = [
+        { label: "کیفیت صدا و افکت‌ها", short: "کیفیت صدا" },
+        { label: "میزان تاخیر (Latency) هنگام اجرا", short: "تاخیر" },
+        { label: "سادگی و راحتی استفاده از اپلیکیشن", short: "سادگی استفاده" },
+        { label: "سازگاری با گوشی/دستگاه شما", short: "سازگاری" },
+        { label: "پشتیبانی و راهنمایی دریافتی", short: "پشتیبانی" },
+      ];
+
+      let reviewsUnsub = null;
+      let questionsUnsub = null;
+
+      // ====== سوییچ بین تب‌ها ======
+      function switchTab(tab) {
+        const btnQ = document.getElementById("tabBtnQuestions");
+        const btnR = document.getElementById("tabBtnReviews");
+        const panelQ = document.getElementById("tabPanelQuestions");
+        const panelR = document.getElementById("tabPanelReviews");
+
+        const activeCls = ["text-[#00f5d4]", "border-[#00f5d4]"];
+        const inactiveCls = ["text-slate-500", "border-transparent"];
+
+        if (tab === "questions") {
+          panelQ.classList.remove("hidden");
+          panelR.classList.add("hidden");
+          btnQ.classList.add(...activeCls);
+          btnQ.classList.remove(...inactiveCls);
+          btnR.classList.add(...inactiveCls);
+          btnR.classList.remove(...activeCls);
+        } else {
+          panelR.classList.remove("hidden");
+          panelQ.classList.add("hidden");
+          btnR.classList.add(...activeCls);
+          btnR.classList.remove(...inactiveCls);
+          btnQ.classList.add(...inactiveCls);
+          btnQ.classList.remove(...activeCls);
+          if (!reviewsUnsub) loadAdminReviews();
+        }
+      }
+
+      // ====== ورود / خروج ======
+      function handleLogin(event) {
+        event.preventDefault();
+        const email = document.getElementById("adminEmail").value.trim();
+        const password = document.getElementById("adminPassword").value;
+        const errEl = document.getElementById("loginError");
+        const btn = document.getElementById("loginBtn");
+
+        errEl.classList.add("hidden");
+        btn.disabled = true;
+        btn.innerText = "در حال ورود...";
+
+        auth
+          .signInWithEmailAndPassword(email, password)
+          .catch((err) => {
+            console.error("خطا در ورود:", err);
+            errEl.innerText = "ایمیل یا رمز عبور اشتباهه.";
+            errEl.classList.remove("hidden");
+          })
+          .finally(() => {
+            btn.disabled = false;
+            btn.innerText = "ورود";
+          });
+      }
+
+      function handleLogout() {
+        auth.signOut().then(() => {
+          window.location.href = "./index.html";
+        });
+      }
+
+      function handleForgotPassword() {
+        const email = document.getElementById("adminEmail").value.trim();
+        const errEl = document.getElementById("loginError");
+        errEl.classList.remove("text-emerald-400");
+        errEl.classList.add("text-rose-400");
+
+        if (!email) {
+          errEl.innerText = "اول ایمیل ادمین رو در فیلد بالا وارد کن.";
+          errEl.classList.remove("hidden");
+          return;
+        }
+
+        auth
+          .sendPasswordResetEmail(email)
+          .then(() => {
+            errEl.classList.remove("text-rose-400");
+            errEl.classList.add("text-emerald-400");
+            errEl.innerText =
+              "لینک بازیابی رمز عبور به ایمیل " + email + " ارسال شد. صندوق ورودی (و اسپم) رو چک کن.";
+            errEl.classList.remove("hidden");
+          })
+          .catch((err) => {
+            console.error("خطا در ارسال ایمیل بازیابی:", err);
+            errEl.innerText = "ارسال لینک بازیابی ناموفق بود. ایمیل رو بررسی کن.";
+            errEl.classList.remove("hidden");
+          });
+      }
+
+      let siteVisitDecremented = false;
+
+      auth.onAuthStateChanged((user) => {
+        if (user) {
+          document.getElementById("loginGate").classList.add("hidden");
+          document.getElementById("adminPanel").classList.remove("hidden");
+          document.getElementById("adminUserLabel").innerText = user.email;
+          loadAdminQuestions();
+          loadSiteVisits();
+
+          // هر بار که وارد پنل ادمین می‌شویم، یک بازدید (که خودمان برای رسیدن به این صفحه ایجاد کردیم) کم می‌شود
+          if (!siteVisitDecremented) {
+            siteVisitDecremented = true;
+            decrementSiteVisits();
+          }
+        } else {
+          document.getElementById("loginGate").classList.remove("hidden");
+          document.getElementById("adminPanel").classList.add("hidden");
+        }
+      });
+
+      // ====== آمار بازدید سایت ======
+      function loadSiteVisits() {
+        const el = document.getElementById("siteVisitsCount");
+        db.collection("stats")
+          .doc("siteVisits")
+          .get()
+          .then((doc) => {
+            const count = doc.exists ? doc.data().count || 0 : 0;
+            el.innerText = count.toLocaleString("fa-IR");
+          })
+          .catch((err) => {
+            console.error("خطا در دریافت آمار بازدید:", err);
+            el.innerText = "—";
+          });
+      }
+
+      function decrementSiteVisits() {
+        db.collection("stats")
+          .doc("siteVisits")
+          .set(
+            { count: firebase.firestore.FieldValue.increment(-1) },
+            { merge: true },
+          )
+          .then(() => loadSiteVisits())
+          .catch((err) => {
+            console.error("خطا در کم‌کردن آمار بازدید:", err);
+          });
+      }
+
+      // ====== نمایش و مدیریت پیام‌ها ======
+      function escapeHtml(str) {
+        const div = document.createElement("div");
+        div.innerText = str == null ? "" : str;
+        return div.innerHTML;
+      }
+
+      function formatDate(timestamp) {
+        if (!timestamp || !timestamp.toDate) return "";
+        return timestamp.toDate().toLocaleString("fa-IR");
+      }
+
+      function loadAdminQuestions() {
+        db.collection("questions")
+          .orderBy("createdAt", "desc")
+          .onSnapshot(
+            (snapshot) => renderAdminQuestions(snapshot),
+            (err) => {
+              console.error("خطا در بارگذاری پیام‌ها:", err);
+              document.getElementById("adminQuestionsList").innerHTML =
+                '<p class="text-rose-400 text-sm text-center py-6">بارگذاری پیام‌ها با خطا مواجه شد. (احتمالاً دسترسی کافی نداری)</p>';
+            },
+          );
+      }
+
+      function renderAdminQuestions(snapshot) {
+        const list = document.getElementById("adminQuestionsList");
+
+        if (snapshot.empty) {
+          list.innerHTML =
+            '<p class="text-slate-500 text-sm text-center py-6">هنوز پیامی ثبت نشده.</p>';
+          return;
+        }
+
+        list.innerHTML = "";
+        snapshot.forEach((doc) => {
+          const q = doc.data();
+          const id = doc.id;
+
+          const item = document.createElement("div");
+          item.className =
+            "p-5 bg-[#161920] border border-white/10 rounded-2xl";
+          item.innerHTML = `
+            <div class="flex items-center justify-between mb-2 gap-2 flex-wrap">
+              <span class="text-white font-semibold">${escapeHtml(q.name)}</span>
+              <span class="text-slate-500 text-xs">${formatDate(q.createdAt)}</span>
+            </div>
+            <p class="text-slate-300 text-sm leading-relaxed whitespace-pre-line mb-4">${escapeHtml(
+              q.message,
+            )}</p>
+
+            <label class="block text-slate-500 text-xs mb-1.5">پاسخ تو:</label>
+            <textarea
+              id="reply-${id}"
+              rows="3"
+              placeholder="پاسخت رو اینجا بنویس..."
+              class="w-full bg-[#0d0e12] border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#00f5d4] transition-colors resize-none mb-3"
+            >${q.reply ? escapeHtml(q.reply) : ""}</textarea>
+
+            <div class="flex items-center gap-3 flex-wrap">
+              <button
+                onclick="sendReply('${id}')"
+                class="px-4 py-2 bg-[#00f5d4] text-[#0d0e12] text-xs font-bold rounded-xl hover:opacity-90 transition-opacity"
+              >
+                ثبت / ویرایش پاسخ
+              </button>
+              <button
+                onclick="deleteQuestion('${id}')"
+                class="px-4 py-2 bg-rose-500/10 text-rose-400 text-xs font-bold rounded-xl border border-rose-500/30 hover:bg-rose-500/20 transition-colors"
+              >
+                حذف پیام
+              </button>
+              <span id="status-${id}" class="text-xs text-slate-500"></span>
+            </div>
+          `;
+          list.appendChild(item);
+        });
+      }
+
+      async function sendReply(id) {
+        const textarea = document.getElementById(`reply-${id}`);
+        const statusEl = document.getElementById(`status-${id}`);
+        const reply = textarea.value.trim();
+
+        statusEl.innerText = "در حال ثبت...";
+        try {
+          await db
+            .collection("questions")
+            .doc(id)
+            .update({
+              reply: reply || null,
+              repliedAt: firebase.firestore.FieldValue.serverTimestamp(),
+            });
+          statusEl.innerText = "ثبت شد ✓";
+          setTimeout(() => {
+            if (statusEl) statusEl.innerText = "";
+          }, 2000);
+        } catch (err) {
+          console.error("خطا در ثبت پاسخ:", err);
+          statusEl.innerText = "خطا در ثبت پاسخ";
+        }
+      }
+
+      async function deleteQuestion(id) {
+        if (!confirm("مطمئنی می‌خوای این پیام حذف بشه؟ این کار برگشت‌ناپذیره."))
+          return;
+        try {
+          await db.collection("questions").doc(id).delete();
+        } catch (err) {
+          console.error("خطا در حذف پیام:", err);
+          alert("حذف پیام با خطا مواجه شد.");
+        }
+      }
+
+      // ====== نمایش نظرات کاربران ======
+      function starsToHtml(rating) {
+        let html = "";
+        for (let i = 1; i <= 5; i++) {
+          html += `<span class="${i <= rating ? "text-[#00f5d4]" : "text-slate-600"}">★</span>`;
+        }
+        return html;
+      }
+
+      function answerBadgeClass(answer) {
+        if (answer === "عالی") return "bg-emerald-500/10 text-emerald-400 border-emerald-500/30";
+        if (answer === "خوب") return "bg-sky-500/10 text-sky-400 border-sky-500/30";
+        if (answer === "بد") return "bg-rose-500/10 text-rose-400 border-rose-500/30";
+        return "bg-slate-500/10 text-slate-400 border-slate-500/30";
+      }
+
+      function updateReviewsSummary(snapshot) {
+        const el = document.getElementById("adminReviewsSummary");
+        if (snapshot.empty) {
+          el.innerHTML = "";
+          return;
+        }
+        let total = 0;
+        let sum = 0;
+        let withEmail = 0;
+        snapshot.forEach((doc) => {
+          const r = doc.data();
+          total++;
+          sum += Number(r.rating) || 0;
+          if (r.email) withEmail++;
+        });
+        const avg = total ? (sum / total).toFixed(1) : "0.0";
+        el.innerHTML = `
+          <div class="flex flex-wrap items-center gap-6">
+            <span>تعداد کل نظرات: <b class="text-white">${total}</b></span>
+            <span>میانگین امتیاز: <b class="text-white">${avg} / ۵</b></span>
+            <span>دارای ایمیل: <b class="text-white">${withEmail}</b></span>
+          </div>
+        `;
+      }
+
+      function renderAdminReviews(snapshot) {
+        const list = document.getElementById("adminReviewsList");
+
+        updateReviewsSummary(snapshot);
+
+        if (snapshot.empty) {
+          list.innerHTML =
+            '<p class="text-slate-500 text-sm text-center py-6">هنوز نظری ثبت نشده.</p>';
+          return;
+        }
+
+        list.innerHTML = "";
+        snapshot.forEach((doc) => {
+          const r = doc.data();
+          const id = doc.id;
+          const answers = r.answers || [];
+
+          const item = document.createElement("div");
+          item.className =
+            "p-5 bg-[#161920] border border-white/10 rounded-2xl";
+
+          const questionsHtml = REVIEW_QUESTIONS.map((q, idx) => {
+            const ans = answers[idx] || "—";
+            return `
+              <div class="flex items-center justify-between gap-2 text-xs py-1.5 border-b border-white/5 last:border-0">
+                <span class="text-slate-400">${escapeHtml(q.label)}</span>
+                <span class="px-2.5 py-1 rounded-lg border text-[11px] font-bold ${answerBadgeClass(ans)}">${escapeHtml(ans)}</span>
+              </div>
+            `;
+          }).join("");
+
+          item.innerHTML = `
+            <div class="flex items-start justify-between mb-3 gap-2 flex-wrap">
+              <div>
+                <span class="text-white font-semibold">${escapeHtml(r.name)}</span>
+                ${
+                  r.email
+                    ? `<span class="block text-slate-500 text-xs mt-0.5 font-mono" dir="ltr">${escapeHtml(r.email)}</span>`
+                    : `<span class="block text-slate-600 text-xs mt-0.5">ایمیل ثبت نشده</span>`
+                }
+              </div>
+              <div class="text-left">
+                <span class="text-lg tracking-wider" dir="ltr">${starsToHtml(r.rating)}</span>
+                <span class="block text-slate-500 text-xs mt-0.5">${formatDate(r.createdAt)}</span>
+              </div>
+            </div>
+            <div class="mt-3 pt-3 border-t border-white/10">
+              ${questionsHtml}
+            </div>
+            <div class="flex items-center gap-3 mt-4 pt-3 border-t border-white/10">
+              <button
+                onclick="deleteReview('${id}')"
+                class="px-4 py-2 bg-rose-500/10 text-rose-400 text-xs font-bold rounded-xl border border-rose-500/30 hover:bg-rose-500/20 transition-colors"
+              >
+                حذف نظر
+              </button>
+              <span id="review-status-${id}" class="text-xs text-slate-500"></span>
+            </div>
+          `;
+          list.appendChild(item);
+        });
+      }
+
+      async function deleteReview(id) {
+        if (!confirm("مطمئنی می‌خوای این نظر حذف بشه؟ این کار برگشت‌ناپذیره.")) return;
+        const statusEl = document.getElementById(`review-status-${id}`);
+        try {
+          await db.collection("reviews").doc(id).delete();
+        } catch (err) {
+          console.error("خطا در حذف نظر:", err);
+          if (statusEl) statusEl.innerText = "خطا در حذف (دسترسی کافی نداری؟)";
+        }
+      }
+
+
+      function loadAdminReviews() {
+        reviewsUnsub = db
+          .collection("reviews")
+          .orderBy("createdAt", "desc")
+          .onSnapshot(
+            (snapshot) => renderAdminReviews(snapshot),
+            (err) => {
+              console.error("خطا در بارگذاری نظرات:", err);
+              document.getElementById("adminReviewsList").innerHTML =
+                '<p class="text-rose-400 text-sm text-center py-6">بارگذاری نظرات با خطا مواجه شد. (احتمالاً دسترسی کافی نداری)</p>';
+            },
+          );
+      }
+    </script>
+  </body>
+</html>

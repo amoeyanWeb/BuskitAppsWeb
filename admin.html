@@ -414,19 +414,25 @@
 
       // ====== آمار دانلود اپ‌ها ======
       function loadAppDownloads() {
+        console.log("[loadAppDownloads] شروع خواندن آمار دانلود...");
         const els = {
           livefx: document.getElementById("downloadsLivefxCount"),
           lmt: document.getElementById("downloadsLmtCount"),
           pro: document.getElementById("downloadsProCount"),
         };
+        console.log("[loadAppDownloads] المان‌های پیدا شده:", els);
         Object.keys(els).forEach((key) => {
           const el = els[key];
-          if (!el) return;
-          db.collection("stats")
-            .doc("downloads_" + key)
+          if (!el) {
+            console.warn("[loadAppDownloads] المان پیدا نشد برای:", key);
+            return;
+          }
+          db.collection("downloads")
+            .doc(key)
             .get()
             .then((doc) => {
               const count = doc.exists ? doc.data().count || 0 : 0;
+              console.log("[loadAppDownloads]", key, "=", count, "(exists:", doc.exists, ")");
               el.innerText = count.toLocaleString("fa-IR");
             })
             .catch((err) => {

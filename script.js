@@ -1915,10 +1915,18 @@ const appModalDataTR = {
 
 // ====== ثبت آمار دانلود هر اپ در Firestore ======
 function trackAppDownload(appKey) {
-  if (typeof db === "undefined" || !db) return;
+  console.log("[trackAppDownload] فراخوانی شد برای:", appKey);
+  if (typeof db === "undefined" || !db) {
+    console.warn("[trackAppDownload] متغیر db تعریف نشده — آمار ثبت نمی‌شود.");
+    return;
+  }
   db.collection("downloads")
     .doc(appKey)
-    .set({ count: firebase.firestore.FieldValue.increment(1) }, { merge: true })
+    .set(
+      { count: firebase.firestore.FieldValue.increment(1) },
+      { merge: true },
+    )
+    .then(() => console.log("[trackAppDownload] با موفقیت ثبت شد:", appKey))
     .catch((err) => console.error("خطا در ثبت آمار دانلود اپ:", err));
 }
 

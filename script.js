@@ -18,9 +18,9 @@ const translations = {
     heroHeadline:
       'استودیوی افکت حرفه‌ای زنده، <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-accentNeon to-teal-400">در جیب و همراه شما</span>',
     heroDesc: "با تاخیر صفر  و امکاناتی منحصر به فرد ",
-    heroDownloadBtnLiveFX: "دانلود رایگان LiveFX",
-    heroDownloadBtnLMT: "دانلود رایگان Live Music Tools",
-    heroDownloadBtnLMTpro: "دانلود رایگان Live Music Tools(PRO)",
+    heroDownloadBtnLiveFX: "دانلود رایگان \nLiveFX",
+    heroDownloadBtnLMT: "دانلود رایگان \nLive Music Tools",
+    heroDownloadBtnLMTpro: "دانلود رایگان \nLive Music Tools(PRO)",
     heroTipLiveFX1: "13 افکت",
     heroTipLiveFX2: "تیونر کروماتیک",
     heroTipLiveFX3: "مترونوم فلکسیبل",
@@ -347,22 +347,26 @@ const translations = {
       'پس از واریز وجه به حساب‌های اعلام‌شده، نام و نام خانوادگی، ایمیل و آدرس پستی (در صورت لزوم) و رسید مربوطه را به شماره <span dir="ltr" class="font-mono text-accentNeon">00905312691609</span> واتس‌آپ کنید تا کالای خریداری‌شده برای شما ارسال گردد.',
     btnBackForm: "بازگشت",
     purchaseItemNames: {
-      p1: "لایسنس دائم LiveFX",
-      p8: "لایسنس دائم LMT(Pro)",
-      p3: "لایسنس یکساله LiveFX",
       p4: "لایسنس یک ماهه LiveFX",
-      p9: "پک سخت‌افزاری i",
-      p7: "لایسنس یکساله LMT(Pro)",
-      p15: "پک سخت‌افزاری B",
-      p16: "لایسنس یک ماهه LMT(Pro)",
-      p6: "لایسنس یکساله LMT",
-      p2: "لایسنس یک ماهه LMT",
-      p10: "لایسنس دائم LMT",
-      p11: "دستگاه irig",
-      p12: "دستگاه Brig",
-      p13: "کابل 3.5 میلیمتری",
-      p14: "میکروفون پیزو",
+      p3: "لایسنس یکساله LiveFX",
+      p1: "لایسنس دائم LiveFX",
+      p10: "لایسنس یک ماهه LMT",
+      p9: "لایسنس یکساله LMT",
+      p8: "لایسنس دائم LMT",
+      p7: "لایسنس یک ماهه LMT(Pro)",
+      p6: "لایسنس یکساله LMT(Pro)",
+      p2: "لایسنس دائم LMT(Pro)",
+      p5: "پک سخت‌افزاری i",
+      p11: "پک سخت‌افزاری B",
+      p12: "دستگاه irig",
+      p13: "دستگاه Brig",
+      p15: "میکروفون پیزو",
+      p14: "کابل 3.5 میلیمتری",
     },
+    text1: "امکانات اپلیکیشن",
+    text2: "معرفی",
+    text3: "تصاویری از اپلیکیشن",
+    appModalDownloadBtn: "دانلود اپلیکیشن",
   },
   en: {
     dir: "ltr",
@@ -383,9 +387,9 @@ const translations = {
     heroHeadline:
       'Professional Live Effect Studio, <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-accentNeon to-teal-400">In Your Pocket & On the Go</span>',
     heroDesc: "With zero latency and unique features",
-    heroDownloadBtnLiveFX: "Download LiveFX for Free",
-    heroDownloadBtnLMT: "Download Live Music Tools for Free",
-    heroDownloadBtnLMTpro: "Download Live Music Tools (PRO) for Free",
+    heroDownloadBtnLiveFX: "Download for Free\n LiveFX ",
+    heroDownloadBtnLMT: "Download for Free\n Live Music Tools ",
+    heroDownloadBtnLMTpro: "Download for Free\n Live Music Tools (PRO) ",
     heroTipLiveFX1: "13 Effects",
     heroTipLiveFX2: "Chromatic Tuner",
     heroTipLiveFX3: "Flexible Metronome",
@@ -716,22 +720,26 @@ const translations = {
     btnBackForm: "Back",
 
     purchaseItemNames: {
-      p1: "Lifetime LiveFX License",
-      p8: "Lifetime LMT(Pro) License",
-      p3: "1-Year LiveFX License",
       p4: "1-Month LiveFX License",
-      p9: "i Hardware Pack",
-      p7: "1-Year LMT(Pro) License",
-      p15: "B Hardware Pack",
-      p16: "1-Month LMT(Pro) License",
-      p6: "1-Year LMT License",
-      p2: "1-Month LMT License",
-      p10: "Lifetime LMT License",
-      p11: "irig Device",
-      p12: "Brig Device",
-      p13: "3.5mm Cable",
-      p14: "Piezo Microphone",
+      p3: "1-Year LiveFX License",
+      p1: "Lifetime LiveFX License",
+      p10: "1-Month LMT License",
+      p9: "1-Year LMT License",
+      p8: "Lifetime LMT License",
+      p7: "1-Month LMT(Pro) License",
+      p6: "1-Year LMT(Pro) License",
+      p2: "Lifetime LMT(Pro) License",
+      p5: "i Hardware Pack",
+      p11: "B Hardware Pack",
+      p12: "irig Device",
+      p13: "Brig Device",
+      p15: "Piezo Microphone",
+      p14: "3.5mm Cable",
     },
+    text1: "App Features",
+    text2: "Introduction",
+    text3: "App Screenshots",
+    appModalDownloadBtn: "Download Application",
   },
   tr: {
     dir: "ltr",
@@ -752,9 +760,9 @@ const translations = {
     heroHeadline:
       'Profesyonel Canlı Efekt Stüdyosu, <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-accentNeon to-teal-400">Cebinizde ve Her An Yanınızda</span>',
     heroDesc: "Sıfır gecikme ve benzersiz özelliklerle",
-    heroDownloadBtnLiveFX: "Ücretsiz LiveFX İndir",
-    heroDownloadBtnLMT: "Ücretsiz Live Music Tools İndir",
-    heroDownloadBtnLMTpro: "Ücretsiz Live Music Tools (PRO) İndir",
+    heroDownloadBtnLiveFX: "Ücretsiz İndir\n LiveFX",
+    heroDownloadBtnLMT: "Ücretsiz İndir\n Live Music Tools",
+    heroDownloadBtnLMTpro: "Ücretsiz İndir\nLive Music Tools (PRO)",
     heroTipLiveFX1: "13 Efekt",
     heroTipLiveFX2: "Kromatik Akort Aleti",
     heroTipLiveFX3: "Esnek Metronom",
@@ -1091,22 +1099,26 @@ const translations = {
     btnBackForm: "Geri",
 
     purchaseItemNames: {
-      p1: "Ömür Boyu LiveFX Lisansı",
-      p8: "Ömür Boyu LMT(Pro) Lisansı",
-      p3: "1 Yıllık LiveFX Lisansı",
       p4: "1 Aylık LiveFX Lisansı",
-      p9: "i Donanım Paketi",
-      p7: "1 Yıllık LMT(Pro) Lisansı",
-      p15: "B Donanım Paketi",
-      p16: "1 Aylık LMT(Pro) Lisansı",
-      p6: "1 Yıllık LMT Lisansı",
-      p2: "1 Aylık LMT Lisansı",
-      p10: "Ömür Boyu LMT Lisansı",
-      p11: "irig Cihazı",
-      p12: "Brig Cihazı",
-      p13: "3.5mm Kablo",
-      p14: "Piezo Mikrofon",
+      p3: "1 Yıllık LiveFX Lisansı",
+      p1: "Ömür Boyu LiveFX Lisansı",
+      p10: "1 Aylık LMT Lisansı",
+      p9: "1 Yıllık LMT Lisansı",
+      p8: "Ömür Boyu LMT Lisansı",
+      p7: "1 Aylık LMT(Pro) Lisansı",
+      p6: "1 Yıllık LMT(Pro) Lisansı",
+      p2: "Ömür Boyu LMT(Pro) Lisansı",
+      p5: "i Donanım Paketi",
+      p11: "B Donanım Paketi",
+      p12: "irig Cihazı",
+      p13: "Brig Cihazı",
+      p15: "Piezo Mikrofon",
+      p14: "3.5mm Kablo",
     },
+    text1: "Uygulama Özellikleri",
+    text2: "Tanıtım",
+    text3: "Uygulama Görselleri",
+    appModalDownloadBtn: "Uygulamayı İndir",
   },
 };
 let currentLang = "tr";
@@ -1254,9 +1266,25 @@ function changeLanguage(lang) {
     data.heroDownloadBtnLMTpro;
 
   // تولتیپ‌های سه دکمه دانلود در بخش هیرو
-  ["heroTipLiveFX1", "heroTipLiveFX2", "heroTipLiveFX3", "heroTipLiveFX4",
-   "heroTipLMT1", "heroTipLMT2", "heroTipLMT3", "heroTipLMT4", "heroTipLMT5", "heroTipLMT6", "heroTipLMT7",
-   "heroTipPro1", "heroTipPro2", "heroTipPro3", "heroTipPro4", "heroTipPro5", "heroTipPro6", "heroTipPro7"
+  [
+    "heroTipLiveFX1",
+    "heroTipLiveFX2",
+    "heroTipLiveFX3",
+    "heroTipLiveFX4",
+    "heroTipLMT1",
+    "heroTipLMT2",
+    "heroTipLMT3",
+    "heroTipLMT4",
+    "heroTipLMT5",
+    "heroTipLMT6",
+    "heroTipLMT7",
+    "heroTipPro1",
+    "heroTipPro2",
+    "heroTipPro3",
+    "heroTipPro4",
+    "heroTipPro5",
+    "heroTipPro6",
+    "heroTipPro7",
   ].forEach((tipId) => {
     const tipEl = document.getElementById(tipId);
     if (tipEl && data[tipId]) tipEl.innerText = data[tipId];
@@ -1519,6 +1547,12 @@ function changeLanguage(lang) {
   const reviewsLoadingEl = document.getElementById("reviewsLoading");
   if (reviewsLoadingEl) reviewsLoadingEl.innerText = data.reviewsLoading;
 
+  // بخش مدال معرفی اپلیکیشن
+  document.getElementById("text1").innerText = data.text1;
+  document.getElementById("text2").innerText = data.text2;
+  document.getElementById("text3").innerText = data.text3;
+  document.getElementById("appModalDownloadBtn").innerText =
+    data.appModalDownloadBtn;
   // بخش پرسش و پاسخ
   document.getElementById("qaTitle").innerText = data.qaTitle;
   document.getElementById("qaDesc").innerText = data.qaDesc;
@@ -1658,7 +1692,7 @@ function recalcPurchaseTotals() {
 }
 
 // ====== مودال معرفی اپ (امکانات + دانلود + راهنمای استفاده) ======
-const appModalData = {
+const appModalDataFA = {
   livefx: {
     title: "LiveFX",
     subtitle: "لایو افکت حرفه‌ای با تاخیر صفر، مخصوص اجرای زنده",
@@ -1669,7 +1703,8 @@ const appModalData = {
       "بیش از 35 تنظیم پیش‌فرض",
     ],
     // آدرس فایل دانلود این اپ را اینجا جایگزین کن
-    downloadUrl: "#",
+    downloadUrl: "./downloads/LiveFX_v1_4.apk",
+    fileName: "LiveFX_v1_4.apk",
     description:
       "در کنار افکتهای محبوب و پر کاربرد ، امکانات اولیه دیگری نیز به این نسخه از اپلیکیشن اضافه شده است ، وجود تیونر در خود اپ به منظور سهولت کوک کردن ساز، و وجود یک مترونوم با قابلیت منحصر به فرد ایجاد کلیه فیگورهای ریتمیک مورد نظر کاربر ،آنرا فراتر از یک افکت باکس قرار داده است مزیت یکتای این اپلیکیشن تاخیر صفر در پروسس صدای ورودی است که لذت یک اجرا را همواره به جان نوازنده گوارا و صدایی رویایی را به گوش مخاطبان میرساند. وجود بیش از 35 پریست  برای استفاده در شرایط و سازهای مختلف تسهیلی دیگر در سرعت بخشیدن به تنظیم و اجراهای نوازندگان میباشد.",
     screenshots: [
@@ -1692,7 +1727,8 @@ const appModalData = {
       "امکان لود بکینگ ترک",
       "امکان تغییر سرعت بکینگ ترک",
     ],
-    downloadUrl: "#",
+    downloadUrl: "./downloads/LMT_v1_4.apk",
+    fileName: "LMT_v1_4.apk",
     description:
       "امکانات این اپلیکیشن، آنرا در جایگاهی فراتر از یک افکت باکس یا پدال بورد سخت افزاری قرار داده است امکان لود بکینگ ترک با قابلیت تغییر سرعت آن برای تمرین همنوازی همچنین وجود تیونر در خود اپ به منظور سهولت کوک کردن ساز، یا وجود یک مترونوم با قابلیت منحصر به فرد ایجاد کلیه فیگورهای ریتمیک مورد نظر از یک طرف و امکان ضبط صدای ورودی به همراه بکینگ ترک با فرمت wave  در حافظه گوشی آنرا به رویای هر نوازنده تبدیل کرده است که بدون نیاز به تجهیزات گرانقیمت و سنگین و حجیم بتوان در همه جا و همه زمان از ساز خود صدایی رویایی به گوش مخاطبان رسانید وجود بیش از 35 پریست  برای استفاده در شرایط مختلف و سازهای مختلف تسهیلی دیگر در اجراهای نوازندگان میباشد",
     screenshots: [
@@ -1715,7 +1751,8 @@ const appModalData = {
       "امکان ضبط صدای میکس شده بکینگ ترک و صدای ساز داخل حافظه تلفن همراه با فرمت WAVE",
       "امکان تغییر سرعت بکینگ ترک بدون تغییر فرکانس",
     ],
-    downloadUrl: "#",
+    downloadUrl: "./downloads/LMT_PRO_v1_4.apk",
+    fileName: "LMT_PRO_v1_4.apk",
     description:
       "امکانات این اپلیکیشن، آنرا در جایگاهی فراتر از یک افکت باکس یا پدال بورد سخت افزاری قرار داده است امکان لود بکینگ ترک با قابلیت تغییر سرعت بدون تغییر فرکانس آن برای تمرین همنوازی همچنین وجود یک مترونوم با قابلیت منحصر به فرد ایجاد کلیه فیگورهای ریتمیک مورد نظر از یک طرف و امکان ضبط صدای ورودی به همراه بکینگ ترک با فرمت wave  در حافظه گوشی آنرا به رویای هر نوازنده تبدیل کرده است که بدون نیاز به تجهیزات گرانقیمت و سنگین و حجیم بتوان در همه جا و همه زمان از ساز خود صدایی رویایی به گوش مخاطبان رسانید. تیونر کروماتیک میکروتونال آن نیز از نقاط قوت این نسخه از اپلیکیشن میباشد که امکان تعیین میزان انحراف از نوت اصلی را نیز به کاربر میدهد . وجود بیش از 40 پریست  برای استفاده در شرایط مختلف و سازهای مختلف تسهیلی دیگر در اجراهای نوازندگان میباشد",
     screenshots: [
@@ -1726,9 +1763,164 @@ const appModalData = {
     ],
   },
 };
+const appModalDataEN = {
+  livefx: {
+    title: "LiveFX",
+    subtitle:
+      "Professional live effect with zero latency, specifically for live performance",
+    features: [
+      "Equipped with thirteen popular and widely used effects",
+      "Equipped with a chromatic tuner",
+      "Equipped with a flexible metronome",
+      "More than 35 default presets",
+    ],
+    // Replace the download file URL for this app here
+    downloadUrl: "./downloads/LiveFX_v1_4.apk",
+    fileName: "LiveFX_v1_4.apk",
+    description:
+      "Along with popular and widely used effects, other basic features have been added to this version of the application. The inclusion of a built-in tuner for easy instrument tuning, and a metronome with the unique capability to create any rhythmic figure desired by the user, places it far beyond a simple effects box. The unique advantage of this application is zero latency in processing the input sound, which always delivers the joy of a live performance to the musician and a dreamy sound to the audience's ears. The presence of more than 35 presets for use in different conditions and with various instruments is another convenience to speed up the setup and performances of musicians.",
+    screenshots: [
+      "screenshots/livefx-1.jpg",
+      "screenshots/livefx-2.jpg",
+      "screenshots/livefx-3.jpg",
+      "screenshots/livefx-4.jpg",
+      "screenshots/livefx-5.jpg",
+    ],
+  },
+  lmt: {
+    title: "Live Music Tools",
+    subtitle:
+      "Professional live effect along with live performance and recording features",
+    features: [
+      "Inclusion of thirteen widely used and famous effects",
+      "Equipped with a chromatic tuner",
+      "Flexible metronome with the capability to play any complex rhythm and any rhythmic template or figure",
+      "Equipped with more than 35 default presets",
+      "Audio recording capability",
+      "Backing track loading capability",
+      "Backing track speed alteration capability",
+    ],
+    downloadUrl: "./downloads/LMT_v1_4.apk",
+    fileName: "LMT_v1_4.apk",
+    description:
+      "The features of this application place it far beyond a simple effects box or hardware pedalboard. The ability to load backing tracks with speed adjustment for jam session practice, a built-in tuner for easy instrument tuning, and a metronome with the unique capability to create any desired rhythmic figure on one hand, combined with the ability to record input audio along with the backing track in WAVE format directly into the phone's memory on the other, makes it every musician's dream. It allows musicians to deliver a dreamy sound to their audience anywhere and anytime without the need for expensive, heavy, and bulky equipment. The presence of more than 35 presets for use in various conditions and with different instruments is another great convenience in musicians' performances.",
+    screenshots: [
+      "screenshots/lmt-screen-reverb.jpg",
+      "screenshots/lmt-screen-home.jpg",
+      "screenshots/lmt-screen-eq.jpg",
+      "screenshots/lmt-screen-menu.jpg",
+      "screenshots/lmt-screen-main.jpg",
+    ],
+  },
+  pro: {
+    title: "Live Music Tools (PRO)",
+    subtitle:
+      "Professional version with full features for performance, recording, and practice",
+    features: [
+      "Equipped with fifteen widely used and famous effects in the music world",
+      "Contains more than 40 default presets",
+      "Chromatic + microtonal tuner for tuning or adjusting the quarter tones of Iranian or Turkish instruments with cents adjustment capability",
+      "Flexible metronome with the capability to play any complex rhythm and any rhythmic template or figure",
+      "Backing track loading capability",
+      "Capability to record the mixed audio of the backing track and instrument into the mobile phone memory in WAVE format",
+      "Backing track speed alteration capability without changing the pitch frequency",
+    ],
+    downloadUrl: "./downloads/LMT_PRO_v1_4.apk",
+    fileName: "LMT_PRO_v1_4.apk",
+    description:
+      "The features of this application place it far beyond a simple effects box or hardware pedalboard. The ability to load backing tracks with speed adjustment without changing the pitch frequency for jam session practice, a metronome with the unique capability to create any desired rhythmic figure on one hand, combined with the ability to record input audio along with the backing track in WAVE format into the phone's memory on the other, makes it every musician's dream. It allows musicians to deliver a dreamy sound to their audience anywhere and anytime without the need for expensive, heavy, and bulky equipment. Its microtonal chromatic tuner is also one of the strengths of this version of the application, allowing the user to determine the exact deviation from the main note. The presence of more than 40 presets for use in various conditions and with different instruments is another great convenience in musicians' performances.",
+    screenshots: [
+      "screenshots/pro-screen-home.jpg",
+      "screenshots/pro-screen-wahwah.jpg",
+      "screenshots/pro-screen-menu.jpg",
+      "screenshots/pro-screen-live.jpg",
+    ],
+  },
+};
+
+const appModalDataTR = {
+  livefx: {
+    title: "LiveFX",
+    subtitle:
+      "Canlı performanslar için özel, sıfır gecikmeli profesyonel canlı efekt",
+    features: [
+      "On üç adet popüler ve yaygın kullanılan efekt ile donatılmıştır",
+      "Kromatik akort cihazı (tuner) mevcuttur",
+      "Esnek metronom özelliği içerir",
+      "35'ten fazla hazır ayar (preset)",
+    ],
+    // Bu uygulamanın indirme dosyası adresini buraya yerleştirin
+    downloadUrl: "./downloads/LiveFX_v1_4.apk",
+    fileName: "LiveFX_v1_4.apk",
+    description:
+      "Popüler ve yaygın olarak kullanılan efektlerin yanı sıra, uygulamanın bu sürümüne diğer temel özellikler de eklenmiştir. Enstrümanı kolayca akort etmek için uygulama içi tuner ve kullanıcının istediği tüm ritmik figürleri oluşturabilen benzersiz bir metronomun varlığı, onu sıradan bir efekt kutusunun çok ötesine taşır. Bu uygulamanın benzersiz avantajı, giriş sesinin işlenmesinde sıfır gecikme sunmasıdır; bu da müzisyene her zaman canlı bir performansın keyfini yaşatır ve dinleyicilere rüya gibi bir ses sunar. Farklı koşullarda ve çeşitli enstrümanlarla kullanılmak üzere 35'ten fazla hazır ayarın bulunması, müzisyenlerin kurulum ve performans hızını artıran bir diğer kolaylıktır.",
+    screenshots: [
+      "screenshots/livefx-1.jpg",
+      "screenshots/livefx-2.jpg",
+      "screenshots/livefx-3.jpg",
+      "screenshots/livefx-4.jpg",
+      "screenshots/livefx-5.jpg",
+    ],
+  },
+  lmt: {
+    title: "Live Music Tools",
+    subtitle:
+      "Canlı performans ve kayıt özelliklerine sahip profesyonel canlı efekt",
+    features: [
+      "On üç adet yaygın kullanılan ve ünlü efekt seçeneği",
+      "Kromatik akort cihazı (tuner) mevcuttur",
+      "Her türlü aksak ritmi ve her ritmik kalıbı/figürü çalabilen esnek metronom",
+      "35'ten fazla hazır ayar ile donatılmıştır",
+      "Ses kaydetme imkanı",
+      "Altyapı (backing track) yükleme seçeneği",
+      "Altyapı (backing track) hızını değiştirme özelliği",
+    ],
+    downloadUrl: "./downloads/LMT_v1_4.apk",
+    fileName: "LMT_v1_4.apk",
+    description:
+      "Bu uygulamanın özellikleri, onu sıradan bir efekt kutusu veya donanımsal pedalboard'un çok ötesinde bir konuma yerleştirmektedir. Birlikte çalma egzersizleri için hızı ayarlanabilir altyapı parçaları (backing track) yükleme özelliği, kolay akort için dahili tuner ve her türlü ritmik figürü oluşturabilen benzersiz metronom bir yanda; giriş sesini altyapıyla birlikte WAVE formatında doğrudan telefon hafızasına kaydetme imkanı diğer yanda birleşerek bu uygulamayı her müzisyenin rüyası haline getiriyor. Pahalı, ağır ve hacimli ekipmanlara ihtiyaç duymadan, her yerde ve her zaman dinleyicilere büyüleyici bir ses ulaştırmayı sağlar. Çeşitli koşullarda ve farklı enstrümanlarda kullanılmak üzere 35'ten fazla hazır ayarın varlığı, müzisyenlerin performanslarında büyük bir kolaylık sağlamaktadır.",
+    screenshots: [
+      "screenshots/lmt-screen-reverb.jpg",
+      "screenshots/lmt-screen-home.jpg",
+      "screenshots/lmt-screen-eq.jpg",
+      "screenshots/lmt-screen-menu.jpg",
+      "screenshots/lmt-screen-main.jpg",
+    ],
+  },
+  pro: {
+    title: "Live Music Tools (PRO)",
+    subtitle:
+      "Performans, kayıt ve pratik için tam özellikli profesyonel sürüm",
+    features: [
+      "Müzik dünyasında yaygın olarak kullanılan ve ünlü on beş efektle donatılmıştır",
+      "40'tan fazla hazır ayar (preset) içerir",
+      "İran veya Türk enstrümanlarının koma/perde ayarlarını yapmak için sapma miktarını belirleme özellikli kromatik + mikrotonal tuner",
+      "Her türlü aksak ritmi ve her ritmik kalıbı/figürü çalabilen esnek metronom",
+      "Altyapı (backing track) yükleme seçeneği",
+      "Altyapı parçası ile enstrüman sesinin mikslenmiş halini WAVE formatında telefon hafızasına kaydedebilme",
+      "Frekansı (perdeyi) değiştirmeden altyapı (backing track) hızını değiştirebilme özelliği",
+    ],
+    downloadUrl: "./downloads/LMT_PRO_v1_4.apk",
+    fileName: "LMT_PRO_v1_4.apk",
+    description:
+      "Bu uygulamanın özellikleri, onu sıradan bir efekt kutusu veya donanımsal pedalboard'un çok ötesinde bir konuma yerleştirmektedir. Beraber pratik yapmak için frekansı bozmadan hızı ayarlanabilir altyapı parçaları yükleme özelliği, her türlü ritmik figürü oluşturabilen benzersiz metronom bir yanda; giriş sesini altyapıyla birlikte WAVE formatında telefon hafızasına kaydetme imkanı diğer yanda birleşerek bu uygulamayı her müzisyenin rüyası haline getiriyor. Pahalı, ağır ve hacimli ekipmanlara ihtiyaç duymadan, her yerde ve her zaman enstrümanınızdan rüya gibi bir ses çıkarmanızı sağlar. Mikrotonal kromatik akort cihazı (tuner) ise bu sürümün en güçlü yönlerinden biri olup, kullanıcının ana sesten olan sapma miktarını (koma) tam olarak belirlemesine olanak tanır. Çeşitli koşullarda ve farklı enstrümanlarda kullanılmak üzere 40'tan fazla hazır ayarın bulunması, müzisyenlerin performanslarında sağlanan bir diğer büyük kolaylıktır.",
+    screenshots: [
+      "screenshots/pro-screen-home.jpg",
+      "screenshots/pro-screen-wahwah.jpg",
+      "screenshots/pro-screen-menu.jpg",
+      "screenshots/pro-screen-live.jpg",
+    ],
+  },
+};
 
 function openAppModal(appKey) {
-  const data = appModalData[appKey];
+  let data = appModalDataTR[appKey];
+  const langBtn = document.getElementById("langDropdownBtn");
+
+  if (langBtn.innerText === "فارسی") data = appModalDataFA[appKey];
+  else if (langBtn.innerText === "Türkçe") data = appModalDataTR[appKey];
+  else if (langBtn.innerText === "English") data = appModalDataEN[appKey];
+
   if (!data) return;
 
   document.getElementById("appModalTitle").innerText = data.title;
@@ -1766,7 +1958,12 @@ function openAppModal(appKey) {
 
   const downloadBtn = document.getElementById("appModalDownloadBtn");
   downloadBtn.onclick = () => {
-    window.location.href = data.downloadUrl;
+    const link = document.createElement("a");
+    link.href = data.downloadUrl;
+    link.download = data.fileName || "";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const modal = document.getElementById("appInfoModal");

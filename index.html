@@ -2978,7 +2978,7 @@
       ></div>
       <div class="flex min-h-screen items-center justify-center p-4">
         <div
-          class="relative w-full max-w-6xl rounded-3xl bg-darkCard/40 backdrop-blur-2xl backdrop-saturate-150 border border-white/10 p-6 md:p-10 shadow-2xl text-right"
+          class="relative w-full max-w-6xl rounded-3xl bg-darkCard/40 backdrop-blur-2xl backdrop-saturate-150 border border-white/10 p-6 md:p-10 shadow-2xl text-start"
         >
           <button
             onclick="closeAppModal()"
@@ -3009,7 +3009,7 @@
 
           <!-- Features -->
           <div class="mb-8">
-            <h4 class="text-lg font-bold text-accentNeon mb-4 mt-4">امکانات این اپلیکیشن</h4>
+            <h4 id="text1" class="text-lg font-bold text-accentNeon mb-4 mt-4">امکانات این اپلیکیشن</h4>
             <ul
               id="appModalFeatures"
               class="grid sm:grid-cols-4 gap-3"
@@ -3024,7 +3024,7 @@
           <div
             class="bg-slate-900/60 border border-slate-800 rounded-2xl p-5 md:p-6"
           >
-            <h4 class="text-lg font-bold text-accentNeontext-slate-500 mb-3">معرفی </h4>
+            <h4 id="text2" class="text-lg font-bold text-accentNeontext-slate-500 mb-3">معرفی </h4>
             <div
               id="appModalDescription"
               class="text-slate-300 leading-8 text-sm md:text-base whitespace-pre-line text-justify"
@@ -3035,7 +3035,7 @@
 
           <!-- Screenshots -->
           <div class="mb-8 hidden" id="appModalScreenshotsWrapper">
-            <h4 class="text-lg font-bold text-accentNeon mb-4 mt-4">تصاویری از اپلیکیشن</h4>
+            <h4 id="text3" class="text-lg font-bold text-accentNeon mb-4 mt-4">تصاویری از اپلیکیشن</h4>
             <div
               id="appModalScreenshots"
               class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3"

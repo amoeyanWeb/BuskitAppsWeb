@@ -1917,9 +1917,9 @@ const appModalDataTR = {
 function trackAppDownload(appKey) {
   if (typeof db === "undefined" || !db) return;
   db.collection("stats")
-    .doc("appDownloads")
+    .doc("downloads_" + appKey)
     .set(
-      { [appKey]: firebase.firestore.FieldValue.increment(1) },
+      { count: firebase.firestore.FieldValue.increment(1) },
       { merge: true },
     )
     .catch((err) => console.error("خطا در ثبت آمار دانلود اپ:", err));

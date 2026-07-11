@@ -419,22 +419,21 @@
           lmt: document.getElementById("downloadsLmtCount"),
           pro: document.getElementById("downloadsProCount"),
         };
-        db.collection("stats")
-          .doc("appDownloads")
-          .get()
-          .then((doc) => {
-            const data = doc.exists ? doc.data() : {};
-            Object.keys(els).forEach((key) => {
-              const count = data[key] || 0;
-              if (els[key]) els[key].innerText = count.toLocaleString("fa-IR");
+        Object.keys(els).forEach((key) => {
+          const el = els[key];
+          if (!el) return;
+          db.collection("stats")
+            .doc("downloads_" + key)
+            .get()
+            .then((doc) => {
+              const count = doc.exists ? doc.data().count || 0 : 0;
+              el.innerText = count.toLocaleString("fa-IR");
+            })
+            .catch((err) => {
+              console.error("خطا در دریافت آمار دانلود " + key + ":", err);
+              el.innerText = "—";
             });
-          })
-          .catch((err) => {
-            console.error("خطا در دریافت آمار دانلود اپ‌ها:", err);
-            Object.values(els).forEach((el) => {
-              if (el) el.innerText = "—";
-            });
-          });
+        });
       }
 
       // ====== نمایش و مدیریت پیام‌ها ======

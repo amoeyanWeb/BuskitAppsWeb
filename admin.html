@@ -141,6 +141,84 @@
         </svg>
       </div>
 
+      <!-- آمار دانلود اپ‌ها -->
+      <div class="mb-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div
+          class="p-5 bg-[#161920] border border-white/10 rounded-2xl flex items-center justify-between"
+        >
+          <div>
+            <p class="text-slate-400 text-xs mb-1">تعداد دانلود LiveFX</p>
+            <p id="downloadsLivefxCount" class="text-2xl font-bold text-[#00f5d4]">
+              در حال بارگذاری...
+            </p>
+          </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-9 h-9 text-slate-600"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
+            />
+          </svg>
+        </div>
+
+        <div
+          class="p-5 bg-[#161920] border border-white/10 rounded-2xl flex items-center justify-between"
+        >
+          <div>
+            <p class="text-slate-400 text-xs mb-1">تعداد دانلود Live Music Tools</p>
+            <p id="downloadsLmtCount" class="text-2xl font-bold text-[#00f5d4]">
+              در حال بارگذاری...
+            </p>
+          </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-9 h-9 text-slate-600"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
+            />
+          </svg>
+        </div>
+
+        <div
+          class="p-5 bg-[#161920] border border-white/10 rounded-2xl flex items-center justify-between"
+        >
+          <div>
+            <p class="text-slate-400 text-xs mb-1">تعداد دانلود Live Music Tools (PRO)</p>
+            <p id="downloadsProCount" class="text-2xl font-bold text-[#00f5d4]">
+              در حال بارگذاری...
+            </p>
+          </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-9 h-9 text-slate-600"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
+            />
+          </svg>
+        </div>
+      </div>
+
       <!-- تب‌ها -->
       <div class="flex gap-2 mb-8 border-b border-white/10">
         <button
@@ -292,6 +370,7 @@
           document.getElementById("adminUserLabel").innerText = user.email;
           loadAdminQuestions();
           loadSiteVisits();
+          loadAppDownloads();
 
           // هر بار که وارد پنل ادمین می‌شویم، یک بازدید (که خودمان برای رسیدن به این صفحه ایجاد کردیم) کم می‌شود
           if (!siteVisitDecremented) {
@@ -330,6 +409,31 @@
           .then(() => loadSiteVisits())
           .catch((err) => {
             console.error("خطا در کم‌کردن آمار بازدید:", err);
+          });
+      }
+
+      // ====== آمار دانلود اپ‌ها ======
+      function loadAppDownloads() {
+        const els = {
+          livefx: document.getElementById("downloadsLivefxCount"),
+          lmt: document.getElementById("downloadsLmtCount"),
+          pro: document.getElementById("downloadsProCount"),
+        };
+        db.collection("stats")
+          .doc("appDownloads")
+          .get()
+          .then((doc) => {
+            const data = doc.exists ? doc.data() : {};
+            Object.keys(els).forEach((key) => {
+              const count = data[key] || 0;
+              if (els[key]) els[key].innerText = count.toLocaleString("fa-IR");
+            });
+          })
+          .catch((err) => {
+            console.error("خطا در دریافت آمار دانلود اپ‌ها:", err);
+            Object.values(els).forEach((el) => {
+              if (el) el.innerText = "—";
+            });
           });
       }
 

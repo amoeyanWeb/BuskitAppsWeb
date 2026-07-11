@@ -1913,6 +1913,18 @@ const appModalDataTR = {
   },
 };
 
+// ====== ثبت آمار دانلود هر اپ در Firestore ======
+function trackAppDownload(appKey) {
+  if (typeof db === "undefined" || !db) return;
+  db.collection("stats")
+    .doc("appDownloads")
+    .set(
+      { [appKey]: firebase.firestore.FieldValue.increment(1) },
+      { merge: true },
+    )
+    .catch((err) => console.error("خطا در ثبت آمار دانلود اپ:", err));
+}
+
 function openAppModal(appKey) {
   let data = appModalDataTR[appKey];
   const langBtn = document.getElementById("langDropdownBtn");
@@ -1958,6 +1970,7 @@ function openAppModal(appKey) {
 
   const downloadBtn = document.getElementById("appModalDownloadBtn");
   downloadBtn.onclick = () => {
+    trackAppDownload(appKey);
     const link = document.createElement("a");
     link.href = data.downloadUrl;
     link.download = data.fileName || "";

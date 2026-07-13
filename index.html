@@ -599,80 +599,90 @@
           با تاخیر صفر  و امکاناتی منحصر به فرد 
           
         </p>
-        <div
-          class="flex flex-col sm:flex-row justify-center items-center gap-4"
-        >
-          <div class="relative group w-full sm:w-64">
-            <button
-              id="heroDownloadBtnLiveFX"
-              onclick="openAppModal('livefx')"
-              class="w-full sm:w-64 h-16 px-4 py-2.5 bg-accentNeon text-darkBg font-bold rounded-xl shadow-lg shadow-accentNeon/20 hover:scale-105 transition-all duration-300 text-center flex items-center justify-center leading-tight"
-            >
-              دانلود رایگان LiveFx
-            </button>
-            <div
-              class="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-60 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
-            >
-              <ol
-                class="tooltip-glass rounded-xl px-4 py-3 ps-8 text-xs sm:text-sm text-slate-100 leading-relaxed text-start shadow-xl list-decimal space-y-1"
+        <div class="flex flex-col justify-center items-center gap-4">
+          <div
+            class="flex flex-col sm:flex-row justify-center items-center gap-4"
+          >
+            <div class="relative group w-full sm:w-64">
+              <button
+                id="heroDownloadBtnLiveFX"
+                onclick="openAppModal('livefx')"
+                class="w-full sm:w-64 h-16 px-4 py-2.5 bg-gradient-to-b from-[#d7a06e] to-[#8c5a2b] text-[#4a2a10] font-bold rounded-xl shadow-lg shadow-[#8c5a2b]/30 hover:scale-105 transition-all duration-300 text-center flex items-center justify-center leading-tight"
               >
-                <li id="heroTipLiveFX1">13 افکت</li>
-                <li id="heroTipLiveFX2">تیونر کروماتیک</li>
-                <li id="heroTipLiveFX3">مترونوم فلکسیبل  </li>
-                <li id="heroTipLiveFX4">بیش از 35 تنظیم پیش‌فرض</li>
-              </ol>
+                لایسنس برنز
+              </button>
+              <div
+                class="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-60 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
+              >
+                <ol
+                  class="tooltip-glass rounded-xl px-4 py-3 ps-8 text-xs sm:text-sm text-slate-100 leading-relaxed text-start shadow-xl list-decimal space-y-1"
+                >
+                  <li id="heroTipLiveFX1">7 افکت</li>
+                  <li id="heroTipLiveFX2">تیونر کروماتیک</li>
+                  <li id="heroTipLiveFX3">مترونوم فلکسیبل  </li>
+                  <li id="heroTipLiveFX4">بیش از 10 تنظیم پیش‌فرض</li>
+                </ol>
+              </div>
+            </div>
+            <div class="relative group w-full sm:w-64">
+              <button
+                id="heroDownloadBtnLMT"
+                onclick="openAppModal('lmt')"
+                class="w-full sm:w-64 h-16 px-4 py-2.5 bg-gradient-to-b from-[#f2f2f2] to-[#a8a8a8] text-[#3f3f3f] font-bold rounded-xl shadow-lg shadow-gray-400/30 hover:scale-105 transition-all duration-300 text-center flex items-center justify-center leading-tight"
+              >
+               لایسنس نقره ای
+              </button>
+
+              <div
+                class="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
+              >
+                <ol
+                  class="tooltip-glass rounded-xl px-4 py-3 ps-8 text-xs sm:text-sm text-slate-100 leading-relaxed text-start shadow-xl list-decimal space-y-1"
+                >
+                  <li id="heroTipLMT1">11 افکت</li>
+                  <li id="heroTipLMT2">تیونر کروماتیک</li>
+                  <li id="heroTipLMT3">مترونوم فلکسیبل</li>
+                  <li id="heroTipLMT4">بیش از 20 تنظیم پیش‌فرض</li>
+                  <li id="heroTipLMT5">امکان ضبط صدا</li>
+                  <li id="heroTipLMT6">امکان لود بکینگ ترک</li>
+                
+                </ol>
+              </div>
+            </div>
+            <div class="relative group w-full sm:w-64">
+              <button
+                id="heroDownloadBtnPro"
+                onclick="openAppModal('pro')"
+                class="w-full sm:w-64 h-16 px-4 py-2.5 bg-gradient-to-b from-[#ffe27a] to-[#c99a2e] text-[#7a4b00] font-bold rounded-xl shadow-lg shadow-[#c99a2e]/30 hover:scale-105 transition-all duration-300 text-center flex items-center justify-center leading-tight"
+              >
+لایسنس طلایی 
+              </button>
+              <div
+                class="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
+              >
+                <ol
+                  class="tooltip-glass rounded-xl px-4 py-3 ps-8 text-xs sm:text-sm text-slate-100 leading-relaxed text-start shadow-xl list-decimal space-y-1"
+                >
+                  <li id="heroTipPro1">15 افکت</li>
+                  <li id="heroTipPro2">بیش از 50 تنظیم پیش‌فرض</li>
+                  <li id="heroTipPro3">تیونر کروماتیک + میکروتونال</li>
+                  <li id="heroTipPro4">مترونوم فلکسیبل</li>
+                  <li id="heroTipPro5">امکان ضبط صدا</li>
+                  <li id="heroTipPro6">امکان لود بکینگ ترک</li>
+                  <li id="heroTipPro7">امکان تغییر سرعت بکینگ ترک </li>
+                </ol>
+              </div>
             </div>
           </div>
-          <div class="relative group w-full sm:w-64">
+          <div class="relative group w-full sm:w-[34rem]">
             <button
-              id="heroDownloadBtnLMT"
-              onclick="openAppModal('lmt')"
-              class="w-full sm:w-64 h-16 px-4 py-2.5 bg-accentNeon text-darkBg font-bold rounded-xl shadow-lg shadow-accentNeon/20 hover:scale-105 transition-all duration-300 text-center flex items-center justify-center leading-tight"
+              id="heroDownloadBtnTools"
+              onclick="downloadBuskitTools()"
+              class="w-full sm:w-[34rem] h-16 px-4 py-2.5 ltr:bg-gradient-to-r rtl:bg-gradient-to-l from-[#8c5a2b] via-[#c0c0c0] to-[#c99a2e] text-darkBg font-bold rounded-xl shadow-lg shadow-slate-400/30 hover:scale-105 transition-all duration-300 text-center flex items-center justify-center leading-tight"
             >
-              دانلود رایگان Live Music Tools
+              دانلود رایگان اپلیکیشن Buskit-Tools
             </button>
-            
-            <div
-              class="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
-            >
-              <ol
-                class="tooltip-glass rounded-xl px-4 py-3 ps-8 text-xs sm:text-sm text-slate-100 leading-relaxed text-start shadow-xl list-decimal space-y-1"
-              >
-                <li id="heroTipLMT1">13 افکت</li>
-                <li id="heroTipLMT2">تیونر کروماتیک</li>
-                <li id="heroTipLMT3">مترونوم فلکسیبل</li>
-                <li id="heroTipLMT4">بیش از 35 تنظیم پیش‌فرض</li>
-                <li id="heroTipLMT5">امکان ضبط صدا</li>
-                <li id="heroTipLMT6">امکان لود بکینگ ترک</li>
-                <li id="heroTipLMT7">امکان تغییر سرعت بکینگ ترک</li>
-              </ol>
-            </div>
           </div>
-          <div class="relative group w-full sm:w-64">
-            <button
-              id="heroDownloadBtnPro"
-              onclick="openAppModal('pro')"
-              class="w-full sm:w-64 h-16 px-4 py-2.5 bg-accentNeon text-darkBg font-bold rounded-xl shadow-lg shadow-accentNeon/20 hover:scale-105 transition-all duration-300 text-center flex items-center justify-center leading-tight"
-            >
-              دانلود رایگان Live Music Tools(PRO)
-            </button>
-            <div
-              class="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
-            >
-              <ol
-                class="tooltip-glass rounded-xl px-4 py-3 ps-8 text-xs sm:text-sm text-slate-100 leading-relaxed text-start shadow-xl list-decimal space-y-1"
-              >
-                <li id="heroTipPro1">15 افکت</li>
-                <li id="heroTipPro2">بیش از 40 تنظیم پیش‌فرض</li>
-                <li id="heroTipPro3">تیونر کروماتیک + میکروتونال</li>
-                <li id="heroTipPro4">مترونوم فلکسیبل</li>
-                <li id="heroTipPro5">امکان ضبط صدا</li>
-                <li id="heroTipPro6">امکان لود بکینگ ترک</li>
-                <li id="heroTipPro7">امکان تغییر سرعت بکینگ ترک بدون تغییر فرکانس</li>
-              </ol>
-            </div>
-          </div>
-         
         </div>
       </div>
     </section>
@@ -871,6 +881,7 @@
               تجهیزات، تجربه و لذت فراموش‌نشدنی از نوازندگی و اجرای موسیقی به
               دست خواهید آورد.
             </p>
+            
                 <p
               id="aboutP4"
               class="text-slate-200 leading-relaxed text-[17px] drop-shadow-[0_3px_10px_rgba(0,0,0,0.9)]"
@@ -1054,8 +1065,11 @@
          
 
           <p id="liveFXP7" class="drop-shadow-[0_3px_10px_rgba(0,0,0,1)]">
-            مزیت شاخص این سری اپلیکشین ، تاخیر در حد صفر و عدم نیاز به سیستم صوتی و تجهیزات گران‌قیمت
+            مزیت شاخص این اپلیکشین ، تاخیر در حد صفر و عدم نیاز به سیستم صوتی و تجهیزات گران‌قیمت
             و حرفه‌ای برای داشتن طنین صدایی حرفه‌ای و گوش‌نواز می‌باشد.
+          </p>        
+           <p id="liveFXP8" class="drop-shadow-[0_3px_10px_rgba(0,0,0,1)]">
+          امکانات این اپلیکیشن در سه دسته تقسیم و در قالب سه نوع لایسنس طلایی، نقره ای و برنزی در اختیار علاقمندان قرار داده میشود که هر کسی با هر سلیقه و توانایی بتواند از مزایای آن بهره مند شود
           </p>        
         </div>       
       </div>
@@ -1558,7 +1572,7 @@
                 Buskit-LiveFX application
               </h4>
                       <div class="bg-blue-900 rounded-lg sm:rounded-3xl">
-                <img src="./screenshots/liveFX.png" class="w-full h-auto mx-auto mb-1 sm:mb-4">
+                <img src="./tools.png" class="w-full h-auto mx-auto mb-1 sm:mb-4">
               </div>
               <ul
                 class="space-y-1 sm:space-y-2 text-[10px] sm:text-xs text-slate-300 mb-2 sm:mb-5"
@@ -1626,7 +1640,7 @@
                 Buskit-LiveFX application
               </h4>
                          <div class="bg-blue-900 rounded-lg sm:rounded-3xl">
-                <img src="./screenshots/liveFX.png" class="w-full h-auto mx-auto mb-1 sm:mb-4">
+                <img src="./tools.png" class="w-full h-auto mx-auto mb-1 sm:mb-4">
               </div>
               <ul
                 class="space-y-1 sm:space-y-2 text-[10px] sm:text-xs text-slate-300 mb-2 sm:mb-5"
@@ -1695,7 +1709,7 @@
                 Buskit-LiveFX application
               </h4>
               <div class="bg-blue-900 rounded-lg sm:rounded-3xl">
-                <img src="./screenshots/liveFX.png" class="w-full h-auto mx-auto mb-1 sm:mb-4">
+                <img src="./tools.png" class="w-full h-auto mx-auto mb-1 sm:mb-4">
               </div>
               <ul
                 class="space-y-1 sm:space-y-2 text-[10px] sm:text-xs text-slate-300 mb-2 sm:mb-5"
@@ -1766,7 +1780,7 @@
                 Live Music Tools application
               </h4>
                       <div class="bg-blue-900 rounded-lg sm:rounded-3xl">
-                <img src="./screenshots/LMT.png" class="w-full h-auto mx-auto mb-1 sm:mb-4">
+                <img src="./tools.png" class="w-full h-auto mx-auto mb-1 sm:mb-4">
               </div>
               <ul
                 class="space-y-1 sm:space-y-2 text-[10px] sm:text-xs text-slate-300 mb-2 sm:mb-5"
@@ -1834,7 +1848,7 @@
                 Live Music Tools application
               </h4>
                          <div class="bg-blue-900 rounded-lg sm:rounded-3xl">
-                <img src="./screenshots/LMT.png" class="w-full h-auto mx-auto mb-1 sm:mb-4">
+                <img src="./tools.png" class="w-full h-auto mx-auto mb-1 sm:mb-4">
               </div>
               <ul
                 class="space-y-1 sm:space-y-2 text-[10px] sm:text-xs text-slate-300 mb-2 sm:mb-5"
@@ -1903,7 +1917,7 @@
                 Live Music Tools application
               </h4>
               <div class="bg-blue-900 rounded-lg sm:rounded-3xl">
-                <img src="./screenshots/LMT.png" class="w-full h-auto mx-auto mb-1 sm:mb-4">
+                <img src="./tools.png" class="w-full h-auto mx-auto mb-1 sm:mb-4">
               </div>
               <ul
                 class="space-y-1 sm:space-y-2 text-[10px] sm:text-xs text-slate-300 mb-2 sm:mb-5"
@@ -1975,7 +1989,7 @@
                 Live Music Tools(PRO) application
               </h4>
                       <div class="bg-blue-900 rounded-lg sm:rounded-3xl">
-                <img src="./screenshots/Pro.png" class="w-full h-auto mx-auto mb-1 sm:mb-4">
+                <img src="./tools.png" class="w-full h-auto mx-auto mb-1 sm:mb-4">
               </div>
               <ul
                 class="space-y-1 sm:space-y-2 text-[10px] sm:text-xs text-slate-300 mb-2 sm:mb-5"
@@ -2043,7 +2057,7 @@
                 Live Music Tools(PRO) application
               </h4>
                          <div class="bg-blue-900 rounded-lg sm:rounded-3xl">
-                <img src="./screenshots/Pro.png" class="w-full h-auto mx-auto mb-1 sm:mb-4">
+                <img src="./tools.png" class="w-full h-auto mx-auto mb-1 sm:mb-4">
               </div>
               <ul
                 class="space-y-1 sm:space-y-2 text-[10px] sm:text-xs text-slate-300 mb-2 sm:mb-5"
@@ -2112,7 +2126,7 @@
                 Live Music Tools(PRP) application
               </h4>
               <div class="bg-blue-900 rounded-lg sm:rounded-3xl">
-                <img src="./screenshots/Pro.png" class="w-full h-auto mx-auto mb-1 sm:mb-4">
+                <img src="./tools.png" class="w-full h-auto mx-auto mb-1 sm:mb-4">
               </div>
               <ul
                 class="space-y-1 sm:space-y-2 text-[10px] sm:text-xs text-slate-300 mb-2 sm:mb-5"
@@ -2770,17 +2784,17 @@
             <div class="flex flex-wrap gap-2">
               <label class="purchase-item-label">
                 <input type="checkbox" id="chk_p4" onchange="recalcPurchaseTotals()" class="w-4 h-4 accent-accentNeon shrink-0" />
-                <span class="flex-1" id="chk_p4_name">لایسنس یک ماهه LiveFX</span>
+                <span class="flex-1" id="chk_p4_name">لایسنس برنز - یک ماهه </span>
                 <span class="text-accentNeon font-bold text-xs whitespace-nowrap" id="chk_p4_price">100 لیر</span>
               </label>
               <label class="purchase-item-label">
                 <input type="checkbox" id="chk_p3" onchange="recalcPurchaseTotals()" class="w-4 h-4 accent-accentNeon shrink-0" />
-                <span class="flex-1" id="chk_p3_name">لایسنس یکساله LiveFX</span>
+                <span class="flex-1" id="chk_p3_name">لایسنس برنز - یک ساله </span>
                 <span class="text-accentNeon font-bold text-xs whitespace-nowrap" id="chk_p3_price">600 لیر</span>
               </label>
               <label class="purchase-item-label">
                 <input type="checkbox" id="chk_p1" onchange="recalcPurchaseTotals()" class="w-4 h-4 accent-accentNeon shrink-0" />
-                <span class="flex-1" id="chk_p1_name">لایسنس دائم LiveFX</span>
+                <span class="flex-1" id="chk_p1_name">لایسنس برنز - دائم </span>
                 <span class="text-accentNeon font-bold text-xs whitespace-nowrap" id="chk_p1_price">900 لیر</span>
               </label>
             </div>
@@ -2789,17 +2803,17 @@
             <div class="flex flex-wrap gap-2">
               <label class="purchase-item-label">
                 <input type="checkbox" id="chk_p10" onchange="recalcPurchaseTotals()" class="w-4 h-4 accent-accentNeon shrink-0" />
-                <span class="flex-1" id="chk_p10_name">لایسنس یک ماهه Live Music Tools</span>
+                <span class="flex-1" id="chk_p10_name">لایسنس نقره ای - یک ماهه </span>
                 <span class="text-accentNeon font-bold text-xs whitespace-nowrap" id="chk_p10_price">150 لیر</span>
               </label>
               <label class="purchase-item-label">
                 <input type="checkbox" id="chk_p9" onchange="recalcPurchaseTotals()" class="w-4 h-4 accent-accentNeon shrink-0" />
-                <span class="flex-1" id="chk_p9_name">لایسنس یکساله Live Music Tools</span>
+                <span class="flex-1" id="chk_p9_name">لایسنس نقره ای - یکساله </span>
                 <span class="text-accentNeon font-bold text-xs whitespace-nowrap" id="chk_p9_price">950 لیر</span>
               </label>
               <label class="purchase-item-label">
                 <input type="checkbox" id="chk_p8" onchange="recalcPurchaseTotals()" class="w-4 h-4 accent-accentNeon shrink-0" />
-                <span class="flex-1" id="chk_p8_name">لایسنس دائم Live Music Tools</span>
+                <span class="flex-1" id="chk_p8_name">لایسنس نقره ای - دائم </span>
                 <span class="text-accentNeon font-bold text-xs whitespace-nowrap" id="chk_p8_price">1350 لیر</span>
               </label>
             </div>
@@ -2808,7 +2822,7 @@
             <div class="flex flex-wrap gap-2">
               <label class="purchase-item-label">
                 <input type="checkbox" id="chk_p7" onchange="recalcPurchaseTotals()" class="w-4 h-4 accent-accentNeon shrink-0" />
-                <span class="flex-1" id="chk_p7_name">لایسنس یک ماهه Live Music Tools(Pro)</span>
+                <span class="flex-1" id="chk_p7_name">لایسنس طلایی - یک ماهه </span>
                 <span class="text-accentNeon font-bold text-xs whitespace-nowrap" id="chk_p7_price">200 لیر</span>
               </label>
               <label class="purchase-item-label">
@@ -2818,7 +2832,7 @@
               </label>
               <label class="purchase-item-label">
                 <input type="checkbox" id="chk_p2" onchange="recalcPurchaseTotals()" class="w-4 h-4 accent-accentNeon shrink-0" />
-                <span class="flex-1" id="chk_p2_name">لایسنس دائم Live Music Tools(Pro)</span>
+                <span class="flex-1" id="chk_p2_name">لایسنس طلایی - دائم</span>
                 <span class="text-accentNeon font-bold text-xs whitespace-nowrap" id="chk_p2_price">1800 لیر</span>
               </label>
             </div>
@@ -3038,19 +3052,10 @@
             <h4 id="text3" class="text-lg font-bold text-accentNeon mb-4 mt-4">تصاویری از اپلیکیشن</h4>
             <div
               id="appModalScreenshots"
-              class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3"
+              class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-3"
             ></div>
           </div>
-
-          <!-- Download button -->
-          <div class="mb-8">
-            <button
-              id="appModalDownloadBtn"
-              class="mt-4 w-full px-10 py-3.5 bg-accentNeon text-darkBg font-bold rounded-xl shadow-lg shadow-accentNeon/20 hover:scale-105 transition-all duration-300 text-base text-center"
-            >
-              دانلود اپ
-            </button>
-          </div>
+                  
         </div>
       </div>
     </div>

@@ -18,22 +18,23 @@ const translations = {
     heroHeadline:
       'استودیوی افکت حرفه‌ای زنده، <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-accentNeon to-teal-400">در جیب و همراه شما</span>',
     heroDesc: "با تاخیر صفر  و امکاناتی منحصر به فرد ",
-    heroDownloadBtnLiveFX: "دانلود رایگان \nLiveFX",
-    heroDownloadBtnLMT: "دانلود رایگان \nLive Music Tools",
-    heroDownloadBtnLMTpro: "دانلود رایگان \nLive Music Tools(PRO)",
-    heroTipLiveFX1: "13 افکت",
+    heroDownloadBtnLiveFX: "لایسنس برنزی",
+    heroDownloadBtnLMT: "لایسنس نقره ای",
+    heroDownloadBtnLMTpro: "لایسنس طلایی",
+    heroDownloadBtnTools: "دانلود رایگان \nاپلیکیشن Buskit-Tools",
+    heroTipLiveFX1: "7 افکت",
     heroTipLiveFX2: "تیونر کروماتیک",
     heroTipLiveFX3: "مترونوم فلکسیبل",
-    heroTipLiveFX4: "بیش از 35 تنظیم پیش‌فرض",
-    heroTipLMT1: "13 افکت",
+    heroTipLiveFX4: "بیش از 20 تنظیم پیش‌فرض",
+    heroTipLMT1: "11 افکت",
     heroTipLMT2: "تیونر کروماتیک",
     heroTipLMT3: "مترونوم فلکسیبل",
-    heroTipLMT4: "بیش از 35 تنظیم پیش‌فرض",
+    heroTipLMT4: "بیش از 40 تنظیم پیش‌فرض",
     heroTipLMT5: "امکان ضبط صدا",
     heroTipLMT6: "امکان لود بکینگ ترک",
     heroTipLMT7: "امکان تغییر سرعت بکینگ ترک",
     heroTipPro1: "15 افکت",
-    heroTipPro2: "بیش از 40 تنظیم پیش‌فرض",
+    heroTipPro2: "بیش از 60 تنظیم پیش‌فرض",
     heroTipPro3: "تیونر کروماتیک + میکروتونال",
     heroTipPro4: "مترونوم فلکسیبل",
     heroTipPro5: "امکان ضبط صدا",
@@ -48,7 +49,7 @@ const translations = {
     aboutP3:
       "هر یک از این تجهیزات بخشی از نیازهای هر نوازنده یا خواننده را برطرف خواهد کرد. مطمئن هستم که با بکارگیری از هر یک از این تجهیزات، تجربه و لذت فراموش‌نشدنی از نوازندگی و اجرای موسیقی به دست خواهید آورد.",
     aboutP4:
-      "این وب‌سایت صرفاً به اپلیکیشن‌های تلفن همراه مجموعه Buskit می‌پردازد که در حال حاضر سه نسخه اپلیکیشن LiveFX, Live Music Tools, LiveMusic Tools(Pro) برای سیستم‌عامل اندروید آماده بهره‌برداری بوده که هر یک با امکانات منحصر بفردی که دارند یک اپلیکیشن همراه و به‌شدت مورد نیاز کلیه نوازندگان می‌باشند.",
+      "این وب سایت صرفا به اپلیکیشن های تلفن همراه مجموعه Buskit میپردازد. در حال حاضر اولین اپلیکیشن با نام Buskit-Tools  برای سیستم عامل اندروید آماده بهره برداری علاقمندان بوده و در سه نسخه طلایی، نقره ای و برنز ارائه میشود. هر یک از این سه نسخه دارای امکاناتی تکمیلی برای نوازندگان میباشند. \n\nمژده اینکه اپلیکیشن های دیگری نیز درحال پیاده سازی میباشند و در آینده ای نزدیک ارائه میگردند که از زوایای جدید به رفع نیازهای نوازندگان بالاخص نوازندگان اجرای زنده میپردازند.",
     aboutImgAlt: "محمد رضا عموئیان - نوازنده سه‌تار",
     liveFXTitle: "Buskit-Tools چیست",
     liveFXSubtitle:
@@ -86,7 +87,10 @@ const translations = {
     liveFXP6:
       "برای ورود صدای ساز یا خواننده به تلفن همراه به‌سادگی می‌توان از هندز فری گوشی که مجهز به میکروفون و هدفون است استفاده نمود، اما در صورتی که بخواهید خروجی را به آمپلی‌فایر متصل کنید، لازم است از دستگاه‌های موجود iRig و یا در صورت درخواست، دستگاه سخت‌افزاری w-full که از مجموعه دستگاه‌های سری Buskit می‌باشد، به‌عنوان سخت‌افزار همراه این اپلیکیشن استفاده نمایید. صدای خروجیِ پردازش شده توسط گوشی نیز از طریق همین دستگاه به ورودی آگزیلاری یا ورودی گیتار هر نوع آمپلی‌فایر حتی آماتور منتقل می‌شود و شاهد صدایی رویایی خواهید بود.",
     liveFXP7:
-      "از مزایای این دستگاه، عدم نیاز به سیستم صوتی و تجهیزات گران‌قیمت و حرفه‌ای برای داشتن طنینی صدایی حرفه‌ای و گوش‌نواز می‌باشد.",
+      "از مزایای این دستگاه، عدم نیاز به سیستم صوتی و تجهیزات گران‌قیمت و حرفه‌ای برای داشتن طنین صدایی حرفه‌ای و گوش‌نواز می‌باشد.",
+    liveFXP8:
+      "امکانات این اپلیکیشن در سه دسته تقسیم و در قالب سه نوع لایسنس طلایی، نقره ای و برنزی در اختیار علاقمندان قرار داده میشود که هر کسی با هر سلیقه و توانایی بتواند از مزایای آن بهره مند شود",
+
     liveFXGalleryAlt1: "نمای اصلی اپلیکیشن باسکیت لایو افکت",
     liveFXGalleryAlt2: "تنظیمات کمپرسور در اپلیکیشن باسکیت لایو افکت",
     liveFXGalleryAlt3: "انواع ریورب در اپلیکیشن باسکیت لایو افکت",
@@ -128,9 +132,9 @@ const translations = {
     f5Title: "امکان تست رایگان",
     f5Desc:
       "لایسنس 5 روزه رایگان تست نرم افزار و قابلیت های آن وهمچنین بررسی سازگاری با دستگاه تلفن همراه یا تبلت هنرمندان گرامی",
-    f6Title: "انواع پکیج های موجود",
+    f6Title: "تنوع پکیج های موجود",
     f6Desc:
-      "لایسنس استفاده از این نرم افزار به پنج روش برای هنرمندان گرامی آماده و قابل ارائه است 5 روزه رایگان، یک ماهه ، یه ساله ، مادام العمر و طلایی تا هنرمندان گرامی با هر شرایط و سلیقه ای امکان تهیه این نرم افزار را داشته باشند",
+      "برای این اپلیکیشن سه نوع لایسنس در نظر گرفته شده که هر لایسنس امکانات خاص خود را در اختیار کاربر میگذارد و نیز برای هر لایسنس سه مدل زمانی یک ماهه ، یک ساله و مادام العمر برای استفاده از آن پیش بینی شده است",
     shopTitle: "فروشگاه و محصولات",
     shopDesc:
       "لایسنس‌های نرم‌افزاری و محصولات دیگر را می‌توانید از این بخش تهیه کنید.",
@@ -143,66 +147,66 @@ const translations = {
     shopCurrency: "لیر",
     rialLabel: "ریال",
     millionLabel: "میلیون",
-    shopProductTitle: "Buskit-LiveFX application",
+    shopProductTitle: "Buskit-Tools application",
     shopBuyBtn: "خرید",
 
-    p1Badge: "لایسنس مادام‌العمر LiveFX",
-    p1Title: "لایسنس مادام العمراپلیکیشن LiveFX",
+    p1Badge: "لایسنس  برنزی - دائم ",
+    p1Title: "لایسنس مادام العمراپلیکیشن با امکانات برنز ",
     p1B1: "این لایسنس برای همیشه فعال باقی می‌ماند",
-    p1B2: "قفل تمام افکت‌ها و قابلیت‌های برنامه باز می‌شود",
+    p1B2: "قفل کلیه افکت‌ها و قابلیت‌های برنامه در لایسنس برنز باز می‌شود",
     p1B3: "شامل پشتیبانی فنی و به‌روزرسانی‌های مادام‌العمر",
-    p1B4: "شامل ۵۰ درصد تخفیف برای تمام محصولات نرم‌افزاری آینده",
+    p1B4: "",
     p1PriceVal: "1000",
 
-    p2Badge: "لایسنس ۱ ماهه LMT",
-    p2Title: "لایسنس یک ماهه اپلیکیشن Live Music Tools",
+    p2Badge: "لایسنس نقره ای - ۱ ماهه",
+    p2Title: "لایسنس یک ماهه اپلیکیشن با امکانات نقره ای  ",
     p2B1: "معتبر دقیقاً به مدت یک ماه از تاریخ اولین فعال‌سازی",
-    p2B2: "قفل تمام افکت‌ها و قابلیت‌های برنامه باز می‌شود",
+    p2B2: "قفل تمام افکت‌ها و قابلیت‌های برنامه برای لایسنس نقره ای باز می‌شود",
     p2B3: "شامل یک ماه پشتیبانی فنی و به‌روزرسانی",
     p2PriceVal: "150",
 
-    p3Badge: "لایسنس ۱ ساله LiveFX",
-    p3Title: "لایسنس یک ساله اپلیکیشن LiveFX",
+    p3Badge: "لایسنس برنزی - ۱ ساله ",
+    p3Title: "لایسنس یک ساله اپلیکیشن با امکانات برنزی  ",
     p3B1: "معتبر دقیقاً به مدت یک سال از تاریخ اولین فعال‌سازی",
-    p3B2: "قفل تمام افکت‌ها و قابلیت‌های برنامه باز می‌شود",
+    p3B2: "قفل تمام افکت‌ها و قابلیت‌های برنامه بر اساس امکانات برنز باز می‌شود",
     p3B3: "شامل یک سال پشتیبانی فنی و به‌روزرسانی",
     p3PriceVal: "600",
 
-    p4Badge: "لایسنس ۱ ماهه LiveFX",
-    p4Title: "لایسنس یک ماهه اپلیکیشن LiveFX",
+    p4Badge: "لایسنس بزنری - ۱ ماهه ",
+    p4Title: "لایسنس یک ماهه اپلیکیشن با امکانات برنز  ",
     p4B1: "معتبر دقیقاً به مدت یک ماه از تاریخ اولین فعال‌سازی",
-    p4B2: "قفل تمام افکت‌ها و قابلیت‌های برنامه باز می‌شود",
+    p4B2: "قفل تمام افکت‌ها و قابلیت‌های برنامه بر اساس لایستن برنز باز می‌شود",
     p4B3: "شامل یک ماه پشتیبانی فنی و به‌روزرسانی",
     p4PriceVal: "100",
 
     p5Badge: "لایسنس رایگان",
-    p5Title: " لایسنس رایگان برای هر سه نسخه اپلیکیشن ",
+    p5Title: " لایسنس رایگان برای اپلیکیشن ",
     p5B1: "معتبر دقیقاً به مدت پنج روز از تاریخ اولین فعال‌سازی",
-    p5B2: "قفل تمام افکت‌ها و قابلیت‌های برنامه باز می‌شود",
+    p5B2: "کاربر از کلیه امکانات اپلیکیشن بهره مند خواهد بود",
     p5B3: "شامل پنج روز پشتیبانی فنی و به‌روزرسانی",
     p5LicenseLabel: "لایسنس:",
     p5PriceVal: "0",
     disabledTxt: "اتمام موجودی",
 
-    p6Badge: "لایسنس ۱ ساله LMT",
+    p6Badge: "لایسنس نقره ای - ۱ ساله ",
     p6Desc: "نام محصول",
-    p6Title: "لایسنس یک ساله اپلیکیشن Live Music Tools",
+    p6Title: "لایسنس یک ساله اپلیکیشن با امکانات نقره ای ",
     p6B1: "معتبر دقیقاً به مدت یک سال از تاریخ اولین فعال‌سازی",
-    p6B2: "قفل تمام افکت‌ها و قابلیت‌های برنامه باز می‌شود",
+    p6B2: "قفل تمام افکت‌ها و قابلیت‌های برنامه بر اساس لایسنس نقره ای باز می‌شود",
     p6B3: "شامل یک سال پشتیبانی فنی و به‌روزرسانی",
     p6PriceVal: "950",
 
-    p7Badge: "لایسنس ۱ ساله LMT(PRO)",
+    p7Badge: "لایسنس طلایی - ۱ ساله ",
     p7Desc: "نام محصول",
-    p7Title: "لایسنس یک ساله اپلیکیشن Live Music Tools(PRO)",
+    p7Title: "لایسنس یک ساله اپلیکیشن با امکانات طلایی ",
     p7B1: "معتبر دقیقاً به مدت یک سال از تاریخ اولین فعال‌سازی",
     p7B2: "قفل تمام افکت‌ها و قابلیت‌های برنامه باز می‌شود",
     p7B3: "شامل یک سال پشتیبانی فنی و به‌روزرسانی",
     p7PriceVal: "1200",
 
-    p8Badge: "لایسنس طلایی (GOLDEN)",
+    p8Badge: "لایسنس طلایی - دائم ",
     p8Desc: "نام محصول",
-    p8Title: "لایسنس مادام‌العمر اپلیکیشن LMT(PRO)",
+    p8Title: "لایسنس مادام‌العمر اپلیکیشن با کلیه امکانات",
     p8B1: "معتبر به‌صورت مادام‌العمر",
     p8B2: "قفل تمام افکت‌ها و قابلیت‌های برنامه باز می‌شود",
     p8B3: "شامل پشتیبانی فنی و به‌روزرسانی‌های مادام‌العمر",
@@ -215,11 +219,12 @@ const translations = {
     p9B1: "شامل: irig + کابل + میکروفون پیزو",
     p9PriceVal: "850",
 
-    p10Badge: "لایسنس مادام‌العمر LMT",
+    p10Badge: "لایسنس نقره ای - دائم ",
     p10Desc: "نام محصول",
-    p10Title: "لایسنس مادام‌العمر اپلیکیشن Live Music Tools",
+    p10Title: "لایسنس مادام‌العمر اپلیکیشن با امکانات نقره ای ",
     p10B1: "معتبر به‌صورت مادام‌العمر",
-    p10B2: "قفل تمام افکت‌ها و قابلیت‌های برنامه باز می‌شود",
+    p10B2:
+      "قفل تمام افکت‌ها و قابلیت‌های برنامه بر اساس امکانات نقره ای باز می‌شود",
     p10B3: "شامل پشتیبانی فنی و به‌روزرسانی‌های مادام‌العمر",
     p10B4: "۲۵ درصد تخفیف برای تمام اپلیکیشن‌ها و به‌روزرسانی‌های آینده",
     p10PriceVal: "1350",
@@ -254,7 +259,8 @@ const translations = {
     p15B1: "شامل: Brig + کابل + میکروفون پیزو",
     p15PriceVal: "750",
 
-    p16Badge: "لایسنس ۱ ماهه LMT(PRO)",
+    p16Badge: "لایسنس طلایی - ۱ ماهه ",
+    p16Title: "لایسنس مادام‌العمر اپلیکیشن با امکانات طلایی ",
     p16B1: "معتبر دقیقاً به مدت یک ماه از تاریخ اولین فعال‌سازی",
     p16B2: "قفل تمام افکت‌ها و قابلیت‌های برنامه باز می‌شود",
     p16B3: "شامل یک ماه پشتیبانی فنی و به‌روزرسانی",
@@ -347,15 +353,15 @@ const translations = {
       'پس از واریز وجه به حساب‌های اعلام‌شده، نام و نام خانوادگی، ایمیل و آدرس پستی (در صورت لزوم) و رسید مربوطه را به شماره <span dir="ltr" class="font-mono text-accentNeon">00905312691609</span> واتس‌آپ کنید تا کالای خریداری‌شده برای شما ارسال گردد.',
     btnBackForm: "بازگشت",
     purchaseItemNames: {
-      p4: "لایسنس یک ماهه LiveFX",
-      p3: "لایسنس یکساله LiveFX",
-      p1: "لایسنس دائم LiveFX",
-      p10: "لایسنس یک ماهه LMT",
-      p9: "لایسنس یکساله LMT",
-      p8: "لایسنس دائم LMT",
-      p7: "لایسنس یک ماهه LMT(Pro)",
-      p6: "لایسنس یکساله LMT(Pro)",
-      p2: "لایسنس دائم LMT(Pro)",
+      p4: "لایسنس برنز - یک ماهه ",
+      p3: "لایسنس برنز - یک ساله ",
+      p1: "لایسنس برنز - دائم ",
+      p10: "لایسنس نقره ای - یک ماهه ",
+      p9: "لایسنس نقره ای - یک ساله ",
+      p8: "لایسنس  نقره ای  - دائم ",
+      p7: "لایسنس طلائی - یک ماهه ",
+      p6: "لایسنس طلایی - یک ساله ",
+      p2: "لایسنس طلائی - دائم ",
       p5: "پک سخت‌افزاری i",
       p11: "پک سخت‌افزاری B",
       p12: "دستگاه irig",
@@ -387,37 +393,38 @@ const translations = {
     heroHeadline:
       'Professional Live Effect Studio, <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-accentNeon to-teal-400">In Your Pocket & On the Go</span>',
     heroDesc: "With zero latency and unique features",
-    heroDownloadBtnLiveFX: "Download for Free\n LiveFX ",
-    heroDownloadBtnLMT: "Download for Free\n Live Music Tools ",
-    heroDownloadBtnLMTpro: "Download for Free\n Live Music Tools (PRO) ",
-    heroTipLiveFX1: "13 Effects",
+    heroDownloadBtnLiveFX: "Bronze License",
+    heroDownloadBtnLMT: "Silver Licens ",
+    heroDownloadBtnLMTpro: "Golden License ",
+    heroDownloadBtnTools: "Download for Free\n Buskit-Tools Application",
+    heroTipLiveFX1: "7 Effects",
     heroTipLiveFX2: "Chromatic Tuner",
     heroTipLiveFX3: "Flexible Metronome",
-    heroTipLiveFX4: "35+ Built-in Presets",
-    heroTipLMT1: "13 Effects",
+    heroTipLiveFX4: "20+ Built-in Presets",
+    heroTipLMT1: "11 Effects",
     heroTipLMT2: "Chromatic Tuner",
     heroTipLMT3: "Flexible Metronome",
-    heroTipLMT4: "35+ Built-in Presets",
+    heroTipLMT4: "40+ Built-in Presets",
     heroTipLMT5: "Audio Recording",
     heroTipLMT6: "Backing Track Loading",
-    heroTipLMT7: "Backing Track Speed Change",
+    heroTipLMT7: "",
     heroTipPro1: "15 Effects",
-    heroTipPro2: "40+ Built-in Presets",
+    heroTipPro2: "60+ Built-in Presets",
     heroTipPro3: "Chromatic + Microtonal Tuner",
     heroTipPro4: "Flexible Metronome",
     heroTipPro5: "Audio Recording",
     heroTipPro6: "Backing Track Loading",
-    heroTipPro7: "Backing Track Speed Change Without Pitch Shift",
+    heroTipPro7: "Backing Track Speed Change",
 
     aboutTitle: "About Me",
     aboutP1:
-      'I am <span class="text-accentNeon font-semibold">Mohammad Reza Amouian</span>, an electronics engineer with over <span class="text-white font-medium">40 years of experience in electronic circuit design and computer software development, while actively</span> performing and playing music.',
+      'I am <span class="text-accentNeon font-semibold">Mohammad Reza Amoeyan</span>, an electronics engineer with over <span class="text-white font-medium">40 years of experience in electronic circuit design and computer software development, while actively</span> performing and playing music.',
     aboutP2:
       'I decided to gradually share the essence of live performance needs for street musicians, small bands, and private/personal gigs with music lovers through a series of hardware and software solutions under the brand name <span class="text-accentNeon font-bold">Buskit</span>.',
     aboutP3:
       "Each of these tools addresses a specific need for musicians or singers. I am confident that by using any of this equipment, you will gain an unforgettable experience and pleasure from playing and performing music.",
     aboutP4:
-      "This website focuses solely on the mobile applications of the Buskit series. Currently, three application versions—LiveFX, Live Music Tools, and Live Music Tools (Pro)—are ready for Android. Each offers unique features, making them an essential, ultimate companion app for all musicians.",
+      "This website focuses exclusively on mobile applications by the Buskit collection. Currently, the first application, named 'Buskit-Tools', is ready for android operating system enthusiasts and is offered in three versions: Gold, Silver, and Bronze. Each of these three versions features complementary tools and options for musicians.\n\nThe good news is that other applications are also being developed and will be released in the near future, addressing the needs of musicians—especially live performance musicians—from completely new perspectives.",
     aboutImgAlt: "Mohammad Reza Amouian - Setar Player",
     liveFXTitle: "What is Buskit-Tools",
     liveFXSubtitle:
@@ -456,6 +463,8 @@ const translations = {
       "To input the instrument or vocal audio into your smartphone, you can simply use standard earphones equipped with a microphone and headphone jack. However, if you wish to connect the output to an amplifier, you will need to use existing iRig devices or, upon request, the Brig hardware device from the Buskit series as the companion hardware for this app. The processed audio output from the phone is then routed through this device into the AUX or guitar input of any amplifier—even amateur ones—delivering a dreamy, professional sound.",
     liveFXP7:
       "One of the core advantages of this system is that it eliminates the need for expensive, heavy professional audio setups to achieve a rich, ear-pleasing, and professional tone.",
+    liveFXP8:
+      "The features of this application are divided into three categories and made available to enthusiasts in the form of three types of licenses: Gold, Silver, and Bronze, allowing everyone to benefit from its advantages according to their taste and ability.",
     liveFXGalleryAlt1: "Main View of Buskit LiveFX Application",
     liveFXGalleryAlt2: "Compressor Settings in Buskit LiveFX Application",
     liveFXGalleryAlt3: "Reverb Types in Buskit LiveFX Application",
@@ -499,9 +508,9 @@ const translations = {
     f5Title: "Free Trial Available",
     f5Desc:
       "A 5-day free trial license to test the software, its full capabilities, and verify compatibility with your mobile device or tablet.",
-    f6Title: "Flexible Licensing Packages",
+    f6Title: "Variety of Available Packages",
     f6Desc:
-      "Software licenses are offered in five methods to suit all needs and preferences: 5-day free trial, 1-month, 1-year, Lifetime, and Gold packages.",
+      "Three types of licenses have been designed for this application, each providing the user with specific features. Additionally, three duration models—one-month, one-year, and lifetime—are available for the use of each license.",
     shopTitle: "Shop & Products",
     shopDesc:
       "You can purchase software licenses and hardware products directly from this section.",
@@ -514,125 +523,124 @@ const translations = {
     shopCurrency: "TRY",
     rialLabel: "Rial",
     millionLabel: "Million",
-    shopProductTitle: "Buskit-LiveFX application",
+    shopProductTitle: "Buskit-Tools application",
     shopBuyBtn: "Buy",
 
-    p1Badge: "Lifetime LiveFX License ",
-    p1Title: "Lifetime LiveFX application license ",
+    p1Badge: "Bronze License - Permanent",
+    p1Title: "Lifetime Application License with Bronze Features",
     p1B1: "This license remains active forever",
-    p1B2: "All application effects and features are unlocked",
-    p1B3: "Lifetime technical support and updates included",
-    p1B4: "Entitles you to a 50% discount on all future software products",
+    p1B2: "Unlocks all application effects and features within the Bronze license scope",
+    p1B3: "Includes lifetime technical support and updates",
+    p1B4: "",
     p1PriceVal: "1000",
 
-    p2Badge: "1-Month LMT License",
-    p2Title: "One month Live Music Tools APP license",
-    p2B1: "Valid for exactly one month from the first activation date",
-    p2B2: "All application effects and features are unlocked",
-    p2B3: "One month of technical support and updates included",
+    p2Badge: "Silver License - 1 Month",
+    p2Title: "1-Month Application License with Silver Features",
+    p2B1: "Valid exactly for one month from the date of first activation",
+    p2B2: "Unlocks all application effects and features within the Silver license scope",
+    p2B3: "Includes one month of technical support and updates",
     p2PriceVal: "150",
 
-    p3Badge: "1-Year LiveFX License",
-    p3Title: "One year LiveFX application license",
-    p3B1: "Valid for exactly one year from the first activation date",
-    p3B2: "All application effects and features are unlocked",
-    p3B3: "One year of technical support and updates included",
+    p3Badge: "Bronze License - 1 Year",
+    p3Title: "1-Year Application License with Bronze Features",
+    p3B1: "Valid exactly for one year from the date of first activation",
+    p3B2: "Unlocks all application effects and features based on Bronze specifications",
+    p3B3: "Includes one year of technical support and updates",
     p3PriceVal: "600",
 
-    p4Badge: "1-Month LiveFX License",
-    p4Title: "One month LiveFX application license",
-    p4B1: "Valid for exactly one month from the first activation date",
-    p4B2: "All application effects and features are unlocked",
-    p4B3: "One month of technical support and updates included",
+    p4Badge: "Bronze License - 1 Month",
+    p4Title: "1-Month Application License with Bronze Features",
+    p4B1: "Valid exactly for one month from the date of first activation",
+    p4B2: "Unlocks all application effects and features based on the Bronze license scope",
+    p4B3: "Includes one month of technical support and updates",
     p4PriceVal: "100",
 
     p5Badge: "Free License",
-    p5Title: "Free license for all three applications LiveFX, LMT, LMT(PRO)",
-    p5B1: "Valid for exactly five days from the first activation date",
-    p5B2: "All application effects and features are unlocked",
-    p5B3: "Five days of technical support and updates included",
+    p5Title: "Free Application License",
+    p5B1: "Valid exactly for five days from the date of first activation",
+    p5B2: "The user will have full access to all application features",
+    p5B3: "Includes five days of technical support and updates",
     p5LicenseLabel: "License:",
     p5PriceVal: "0",
     disabledTxt: "Out of Stock",
 
-    p6Badge: "1-year LMT License",
-    p6Desc: "Product name",
-    p6Title: "One year Live Music Tools APP license",
-    p6B1: "Valid for exactly one year from the first activation date",
-    p6B2: "All application effects and features are unlocked",
-    p6B3: "One year of technical support and updates included",
+    p6Badge: "Silver License - 1 Year",
+    p6Desc: "Product Name",
+    p6Title: "1-Year Application License with Silver Features",
+    p6B1: "Valid exactly for one year from the date of first activation",
+    p6B2: "Unlocks all application effects and features based on the Silver license scope",
+    p6B3: "Includes one year of technical support and updates",
     p6PriceVal: "950",
 
-    p7Badge: "1-year LMT(PRO) License",
-    p7Desc: "Product name",
-    p7Title: "One year Live Music Tools(PRO) APP license",
-    p7B1: "Valid for exactly one year from the first activation date",
-    p7B2: "All application effects and features are unlocked",
-    p7B3: "One year of technical support and updates included",
+    p7Badge: "Gold License - 1 Year",
+    p7Desc: "Product Name",
+    p7Title: "1-Year Application License with Gold Features",
+    p7B1: "Valid exactly for one year from the date of first activation",
+    p7B2: "Unlocks all application effects and features",
+    p7B3: "Includes one year of technical support and updates",
     p7PriceVal: "1200",
 
-    p8Badge: "GOLDEN License",
-    p8Desc: "Product name",
-    p8Title: "Lifetime LMT(PRO) APP license",
-    p8B1: "Valid for Lifetime",
-    p8B2: "All application effects and features are unlocked",
-    p8B3: "Lifetime technical support and updates included",
-    p8B4: "50% discount for all future APPs and updates ",
+    p8Badge: "Gold License - Permanent",
+    p8Desc: "Product Name",
+    p8Title: "Lifetime Application License with Full Features",
+    p8B1: "Valid for a lifetime",
+    p8B2: "Unlocks all application effects and features",
+    p8B3: "Includes lifetime technical support and updates",
+    p8B4: "50% discount on all future applications and updates",
     p8PriceVal: "1800",
 
     p9Badge: "Hardware",
-    p9Desc: "Product name",
-    p9Title: "irig hardware pack",
-    p9B1: "includes : irig + cable + piezo mic",
+    p9Desc: "Product Name",
+    p9Title: "iRig Hardware Pack",
+    p9B1: "Includes: iRig + Cable + Piezo Microphone",
     p9PriceVal: "850",
 
-    p10Badge: "Lifetime LMT License",
-    p10Desc: "Product name",
-    p10Title: "Lifetime Live Music Tools APP license",
-    p10B1: "Valid for Lifetime",
-    p10B2: "All application effects and features are unlocked",
-    p10B3: "Lifetime technical support and updates included",
-    p10B4: "25% discount for all future APPs and updates ",
+    p10Badge: "Silver License - Permanent",
+    p10Desc: "Product Name",
+    p10Title: "Lifetime Application License with Silver Features",
+    p10B1: "Valid for a lifetime",
+    p10B2:
+      "Unlocks all application effects and features based on Silver specifications",
+    p10B3: "Includes lifetime technical support and updates",
+    p10B4: "25% discount on all future applications and updates",
     p10PriceVal: "1350",
 
     p11Badge: "Hardware",
-    p11Desc: "Product name",
-    p11Title: "irig device",
-    p11B1: "irig device ",
+    p11Desc: "Product Name",
+    p11Title: "iRig Device",
+    p11B1: "iRig Device",
     p11PriceVal: "450",
 
     p12Badge: "Hardware",
-    p12Desc: "Product name",
-    p12Title: "Brig device",
-    p12B1: "Brig device ",
+    p12Desc: "Product Name",
+    p12Title: "BRig Device",
+    p12B1: "BRig Device",
     p12PriceVal: "350",
 
     p13Badge: "Hardware",
-    p13Desc: "Product name",
-    p13Title: "Stereo cable",
-    p13B1: "3.5mm Male to Male Stereo Audio Cable",
+    p13Desc: "Product Name",
+    p13Title: "Stereo Cable",
+    p13B1: "3.5mm Stereo Audio Cable with dual male connectors (Male to Male)",
     p13PriceVal: "130",
 
     p14Badge: "Hardware",
-    p14Desc: "Product name",
-    p14Title: "Piezo microphone",
-    p14B1: "Piezo microphone ",
+    p14Desc: "Product Name",
+    p14Title: "Piezo Microphone",
+    p14B1: "Piezo Microphone",
     p14PriceVal: "250",
 
     p15Badge: "Hardware",
-    p15Desc: "Product name",
-    p15Title: "Brig hardware pack",
-    p15BulletList: "p6BulletList",
-    p15B1: "includes : Brig + cable + piezo mic",
+    p15Desc: "Product Name",
+    p15Title: "BRig Hardware Pack",
+    p15B1: "Includes: BRig + Cable + Piezo Microphone",
     p15PriceVal: "750",
 
-    p16Badge: "1-Month LMT(PRO) License",
-    p16Title: "One month Live Music Tools(PRO) APP license",
-    p16B1: "Valid for exactly one month from the first activation date",
-    p16B2: "All application effects and features are unlocked",
-    p16B3: "One month of technical support and updates included",
+    p16Badge: "Gold License - 1 Month",
+    p16Title: "1-Month Application License with Gold Features",
+    p16B1: "Valid exactly for one month from the date of first activation",
+    p16B2: "Unlocks all application effects and features",
+    p16B3: "Includes one month of technical support and updates",
     p16PriceVal: "200",
-
     footerTxt:
       "© 2026 Buskit Application. All rights reserved for the designer and developer.",
     mPriceLabel: "Price:",
@@ -720,19 +728,19 @@ const translations = {
     btnBackForm: "Back",
 
     purchaseItemNames: {
-      p4: "1-Month LiveFX License",
-      p3: "1-Year LiveFX License",
-      p1: "Lifetime LiveFX License",
-      p10: "1-Month LMT License",
-      p9: "1-Year LMT License",
-      p8: "Lifetime LMT License",
-      p7: "1-Month LMT(Pro) License",
-      p6: "1-Year LMT(Pro) License",
-      p2: "Lifetime LMT(Pro) License",
-      p5: "i Hardware Pack",
-      p11: "B Hardware Pack",
-      p12: "irig Device",
-      p13: "Brig Device",
+      p4: "Bronze License - 1 Month",
+      p3: "Bronze License - 1 Year",
+      p1: "Bronze License - Lifetime",
+      p10: "Silver License - 1 Month",
+      p9: "Silver License - 1 Year",
+      p8: "Silver License - Lifetime",
+      p7: "Gold License - 1 Month",
+      p6: "Gold License - 1 Year",
+      p2: "Gold License - Lifetime",
+      p5: "Hardware Pack i",
+      p11: "Hardware Pack B",
+      p12: "iRig Device",
+      p13: "bRig Device",
       p15: "Piezo Microphone",
       p14: "3.5mm Cable",
     },
@@ -760,37 +768,38 @@ const translations = {
     heroHeadline:
       'Profesyonel Canlı Efekt Stüdyosu, <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-accentNeon to-teal-400">Cebinizde ve Her An Yanınızda</span>',
     heroDesc: "Sıfır gecikme ve benzersiz özelliklerle",
-    heroDownloadBtnLiveFX: "Ücretsiz İndir\n LiveFX",
-    heroDownloadBtnLMT: "Ücretsiz İndir\n Live Music Tools",
-    heroDownloadBtnLMTpro: "Ücretsiz İndir\nLive Music Tools (PRO)",
-    heroTipLiveFX1: "13 Efekt",
+    heroDownloadBtnLiveFX: "Bronz Lisans",
+    heroDownloadBtnLMT: "Gümüş Lisans",
+    heroDownloadBtnLMTpro: "Altın Lisans",
+    heroDownloadBtnTools: "Ücretsiz İndir\nBuskit-Tools Uygulaması",
+    heroTipLiveFX1: "7 Efekt",
     heroTipLiveFX2: "Kromatik Akort Aleti",
     heroTipLiveFX3: "Esnek Metronom",
-    heroTipLiveFX4: "35'ten fazla hazır ayar",
-    heroTipLMT1: "13 Efekt",
+    heroTipLiveFX4: "20'ten fazla hazır ayar",
+    heroTipLMT1: "11 Efekt",
     heroTipLMT2: "Kromatik Akort Aleti",
     heroTipLMT3: "Esnek Metronom",
-    heroTipLMT4: "35'ten fazla hazır ayar",
+    heroTipLMT4: "40'ten fazla hazır ayar",
     heroTipLMT5: "Ses kaydı özelliği",
     heroTipLMT6: "Altyapı parçası yükleme",
     heroTipLMT7: "Altyapı parçası hızını değiştirme",
     heroTipPro1: "15 Efekt",
-    heroTipPro2: "40'tan fazla hazır ayar",
+    heroTipPro2: "60'tan fazla hazır ayar",
     heroTipPro3: "Kromatik + Mikrotonal Akort Aleti",
     heroTipPro4: "Esnek Metronom",
     heroTipPro5: "Ses kaydı özelliği",
     heroTipPro6: "Altyapı parçası yükleme",
-    heroTipPro7: "Perde bozulmadan altyapı parçası hızını değiştirme",
+    heroTipPro7: "altyapı parçası hızını değiştirme",
 
     aboutTitle: "Hakkımda",
     aboutP1:
-      'Ben <span class="text-accentNeon font-semibold">Mohammad Reza Amouian</span>. Elektronik devre tasarımı ve bilgisayar yazılımı geliştirme alanında <span class="text-white font-medium">40 yılı aşkın deneyime sahip bir elektronik mühendisiyim; aynı zamanda aktif olarak</span> enstrüman çalıyor ve müzik icra ediyorum.',
+      'Ben <span class="text-accentNeon font-semibold">Mohammad Reza Amoeyan</span>. Elektronik devre tasarımı ve bilgisayar yazılımı geliştirme alanında <span class="text-white font-medium">40 yılı aşkın deneyime sahip bir elektronik mühendisiyim; aynı zamanda aktif olarak</span> enstrüman çalıyor ve müzik icra ediyorum.',
     aboutP2:
       'Sokak müzisyenlerinin, küçük grupların ve özel/bireysel performansların canlı sahne ihtiyaçlarını damıtarak, <span class="text-accentNeon font-bold">Buskit</span> ticari markası altında bir donanım ve yazılım serisi olarak müzikseverlerin beğenisine sunmaya karar verdim.',
     aboutP3:
       "Bu ekipmanların her biri, bir müzisyenin veya vokalistin belirli bir ihtiyacını karşılayacaktır. Bu ekipmanlardan herhangi birini kullandığınızda, müzik çalmaktan ve performans sergilemekten unutulmaz bir deneyim ve keyif alacağınızdan eminim.",
     aboutP4:
-      "Bu web sitesi yalnızca Buskit serisinin mobil uygulamalarına odaklanmaktadır. Şu anda Android işletim sistemi için LiveFX, Live Music Tools ve Live Music Tools (Pro) olmak üzere üç uygulama sürümü kullanıma hazırdır. Her biri, sunduğu benzersiz özelliklerle tüm müzisyenlerin yanından ayırmak istemeyeceği mükemmel bir yardımcı uygulamadır.",
+      "Bu web sitesi yalnızca Buskit bünyesindeki mobil uygulamalara odaklanmaktadır. Şu anda 'Buskit-Tools' adlı ilk uygulama, Android işletim sistemi meraklılarının kullanımına hazır olup Altın, Gümüş ve Bronz olmak üzere üç sürüm halinde sunulmaktadır. Bu üç sürümün her biri, müzisyenler için tamamlayıcı ve ek özellikler barındırmaktadır.\n\nMüjdemiz şu ki, diğer uygulamalar da şu an geliştirilme aşamasındadır ve yakın gelecekte kullanıma sunulacaktır. Bu yeni uygulamalar, müzisyenlerin —özellikle de canlı performans sanatçılarının— ihtiyaçlarını yepyeni açılardan karşılamayı hedeflemektedir.",
     aboutImgAlt: "Mohammad Reza Amouian - Setar Sanatçısı",
     liveFXTitle: "Buskit-Tools Nedir",
     liveFXSubtitle:
@@ -830,6 +839,8 @@ const translations = {
       "Enstrüman veya vokal sesini telefona aktarmak için mikrofonlu standart bir telefon kulaklığı kullanabilirsiniz. Ancak çıkışı bir amfiye bağlamak isterseniz, mevcut iRig cihazlarını veya talep halinde Buskit serisinin bir parçası olan Brig donanım cihazını bu uygulamanın eşlikçi donanımı olarak kullanmanız gerekir. Telefon tarafından işlenen ses çıkışı, bu cihaz vasıtasıyla her türlü amfinin (amatör amfiler dahil) AUX veya gitar girişine aktarılır ve rüya gibi profesyonel bir sese dönüşür.",
     liveFXP7:
       "Bu sistemin en büyük avantajlarından biri, profesyonel ve kulak tırmalamayan zengin bir tını elde etmek için pahalı ve ağır ses sistemlerine ihtiyaç duyulmamasıdır.",
+    liveFXP8:
+      "Bu uygulamanın özellikleri üç kategoriye ayrılmakta ve Altın, Gümüş ve Bronz olmak üzere üç tür lisans şeklinde meraklıların hizmetine sunulmaktadır; böylece her zevke ve yeteneğe sahip herkes uygulamanın avantajlarından yararlanabilir.",
     liveFXGalleryAlt1: "Buskit LiveFX Uygulaması Ana Ekranı",
     liveFXGalleryAlt2: "Buskit LiveFX Uygulaması Kompresör Ayarları",
     liveFXGalleryAlt3: "Buskit LiveFX Uygulaması Reverb Çeşitleri",
@@ -872,9 +883,9 @@ const translations = {
     f5Title: "Ücretsiz Deneme İmkanı",
     f5Desc:
       "Yazılımı, tüm özelliklerini ve sanatçılarımızın telefon veya tabletleriyle uyumluluğunu test etmek için 5 günlük ücretsiz deneme lisansı.",
-    f6Title: "Çeşitli Paket Seçenekleri",
+    f6Title: "Mevcut Paket Çeşitliliği",
     f6Desc:
-      "Bu yazılımın lisansı sanatçılarımıza her bütçeye ve tercihe uygun olarak 5 yöntemle sunulmaktadır: 5 günlük ücretsiz, aylık, yıllık, ömür boyu ve altın paket.",
+      "Bu uygulama için, her biri kullanıcıya özel özellikler sunan üç tür lisans belirlenmiştir. Ayrıca, her lisansın kullanımı için bir aylık, bir yıllık ve ömür boyu olmak üzere üç farklı zaman modeli öngörülmüştür.",
     shopTitle: "Mağaza ve Ürünler",
     shopDesc:
       "Yazılım lisanslarını ve diğer donanım ürünlerini bu bölümden temin edebilirsiniz.",
@@ -889,123 +900,122 @@ const translations = {
     millionLabel: "Milyon",
     shopProductTitle: "Buskit-LiveFX application",
     shopBuyBtn: "Satın Al",
-    p1Badge: "Ömür Boyu LiveFX Lisansı",
-    p1Title: "Ömür boyu LiveFX uygulama lisansı",
+
+    p1Badge: "Bronz Lisans - Kalıcı",
+    p1Title: "Bronz Özellikli Ömür Boyu Uygulama Lisansı",
     p1B1: "Bu lisans sonsuza kadar aktif kalır",
-    p1B2: "Tüm uygulama efektlerinin ve özelliklerinin kilidi açılır",
-    p1B3: "Ömür boyu teknik destek ve güncellemeler dahildir",
-    p1B4: "Gelecekteki tüm yazılım ürünlerinde %50 indirim hakkı sağlar",
+    p1B2: "Uygulamanın tüm efekt ve özelliklerinin kilidi Bronz lisans kapsamında açılır",
+    p1B3: "Ömür boyu teknik destek ve güncellemeleri içerir",
+    p1B4: "",
     p1PriceVal: "1000",
 
-    p2Badge: "1 Aylık LMT Lisansı",
-    p2Title: "Bir aylık Live Music Tools UYGULAMA lisansı",
+    p2Badge: "Gümüş Lisans - 1 Aylık",
+    p2Title: "Gümüş Özellikli 1 Aylık Uygulama Lisansı",
     p2B1: "İlk aktivasyon tarihinden itibaren tam bir ay boyunca geçerlidir",
-    p2B2: "Tüm uygulama efektlerinin ve özelliklerinin kilidi açılır",
-    p2B3: "Bir aylık teknik destek ve güncellemeler dahildir",
+    p2B2: "Uygulamanın tüm efekt ve özelliklerinin kilidi Gümüş lisans için açılır",
+    p2B3: "Bir aylık teknik destek ve güncellemeleri içerir",
     p2PriceVal: "150",
 
-    p3Badge: "1 Yıllık LiveFX Lisansı",
-    p3Title: "Bir yıllık LiveFX uygulama lisansı",
+    p3Badge: "Bronz Lisans - 1 Yıllık",
+    p3Title: "Bronz Özellikli 1 Yıllık Uygulama Lisansı",
     p3B1: "İlk aktivasyon tarihinden itibaren tam bir yıl boyunca geçerlidir",
-    p3B2: "Tüm uygulama efektlerinin ve özelliklerinin kilidi açılır",
-    p3B3: "Bir yıllık teknik destek ve güncellemeler dahildir",
+    p3B2: "Uygulamanın tüm efekt ve özelliklerinin kilidi Bronz özelliklerine göre açılır",
+    p3B3: "Bir yıllık teknik destek ve güncellemeleri içerir",
     p3PriceVal: "600",
 
-    p4Badge: "1 Aylık LiveFX Lisansı",
-    p4Title: "Bir aylık LiveFX uygulama lisansı",
+    p4Badge: "Bronz Lisans - 1 Aylık",
+    p4Title: "Bronz Özellikli 1 Aylık Uygulama Lisansı",
     p4B1: "İlk aktivasyon tarihinden itibaren tam bir ay boyunca geçerlidir",
-    p4B2: "Tüm uygulama efektlerinin ve özelliklerinin kilidi açılır",
-    p4B3: "Bir aylık teknik destek ve güncellemeler dahildir",
+    p4B2: "Uygulamanın tüm efekt ve özelliklerinin kilidi Bronz lisans modeline göre açılır",
+    p4B3: "Bir aylık teknik destek ve güncellemeleri içerir",
     p4PriceVal: "100",
 
     p5Badge: "Ücretsiz Lisans",
-    p5Title:
-      "Üç uygulamanın tamamı için (LiveFX, LMT, LMT(PRO)) ücretsiz lisans",
+    p5Title: "Uygulama İçin Ücretsiz Lisans",
     p5B1: "İlk aktivasyon tarihinden itibaren tam beş gün boyunca geçerlidir",
-    p5B2: "Tüm uygulama efektlerinin ve özelliklerinin kilidi açılır",
-    p5B3: "Beş günlük teknik destek ve güncellemeler dahildir",
+    p5B2: "Kullanıcı uygulamanın tüm özelliklerinden tam olarak yararlanabilir",
+    p5B3: "Beş günlük teknik destek ve güncellemeleri içerir",
     p5LicenseLabel: "Lisans:",
     p5PriceVal: "0",
     disabledTxt: "Tükendi",
-    p6Badge: "1 yıllık LMT Lisansı",
-    p6Desc: "Ürün adı",
-    p6Title: "Bir yıllık LMT APP lisansı",
+
+    p6Badge: "Gümüş Lisans - 1 Yıllık",
+    p6Desc: "Ürün Adı",
+    p6Title: "Gümüş Özellikli 1 Yıllık Uygulama Lisansı",
     p6B1: "İlk aktivasyon tarihinden itibaren tam bir yıl boyunca geçerlidir",
-    p6B2: "Tüm uygulama efektleri ve özelliklerinin kilidi açılır",
-    p6B3: "Bir yıllık teknik destek ve güncellemeler dahildir",
+    p6B2: "Uygulamanın tüm efekt ve özelliklerinin kilidi Gümüş lisans kapsamına göre açılır",
+    p6B3: "Bir yıllık teknik destek ve güncellemeleri içerir",
     p6PriceVal: "950",
 
-    p7Badge: "1 yıllık LMT(PRO) Lisansı",
-    p7Desc: "Ürün adı",
-    p7Title: "Bir yıllık Live Music Tools(PRO) APP lisansı",
+    p7Badge: "Altın Lisans - 1 Yıllık",
+    p7Desc: "Ürün Adı",
+    p7Title: "Altın Özellikli 1 Yıllık Uygulama Lisansı",
     p7B1: "İlk aktivasyon tarihinden itibaren tam bir yıl boyunca geçerlidir",
-    p7B2: "Tüm uygulama efektleri ve özelliklerinin kilidi açılır",
-    p7B3: "Bir yıllık teknik destek ve güncellemeler dahildir",
+    p7B2: "Uygulamanın tüm efekt ve özelliklerinin kilidi açılır",
+    p7B3: "Bir yıllık teknik destek ve güncellemeleri içerir",
     p7PriceVal: "1200",
 
-    p8Badge: "GOLDEN Lisansı",
-    p8Desc: "Ürün adı",
-    p8Title: "Ömür Boyu Live Music Tools(PRO) APP lisansı",
-    p8B1: "Ömür Boyu Geçerlidir",
-    p8B2: "Tüm uygulama efektleri ve özelliklerinin kilidi açılır",
-    p8B3: "Ömür boyu teknik destek ve güncellemeler dahildir",
+    p8Badge: "Altın Lisans - Kalıcı",
+    p8Desc: "Ürün Adı",
+    p8Title: "Tüm Özellikleri İçeren Ömür Boyu Uygulama Lisansı",
+    p8B1: "Ömür boyu geçerlidir",
+    p8B2: "Uygulamanın tüm efekt ve özelliklerinin kilidi açılır",
+    p8B3: "Ömür boyu teknik destek ve güncellemeleri içerir",
     p8B4: "Gelecekteki tüm uygulamalar ve güncellemeler için %50 indirim",
     p8PriceVal: "1800",
 
     p9Badge: "Donanım",
-    p9Desc: "Ürün adı",
-    p9Title: "irig donanım paketi",
-    p9B1: "içerik: irig + kablo + piezo mikrofon",
+    p9Desc: "Ürün Adı",
+    p9Title: "iRig Donanım Paketi",
+    p9B1: "Şunları içerir: iRig + Kablo + Piezo Mikrofon",
     p9PriceVal: "850",
 
-    p10Badge: "Ömür Boyu LMT Lisansı",
-    p10Desc: "Ürün adı",
-    p10Title: "Ömür Boyu Live Music Tools APP lisansı",
-    p10B1: "Ömür Boyu Geçerlidir",
-    p10B2: "Tüm uygulama efektleri ve özelliklerinin kilidi açılır",
-    p10B3: "Ömür boyu teknik destek ve güncellemeler dahildir",
+    p10Badge: "Gümüş Lisans - Kalıcı",
+    p10Desc: "Ürün Adı",
+    p10Title: "Gümüş Özellikli Ömür Boyu Uygulama Lisansı",
+    p10B1: "Ömür boyu geçerlidir",
+    p10B2:
+      "Uygulamanın tüm efekt ve özelliklerinin kilidi Gümüş özelliklerine göre açılır",
+    p10B3: "Ömür boyu teknik destek ve güncellemeleri içerir",
     p10B4: "Gelecekteki tüm uygulamalar ve güncellemeler için %25 indirim",
     p10PriceVal: "1350",
 
     p11Badge: "Donanım",
-    p11Desc: "Ürün adı",
-    p11Title: "irig cihazı",
-    p11B1: "irig cihazı",
+    p11Desc: "Ürün Adı",
+    p11Title: "iRig Cihazı",
+    p11B1: "iRig Cihazı",
     p11PriceVal: "450",
 
     p12Badge: "Donanım",
-    p12Desc: "Ürün adı",
-    p12Title: "Brig cihazı",
-    p12B1: "Brig cihazı",
+    p12Desc: "Ürün Adı",
+    p12Title: "BRig Cihazı",
+    p12B1: "BRig Cihazı",
     p12PriceVal: "350",
 
     p13Badge: "Donanım",
-    p13Desc: "Ürün adı",
-    p13Title: "Stereo kablo",
-    p13BulletList: "p13BulletList",
-    p13B1: "3.5mm Erkek - Erkek Stereo Ses Kablosu",
+    p13Desc: "Ürün Adı",
+    p13Title: "Stereo Kablo",
+    p13B1: "3.5 mm çift uçlu erkek ses stereo kablosu (Erkek - Erkek)",
     p13PriceVal: "130",
 
     p14Badge: "Donanım",
-    p14Desc: "Ürün adı",
-    p14Title: "Piezo mikrofon",
-    p14B1: "Piezo mikrofon",
+    p14Desc: "Ürün Adı",
+    p14Title: "Piezo Mikrofon",
+    p14B1: "Piezo Mikrofon",
     p14PriceVal: "250",
 
     p15Badge: "Donanım",
-    p15Desc: "Ürün adı",
-    p15Title: "Brig donanım paketi",
-    p15BulletList: "p6BulletList",
-    p15B1: "içerik: Brig + kablo + piezo mikrofon",
+    p15Desc: "Ürün Adı",
+    p15Title: "BRig Donanım Paketi",
+    p15B1: "Şunları içerir: BRig + Kablo + Piezo Mikrofon",
     p15PriceVal: "750",
 
-    p16Badge: "1 Aylık LMT(PRO) Lisansı",
-    p16Title: "1 Aylık Live Music Tools(PRO) Lisansı",
+    p16Badge: "Altın Lisans - 1 Aylık",
+    p16Title: "Altın Özellikli 1 Aylık Uygulama Lisansı",
     p16B1: "İlk aktivasyon tarihinden itibaren tam bir ay boyunca geçerlidir",
-    p16B2: "Tüm uygulama efektleri ve özelliklerinin kilidi açılır",
-    p16B3: "Bir aylık teknik destek ve güncellemeler dahildir",
+    p16B2: "Uygulamanın tüm efekt ve özelliklerinin kilidi açılır",
+    p16B3: "Bir aylık teknik destek ve güncellemeleri içerir",
     p16PriceVal: "200",
-
     footerTxt:
       "© 2026 Buskit Uygulaması. Tüm hakları tasarımcı ve geliştiriciye aittir.",
     mPriceLabel: "Fiyat:",
@@ -1099,21 +1109,21 @@ const translations = {
     btnBackForm: "Geri",
 
     purchaseItemNames: {
-      p4: "1 Aylık LiveFX Lisansı",
-      p3: "1 Yıllık LiveFX Lisansı",
-      p1: "Ömür Boyu LiveFX Lisansı",
-      p10: "1 Aylık LMT Lisansı",
-      p9: "1 Yıllık LMT Lisansı",
-      p8: "Ömür Boyu LMT Lisansı",
-      p7: "1 Aylık LMT(Pro) Lisansı",
-      p6: "1 Yıllık LMT(Pro) Lisansı",
-      p2: "Ömür Boyu LMT(Pro) Lisansı",
-      p5: "i Donanım Paketi",
-      p11: "B Donanım Paketi",
-      p12: "irig Cihazı",
-      p13: "Brig Cihazı",
+      p4: "Bronz Lisans - 1 Aylık",
+      p3: "Bronz Lisans - 1 Yıllık",
+      p1: "Bronz Lisans - Ömür Boyu",
+      p10: "Gümüş Lisans - 1 Aylık",
+      p9: "Gümüş Lisans - 1 Yıllık",
+      p8: "Gümüş Lisans - Ömür Boyu",
+      p7: "Altın Lisans - 1 Aylık",
+      p6: "Altın Lisans - 1 Yıllık",
+      p2: "Altın Lisans - Ömür Boyu",
+      p5: "Donanım Paketi i",
+      p11: "Donanım Paketi B",
+      p12: "iRig Cihazı",
+      p13: "bRig Cihazı",
       p15: "Piezo Mikrofon",
-      p14: "3.5mm Kablo",
+      p14: "3.5 mm Kablo",
     },
     text1: "Uygulama Özellikleri",
     text2: "Tanıtım",
@@ -1264,6 +1274,11 @@ function changeLanguage(lang) {
     data.heroDownloadBtnLMT;
   document.getElementById("heroDownloadBtnPro").innerText =
     data.heroDownloadBtnLMTpro;
+  const heroDownloadBtnToolsEl = document.getElementById(
+    "heroDownloadBtnTools",
+  );
+  if (heroDownloadBtnToolsEl)
+    heroDownloadBtnToolsEl.innerText = data.heroDownloadBtnTools;
 
   // تولتیپ‌های سه دکمه دانلود در بخش هیرو
   [
@@ -1326,6 +1341,7 @@ function changeLanguage(lang) {
   document.getElementById("liveFXP5").innerText = data.liveFXP5;
   //  document.getElementById("liveFXP6").innerText = data.liveFXP6;
   document.getElementById("liveFXP7").innerText = data.liveFXP7;
+  document.getElementById("liveFXP8").innerText = data.liveFXP8;
   [1, 2, 3, 4, 5, 6, 7, 8].forEach((n) => {
     const galEl = document.getElementById("liveFXGalleryImg" + n);
     if (galEl) galEl.alt = data["liveFXGalleryAlt" + n];
@@ -1551,8 +1567,8 @@ function changeLanguage(lang) {
   document.getElementById("text1").innerText = data.text1;
   document.getElementById("text2").innerText = data.text2;
   document.getElementById("text3").innerText = data.text3;
-  document.getElementById("appModalDownloadBtn").innerText =
-    data.appModalDownloadBtn;
+  //  document.getElementById("appModalDownloadBtn").innerText =
+  //   data.appModalDownloadBtn;
   // بخش پرسش و پاسخ
   document.getElementById("qaTitle").innerText = data.qaTitle;
   document.getElementById("qaDesc").innerText = data.qaDesc;
@@ -1694,221 +1710,213 @@ function recalcPurchaseTotals() {
 // ====== مودال معرفی اپ (امکانات + دانلود + راهنمای استفاده) ======
 const appModalDataFA = {
   livefx: {
-    title: "LiveFX",
+    title: "Buskit Tools - برنز",
     subtitle: "لایو افکت حرفه‌ای با تاخیر صفر، مخصوص اجرای زنده",
     features: [
-      "مجهز به سیزده افکت محبوب و پر کاربرد",
+      "مجهز به هفت افکت محبوب و پر کاربرد",
       "مجهز به تیونر کروماتیک",
       "مجهز به مترونوم فلکسیبل",
-      "بیش از 35 تنظیم پیش‌فرض",
+      "بیش از 20 تنظیم پیش‌فرض",
     ],
-    // آدرس فایل دانلود این اپ را اینجا جایگزین کن
-    downloadUrl: "./downloads/LiveFX_v1_4.apk",
-    fileName: "LiveFX_v1_4.apk",
+
+    // downloadUrl: "./downloads/LiveFX_v1_6.apk",
+    // fileName: "LiveFX_v1_6.apk",
     description:
       "در کنار افکتهای محبوب و پر کاربرد ، امکانات اولیه دیگری نیز به این نسخه از اپلیکیشن اضافه شده است ، وجود تیونر در خود اپ به منظور سهولت کوک کردن ساز، و وجود یک مترونوم با قابلیت منحصر به فرد ایجاد کلیه فیگورهای ریتمیک مورد نظر کاربر ،آنرا فراتر از یک افکت باکس قرار داده است مزیت یکتای این اپلیکیشن تاخیر صفر در پروسس صدای ورودی است که لذت یک اجرا را همواره به جان نوازنده گوارا و صدایی رویایی را به گوش مخاطبان میرساند. وجود بیش از 35 پریست  برای استفاده در شرایط و سازهای مختلف تسهیلی دیگر در سرعت بخشیدن به تنظیم و اجراهای نوازندگان میباشد.",
     screenshots: [
-      "screenshots/livefx-1.jpg",
-      "screenshots/livefx-2.jpg",
-      "screenshots/livefx-3.jpg",
-      "screenshots/livefx-4.jpg",
-      "screenshots/livefx-5.jpg",
+      "screenshots/b1.jpeg",
+      "screenshots/b2.jpeg",
+      "screenshots/eq.jpeg",
+      "screenshots/reverb.jpeg",
     ],
   },
   lmt: {
-    title: "Live Music Tools",
+    title: "Buskit Tools - نقره",
     subtitle: "لایو افکت حرفه‌ای به همراه امکانات اجرای زنده و ضبط",
     features: [
       "وجود سیزده افکت پر کاربرد و معروف",
       "مجهز به تیونر کروماتیک",
       "مترونوم فلکسیبل با قابلیت اجرای هرگونه ریتم لنگ و هر قالب و فیگور ریتمیک",
-      "مجهز به بیش از 35 تنظیم پیش‌فرض",
+      "مجهز به بیش از 40 تنظیم پیش‌فرض",
       "امکان ضبط صدا",
       "امکان لود بکینگ ترک",
-      "امکان تغییر سرعت بکینگ ترک",
     ],
-    downloadUrl: "./downloads/LMT_v1_4.apk",
-    fileName: "LMT_v1_4.apk",
+    //downloadUrl: "./downloads/LMT_v1_6.apk",
+    //fileName: "LMT_v1_6.apk",
     description:
       "امکانات این اپلیکیشن، آنرا در جایگاهی فراتر از یک افکت باکس یا پدال بورد سخت افزاری قرار داده است امکان لود بکینگ ترک با قابلیت تغییر سرعت آن برای تمرین همنوازی همچنین وجود تیونر در خود اپ به منظور سهولت کوک کردن ساز، یا وجود یک مترونوم با قابلیت منحصر به فرد ایجاد کلیه فیگورهای ریتمیک مورد نظر از یک طرف و امکان ضبط صدای ورودی به همراه بکینگ ترک با فرمت wave  در حافظه گوشی آنرا به رویای هر نوازنده تبدیل کرده است که بدون نیاز به تجهیزات گرانقیمت و سنگین و حجیم بتوان در همه جا و همه زمان از ساز خود صدایی رویایی به گوش مخاطبان رسانید وجود بیش از 35 پریست  برای استفاده در شرایط مختلف و سازهای مختلف تسهیلی دیگر در اجراهای نوازندگان میباشد",
     screenshots: [
-      "screenshots/lmt-screen-reverb.jpg",
-      "screenshots/lmt-screen-home.jpg",
-      "screenshots/lmt-screen-eq.jpg",
-      "screenshots/lmt-screen-menu.jpg",
-      "screenshots/lmt-screen-main.jpg",
+      "screenshots/s1.jpeg",
+      "screenshots/s2.jpeg",
+      "screenshots/s3.jpeg",
+      "screenshots/reverb.jpeg",
     ],
   },
   pro: {
-    title: "Live Music Tools (PRO)",
+    title: "Buskit Tools - طلا",
     subtitle: "نسخه حرفه‌ای با امکانات کامل برای اجرا، ضبط و تمرین",
     features: [
       "مجهز به پانزده افکت پر کاربرد و معروف در دنیای موسیقی",
-      "حاوی بیش از 40 تنظیم پیش‌فرض",
+      "حاوی بیش از 60 تنظیم پیش‌فرض",
       "تیونر کروماتیک + میکروتونال برای کوک کردن یا تنظیم پرده های سازهای ایرانی یا ترکی با امکان تعیین میزان کوک",
       "مترونوم فلکسیبل با قابلیت اجرای هرگونه ریتم لنگ و هر قالب و فیگور ریتمیک",
       "امکان لود بکینگ ترک",
       "امکان ضبط صدای میکس شده بکینگ ترک و صدای ساز داخل حافظه تلفن همراه با فرمت WAVE",
       "امکان تغییر سرعت بکینگ ترک بدون تغییر فرکانس",
     ],
-    downloadUrl: "./downloads/LMT_PRO_v1_4.apk",
-    fileName: "LMT_PRO_v1_4.apk",
+    // downloadUrl: "./downloads/pro_v1_6.apk",
+    // fileName: "pro_v1_6.apk",
     description:
       "امکانات این اپلیکیشن، آنرا در جایگاهی فراتر از یک افکت باکس یا پدال بورد سخت افزاری قرار داده است امکان لود بکینگ ترک با قابلیت تغییر سرعت بدون تغییر فرکانس آن برای تمرین همنوازی همچنین وجود یک مترونوم با قابلیت منحصر به فرد ایجاد کلیه فیگورهای ریتمیک مورد نظر از یک طرف و امکان ضبط صدای ورودی به همراه بکینگ ترک با فرمت wave  در حافظه گوشی آنرا به رویای هر نوازنده تبدیل کرده است که بدون نیاز به تجهیزات گرانقیمت و سنگین و حجیم بتوان در همه جا و همه زمان از ساز خود صدایی رویایی به گوش مخاطبان رسانید. تیونر کروماتیک میکروتونال آن نیز از نقاط قوت این نسخه از اپلیکیشن میباشد که امکان تعیین میزان انحراف از نوت اصلی را نیز به کاربر میدهد . وجود بیش از 40 پریست  برای استفاده در شرایط مختلف و سازهای مختلف تسهیلی دیگر در اجراهای نوازندگان میباشد",
     screenshots: [
-      "screenshots/pro-screen-home.jpg",
+      "screenshots/g1.jpeg",
+      "screenshots/g2.jpg",
       "screenshots/pro-screen-wahwah.jpg",
-      "screenshots/pro-screen-menu.jpg",
-      "screenshots/pro-screen-live.jpg",
+      "screenshots/eq.jpeg",
     ],
   },
 };
 const appModalDataEN = {
   livefx: {
-    title: "LiveFX",
+    title: "Buskit Tools - Bronze",
     subtitle:
       "Professional live effect with zero latency, specifically for live performance",
     features: [
-      "Equipped with thirteen popular and widely used effects",
+      "Equipped with 7 popular and widely used effects",
       "Equipped with a chromatic tuner",
       "Equipped with a flexible metronome",
-      "More than 35 default presets",
+      "More than 20 default presets",
     ],
     // Replace the download file URL for this app here
-    downloadUrl: "./downloads/LiveFX_v1_4.apk",
-    fileName: "LiveFX_v1_4.apk",
+    //  downloadUrl: "./downloads/LiveFX_v1_6.apk",
+    //  fileName: "LiveFX_v1_6.apk",
     description:
       "Along with popular and widely used effects, other basic features have been added to this version of the application. The inclusion of a built-in tuner for easy instrument tuning, and a metronome with the unique capability to create any rhythmic figure desired by the user, places it far beyond a simple effects box. The unique advantage of this application is zero latency in processing the input sound, which always delivers the joy of a live performance to the musician and a dreamy sound to the audience's ears. The presence of more than 35 presets for use in different conditions and with various instruments is another convenience to speed up the setup and performances of musicians.",
     screenshots: [
-      "screenshots/livefx-1.jpg",
-      "screenshots/livefx-2.jpg",
-      "screenshots/livefx-3.jpg",
-      "screenshots/livefx-4.jpg",
-      "screenshots/livefx-5.jpg",
+      "screenshots/b1.jpeg",
+      "screenshots/b2.jpeg",
+      "screenshots/eq.jpeg",
+      "screenshots/reverb.jpeg",
     ],
   },
   lmt: {
-    title: "Live Music Tools",
+    title: "Buskit Tools - Silver",
     subtitle:
       "Professional live effect along with live performance and recording features",
     features: [
       "Inclusion of thirteen widely used and famous effects",
       "Equipped with a chromatic tuner",
       "Flexible metronome with the capability to play any complex rhythm and any rhythmic template or figure",
-      "Equipped with more than 35 default presets",
+      "Equipped with more than 40 default presets",
       "Audio recording capability",
       "Backing track loading capability",
-      "Backing track speed alteration capability",
     ],
-    downloadUrl: "./downloads/LMT_v1_4.apk",
-    fileName: "LMT_v1_4.apk",
+    // downloadUrl: "./downloads/LMT_v1_6.apk",
+    // fileName: "LMT_v1_6.apk",
     description:
       "The features of this application place it far beyond a simple effects box or hardware pedalboard. The ability to load backing tracks with speed adjustment for jam session practice, a built-in tuner for easy instrument tuning, and a metronome with the unique capability to create any desired rhythmic figure on one hand, combined with the ability to record input audio along with the backing track in WAVE format directly into the phone's memory on the other, makes it every musician's dream. It allows musicians to deliver a dreamy sound to their audience anywhere and anytime without the need for expensive, heavy, and bulky equipment. The presence of more than 35 presets for use in various conditions and with different instruments is another great convenience in musicians' performances.",
     screenshots: [
-      "screenshots/lmt-screen-reverb.jpg",
-      "screenshots/lmt-screen-home.jpg",
-      "screenshots/lmt-screen-eq.jpg",
-      "screenshots/lmt-screen-menu.jpg",
-      "screenshots/lmt-screen-main.jpg",
+      "screenshots/s1.jpeg",
+      "screenshots/s2.jpeg",
+      "screenshots/s3.jpeg",
+      "screenshots/reverb.jpeg",
     ],
   },
   pro: {
-    title: "Live Music Tools (PRO)",
+    title: "Buskit Tools - Gold",
     subtitle:
       "Professional version with full features for performance, recording, and practice",
     features: [
       "Equipped with fifteen widely used and famous effects in the music world",
-      "Contains more than 40 default presets",
+      "Contains more than 60 default presets",
       "Chromatic + microtonal tuner for tuning or adjusting the quarter tones of Iranian or Turkish instruments with cents adjustment capability",
       "Flexible metronome with the capability to play any complex rhythm and any rhythmic template or figure",
       "Backing track loading capability",
       "Capability to record the mixed audio of the backing track and instrument into the mobile phone memory in WAVE format",
       "Backing track speed alteration capability without changing the pitch frequency",
     ],
-    downloadUrl: "./downloads/LMT_PRO_v1_4.apk",
-    fileName: "LMT_PRO_v1_4.apk",
+    //  downloadUrl: "./downloads/pro_v1_6.apk",
+    //  fileName: "pro_v1_6.apk",
     description:
       "The features of this application place it far beyond a simple effects box or hardware pedalboard. The ability to load backing tracks with speed adjustment without changing the pitch frequency for jam session practice, a metronome with the unique capability to create any desired rhythmic figure on one hand, combined with the ability to record input audio along with the backing track in WAVE format into the phone's memory on the other, makes it every musician's dream. It allows musicians to deliver a dreamy sound to their audience anywhere and anytime without the need for expensive, heavy, and bulky equipment. Its microtonal chromatic tuner is also one of the strengths of this version of the application, allowing the user to determine the exact deviation from the main note. The presence of more than 40 presets for use in various conditions and with different instruments is another great convenience in musicians' performances.",
     screenshots: [
-      "screenshots/pro-screen-home.jpg",
+      "screenshots/g1.jpeg",
+      "screenshots/g2.jpg",
       "screenshots/pro-screen-wahwah.jpg",
-      "screenshots/pro-screen-menu.jpg",
-      "screenshots/pro-screen-live.jpg",
+      "screenshots/eq.jpeg",
     ],
   },
 };
 
 const appModalDataTR = {
   livefx: {
-    title: "LiveFX",
+    title: "Buskit Tools - Bronz",
     subtitle:
       "Canlı performanslar için özel, sıfır gecikmeli profesyonel canlı efekt",
     features: [
-      "On üç adet popüler ve yaygın kullanılan efekt ile donatılmıştır",
+      "yedi adet popüler ve yaygın kullanılan efekt ile donatılmıştır",
       "Kromatik akort cihazı (tuner) mevcuttur",
       "Esnek metronom özelliği içerir",
-      "35'ten fazla hazır ayar (preset)",
+      "20'ten fazla hazır ayar (preset)",
     ],
     // Bu uygulamanın indirme dosyası adresini buraya yerleştirin
-    downloadUrl: "./downloads/LiveFX_v1_4.apk",
-    fileName: "LiveFX_v1_4.apk",
+    // downloadUrl: "./downloads/LiveFX_v1_6.apk",
+    // fileName: "LiveFX_v1_6.apk",
     description:
       "Popüler ve yaygın olarak kullanılan efektlerin yanı sıra, uygulamanın bu sürümüne diğer temel özellikler de eklenmiştir. Enstrümanı kolayca akort etmek için uygulama içi tuner ve kullanıcının istediği tüm ritmik figürleri oluşturabilen benzersiz bir metronomun varlığı, onu sıradan bir efekt kutusunun çok ötesine taşır. Bu uygulamanın benzersiz avantajı, giriş sesinin işlenmesinde sıfır gecikme sunmasıdır; bu da müzisyene her zaman canlı bir performansın keyfini yaşatır ve dinleyicilere rüya gibi bir ses sunar. Farklı koşullarda ve çeşitli enstrümanlarla kullanılmak üzere 35'ten fazla hazır ayarın bulunması, müzisyenlerin kurulum ve performans hızını artıran bir diğer kolaylıktır.",
     screenshots: [
-      "screenshots/livefx-1.jpg",
-      "screenshots/livefx-2.jpg",
-      "screenshots/livefx-3.jpg",
-      "screenshots/livefx-4.jpg",
-      "screenshots/livefx-5.jpg",
+      "screenshots/b1.jpeg",
+      "screenshots/b2.jpeg",
+      "screenshots/eq.jpeg",
+      "screenshots/reverb.jpeg",
     ],
   },
   lmt: {
-    title: "Live Music Tools",
+    title: "Buskit Tools - Gümüş",
     subtitle:
       "Canlı performans ve kayıt özelliklerine sahip profesyonel canlı efekt",
     features: [
       "On üç adet yaygın kullanılan ve ünlü efekt seçeneği",
       "Kromatik akort cihazı (tuner) mevcuttur",
       "Her türlü aksak ritmi ve her ritmik kalıbı/figürü çalabilen esnek metronom",
-      "35'ten fazla hazır ayar ile donatılmıştır",
+      "40'ten fazla hazır ayar ile donatılmıştır",
       "Ses kaydetme imkanı",
       "Altyapı (backing track) yükleme seçeneği",
       "Altyapı (backing track) hızını değiştirme özelliği",
     ],
-    downloadUrl: "./downloads/LMT_v1_4.apk",
-    fileName: "LMT_v1_4.apk",
+    //  downloadUrl: "./downloads/LMT_v1_6.apk",
+    //  fileName: "LMT_v1_6.apk",
     description:
       "Bu uygulamanın özellikleri, onu sıradan bir efekt kutusu veya donanımsal pedalboard'un çok ötesinde bir konuma yerleştirmektedir. Birlikte çalma egzersizleri için hızı ayarlanabilir altyapı parçaları (backing track) yükleme özelliği, kolay akort için dahili tuner ve her türlü ritmik figürü oluşturabilen benzersiz metronom bir yanda; giriş sesini altyapıyla birlikte WAVE formatında doğrudan telefon hafızasına kaydetme imkanı diğer yanda birleşerek bu uygulamayı her müzisyenin rüyası haline getiriyor. Pahalı, ağır ve hacimli ekipmanlara ihtiyaç duymadan, her yerde ve her zaman dinleyicilere büyüleyici bir ses ulaştırmayı sağlar. Çeşitli koşullarda ve farklı enstrümanlarda kullanılmak üzere 35'ten fazla hazır ayarın varlığı, müzisyenlerin performanslarında büyük bir kolaylık sağlamaktadır.",
     screenshots: [
-      "screenshots/lmt-screen-reverb.jpg",
-      "screenshots/lmt-screen-home.jpg",
-      "screenshots/lmt-screen-eq.jpg",
-      "screenshots/lmt-screen-menu.jpg",
-      "screenshots/lmt-screen-main.jpg",
+      "screenshots/s1.jpeg",
+      "screenshots/s2.jpeg",
+      "screenshots/s3.jpeg",
+      "screenshots/reverb.jpeg",
     ],
   },
   pro: {
-    title: "Live Music Tools (PRO)",
+    title: "Buskıt Tools - Altın",
     subtitle:
       "Performans, kayıt ve pratik için tam özellikli profesyonel sürüm",
     features: [
       "Müzik dünyasında yaygın olarak kullanılan ve ünlü on beş efektle donatılmıştır",
-      "40'tan fazla hazır ayar (preset) içerir",
+      "60'tan fazla hazır ayar (preset) içerir",
       "İran veya Türk enstrümanlarının koma/perde ayarlarını yapmak için sapma miktarını belirleme özellikli kromatik + mikrotonal tuner",
       "Her türlü aksak ritmi ve her ritmik kalıbı/figürü çalabilen esnek metronom",
       "Altyapı (backing track) yükleme seçeneği",
       "Altyapı parçası ile enstrüman sesinin mikslenmiş halini WAVE formatında telefon hafızasına kaydedebilme",
       "Frekansı (perdeyi) değiştirmeden altyapı (backing track) hızını değiştirebilme özelliği",
     ],
-    downloadUrl: "./downloads/LMT_PRO_v1_4.apk",
-    fileName: "LMT_PRO_v1_4.apk",
+    //  downloadUrl: "./downloads/pro_v1_6.apk",
+    // fileName: "pro_v1_6.apk",
     description:
       "Bu uygulamanın özellikleri, onu sıradan bir efekt kutusu veya donanımsal pedalboard'un çok ötesinde bir konuma yerleştirmektedir. Beraber pratik yapmak için frekansı bozmadan hızı ayarlanabilir altyapı parçaları yükleme özelliği, her türlü ritmik figürü oluşturabilen benzersiz metronom bir yanda; giriş sesini altyapıyla birlikte WAVE formatında telefon hafızasına kaydetme imkanı diğer yanda birleşerek bu uygulamayı her müzisyenin rüyası haline getiriyor. Pahalı, ağır ve hacimli ekipmanlara ihtiyaç duymadan, her yerde ve her zaman enstrümanınızdan rüya gibi bir ses çıkarmanızı sağlar. Mikrotonal kromatik akort cihazı (tuner) ise bu sürümün en güçlü yönlerinden biri olup, kullanıcının ana sesten olan sapma miktarını (koma) tam olarak belirlemesine olanak tanır. Çeşitli koşullarda ve farklı enstrümanlarda kullanılmak üzere 40'tan fazla hazır ayarın bulunması, müzisyenlerin performanslarında sağlanan bir diğer büyük kolaylıktır.",
     screenshots: [
-      "screenshots/pro-screen-home.jpg",
+      "screenshots/g1.jpeg",
+      "screenshots/g2.jpeg",
       "screenshots/pro-screen-wahwah.jpg",
-      "screenshots/pro-screen-menu.jpg",
-      "screenshots/pro-screen-live.jpg",
+      "screenshots/eq.jpeg",
     ],
   },
 };
@@ -1922,12 +1930,20 @@ function trackAppDownload(appKey) {
   }
   db.collection("downloads")
     .doc(appKey)
-    .set(
-      { count: firebase.firestore.FieldValue.increment(1) },
-      { merge: true },
-    )
+    .set({ count: firebase.firestore.FieldValue.increment(1) }, { merge: true })
     .then(() => console.log("[trackAppDownload] با موفقیت ثبت شد:", appKey))
     .catch((err) => console.error("خطا در ثبت آمار دانلود اپ:", err));
+}
+
+// ====== دانلود مستقیم اپلیکیشن Buskit-Tools ======
+function downloadBuskitTools() {
+  trackAppDownload("buskit-tools");
+  const link = document.createElement("a");
+  link.href = "./downloads/BuskitTools.apk";
+  link.download = "BuskitTools.apk";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 }
 
 function openAppModal(appKey) {
@@ -1973,16 +1989,16 @@ function openAppModal(appKey) {
     shotsWrapper.classList.add("hidden");
   }
 
-  const downloadBtn = document.getElementById("appModalDownloadBtn");
-  downloadBtn.onclick = () => {
-    trackAppDownload(appKey);
-    const link = document.createElement("a");
-    link.href = data.downloadUrl;
-    link.download = data.fileName || "";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+  // const downloadBtn = document.getElementById("appModalDownloadBtn");
+  // downloadBtn.onclick = () => {
+  //   trackAppDownload(appKey);
+  //   const link = document.createElement("a");
+  //   link.href = data.downloadUrl;
+  //   link.download = data.fileName || "";
+  //   document.body.appendChild(link);
+  ////   link.click();
+  //   document.body.removeChild(link);
+  // };
 
   const modal = document.getElementById("appInfoModal");
   modal.classList.remove("hidden");

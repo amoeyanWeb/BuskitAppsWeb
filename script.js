@@ -21,7 +21,8 @@ const translations = {
     heroDownloadBtnLiveFX: "لایسنس برنزی",
     heroDownloadBtnLMT: "لایسنس نقره ای",
     heroDownloadBtnLMTpro: "لایسنس طلایی",
-    heroDownloadBtnTools: "دانلود رایگان \nاپلیکیشن Buskit-Tools",
+    heroDownloadBtnTools:
+      "دانلود رایگان اپلیکیشن \n و استفاده رایگان 5 روزه از کلیه امکانات اپلیکیشن",
     heroTipLiveFX1: "7 افکت",
     heroTipLiveFX2: "تیونر کروماتیک",
     heroTipLiveFX3: "مترونوم فلکسیبل",
@@ -396,7 +397,8 @@ const translations = {
     heroDownloadBtnLiveFX: "Bronze License",
     heroDownloadBtnLMT: "Silver Licens ",
     heroDownloadBtnLMTpro: "Golden License ",
-    heroDownloadBtnTools: "Download for Free\n Buskit-Tools Application",
+    heroDownloadBtnTools:
+      "Free download of the app\nGet a 5-day free trial with unlimited access to all features",
     heroTipLiveFX1: "7 Effects",
     heroTipLiveFX2: "Chromatic Tuner",
     heroTipLiveFX3: "Flexible Metronome",
@@ -771,7 +773,8 @@ const translations = {
     heroDownloadBtnLiveFX: "Bronz Lisans",
     heroDownloadBtnLMT: "Gümüş Lisans",
     heroDownloadBtnLMTpro: "Altın Lisans",
-    heroDownloadBtnTools: "Ücretsiz İndir\nBuskit-Tools Uygulaması",
+    heroDownloadBtnTools:
+      "uygulamasını ücretsiz indirin\nTüm özelliklere 5 gün boyunca ücretsiz erişim sağlayın",
     heroTipLiveFX1: "7 Efekt",
     heroTipLiveFX2: "Kromatik Akort Aleti",
     heroTipLiveFX3: "Esnek Metronom",
@@ -1277,8 +1280,15 @@ function changeLanguage(lang) {
   const heroDownloadBtnToolsEl = document.getElementById(
     "heroDownloadBtnTools",
   );
-  if (heroDownloadBtnToolsEl)
-    heroDownloadBtnToolsEl.innerText = data.heroDownloadBtnTools;
+  if (heroDownloadBtnToolsEl && data.heroDownloadBtnTools) {
+    const toolsLines = data.heroDownloadBtnTools
+      .split("\n")
+      .map((line) => line.trim());
+    const line1El = document.getElementById("heroDownloadBtnToolsLine1");
+    const line2El = document.getElementById("heroDownloadBtnToolsLine2");
+    if (line1El) line1El.innerText = toolsLines[0] || "";
+    if (line2El) line2El.innerText = toolsLines[1] || "";
+  }
 
   // تولتیپ‌های سه دکمه دانلود در بخش هیرو
   [

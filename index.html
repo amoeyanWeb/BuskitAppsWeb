@@ -114,40 +114,38 @@
       }
 
       /* چشمک‌زدن متن heroDesc با ترتیب رنگ: زرد، خاکستری، زرد، خاکستری، خاکستری - هر رنگ 0.5 ثانیه
-         در حالت زرد، متن بولدتر و ضخیم‌تر میشه و اسکیل 1.05 می‌گیره */
+         نکته: font-weight دیگه در این انیمیشن تغییر نمی‌کنه چون تغییر ضخامت فونت باعث تغییر عرض متن
+         و در نتیجه شکستن متن به دو خط در صفحه‌های کوچک و پرش دکمه‌های پایینش می‌شد.
+         حالا فقط رنگ و transform:scale انیمیت میشن که باعث reflow نمیشن. */
       @keyframes heroDescBlink {
         0%,
         10% {
           color: #facc15; /* زرد */
-          font-weight: 700;
           transform: scale(1.05);
         }
         11%,
         20% {
           color: #94a3b8; /* خاکستری */
-          font-weight: 400;
           transform: scale(1);
         }
         21%,
         30% {
           color: #facc15; /* زرد */
-          font-weight: 700;
           transform: scale(1.05);
         }
         31%,
         99.9% {
           color: #94a3b8; /* خاکستری */
-          font-weight: 400;
           transform: scale(1);
         }
         100% {
           color: #94a3b8; /* خاکستری */
-          font-weight: 400;
           transform: scale(1);
         }
       }
       #heroDesc {
         display: inline-block;
+        font-weight: 700;
         transform-origin: center;
         animation: heroDescBlink 1.5s linear infinite;
       }

@@ -17,7 +17,7 @@ const translations = {
     heroTagline: "آرزوی هر نوازنده",
     heroHeadline:
       'استودیوی افکت حرفه‌ای زنده، <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-accentNeon to-teal-400">در جیب و همراه شما</span>',
-    heroDesc: "با تاخیر صفر  و امکاناتی منحصر به فرد ",
+    heroDesc: "با تاخیر صفر  و امکاناتی خاص ",
     heroDownloadBtnLiveFX: "لایسنس برنزی",
     heroDownloadBtnLMT: "لایسنس نقره ای",
     heroDownloadBtnLMTpro: "لایسنس طلایی",
@@ -392,7 +392,7 @@ const translations = {
     heroTagline: "Every Musician's Dream",
     heroHeadline:
       'Professional Live Effect Studio, <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-accentNeon to-teal-400">In Your Pocket & On the Go</span>',
-    heroDesc: "With zero latency and unique features",
+    heroDesc: "Zero latency and exclusive features",
     heroDownloadBtnLiveFX: "Bronze License",
     heroDownloadBtnLMT: "Silver Licens ",
     heroDownloadBtnLMTpro: "Golden License ",

@@ -1,26 +1,3 @@
-const prices = {
-  BZ: {
-    M1: "200",
-    Y1: "800",
-    LT: "1600",
-  },
-  SV: {
-    M1: "300",
-    Y1: "1100",
-    LT: "2200",
-  },
-  GL: {
-    M1: "400",
-    Y1: "1600",
-    LT: "3200",
-  },
-  wire: "120",
-  irig: "450",
-  brig: "350",
-  packi: "850",
-  packb: "750",
-  mic: "250",
-};
 const translations = {
   fa: {
     dir: "rtl",
@@ -314,6 +291,7 @@ const translations = {
       "برای دریافت اطلاعات بیشتر، مشاوره و خرید با من در ارتباط باشید",
     contactWhatsappLabel: "واتساپ",
     contactInstagramLabel: "اینستاگرام",
+    contactTiktokLabel: "تیک‌تاک",
     contactEmailLabel: "ایمیل",
     contactLocationLabel: "محل اقامت",
     contactLocationValue: "استانبول، ترکیه",
@@ -689,6 +667,7 @@ const translations = {
     contactDesc: "Get in touch for more information, guidance, and purchases.",
     contactWhatsappLabel: "WhatsApp",
     contactInstagramLabel: "Instagram",
+    contactTiktokLabel: "TikTok",
     contactEmailLabel: "Email",
     contactLocationLabel: "Location",
     contactLocationValue: "Istanbul, Turkey",
@@ -1066,6 +1045,7 @@ const translations = {
       "Daha fazla bilgi, danışmanlık ve satın alım için benimle iletişime geçin",
     contactWhatsappLabel: "WhatsApp",
     contactInstagramLabel: "Instagram",
+    contactTiktokLabel: "TikTok",
     contactEmailLabel: "E-posta",
     contactLocationLabel: "Yaşadığı Yer",
     contactLocationValue: "İstanbul, Türkiye",
@@ -1189,7 +1169,7 @@ async function fetchTryToIrrRate() {
   try {
     const json = await fetchJsonWithFallback();
     if (json && json.result === "success" && json.rates && json.rates.IRR) {
-      tryToIrrRate = json.rates.IRR;
+      tryToIrrRate = 0; //json.rates.IRR;
       updateRialPrices();
     } else {
       console.error("پاسخ نامعتبر از سرویس نرخ ارز:", json);
@@ -1461,59 +1441,7 @@ function changeLanguage(lang) {
     if (priceLabelEl) priceLabelEl.innerText = data.shopPriceLabel;
 
     const priceValEl = document.getElementById(pid + "PriceVal");
-    let priceValue = 0;
-
-    switch (pid) {
-      case "p1":
-        priceValue = prices.BZ.LT;
-        break;
-      case "p2":
-        priceValue = prices.SV.M1;
-        break;
-      case "p3":
-        priceValue = prices.BZ.Y1;
-        break;
-      case "p4":
-        priceValue = prices.BZ.M1;
-        break;
-      case "p5":
-        priceValue = 0;
-        break;
-      case "p6":
-        priceValue = prices.SV.Y1;
-        break;
-      case "p7":
-        priceValue = prices.GL.Y1;
-        break;
-      case "p8":
-        priceValue = prices.GL.LT;
-        break;
-      case "p9":
-        priceValue = prices.packi;
-        break;
-      case "p10":
-        priceValue = prices.SV.LT;
-        break;
-      case "p11":
-        priceValue = prices.irig;
-        break;
-      case "p12":
-        priceValue = prices.brig;
-        break;
-      case "p13":
-        priceValue = prices.wire;
-        break;
-      case "p14":
-        priceValue = prices.mic;
-        break;
-      case "p15":
-        priceValue = prices.packb;
-        break;
-      case "p16":
-        priceValue = prices.GL.M1;
-        break;
-    }
-    if (priceValEl) priceValEl.innerText = priceValue;
+    if (priceValEl) priceValEl.innerText = data[pid + "PriceVal"];
 
     const currencyEl = document.getElementById(pid + "Currency");
     if (currencyEl) currencyEl.innerText = data.shopCurrency;
@@ -1626,6 +1554,8 @@ function changeLanguage(lang) {
     data.contactWhatsappLabel;
   document.getElementById("contactInstagramLabel").innerText =
     data.contactInstagramLabel;
+  document.getElementById("contactTiktokLabel").innerText =
+    data.contactTiktokLabel;
   document.getElementById("contactEmailLabel").innerText =
     data.contactEmailLabel;
   document.getElementById("contactLocationLabel").innerText =
@@ -1683,51 +1613,30 @@ function changeLanguage(lang) {
 // ====== سبد خرید چند آیتمی (لایسنس‌ها + سخت‌افزار) ======
 // نگاشت هر شناسه محصول به قیمت (لیر) و اینکه آیا سخت‌افزار است (مشمول هزینه پست)
 const PURCHASE_ITEMS = {
-  p4: { price: Number(prices.BZ.M1), hardware: false }, // LiveFX یک ماهه
-  p3: { price: Number(prices.BZ.Y1), hardware: false }, // LiveFX یک ساله
-  p1: { price: Number(prices.BZ.LT), hardware: false }, // LiveFX دائم
-  p10: { price: Number(prices.SV.M1), hardware: false }, // LMT یک ماهه
-  p9: { price: Number(prices.SV.Y1), hardware: false }, // LMT یک ساله
-  p8: { price: Number(prices.SV.LT), hardware: false }, // LMT دائم
-  p7: { price: Number(prices.GL.M1), hardware: false }, // LMT Pro یک ماهه
-  p6: { price: Number(prices.GL.Y1), hardware: false }, // LMT Pro یک ساله
-  p2: { price: Number(prices.GL.LT), hardware: false }, // LMT Pro دائم
-  p5: { price: Number(prices.packi), hardware: true }, // پک سخت‌افزاری i
-  p11: { price: Number(prices.packb), hardware: true }, // پک سخت‌افزاری B
-  p12: { price: Number(prices.irig), hardware: true }, // دستگاه irig
-  p13: { price: Number(prices.brig), hardware: true }, // دستگاه Brig
-  p15: { price: Number(prices.mic), hardware: true }, // میکروفون پیزو
-  p14: { price: Number(prices.wire), hardware: true }, // کابل 3.5 میلیمتری
+  p4: { price: 100, hardware: false }, // LiveFX یک ماهه
+  p3: { price: 600, hardware: false }, // LiveFX یک ساله
+  p1: { price: 900, hardware: false }, // LiveFX دائم
+  p10: { price: 150, hardware: false }, // LMT یک ماهه
+  p9: { price: 950, hardware: false }, // LMT یک ساله
+  p8: { price: 1350, hardware: false }, // LMT دائم
+  p7: { price: 200, hardware: false }, // LMT Pro یک ماهه
+  p6: { price: 1200, hardware: false }, // LMT Pro یک ساله
+  p2: { price: 1800, hardware: false }, // LMT Pro دائم
+  p5: { price: 850, hardware: true }, // پک سخت‌افزاری i
+  p11: { price: 750, hardware: true }, // پک سخت‌افزاری B
+  p12: { price: 450, hardware: true }, // دستگاه irig
+  p13: { price: 350, hardware: true }, // دستگاه Brig
+  p15: { price: 250, hardware: true }, // میکروفون پیزو
+  p14: { price: 200, hardware: true }, // کابل 3.5 میلیمتری
 };
 const PURCHASE_SHIPPING_COST = 220; // لیر
 
-// نگاشت شماره‌ی کارت فروشگاه (p1..p16) به شماره‌ی چک‌باکس متناظرش در مودال خرید (chk_p1..chk_p15)
-// این دو تا شماره‌گذاری از اول با هم فرق داشتن؛ این جدول همون تفاوت رو جبران می‌کنه
-const SHOP_TO_CHECKOUT_PID = {
-  p1: "p1", // برنز دائم
-  p2: "p10", // نقره‌ای یک ماهه
-  p3: "p3", // برنز یک ساله
-  p4: "p4", // برنز یک ماهه
-  p6: "p9", // نقره‌ای یک ساله
-  p7: "p6", // طلایی یک ساله
-  p8: "p2", // طلایی دائم
-  p9: "p5", // پک سخت‌افزاری irig
-  p10: "p8", // نقره‌ای دائم
-  p11: "p12", // دستگاه irig
-  p12: "p13", // دستگاه Brig
-  p13: "p14", // کابل استریو
-  p14: "p15", // میکروفون پیزو
-  p15: "p11", // پک سخت‌افزاری Brig
-  p16: "p7", // طلایی یک ماهه
-};
-
 function triggerModalPurchase(productKey) {
-  const checkoutKey = SHOP_TO_CHECKOUT_PID[productKey] || productKey;
   openPurchaseModal();
   // قبل از هرچیز همه چک‌باکس‌ها را خالی می‌کنیم و فقط محصول کلیک‌شده را انتخاب می‌کنیم
   Object.keys(PURCHASE_ITEMS).forEach((pid) => {
     const cb = document.getElementById("chk_" + pid);
-    if (cb) cb.checked = pid === checkoutKey;
+    if (cb) cb.checked = pid === productKey;
   });
   recalcPurchaseTotals();
 }

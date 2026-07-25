@@ -1139,46 +1139,32 @@ const translations = {
 };
 let currentLang = "tr";
 
-// ====== نرخ لحظه‌ای تبدیل لیر ترکیه به ریال ایران ======
-// منبع اصلی: ExchangeRate-API (open.er-api.com) — سرویس رایگان بدون نیاز به کلید
-// اگه دسترسی مستقیم به این آدرس (به هر دلیلی، مثل CORS) با خطا مواجه بشه،
-// از یک پراکسی عمومی به‌عنوان مسیر دوم استفاده می‌کنیم تا صفحه خالی نمونه.
-let tryToIrrRate = null; // آخرین نرخ دریافت‌شده (۱ لیر معادل چند ریال است)
-const TRY_IRR_SOURCE_URL = "https://open.er-api.com/v6/latest/TRY";
-const TRY_IRR_FALLBACK_URL =
-  "https://api.allorigins.win/raw?url=" +
-  encodeURIComponent(TRY_IRR_SOURCE_URL);
-
-async function fetchJsonWithFallback() {
-  try {
-    const res = await fetch(TRY_IRR_SOURCE_URL);
-    if (!res.ok) throw new Error("HTTP " + res.status);
-    return await res.json();
-  } catch (directErr) {
-    console.warn(
-      "دسترسی مستقیم به open.er-api.com ناموفق بود، تلاش از طریق پراکسی:",
-      directErr,
-    );
-    const res2 = await fetch(TRY_IRR_FALLBACK_URL);
-    if (!res2.ok) throw new Error("HTTP " + res2.status);
-    return await res2.json();
-  }
-}
+// ====== نرخ لیر ترکیه به ریال/دلار (خوانده‌شده از سرور Firestore) ======
+// نرخ واقعی دیگر در مرورگر کاربر از یک API خارجی خوانده نمی‌شود.
+// در عوض، یک Cloud Function روی سرور Firebase، هر روز ساعت ۱۱:۰۰ و ۲۳:۰۰
+// به وقت تهران، نرخ لیر و دلار را از یک سرویس معتبر می‌گیرد و در سند
+// Firestore به آدرس rates/latest ذخیره می‌کند (نگاه کنید به functions/index.js).
+// اینجا فقط همان سند خوانده می‌شود — سریع، بدون CORS و بدون فشار به API بیرونی.
+let tryToIrrRate = null; // ۱ لیر معادل چند ریال است
+let tryToUsdRate = null; // ۱ لیر معادل چند دلار است
 
 async function fetchTryToIrrRate() {
   try {
-    const json = await fetchJsonWithFallback();
-    if (json && json.result === "success" && json.rates && json.rates.IRR) {
-      tryToIrrRate = 0; //json.rates.IRR;
+    const doc = await db.collection("rates").doc("latest").get();
+    if (!doc.exists) {
+      console.warn("سند نرخ ارز هنوز در Firestore ساخته نشده است.");
+      return;
+    }
+    const data = doc.data();
+    if (data && data.tryToRial) {
+      tryToIrrRate = data.tryToRial;
+      tryToUsdRate = data.tryToUsd || null;
       updateRialPrices();
     } else {
-      console.error("پاسخ نامعتبر از سرویس نرخ ارز:", json);
+      console.error("داده نرخ ارز در Firestore ناقص است:", data);
     }
   } catch (err) {
-    console.error(
-      "خطا در دریافت نرخ لیر به ریال (هر دو مسیر ناموفق بودند):",
-      err,
-    );
+    console.error("خطا در خواندن نرخ ارز از Firestore:", err);
   }
 }
 
@@ -1193,13 +1179,17 @@ function formatRialAmount(rialAmount, data) {
   return `≈ ${rounded.toLocaleString("fa-IR")} ${millionLabel} ${rialLabel}`;
 }
 
+// همان بروزرسانی، برای تمام محصولات (نه فقط p1..p5) روی هر PriceVal/RialVal
+// موجود در صفحه اجرا می‌شود؛ اگر عنصر RialVal برای یک محصول وجود نداشته باشد
+// به‌سادگی نادیده گرفته می‌شود، پس اضافه/کم‌کردن محصولات نیازی به تغییر این تابع ندارد.
 function updateRialPrices() {
   if (!tryToIrrRate) return;
   const data = translations[currentLang];
-  ["p1", "p2", "p3", "p4", "p5"].forEach((pid) => {
-    const valEl = document.getElementById(pid + "PriceVal");
+  const allPriceValEls = document.querySelectorAll('[id$="PriceVal"]');
+  allPriceValEls.forEach((valEl) => {
+    const pid = valEl.id.replace(/PriceVal$/, "");
     const rialEl = document.getElementById(pid + "RialVal");
-    if (!valEl || !rialEl) return;
+    if (!rialEl) return;
     const liraPrice = parseFloat(valEl.innerText);
     if (!liraPrice || isNaN(liraPrice) || liraPrice <= 0) {
       rialEl.innerText = "";
@@ -1213,7 +1203,10 @@ function updateRialPrices() {
   }
 }
 
-// دریافت اولیه‌ی نرخ و به‌روزرسانی خودکار آن هر یک ساعت
+// دریافت اولیه‌ی نرخ از Firestore، و بازخوانی دوره‌ای آن هر یک ساعت
+// (نرخ خودش فقط دو بار در روز توسط سرور به‌روز می‌شود؛ این تایمر صرفاً
+// باعث می‌شود اگر کاربر صفحه را برای مدت طولانی باز نگه داشت، آخرین
+// مقدار به‌روزشده روی سرور را هم بدون رفرش صفحه ببیند)
 fetchTryToIrrRate();
 setInterval(fetchTryToIrrRate, 60 * 60 * 1000);
 

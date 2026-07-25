@@ -1,0 +1,11 @@
+{
+  "name": "buskit-rate-sync-script",
+  "description": "اسکریپت مستقل همگام‌سازی نرخ ارز، برای اجرا با GitHub Actions (بدون نیاز به Firebase Blaze)",
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "firebase-admin": "^12.1.0"
+  }
+}

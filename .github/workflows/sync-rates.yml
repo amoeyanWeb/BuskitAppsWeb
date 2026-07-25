@@ -1,0 +1,35 @@
+name: Sync Exchange Rates (USD / TRY -> Toman/Rial)
+
+# اجرای خودکار هر روز ساعت ۱۱:۰۰ و ۲۳:۰۰ به وقت تهران (Asia/Tehran = UTC+3:30)
+# توجه: GitHub Actions زمان‌بندی را بر اساس UTC می‌خواند، پس معادل UTC نوشته شده:
+#   ۱۱:۰۰ تهران = ۰۷:۳۰ UTC
+#   ۲۳:۰۰ تهران = ۱۹:۳۰ UTC
+# ایران دیگر ساعت تابستانی (DST) اجرا نمی‌کند، پس این افست کل سال ثابت است.
+on:
+  schedule:
+    - cron: "30 7 * * *"
+    - cron: "30 19 * * *"
+  workflow_dispatch: {} # امکان اجرای دستی از تب Actions گیت‌هاب برای تست فوری
+
+jobs:
+  sync-rates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        working-directory: scripts
+        run: npm install
+
+      - name: Run rate sync script
+        working-directory: scripts
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          BRSAPI_KEY: ${{ secrets.BRSAPI_KEY }}
+        run: node sync-rates.js

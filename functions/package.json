@@ -1,0 +1,13 @@
+{
+  "name": "buskit-rate-sync-functions",
+  "description": "همگام‌سازی خودکار نرخ ارز (دلار/لیر) دو بار در روز برای سایت Buskit",
+  "engines": {
+    "node": "20"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.1.0",
+    "firebase-functions": "^5.0.0"
+  },
+  "private": true
+}

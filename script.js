@@ -1,3 +1,71 @@
+// ====================================================================
+//  💰 قیمت‌گذاری — تنها جایی که باید برای تغییر قیمت هر محصول ویرایش شود
+// ====================================================================
+// برای تغییر قیمت هر آیتم فقط همین چند عدد رو عوض کن؛ همه‌جای سایت
+// (کارت‌های فروشگاه، فرم خرید، محاسبه‌ی جمع کل) خودکار از همین می‌خونن.
+const prices = {
+  BZ: { M1: 100, Y1: 600, LT: 900 }, // لایسنس برنز (LiveFX): ماهانه / سالانه / دائم
+  SV: { M1: 150, Y1: 950, LT: 1350 }, // لایسنس نقره‌ای (Live Music Tools): ماهانه / سالانه / دائم
+  GL: { M1: 200, Y1: 1200, LT: 1800 }, // لایسنس طلایی (Live Music Tools Pro): ماهانه / سالانه / دائم
+  packi: 850, // پک کامل سخت‌افزاری i
+  packb: 750, // پک کامل سخت‌افزاری B
+  irig: 450, // دستگاه irig (تکی)
+  brig: 350, // دستگاه Brig (تکی)
+  wire: 200, // کابل استریو 3.5 میلیمتری
+  mic: 250, // میکروفون گیره‌ای پیزو
+  free: 0, // لایسنس رایگان 5 روزه
+};
+// ضریب تعدیل تبدیل لیر به تومان — روی نرخ خام لیر→ریال/تومان (که هر روز از
+// سرور خونده میشه) ضرب میشه. مثلاً اگر نرخ خام میگه ۱۰۰ لیر = ۴۰۰ هزار تومان
+// ولی می‌خوای معادل نمایش‌داده‌شده ۲۴۰ هزار تومان باشه، این عدد رو 0.6 بذار
+// (400,000 × 0.6 = 240,000). فقط همین یک عدد رو تغییر بده، جای دیگه‌ای لازم
+// نیست دستکاری بشه. عدد 1 یعنی بدون هیچ تعدیلی، دقیقاً همون نرخ خام.
+const TOMAN_RATE_ADJUSTMENT = 0.6;
+// نگاشت هر کارت فروشگاه (بر اساس آیدی p1..p16 که در index.html استفاده شده)
+// به مقدار درست از آبجکت prices بالا — این همون ترتیبی هست که در متن اصلی
+// index.html به‌صورت ${prices.XX.YY} مشخص شده بود.
+const GRID_PRICE_MAP = {
+  p1: prices.BZ.LT,
+  p2: prices.SV.M1,
+  p3: prices.BZ.Y1,
+  p4: prices.BZ.M1,
+  p5: prices.free,
+  p6: prices.SV.Y1,
+  p7: prices.GL.Y1,
+  p8: prices.GL.LT,
+  p9: prices.packi,
+  p10: prices.SV.LT,
+  p11: prices.irig,
+  p12: prices.brig,
+  p13: prices.wire,
+  p14: prices.mic,
+  p15: prices.packb,
+  p16: prices.GL.M1,
+};
+
+// نگاشت pid کارت فروشگاه ← pid واقعیِ همان محصول در فرم خرید (مودال/PURCHASE_ITEMS)
+// این نگاشت یک باگ قدیمی رو رفع می‌کنه: قبلاً با کلیک روی «خرید» بعضی کارت‌ها،
+// چک‌باکس یک محصول کاملاً متفاوت در فرم خرید تیک می‌خورد (چون از یک شماره pid
+// برای دو محصول متفاوت در دو بخش مختلف سایت استفاده شده بود).
+const GRID_TO_MODAL_PID = {
+  p1: "p1",
+  p2: "p10",
+  p3: "p3",
+  p4: "p4",
+  p6: "p9",
+  p7: "p6",
+  p8: "p2",
+  p9: "p5",
+  p10: "p8",
+  p11: "p12",
+  p12: "p13",
+  p13: "p14",
+  p14: "p15",
+  p15: "p11",
+  p16: "p7",
+  // p5 لایسنس رایگان ۵ روزه است و در فرم خرید فروخته نمی‌شود (دکمه‌ی خرید ندارد)
+};
+
 const translations = {
   fa: {
     dir: "rtl",
@@ -148,6 +216,7 @@ const translations = {
     shopCurrency: "لیر",
     rialLabel: "ریال",
     millionLabel: "میلیون",
+    tomanLabel: "تومان",
     shopProductTitle: "Buskit-Tools application",
     shopBuyBtn: "خرید",
 
@@ -347,10 +416,10 @@ const translations = {
 
     purchaseModalTitle: "فرم خرید محصولات باسکیت",
     purchaseSubtotalLabel: "مبلغ کل:",
-    purchaseSubtotalRialLabel: "محاسبه مبلغ به ریال:",
+    purchaseSubtotalRialLabel: "معادل تومان و دلار:",
     purchaseShippingLabel: "هزینه پست:",
     purchaseTotalLabel: "قیمت کل (قابل پرداخت):",
-    purchaseTotalRialLabel: "معادل ریالی قابل پرداخت:",
+    purchaseTotalRialLabel: "معادل تومان و دلار قابل پرداخت:",
     purchaseWhatsappNote:
       'پس از واریز وجه به حساب‌های اعلام‌شده، نام و نام خانوادگی، ایمیل و آدرس پستی (در صورت لزوم) و رسید مربوطه را به شماره <span dir="ltr" class="font-mono text-accentNeon">00905312691609</span> واتس‌آپ کنید تا کالای خریداری‌شده برای شما ارسال گردد.',
     btnBackForm: "بازگشت",
@@ -526,6 +595,7 @@ const translations = {
     shopCurrency: "TRY",
     rialLabel: "Rial",
     millionLabel: "Million",
+    tomanLabel: "Toman",
     shopProductTitle: "Buskit-Tools application",
     shopBuyBtn: "Buy",
 
@@ -723,10 +793,10 @@ const translations = {
 
     purchaseModalTitle: "Buskit Product Purchase Form",
     purchaseSubtotalLabel: "Subtotal:",
-    purchaseSubtotalRialLabel: "Subtotal in Iranian Rial (IRR):",
+    purchaseSubtotalRialLabel: "Equivalent in Toman & USD:",
     purchaseShippingLabel: "Shipping Fee:",
     purchaseTotalLabel: "Total Price (Payable):",
-    purchaseTotalRialLabel: "Total Equivalent in Rial:",
+    purchaseTotalRialLabel: "Total Payable in Toman & USD:",
     purchaseWhatsappNote:
       'After transferring the amount to the designated bank accounts, please WhatsApp your full name, email, shipping address (if applicable), and the payment receipt to <span dir="ltr" class="font-mono text-accentNeon">00905312691609</span> so your purchased items can be processed and shipped.',
     btnBackForm: "Back",
@@ -903,6 +973,7 @@ const translations = {
     shopCurrency: "TL",
     rialLabel: "Riyal",
     millionLabel: "Milyon",
+    tomanLabel: "Tümen",
     shopProductTitle: "Buskit-LiveFX application",
     shopBuyBtn: "Satın Al",
 
@@ -1106,10 +1177,10 @@ const translations = {
 
     purchaseModalTitle: "Buskit Ürün Satın Alma Formu",
     purchaseSubtotalLabel: "Ara Toplam:",
-    purchaseSubtotalRialLabel: "Riyal Cinsinden Tutar Hesaplama:",
+    purchaseSubtotalRialLabel: "Tümen ve Dolar Karşılığı:",
     purchaseShippingLabel: "Kargo Ücreti:",
     purchaseTotalLabel: "Toplam Fiyat (Ödenecek Tutar):",
-    purchaseTotalRialLabel: "Ödenecek Tutarın Riyal Karşılığı:",
+    purchaseTotalRialLabel: "Ödenecek Tutarın Tümen ve Dolar Karşılığı:",
     purchaseWhatsappNote:
       'Belirtilen hesaplara ücreti yatırdıktan sonra adınızı, soyadınızı, e-postanızı, posta adresinizi (gerekirse) ve ilgili dekontu <span dir="ltr" class="font-mono text-accentNeon">00905312691609</span> numaralı WhatsApp hattına göndermeniz halinde satın alınan ürün tarafınıza gönderilecektir.',
     btnBackForm: "Geri",
@@ -1138,6 +1209,18 @@ const translations = {
   },
 };
 let currentLang = "tr";
+
+// همگام‌سازی خودکار قیمت‌های نمایش داده‌شده روی کارت‌های فروشگاه (هر ۳ زبان)
+// با GRID_PRICE_MAP — به‌جای این‌که مقدار هر قیمت به‌صورت جداگانه و دستی
+// در متن ترجمه‌ی هر زبان (fa/en/tr) نوشته شده باشه. یعنی از این به بعد فقط
+// کافیه آبجکت prices در بالای فایل رو تغییر بدی؛ همه‌جا (هر ۳ زبان، کارت‌های
+// فروشگاه، و فرم خرید) خودکار به‌روز میشه.
+["fa", "en", "tr"].forEach((lang) => {
+  if (!translations[lang]) return;
+  Object.keys(GRID_PRICE_MAP).forEach((pid) => {
+    translations[lang][pid + "PriceVal"] = String(GRID_PRICE_MAP[pid]);
+  });
+});
 
 // ====== نرخ لیر ترکیه به ریال/دلار (خوانده‌شده از سرور Firestore) ======
 // نرخ واقعی دیگر در مرورگر کاربر از یک API خارجی خوانده نمی‌شود.
@@ -1170,13 +1253,44 @@ async function fetchTryToIrrRate() {
 
 // معادل ریالی هر قیمت رو کنار همون قیمت (لیر) می‌نویسه
 // مبلغ ریالی رو به «میلیون» رند می‌کنه (برای اعداد کوچیک‌تر از ۱۰ میلیون، یک رقم اعشار نگه می‌داره)
+// (این تابع برای سازگاری با کدهای قدیمی نگه داشته شده؛ نمایش فعلی کارت‌ها
+// و فرم خرید از formatTomanUsdAmount استفاده می‌کنند)
 function formatRialAmount(rialAmount, data) {
   const rialLabel = (data && data.rialLabel) || "ریال";
   const millionLabel = (data && data.millionLabel) || "میلیون";
   const millions = rialAmount / 1000000;
   const rounded =
     millions >= 10 ? Math.round(millions) : Math.round(millions * 10) / 10;
-  return `≈ ${rounded.toLocaleString("fa-IR")} ${millionLabel} ${rialLabel}`;
+  return `≈ ${rounded.toLocaleString("en-US")} ${millionLabel} ${rialLabel}`;
+}
+
+// معادل «تومان» و «دلار» یک مبلغ لیر رو با هم برمی‌گردونه، مثلاً:
+// "≈ 24 میلیون تومان (~$28)"
+// از tryToIrrRate (لیر->ریال) و tryToUsdRate (لیر->دلار) که در Firestore
+// ذخیره شده استفاده می‌کنه. اگه نرخ دلار در دسترس نبود، فقط تومان نشون داده میشه.
+function formatTomanUsdAmount(liraAmount, data) {
+  const tomanLabel = (data && data.tomanLabel) || "تومان";
+  const millionLabel = (data && data.millionLabel) || "میلیون";
+
+  const rialAmount = liraAmount * tryToIrrRate * TOMAN_RATE_ADJUSTMENT;
+  const tomanAmount = rialAmount / 10;
+  const tomanMillions = tomanAmount / 1000000;
+  const roundedToman =
+    tomanMillions >= 10
+      ? Math.round(tomanMillions)
+      : Math.round(tomanMillions * 10) / 10;
+
+  let usdPart = "";
+  if (tryToUsdRate) {
+    const usdAmount = liraAmount * tryToUsdRate;
+    const roundedUsd =
+      usdAmount >= 100
+        ? Math.round(usdAmount)
+        : Math.round(usdAmount * 100) / 100;
+    usdPart = ` (~$${roundedUsd.toLocaleString("en-US")})`;
+  }
+
+  return `≈ ${roundedToman.toLocaleString("en-US")} ${millionLabel} ${tomanLabel}${usdPart}`;
 }
 
 // همان بروزرسانی، برای تمام محصولات (نه فقط p1..p5) روی هر PriceVal/RialVal
@@ -1195,8 +1309,7 @@ function updateRialPrices() {
       rialEl.innerText = "";
       return;
     }
-    const rialAmount = Math.round(liraPrice * tryToIrrRate);
-    rialEl.innerText = formatRialAmount(rialAmount, data);
+    rialEl.innerText = formatTomanUsdAmount(liraPrice, data);
   });
   if (typeof recalcPurchaseTotals === "function") {
     recalcPurchaseTotals();
@@ -1606,30 +1719,34 @@ function changeLanguage(lang) {
 // ====== سبد خرید چند آیتمی (لایسنس‌ها + سخت‌افزار) ======
 // نگاشت هر شناسه محصول به قیمت (لیر) و اینکه آیا سخت‌افزار است (مشمول هزینه پست)
 const PURCHASE_ITEMS = {
-  p4: { price: 100, hardware: false }, // LiveFX یک ماهه
-  p3: { price: 600, hardware: false }, // LiveFX یک ساله
-  p1: { price: 900, hardware: false }, // LiveFX دائم
-  p10: { price: 150, hardware: false }, // LMT یک ماهه
-  p9: { price: 950, hardware: false }, // LMT یک ساله
-  p8: { price: 1350, hardware: false }, // LMT دائم
-  p7: { price: 200, hardware: false }, // LMT Pro یک ماهه
-  p6: { price: 1200, hardware: false }, // LMT Pro یک ساله
-  p2: { price: 1800, hardware: false }, // LMT Pro دائم
-  p5: { price: 850, hardware: true }, // پک سخت‌افزاری i
-  p11: { price: 750, hardware: true }, // پک سخت‌افزاری B
-  p12: { price: 450, hardware: true }, // دستگاه irig
-  p13: { price: 350, hardware: true }, // دستگاه Brig
-  p15: { price: 250, hardware: true }, // میکروفون پیزو
-  p14: { price: 200, hardware: true }, // کابل 3.5 میلیمتری
+  p4: { price: prices.BZ.M1, hardware: false }, // لایسنس برنز - یک ماهه
+  p3: { price: prices.BZ.Y1, hardware: false }, // لایسنس برنز - یک ساله
+  p1: { price: prices.BZ.LT, hardware: false }, // لایسنس برنز - دائم
+  p10: { price: prices.SV.M1, hardware: false }, // لایسنس نقره‌ای - یک ماهه
+  p9: { price: prices.SV.Y1, hardware: false }, // لایسنس نقره‌ای - یک ساله
+  p8: { price: prices.SV.LT, hardware: false }, // لایسنس نقره‌ای - دائم
+  p7: { price: prices.GL.M1, hardware: false }, // لایسنس طلایی - یک ماهه
+  p6: { price: prices.GL.Y1, hardware: false }, // لایسنس طلایی - یک ساله
+  p2: { price: prices.GL.LT, hardware: false }, // لایسنس طلایی - دائم
+  p5: { price: prices.packi, hardware: true }, // پک سخت‌افزاری i
+  p11: { price: prices.packb, hardware: true }, // پک سخت‌افزاری B
+  p12: { price: prices.irig, hardware: true }, // دستگاه irig
+  p13: { price: prices.brig, hardware: true }, // دستگاه Brig
+  p15: { price: prices.mic, hardware: true }, // میکروفون پیزو
+  p14: { price: prices.wire, hardware: true }, // کابل 3.5 میلیمتری
 };
 const PURCHASE_SHIPPING_COST = 220; // لیر
 
 function triggerModalPurchase(productKey) {
   openPurchaseModal();
+  // productKey همون pid کارت فروشگاهه؛ چون pidهای فرم خرید با pidهای کارت‌های
+  // فروشگاه یکی نیستن، اول به pid واقعی محصول در فرم خرید ترجمه‌اش می‌کنیم
+  // (نگاه کن به GRID_TO_MODAL_PID در بالای فایل)
+  const modalPid = GRID_TO_MODAL_PID[productKey] || productKey;
   // قبل از هرچیز همه چک‌باکس‌ها را خالی می‌کنیم و فقط محصول کلیک‌شده را انتخاب می‌کنیم
   Object.keys(PURCHASE_ITEMS).forEach((pid) => {
     const cb = document.getElementById("chk_" + pid);
-    if (cb) cb.checked = pid === productKey;
+    if (cb) cb.checked = pid === modalPid;
   });
   recalcPurchaseTotals();
 }
@@ -1688,14 +1805,10 @@ function recalcPurchaseTotals() {
   if (tryToIrrRate) {
     if (subtotalRialEl)
       subtotalRialEl.innerText =
-        subtotal > 0
-          ? formatRialAmount(Math.round(subtotal * tryToIrrRate), data)
-          : "—";
+        subtotal > 0 ? formatTomanUsdAmount(subtotal, data) : "—";
     if (totalRialEl)
       totalRialEl.innerText =
-        total > 0
-          ? formatRialAmount(Math.round(total * tryToIrrRate), data)
-          : "—";
+        total > 0 ? formatTomanUsdAmount(total, data) : "—";
   } else {
     if (subtotalRialEl) subtotalRialEl.innerText = "—";
     if (totalRialEl) totalRialEl.innerText = "—";

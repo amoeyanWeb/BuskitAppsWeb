@@ -73,6 +73,7 @@ const translations = {
     navHome: "خانه",
     navAboutme: "درباره من",
     navLiveFX: "Buskit-Tools چیست",
+    navAppGallery: "صفحات نمونه اپلیکیشن",
     navFeatures: "چرا Buskit-Tools",
     navUsersReview: "نظر کاربران",
     navVideos: "اجراهای زنده",
@@ -168,6 +169,10 @@ const translations = {
     liveFXGalleryAlt6: "بارگذاری بکینگ‌ترک در اپلیکیشن باسکیت لایو افکت",
     liveFXGalleryAlt7: "اکولایزر ۹ باند در اپلیکیشن باسکیت لایو افکت",
     liveFXGalleryAlt8: "نمای دیگری از صفحه افکت‌های اپلیکیشن باسکیت لایو افکت",
+    liveFXGalleryAlt9: "نمای تکمیلی از محیط کاربری اپلیکیشن باسکیت لایو افکت",
+    liveFXGalleryTitle: "صفحات نمونه اپلیکیشن",
+    liveFXGallerySubtitle:
+      "نگاهی به محیط کاربری و صفحات مختلف اپلیکیشن Buskit Tools",
     videosTitle: "ویدیوهای اجرای زنده با باسکیت",
     videosDesc:
       "طنین و قدرت واقعی پردازش آنی را در اجراهای زیر با سازهای مختلف بشنوید و تماشا کنید.",
@@ -451,6 +456,7 @@ const translations = {
     navHome: "Home",
     navAboutme: "About Me",
     navLiveFX: "What is Buskit-Tools",
+    navAppGallery: "App Sample Screens",
     navFeatures: "Why Buskit-Tools",
     navUsersReview: "User Reviews",
     navVideos: "Live Performances",
@@ -547,6 +553,10 @@ const translations = {
     liveFXGalleryAlt7: "9-Band Equalizer in Buskit LiveFX Application",
     liveFXGalleryAlt8:
       "Alternative Effects Page View of Buskit LiveFX Application",
+    liveFXGalleryAlt9: "Additional View of Buskit LiveFX Application Interface",
+    liveFXGalleryTitle: "App Sample Screens",
+    liveFXGallerySubtitle:
+      "A look at the interface and different screens of the Buskit Tools application",
     videosTitle: "Live Performance Videos with Buskit",
     videosDesc:
       "Hear and watch the real tone and instant processing power in the following performances across various instruments.",
@@ -829,6 +839,7 @@ const translations = {
     navHome: "Anasayfa",
     navAboutme: "Hakkımda",
     navLiveFX: "Buskit-Tools Nedir",
+    navAppGallery: "Uygulama Örnek Sayfaları",
     navFeatures: "Neden Buskit-Tools",
     navUsersReview: "Kullanıcı Yorumları",
     navVideos: "Canlı Performanslar",
@@ -925,6 +936,10 @@ const translations = {
     liveFXGalleryAlt7: "Buskit LiveFX Uygulaması 9-Bant Ekolayzer",
     liveFXGalleryAlt8:
       "Buskit LiveFX Uygulaması Efekt Sayfası Alternatif Görünümü",
+    liveFXGalleryAlt9: "Buskit LiveFX Uygulaması Arayüzünden Ek Bir Görünüm",
+    liveFXGalleryTitle: "Uygulama Örnek Sayfaları",
+    liveFXGallerySubtitle:
+      "Buskit Tools uygulamasının arayüzüne ve farklı sayfalarına bir bakış",
     videosTitle: "Buskit ile Canlı Performans Videoları",
     videosDesc:
       "Farklı enstrümanlarla yapılan aşağıdaki performanslarda gerçek tınıyı ve anlık işlemci gücünü dinleyin ve izleyin.",
@@ -1342,6 +1357,8 @@ function changeLanguage(lang) {
   document.getElementById("navHome").innerText = data.navHome;
   document.getElementById("navAboutme").innerText = data.navAboutme;
   document.getElementById("navLiveFX").innerText = data.navLiveFX;
+  const navAppGalleryEl = document.getElementById("navAppGallery");
+  if (navAppGalleryEl) navAppGalleryEl.innerText = data.navAppGallery;
   const navHowtoUseEl = document.getElementById("navHowtoUse");
   if (navHowtoUseEl) navHowtoUseEl.innerText = data.navHowtoUse;
   document.getElementById("navFeatures").innerText = data.navFeatures;
@@ -1355,6 +1372,9 @@ function changeLanguage(lang) {
   document.getElementById("navHomeMobile").innerText = data.navHome;
   document.getElementById("navAboutmeMobile").innerText = data.navAboutme;
   document.getElementById("navLiveFXMobile").innerText = data.navLiveFX;
+  const navAppGalleryMobileEl = document.getElementById("navAppGalleryMobile");
+  if (navAppGalleryMobileEl)
+    navAppGalleryMobileEl.innerText = data.navAppGallery;
   const navHowtoUseMobileEl = document.getElementById(
     "navLiveMusicToolsMobile",
   );
@@ -1461,7 +1481,15 @@ function changeLanguage(lang) {
   //  document.getElementById("liveFXP6").innerText = data.liveFXP6;
   document.getElementById("liveFXP7").innerText = data.liveFXP7;
   document.getElementById("liveFXP8").innerText = data.liveFXP8;
-  [1, 2, 3, 4, 5, 6, 7, 8].forEach((n) => {
+  const liveFXGalleryTitleEl = document.getElementById("liveFXGalleryTitle");
+  if (liveFXGalleryTitleEl)
+    liveFXGalleryTitleEl.innerText = data.liveFXGalleryTitle;
+  const liveFXGallerySubtitleEl = document.getElementById(
+    "liveFXGallerySubtitle",
+  );
+  if (liveFXGallerySubtitleEl)
+    liveFXGallerySubtitleEl.innerText = data.liveFXGallerySubtitle;
+  [1, 2, 3, 4, 5, 6, 7, 8, 9].forEach((n) => {
     const galEl = document.getElementById("liveFXGalleryImg" + n);
     if (galEl) galEl.alt = data["liveFXGalleryAlt" + n];
   });
@@ -2092,23 +2120,11 @@ function openAppModal(appKey) {
 
   document.getElementById("appModalDescription").innerText = data.description;
 
+  // تصاویر نمونه از اپلیکیشن در این پنجره حذف شده و دیگر نمایش داده نمی‌شوند
   const shotsWrapper = document.getElementById("appModalScreenshotsWrapper");
   const shotsContainer = document.getElementById("appModalScreenshots");
   shotsContainer.innerHTML = "";
-  if (data.screenshots && data.screenshots.length > 0) {
-    data.screenshots.forEach((src) => {
-      const img = document.createElement("img");
-      img.src = src;
-      img.loading = "lazy";
-      img.className =
-        "w-full h-auto rounded-xl border border-white/10 cursor-zoom-in hover:scale-105 transition-transform duration-300";
-      img.onclick = () => openScreenshotLightbox(src);
-      shotsContainer.appendChild(img);
-    });
-    shotsWrapper.classList.remove("hidden");
-  } else {
-    shotsWrapper.classList.add("hidden");
-  }
+  shotsWrapper.classList.add("hidden");
 
   // const downloadBtn = document.getElementById("appModalDownloadBtn");
   // downloadBtn.onclick = () => {

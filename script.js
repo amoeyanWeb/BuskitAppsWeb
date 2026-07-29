@@ -1868,8 +1868,6 @@ const appModalDataFA = {
       "بیش از 20 تنظیم پیش‌فرض",
     ],
 
-    // downloadUrl: "./downloads/LiveFX_v1_6.apk",
-    // fileName: "LiveFX_v1_6.apk",
     description:
       "در کنار افکتهای محبوب و پر کاربرد ، امکانات اولیه دیگری نیز به این نسخه از اپلیکیشن اضافه شده است ، وجود تیونر در خود اپ به منظور سهولت کوک کردن ساز، و وجود یک مترونوم با قابلیت منحصر به فرد ایجاد کلیه فیگورهای ریتمیک مورد نظر کاربر ،آنرا فراتر از یک افکت باکس قرار داده است مزیت یکتای این اپلیکیشن تاخیر صفر در پروسس صدای ورودی است که لذت یک اجرا را همواره به جان نوازنده گوارا و صدایی رویایی را به گوش مخاطبان میرساند. وجود بیش از 35 پریست  برای استفاده در شرایط و سازهای مختلف تسهیلی دیگر در سرعت بخشیدن به تنظیم و اجراهای نوازندگان میباشد.",
     screenshots: [
@@ -1890,8 +1888,7 @@ const appModalDataFA = {
       "امکان ضبط صدا",
       "امکان لود بکینگ ترک",
     ],
-    //downloadUrl: "./downloads/LMT_v1_6.apk",
-    //fileName: "LMT_v1_6.apk",
+
     description:
       "امکانات این اپلیکیشن، آنرا در جایگاهی فراتر از یک افکت باکس یا پدال بورد سخت افزاری قرار داده است امکان لود بکینگ ترک با قابلیت تغییر سرعت آن برای تمرین همنوازی همچنین وجود تیونر در خود اپ به منظور سهولت کوک کردن ساز، یا وجود یک مترونوم با قابلیت منحصر به فرد ایجاد کلیه فیگورهای ریتمیک مورد نظر از یک طرف و امکان ضبط صدای ورودی به همراه بکینگ ترک با فرمت wave  در حافظه گوشی آنرا به رویای هر نوازنده تبدیل کرده است که بدون نیاز به تجهیزات گرانقیمت و سنگین و حجیم بتوان در همه جا و همه زمان از ساز خود صدایی رویایی به گوش مخاطبان رسانید وجود بیش از 35 پریست  برای استفاده در شرایط مختلف و سازهای مختلف تسهیلی دیگر در اجراهای نوازندگان میباشد",
     screenshots: [
@@ -1913,8 +1910,7 @@ const appModalDataFA = {
       "امکان ضبط صدای میکس شده بکینگ ترک و صدای ساز داخل حافظه تلفن همراه با فرمت WAVE",
       "امکان تغییر سرعت بکینگ ترک بدون تغییر فرکانس",
     ],
-    // downloadUrl: "./downloads/pro_v1_6.apk",
-    // fileName: "pro_v1_6.apk",
+
     description:
       "امکانات این اپلیکیشن، آنرا در جایگاهی فراتر از یک افکت باکس یا پدال بورد سخت افزاری قرار داده است امکان لود بکینگ ترک با قابلیت تغییر سرعت بدون تغییر فرکانس آن برای تمرین همنوازی همچنین وجود یک مترونوم با قابلیت منحصر به فرد ایجاد کلیه فیگورهای ریتمیک مورد نظر از یک طرف و امکان ضبط صدای ورودی به همراه بکینگ ترک با فرمت wave  در حافظه گوشی آنرا به رویای هر نوازنده تبدیل کرده است که بدون نیاز به تجهیزات گرانقیمت و سنگین و حجیم بتوان در همه جا و همه زمان از ساز خود صدایی رویایی به گوش مخاطبان رسانید. تیونر کروماتیک میکروتونال آن نیز از نقاط قوت این نسخه از اپلیکیشن میباشد که امکان تعیین میزان انحراف از نوت اصلی را نیز به کاربر میدهد . وجود بیش از 40 پریست  برای استفاده در شرایط مختلف و سازهای مختلف تسهیلی دیگر در اجراهای نوازندگان میباشد",
     screenshots: [
@@ -1936,9 +1932,7 @@ const appModalDataEN = {
       "Equipped with a flexible metronome",
       "More than 20 default presets",
     ],
-    // Replace the download file URL for this app here
-    //  downloadUrl: "./downloads/LiveFX_v1_6.apk",
-    //  fileName: "LiveFX_v1_6.apk",
+
     description:
       "Along with popular and widely used effects, other basic features have been added to this version of the application. The inclusion of a built-in tuner for easy instrument tuning, and a metronome with the unique capability to create any rhythmic figure desired by the user, places it far beyond a simple effects box. The unique advantage of this application is zero latency in processing the input sound, which always delivers the joy of a live performance to the musician and a dreamy sound to the audience's ears. The presence of more than 35 presets for use in different conditions and with various instruments is another convenience to speed up the setup and performances of musicians.",
     screenshots: [
@@ -1960,8 +1954,7 @@ const appModalDataEN = {
       "Audio recording capability",
       "Backing track loading capability",
     ],
-    // downloadUrl: "./downloads/LMT_v1_6.apk",
-    // fileName: "LMT_v1_6.apk",
+
     description:
       "The features of this application place it far beyond a simple effects box or hardware pedalboard. The ability to load backing tracks with speed adjustment for jam session practice, a built-in tuner for easy instrument tuning, and a metronome with the unique capability to create any desired rhythmic figure on one hand, combined with the ability to record input audio along with the backing track in WAVE format directly into the phone's memory on the other, makes it every musician's dream. It allows musicians to deliver a dreamy sound to their audience anywhere and anytime without the need for expensive, heavy, and bulky equipment. The presence of more than 35 presets for use in various conditions and with different instruments is another great convenience in musicians' performances.",
     screenshots: [
@@ -1984,8 +1977,7 @@ const appModalDataEN = {
       "Capability to record the mixed audio of the backing track and instrument into the mobile phone memory in WAVE format",
       "Backing track speed alteration capability without changing the pitch frequency",
     ],
-    //  downloadUrl: "./downloads/pro_v1_6.apk",
-    //  fileName: "pro_v1_6.apk",
+
     description:
       "The features of this application place it far beyond a simple effects box or hardware pedalboard. The ability to load backing tracks with speed adjustment without changing the pitch frequency for jam session practice, a metronome with the unique capability to create any desired rhythmic figure on one hand, combined with the ability to record input audio along with the backing track in WAVE format into the phone's memory on the other, makes it every musician's dream. It allows musicians to deliver a dreamy sound to their audience anywhere and anytime without the need for expensive, heavy, and bulky equipment. Its microtonal chromatic tuner is also one of the strengths of this version of the application, allowing the user to determine the exact deviation from the main note. The presence of more than 40 presets for use in various conditions and with different instruments is another great convenience in musicians' performances.",
     screenshots: [
@@ -2088,8 +2080,8 @@ function trackAppDownload(appKey) {
 function downloadBuskitTools() {
   trackAppDownload("buskit-tools");
   const link = document.createElement("a");
-  link.href = "./downloads/BuskitTools.apk";
-  link.download = "BuskitTools.apk";
+  link.href = "./downloads/BuskitTools_v2_3.apk";
+  link.download = "BuskitTools_v2_3.apk";
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);

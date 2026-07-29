@@ -2000,9 +2000,7 @@ const appModalDataTR = {
       "Esnek metronom özelliği içerir",
       "20'ten fazla hazır ayar (preset)",
     ],
-    // Bu uygulamanın indirme dosyası adresini buraya yerleştirin
-    // downloadUrl: "./downloads/LiveFX_v1_6.apk",
-    // fileName: "LiveFX_v1_6.apk",
+
     description:
       "Popüler ve yaygın olarak kullanılan efektlerin yanı sıra, uygulamanın bu sürümüne diğer temel özellikler de eklenmiştir. Enstrümanı kolayca akort etmek için uygulama içi tuner ve kullanıcının istediği tüm ritmik figürleri oluşturabilen benzersiz bir metronomun varlığı, onu sıradan bir efekt kutusunun çok ötesine taşır. Bu uygulamanın benzersiz avantajı, giriş sesinin işlenmesinde sıfır gecikme sunmasıdır; bu da müzisyene her zaman canlı bir performansın keyfini yaşatır ve dinleyicilere rüya gibi bir ses sunar. Farklı koşullarda ve çeşitli enstrümanlarla kullanılmak üzere 35'ten fazla hazır ayarın bulunması, müzisyenlerin kurulum ve performans hızını artıran bir diğer kolaylıktır.",
     screenshots: [
@@ -2025,8 +2023,7 @@ const appModalDataTR = {
       "Altyapı (backing track) yükleme seçeneği",
       "Altyapı (backing track) hızını değiştirme özelliği",
     ],
-    //  downloadUrl: "./downloads/LMT_v1_6.apk",
-    //  fileName: "LMT_v1_6.apk",
+
     description:
       "Bu uygulamanın özellikleri, onu sıradan bir efekt kutusu veya donanımsal pedalboard'un çok ötesinde bir konuma yerleştirmektedir. Birlikte çalma egzersizleri için hızı ayarlanabilir altyapı parçaları (backing track) yükleme özelliği, kolay akort için dahili tuner ve her türlü ritmik figürü oluşturabilen benzersiz metronom bir yanda; giriş sesini altyapıyla birlikte WAVE formatında doğrudan telefon hafızasına kaydetme imkanı diğer yanda birleşerek bu uygulamayı her müzisyenin rüyası haline getiriyor. Pahalı, ağır ve hacimli ekipmanlara ihtiyaç duymadan, her yerde ve her zaman dinleyicilere büyüleyici bir ses ulaştırmayı sağlar. Çeşitli koşullarda ve farklı enstrümanlarda kullanılmak üzere 35'ten fazla hazır ayarın varlığı, müzisyenlerin performanslarında büyük bir kolaylık sağlamaktadır.",
     screenshots: [
@@ -2049,8 +2046,7 @@ const appModalDataTR = {
       "Altyapı parçası ile enstrüman sesinin mikslenmiş halini WAVE formatında telefon hafızasına kaydedebilme",
       "Frekansı (perdeyi) değiştirmeden altyapı (backing track) hızını değiştirebilme özelliği",
     ],
-    //  downloadUrl: "./downloads/pro_v1_6.apk",
-    // fileName: "pro_v1_6.apk",
+
     description:
       "Bu uygulamanın özellikleri, onu sıradan bir efekt kutusu veya donanımsal pedalboard'un çok ötesinde bir konuma yerleştirmektedir. Beraber pratik yapmak için frekansı bozmadan hızı ayarlanabilir altyapı parçaları yükleme özelliği, her türlü ritmik figürü oluşturabilen benzersiz metronom bir yanda; giriş sesini altyapıyla birlikte WAVE formatında telefon hafızasına kaydetme imkanı diğer yanda birleşerek bu uygulamayı her müzisyenin rüyası haline getiriyor. Pahalı, ağır ve hacimli ekipmanlara ihtiyaç duymadan, her yerde ve her zaman enstrümanınızdan rüya gibi bir ses çıkarmanızı sağlar. Mikrotonal kromatik akort cihazı (tuner) ise bu sürümün en güçlü yönlerinden biri olup, kullanıcının ana sesten olan sapma miktarını (koma) tam olarak belirlemesine olanak tanır. Çeşitli koşullarda ve farklı enstrümanlarda kullanılmak üzere 40'tan fazla hazır ayarın bulunması, müzisyenlerin performanslarında sağlanan bir diğer büyük kolaylıktır.",
     screenshots: [
@@ -2080,8 +2076,8 @@ function trackAppDownload(appKey) {
 function downloadBuskitTools() {
   trackAppDownload("buskit-tools");
   const link = document.createElement("a");
-  link.href = "./downloads/BuskitTools_v2_3.apk";
-  link.download = "BuskitTools_v2_3.apk";
+  link.href = "./downloads/BuskitTools_v2_4.apk";
+  link.download = "BuskitTools_v2_4.apk";
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);

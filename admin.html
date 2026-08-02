@@ -11,8 +11,9 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
     <script>
-      // ====== تنظیمات Firebase ======
-      // دقیقاً همون مقادیری که در index.html استفاده کردی رو اینجا هم بذار
+      // ====== تنظیمات Firebase — پروژه‌ی اصلی سایت (buskitlivefxsite) ======
+      // نظرات، پرسش‌وپاسخ، آمار بازدید و دانلود اینجا هستن — دقیقاً همون
+      // مقادیری که در index.html استفاده شده.
       const firebaseConfig = {
         apiKey: "AIzaSyDO6bqHivptMf3SuwX3cBj3i_bD_jc1z7M",
         authDomain: "buskitlivefxsite.firebaseapp.com",
@@ -25,6 +26,25 @@
       firebase.initializeApp(firebaseConfig);
       const db = firebase.firestore();
       const auth = firebase.auth();
+
+      // ====== تنظیمات Firebase — پروژه‌ی دوم (LiveFX / livefx-b43d5) ======
+      // لایسنس‌ها، کدهای تخفیف و سفارش‌ها اینجا هستن (همون پروژه‌ای که سرور
+      // لایسنس روی Render با Admin SDK بهش وصله). چون این یک پروژه‌ی
+      // Firebase کاملاً جداست، باید یک نمونه‌ی دومِ نام‌گذاری‌شده از اپ
+      // Firebase بسازیم — با Auth و Firestore مخصوص خودش.
+      const firebaseConfigLiveFX = {
+        apiKey: "AIzaSyA2ohzhbqvrvKd3wCJiMGEP4dw2o8Jsx2I",
+        authDomain: "livefx-b43d5.firebaseapp.com",
+        projectId: "livefx-b43d5",
+        storageBucket: "livefx-b43d5.firebasestorage.app",
+        messagingSenderId: "801228879203",
+        appId: "1:801228879203:web:872d69287b0d9ee4494f56",
+        measurementId: "G-FJXT27J5T4",
+      };
+      const liveFXApp = firebase.initializeApp(firebaseConfigLiveFX, "liveFX");
+      const dbLiveFX = liveFXApp.firestore();
+      const authLiveFX = liveFXApp.auth();
+      let liveFXAuthFailed = false;
     </script>
 
     <style>
@@ -109,6 +129,16 @@
           خروج
         </button>
       </div>
+
+      <p
+        id="liveFXAuthWarning"
+        class="hidden mb-6 p-4 bg-amber-500/10 border border-amber-500/30 rounded-2xl text-amber-400 text-xs leading-relaxed"
+      >
+        ورود به پروژه‌ی LiveFX (لایسنس‌ها و کدهای تخفیف) ناموفق بود. مطمئن
+        شوید کاربری با همین ایمیل/رمز عبور در Firebase Authentication پروژه‌ی
+        <span dir="ltr" class="font-mono">livefx-b43d5</span> هم ساخته شده،
+        سپس دوباره وارد شوید.
+      </p>
 
       <!-- آمار بازدید سایت -->
       <div
@@ -394,6 +424,13 @@
         activeBtn.classList.add(...activeCls);
         activeBtn.classList.remove(...inactiveCls);
 
+        const warningEl = document.getElementById("liveFXAuthWarning");
+        if ((tab === "licenses" || tab === "discounts") && liveFXAuthFailed) {
+          warningEl.classList.remove("hidden");
+        } else {
+          warningEl.classList.add("hidden");
+        }
+
         if (tab === "reviews" && !reviewsUnsub) loadAdminReviews();
         if (tab === "licenses" && !licensesLoaded) {
           licensesLoaded = true;
@@ -416,9 +453,21 @@
         errEl.classList.add("hidden");
         btn.disabled = true;
         btn.innerText = "در حال ورود...";
+        liveFXAuthFailed = false;
 
-        auth
-          .signInWithEmailAndPassword(email, password)
+        // ورود اصلی به پروژه‌ی سایت (buskitlivefxsite) — اگه این شکست بخوره
+        // کل ورود ناموفقه. هم‌زمان با همون ایمیل/رمز به پروژه‌ی LiveFX
+        // (livefx-b43d5، جایی که لایسنس‌ها و کدهای تخفیف هستن) هم وارد
+        // می‌شویم؛ اگه این یکی شکست بخوره (مثلاً هنوز کاربر اونجا ساخته
+        // نشده)، کل ورود رو خراب نمی‌کنیم — فقط تب‌های لایسنس/کد تخفیف کار
+        // نمی‌کنن تا وقتی حل بشه.
+        Promise.all([
+          auth.signInWithEmailAndPassword(email, password),
+          authLiveFX.signInWithEmailAndPassword(email, password).catch((err) => {
+            console.error("خطا در ورود به پروژه‌ی LiveFX:", err);
+            liveFXAuthFailed = true;
+          }),
+        ])
           .catch((err) => {
             console.error("خطا در ورود:", err);
             errEl.innerText = "ایمیل یا رمز عبور اشتباهه.";
@@ -431,7 +480,7 @@
       }
 
       function handleLogout() {
-        auth.signOut().then(() => {
+        Promise.all([auth.signOut(), authLiveFX.signOut().catch(() => {})]).then(() => {
           window.location.href = "./index.html";
         });
       }
@@ -822,7 +871,7 @@
         const pendingSummaryEl = document.getElementById("pendingLicensesSummary");
 
         try {
-          const snapshot = await db.collection("licenses").get();
+          const snapshot = await dbLiveFX.collection("licenses").get();
 
           // ── آمار ماهانه‌ی لایسنس‌های فعال‌شده ──────────────────────────
           const monthly = {}; // { "2026-08": { total, gold, silver, bronze } }
@@ -979,7 +1028,7 @@
         btn.disabled = true;
         btn.innerText = "در حال ثبت...";
         try {
-          await db.collection("licenses").doc(licenseId).update({
+          await dbLiveFX.collection("licenses").doc(licenseId).update({
             delivered: true,
             delivered_at: firebase.firestore.FieldValue.serverTimestamp(),
           });
@@ -1033,7 +1082,7 @@
         btn.innerText = "در حال ساخت...";
 
         try {
-          const ref = db.collection("discountCodes").doc(code);
+          const ref = dbLiveFX.collection("discountCodes").doc(code);
           const existing = await ref.get();
           if (existing.exists) {
             msgEl.className = "text-xs text-rose-400 mb-3";

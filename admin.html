@@ -192,6 +192,13 @@
         >
           لایسنس‌ها
         </button>
+        <button
+          id="tabBtnDiscounts"
+          onclick="switchTab('discounts')"
+          class="px-4 py-2.5 text-sm font-bold text-slate-500 border-b-2 border-transparent hover:text-slate-300 transition-colors"
+        >
+          کدهای تخفیف و نمایندگان
+        </button>
       </div>
 
       <!-- تب پرسش و پاسخ -->
@@ -256,6 +263,85 @@
           </div>
         </div>
       </div>
+
+      <!-- تب کدهای تخفیف و نمایندگان -->
+      <div id="tabPanelDiscounts" class="hidden">
+        <!-- فرم ساخت کد تخفیف جدید -->
+        <div class="mb-8 p-5 bg-[#161920] border border-white/10 rounded-2xl">
+          <h2 class="text-white font-bold mb-4 text-sm">ساخت کد تخفیف جدید</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label class="block text-slate-400 text-xs mb-1.5">کد تخفیف:</label>
+              <input
+                type="text"
+                id="newDiscountCode"
+                dir="ltr"
+                placeholder="مثلاً: ALI20"
+                class="w-full bg-[#0d0e12] border border-slate-800 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#00f5d4] transition-colors font-mono tracking-widest text-left"
+              />
+            </div>
+            <div>
+              <label class="block text-slate-400 text-xs mb-1.5">نام نماینده (اختیاری):</label>
+              <input
+                type="text"
+                id="newDiscountRep"
+                placeholder="مثلاً: رضا احمدی"
+                class="w-full bg-[#0d0e12] border border-slate-800 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#00f5d4] transition-colors"
+              />
+            </div>
+            <div>
+              <label class="block text-slate-400 text-xs mb-1.5">درصد تخفیف (اختیاری):</label>
+              <input
+                type="number"
+                id="newDiscountPercent"
+                min="0"
+                max="100"
+                placeholder="مثلاً: 20"
+                dir="ltr"
+                class="w-full bg-[#0d0e12] border border-slate-800 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#00f5d4] transition-colors text-left"
+              />
+            </div>
+            <div>
+              <label class="block text-slate-400 text-xs mb-1.5">مبلغ ثابت تخفیف به لیر (اختیاری):</label>
+              <input
+                type="number"
+                id="newDiscountAmount"
+                min="0"
+                placeholder="مثلاً: 50"
+                dir="ltr"
+                class="w-full bg-[#0d0e12] border border-slate-800 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#00f5d4] transition-colors text-left"
+              />
+            </div>
+          </div>
+          <p id="createDiscountMsg" class="text-xs hidden mb-3"></p>
+          <button
+            onclick="createDiscountCode()"
+            id="btnCreateDiscount"
+            class="px-5 py-2.5 bg-[#00f5d4] text-[#0d0e12] text-sm font-bold rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50"
+          >
+            ایجاد کد تخفیف
+          </button>
+          <p class="text-slate-500 text-xs mt-3">
+            بعد از ساخت، همین کد را به نماینده بدهید تا هنگام معرفی مشتری در
+            فرم خرید سایت وارد کند. سیستم خودش جلوی استفاده‌ی دوباره از یک کد
+            را می‌گیرد.
+          </p>
+        </div>
+
+        <!-- لیست همه‌ی کدهای تخفیف -->
+        <div>
+          <h2 class="text-white font-bold mb-4 text-sm">همه‌ی کدهای تخفیف</h2>
+          <div
+            id="discountCodesSummary"
+            class="mb-4 p-4 bg-[#161920] border border-white/10 rounded-2xl text-sm text-slate-400"
+          ></div>
+          <div id="discountCodesList" class="flex flex-col gap-4">
+            <p class="text-slate-500 text-sm text-center py-6">
+              در حال بارگذاری کدهای تخفیف...
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script>
@@ -272,20 +358,28 @@
       let reviewsUnsub = null;
       let questionsUnsub = null;
       let licensesLoaded = false;
+      let discountsLoaded = false;
 
       // ====== سوییچ بین تب‌ها ======
       function switchTab(tab) {
         const btnQ = document.getElementById("tabBtnQuestions");
         const btnR = document.getElementById("tabBtnReviews");
         const btnL = document.getElementById("tabBtnLicenses");
+        const btnD = document.getElementById("tabBtnDiscounts");
         const panelQ = document.getElementById("tabPanelQuestions");
         const panelR = document.getElementById("tabPanelReviews");
         const panelL = document.getElementById("tabPanelLicenses");
+        const panelD = document.getElementById("tabPanelDiscounts");
 
         const activeCls = ["text-[#00f5d4]", "border-[#00f5d4]"];
         const inactiveCls = ["text-slate-500", "border-transparent"];
-        const allBtns = [btnQ, btnR, btnL];
-        const allPanels = { questions: panelQ, reviews: panelR, licenses: panelL };
+        const allBtns = [btnQ, btnR, btnL, btnD];
+        const allPanels = {
+          questions: panelQ,
+          reviews: panelR,
+          licenses: panelL,
+          discounts: panelD,
+        };
 
         allBtns.forEach((b) => {
           b.classList.add(...inactiveCls);
@@ -294,7 +388,9 @@
         Object.values(allPanels).forEach((p) => p.classList.add("hidden"));
 
         allPanels[tab].classList.remove("hidden");
-        const activeBtn = { questions: btnQ, reviews: btnR, licenses: btnL }[tab];
+        const activeBtn = { questions: btnQ, reviews: btnR, licenses: btnL, discounts: btnD }[
+          tab
+        ];
         activeBtn.classList.add(...activeCls);
         activeBtn.classList.remove(...inactiveCls);
 
@@ -302,6 +398,10 @@
         if (tab === "licenses" && !licensesLoaded) {
           licensesLoaded = true;
           loadLicensesTab();
+        }
+        if (tab === "discounts" && !discountsLoaded) {
+          discountsLoaded = true;
+          loadDiscountCodesTab();
         }
       }
 
@@ -892,6 +992,176 @@
           console.error("خطا در ثبت وضعیت ارسال:", err);
           btn.disabled = false;
           btn.innerText = "خطا — دوباره امتحان کن";
+        }
+      }
+
+      // ====== تب کدهای تخفیف و نمایندگان ======
+      // ساخت کد از همین‌جا مستقیماً یک سند در discountCodes می‌سازد (این کار
+      // اجازه‌اش داده شده چون از پنل ادمینِ لاگین‌شده انجام می‌شود). اما
+      // «مصرف‌کردن» کد (used:true شدن) فقط توسط سرور لایسنس (با Admin SDK،
+      // موقع ثبت سفارش در سایت) انجام می‌شود — پنل ادمین هیچ‌وقت این کار را
+      // نمی‌کند، پس امکان استفاده‌ی دوباره از یک کد وجود ندارد.
+      async function createDiscountCode() {
+        const codeInput = document.getElementById("newDiscountCode");
+        const repInput = document.getElementById("newDiscountRep");
+        const percentInput = document.getElementById("newDiscountPercent");
+        const amountInput = document.getElementById("newDiscountAmount");
+        const msgEl = document.getElementById("createDiscountMsg");
+        const btn = document.getElementById("btnCreateDiscount");
+
+        const code = (codeInput.value || "").trim().toUpperCase();
+        const repName = (repInput.value || "").trim();
+        const percent = Number(percentInput.value) || 0;
+        const amount = Number(amountInput.value) || 0;
+
+        msgEl.classList.add("hidden");
+
+        if (!code) {
+          msgEl.className = "text-xs text-rose-400 mb-3";
+          msgEl.innerText = "وارد کردن کد تخفیف الزامی است.";
+          msgEl.classList.remove("hidden");
+          return;
+        }
+        if (percent <= 0 && amount <= 0) {
+          msgEl.className = "text-xs text-rose-400 mb-3";
+          msgEl.innerText = "حداقل یکی از درصد یا مبلغ تخفیف را وارد کنید.";
+          msgEl.classList.remove("hidden");
+          return;
+        }
+
+        btn.disabled = true;
+        btn.innerText = "در حال ساخت...";
+
+        try {
+          const ref = db.collection("discountCodes").doc(code);
+          const existing = await ref.get();
+          if (existing.exists) {
+            msgEl.className = "text-xs text-rose-400 mb-3";
+            msgEl.innerText = "این کد قبلاً وجود دارد. یک کد دیگر انتخاب کنید.";
+            msgEl.classList.remove("hidden");
+            return;
+          }
+
+          await ref.set({
+            used: false,
+            percent,
+            amount,
+            repName: repName || null,
+            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+            createdBy: auth.currentUser ? auth.currentUser.email : null,
+          });
+
+          msgEl.className = "text-xs text-emerald-400 mb-3";
+          msgEl.innerText = `کد «${code}» با موفقیت ساخته شد ✓`;
+          msgEl.classList.remove("hidden");
+
+          codeInput.value = "";
+          repInput.value = "";
+          percentInput.value = "";
+          amountInput.value = "";
+
+          loadDiscountCodesTab();
+        } catch (err) {
+          console.error("خطا در ساخت کد تخفیف:", err);
+          msgEl.className = "text-xs text-rose-400 mb-3";
+          msgEl.innerText = "ساخت کد با خطا مواجه شد. (احتمالاً دسترسی کافی نداری)";
+          msgEl.classList.remove("hidden");
+        } finally {
+          btn.disabled = false;
+          btn.innerText = "ایجاد کد تخفیف";
+        }
+      }
+
+      async function loadDiscountCodesTab() {
+        const listEl = document.getElementById("discountCodesList");
+        const summaryEl = document.getElementById("discountCodesSummary");
+
+        try {
+          const snapshot = await db
+            .collection("discountCodes")
+            .orderBy("createdAt", "desc")
+            .get();
+
+          if (snapshot.empty) {
+            summaryEl.innerHTML = "";
+            listEl.innerHTML =
+              '<p class="text-slate-500 text-sm text-center py-6">هنوز هیچ کد تخفیفی ساخته نشده.</p>';
+            return;
+          }
+
+          let total = 0;
+          let usedCount = 0;
+          snapshot.forEach((doc) => {
+            total++;
+            if (doc.data().used) usedCount++;
+          });
+          summaryEl.innerHTML = `
+            <div class="flex flex-wrap items-center gap-6">
+              <span>مجموع کدها: <b class="text-white">${total.toLocaleString("fa-IR")}</b></span>
+              <span>استفاده‌شده: <b class="text-white">${usedCount.toLocaleString("fa-IR")}</b></span>
+              <span>هنوز موجود: <b class="text-white">${(total - usedCount).toLocaleString("fa-IR")}</b></span>
+            </div>
+          `;
+
+          listEl.innerHTML = "";
+          snapshot.forEach((doc) => {
+            const d = doc.data();
+            const code = doc.id;
+            const item = document.createElement("div");
+            item.className = "p-5 bg-[#161920] border border-white/10 rounded-2xl";
+
+            const discountText = [
+              d.percent ? `${d.percent}٪` : null,
+              d.amount ? `${d.amount.toLocaleString("fa-IR")} لیر` : null,
+            ]
+              .filter(Boolean)
+              .join(" + ");
+
+            item.innerHTML = `
+              <div class="flex items-start justify-between gap-2 flex-wrap mb-3">
+                <div>
+                  <span class="font-mono text-[#00f5d4] tracking-widest text-sm" dir="ltr">${escapeHtml(code)}</span>
+                  ${
+                    d.repName
+                      ? `<span class="block text-slate-400 text-xs mt-1">نماینده: ${escapeHtml(d.repName)}</span>`
+                      : `<span class="block text-slate-600 text-xs mt-1">بدون نماینده‌ی مشخص</span>`
+                  }
+                </div>
+                <div class="text-left">
+                  ${
+                    d.used
+                      ? `<span class="px-2.5 py-1 rounded-lg border text-[11px] font-bold bg-rose-500/10 text-rose-400 border-rose-500/30">استفاده‌شده</span>`
+                      : `<span class="px-2.5 py-1 rounded-lg border text-[11px] font-bold bg-emerald-500/10 text-emerald-400 border-emerald-500/30">موجود</span>`
+                  }
+                  <span class="block text-slate-500 text-xs mt-1">تخفیف: ${escapeHtml(discountText || "—")}</span>
+                </div>
+              </div>
+              ${
+                d.used && d.usedBy
+                  ? `
+                <div class="pt-3 border-t border-white/10 text-xs text-slate-400">
+                  <span>مشتری: <b class="text-white">${escapeHtml(d.usedBy.name || "—")}</b></span>
+                  <span class="block mt-0.5 font-mono" dir="ltr">${escapeHtml(d.usedBy.email || "")}</span>
+                  <span class="block mt-1 text-slate-500">تاریخ استفاده: ${formatDate(d.usedAt) || "—"}</span>
+                </div>`
+                  : ""
+              }
+              <div class="flex items-center justify-between gap-2 flex-wrap text-xs text-slate-500 mt-3 pt-3 border-t border-white/10">
+                <span>ساخته‌شده: ${formatDate(d.createdAt) || "—"}</span>
+                <button
+                  onclick="copyLicenseCode('${code}', this)"
+                  class="text-xs text-slate-400 hover:text-[#00f5d4] transition-colors"
+                >
+                  کپی کد
+                </button>
+              </div>
+            `;
+            listEl.appendChild(item);
+          });
+        } catch (err) {
+          console.error("خطا در بارگذاری کدهای تخفیف:", err);
+          listEl.innerHTML =
+            '<p class="text-rose-400 text-sm text-center py-6">بارگذاری کدهای تخفیف با خطا مواجه شد. (احتمالاً دسترسی کافی نداری)</p>';
         }
       }
     </script>

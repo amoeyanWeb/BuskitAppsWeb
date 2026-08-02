@@ -1977,8 +1977,18 @@ function goToPurchaseStep(step) {
   showPurchaseEl(steps[step]);
 }
 
+// حذف کاراکترهای نامرئی/کنترلی رایج (نیم‌فاصله، zero-width، RTL/LTR mark و...)
+// که ممکنه با کیبورد فارسی موقع تایپ ایمیل به‌اشتباه وارد بشن و باعث بشن
+// مرورگر دامنه رو به Punycode (مثلاً xn--gmail-nza.com) تبدیل کنه.
+function sanitizeEmailInput(value) {
+  return (value || "")
+    .replace(/[\u200B-\u200F\u202A-\u202E\u2060\uFEFF]/g, "")
+    .trim();
+}
+
 function isValidPurchaseEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  // فقط کاراکترهای استاندارد ASCII مجاز برای ایمیل رو قبول می‌کنیم
+  return /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(email);
 }
 
 function handleContactStepNext() {
@@ -1987,7 +1997,8 @@ function handleContactStepNext() {
   const emailInput = document.getElementById("purchaseCustomerEmail");
   const errorEl = document.getElementById("purchaseContactError");
   const name = (nameInput ? nameInput.value : "").trim();
-  const email = (emailInput ? emailInput.value : "").trim();
+  const email = sanitizeEmailInput(emailInput ? emailInput.value : "");
+  if (emailInput) emailInput.value = email;
 
   if (!name || !email || !isValidPurchaseEmail(email)) {
     if (errorEl) {

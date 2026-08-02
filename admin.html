@@ -1126,7 +1126,7 @@
         const summaryEl = document.getElementById("discountCodesSummary");
 
         try {
-          const snapshot = await db
+          const snapshot = await dbLiveFX
             .collection("discountCodes")
             .orderBy("createdAt", "desc")
             .get();

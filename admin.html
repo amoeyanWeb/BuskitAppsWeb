@@ -170,7 +170,7 @@
       </div>
 
       <!-- تب‌ها -->
-      <div class="flex gap-2 mb-8 border-b border-white/10">
+      <div class="flex gap-2 mb-8 border-b border-white/10 flex-wrap">
         <button
           id="tabBtnQuestions"
           onclick="switchTab('questions')"
@@ -184,6 +184,13 @@
           class="px-4 py-2.5 text-sm font-bold text-slate-500 border-b-2 border-transparent hover:text-slate-300 transition-colors"
         >
           نظرات کاربران
+        </button>
+        <button
+          id="tabBtnLicenses"
+          onclick="switchTab('licenses')"
+          class="px-4 py-2.5 text-sm font-bold text-slate-500 border-b-2 border-transparent hover:text-slate-300 transition-colors"
+        >
+          لایسنس‌ها
         </button>
       </div>
 
@@ -208,6 +215,47 @@
           </p>
         </div>
       </div>
+
+      <!-- تب لایسنس‌ها -->
+      <div id="tabPanelLicenses" class="hidden">
+        <!-- آمار ماهانه لایسنس‌های فعال‌شده (برای محاسبه پورسانت) -->
+        <div class="mb-8">
+          <h2 class="text-white font-bold mb-3 text-sm">
+            لایسنس‌های فعال‌شده به تفکیک ماه
+          </h2>
+          <p class="text-slate-500 text-xs mb-4">
+            بر اساس تاریخ فعال‌سازی (<span dir="ltr">activated_at</span>) روی
+            همه‌ی لایسنس‌های موجود در سیستم — چه از سایت خریداری شده باشند چه
+            جای دیگر تولید شده باشند.
+          </p>
+          <div id="licenseMonthlyStats" class="flex flex-col gap-3">
+            <p class="text-slate-500 text-sm text-center py-6">
+              در حال بارگذاری آمار...
+            </p>
+          </div>
+        </div>
+
+        <!-- لایسنس‌های در انتظار (تولید شده ولی هنوز فعال نشده) -->
+        <div>
+          <h2 class="text-white font-bold mb-1 text-sm">
+            لایسنس‌های در انتظار (تولید شده، هنوز فعال نشده)
+          </h2>
+          <p class="text-slate-500 text-xs mb-4">
+            این‌ها لایسنس‌هایی هستند که برای یک سفارش رزرو شده‌اند ولی مشتری
+            هنوز آن‌ها را در اپ فعال نکرده — یعنی یا هنوز فیش واریزی نرسیده،
+            یا رسیده ولی کد هنوز برایش ارسال نشده.
+          </p>
+          <div
+            id="pendingLicensesSummary"
+            class="mb-4 p-4 bg-[#161920] border border-white/10 rounded-2xl text-sm text-slate-400"
+          ></div>
+          <div id="pendingLicensesList" class="flex flex-col gap-4">
+            <p class="text-slate-500 text-sm text-center py-6">
+              در حال بارگذاری لایسنس‌های در انتظار...
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script>
@@ -223,32 +271,37 @@
 
       let reviewsUnsub = null;
       let questionsUnsub = null;
+      let licensesLoaded = false;
 
       // ====== سوییچ بین تب‌ها ======
       function switchTab(tab) {
         const btnQ = document.getElementById("tabBtnQuestions");
         const btnR = document.getElementById("tabBtnReviews");
+        const btnL = document.getElementById("tabBtnLicenses");
         const panelQ = document.getElementById("tabPanelQuestions");
         const panelR = document.getElementById("tabPanelReviews");
+        const panelL = document.getElementById("tabPanelLicenses");
 
         const activeCls = ["text-[#00f5d4]", "border-[#00f5d4]"];
         const inactiveCls = ["text-slate-500", "border-transparent"];
+        const allBtns = [btnQ, btnR, btnL];
+        const allPanels = { questions: panelQ, reviews: panelR, licenses: panelL };
 
-        if (tab === "questions") {
-          panelQ.classList.remove("hidden");
-          panelR.classList.add("hidden");
-          btnQ.classList.add(...activeCls);
-          btnQ.classList.remove(...inactiveCls);
-          btnR.classList.add(...inactiveCls);
-          btnR.classList.remove(...activeCls);
-        } else {
-          panelR.classList.remove("hidden");
-          panelQ.classList.add("hidden");
-          btnR.classList.add(...activeCls);
-          btnR.classList.remove(...inactiveCls);
-          btnQ.classList.add(...inactiveCls);
-          btnQ.classList.remove(...activeCls);
-          if (!reviewsUnsub) loadAdminReviews();
+        allBtns.forEach((b) => {
+          b.classList.add(...inactiveCls);
+          b.classList.remove(...activeCls);
+        });
+        Object.values(allPanels).forEach((p) => p.classList.add("hidden"));
+
+        allPanels[tab].classList.remove("hidden");
+        const activeBtn = { questions: btnQ, reviews: btnR, licenses: btnL }[tab];
+        activeBtn.classList.add(...activeCls);
+        activeBtn.classList.remove(...inactiveCls);
+
+        if (tab === "reviews" && !reviewsUnsub) loadAdminReviews();
+        if (tab === "licenses" && !licensesLoaded) {
+          licensesLoaded = true;
+          loadLicensesTab();
         }
       }
 
@@ -626,6 +679,220 @@
                 '<p class="text-rose-400 text-sm text-center py-6">بارگذاری نظرات با خطا مواجه شد. (احتمالاً دسترسی کافی نداری)</p>';
             },
           );
+      }
+
+      // ====== تب لایسنس‌ها ======
+      const TIER_LABELS = { gold: "طلایی", silver: "نقره‌ای", bronze: "برنزی" };
+      const DURATION_LABELS = {
+        lifetime: "دائم",
+        "1year": "یک‌ساله",
+        "1month": "یک‌ماهه",
+        "5days": "۵ روزه",
+      };
+
+      function tierBadgeClass(tier) {
+        if (tier === "gold") return "bg-amber-500/10 text-amber-400 border-amber-500/30";
+        if (tier === "silver") return "bg-slate-400/10 text-slate-300 border-slate-400/30";
+        if (tier === "bronze") return "bg-orange-700/10 text-orange-400 border-orange-700/30";
+        return "bg-slate-500/10 text-slate-400 border-slate-500/30";
+      }
+
+      function monthKeyFromDate(date) {
+        const y = date.getFullYear();
+        const m = String(date.getMonth() + 1).padStart(2, "0");
+        return `${y}-${m}`;
+      }
+
+      function monthLabelFromKey(key) {
+        const [y, m] = key.split("-");
+        const monthNames = [
+          "ژانویه", "فوریه", "مارس", "آوریل", "مه", "ژوئن",
+          "ژوئیه", "اوت", "سپتامبر", "اکتبر", "نوامبر", "دسامبر",
+        ];
+        return `${monthNames[Number(m) - 1]} ${y}`;
+      }
+
+      // یک‌بار همه‌ی اسناد کالکشن licenses را می‌خواند (نه real-time)، چون این
+      // آمار برای محاسبه‌ی پورسانت است و نیازی به به‌روزرسانی لحظه‌ای ندارد.
+      // اگر تعداد لایسنس‌ها خیلی زیاد شد (چند هزارتا)، بهتر است این بخش به یک
+      // Cloud Function گزارش‌گیری منتقل شود؛ فعلاً برای این مقیاس مناسب است.
+      async function loadLicensesTab() {
+        const statsEl = document.getElementById("licenseMonthlyStats");
+        const pendingListEl = document.getElementById("pendingLicensesList");
+        const pendingSummaryEl = document.getElementById("pendingLicensesSummary");
+
+        try {
+          const snapshot = await db.collection("licenses").get();
+
+          // ── آمار ماهانه‌ی لایسنس‌های فعال‌شده ──────────────────────────
+          const monthly = {}; // { "2026-08": { total, gold, silver, bronze } }
+          const pendingDocs = [];
+
+          snapshot.forEach((doc) => {
+            const l = doc.data();
+            if (l.is_used && l.activated_at && l.activated_at.toDate) {
+              const key = monthKeyFromDate(l.activated_at.toDate());
+              if (!monthly[key]) monthly[key] = { total: 0, gold: 0, silver: 0, bronze: 0 };
+              monthly[key].total++;
+              const tier = (l.tier || "").toLowerCase();
+              if (monthly[key][tier] !== undefined) monthly[key][tier]++;
+            }
+            if (!l.is_used) {
+              pendingDocs.push({ id: doc.id, ...l });
+            }
+          });
+
+          renderLicenseMonthlyStats(monthly);
+          renderPendingLicenses(pendingDocs, pendingListEl, pendingSummaryEl);
+        } catch (err) {
+          console.error("خطا در بارگذاری لایسنس‌ها:", err);
+          statsEl.innerHTML =
+            '<p class="text-rose-400 text-sm text-center py-6">بارگذاری آمار لایسنس‌ها با خطا مواجه شد. (احتمالاً دسترسی کافی نداری)</p>';
+          pendingListEl.innerHTML = "";
+        }
+      }
+
+      function renderLicenseMonthlyStats(monthly) {
+        const el = document.getElementById("licenseMonthlyStats");
+        const keys = Object.keys(monthly).sort().reverse();
+
+        if (keys.length === 0) {
+          el.innerHTML =
+            '<p class="text-slate-500 text-sm text-center py-6">هنوز هیچ لایسنسی فعال نشده.</p>';
+          return;
+        }
+
+        el.innerHTML = keys
+          .map((key) => {
+            const m = monthly[key];
+            return `
+              <div class="p-4 bg-[#161920] border border-white/10 rounded-2xl flex items-center justify-between flex-wrap gap-3">
+                <div>
+                  <p class="text-white font-bold text-sm">${monthLabelFromKey(key)}</p>
+                  <p class="text-slate-500 text-xs mt-0.5">مجموع لایسنس فعال‌شده: <b class="text-[#00f5d4]">${m.total.toLocaleString("fa-IR")}</b></p>
+                </div>
+                <div class="flex items-center gap-2 text-xs">
+                  <span class="px-2.5 py-1 rounded-lg border ${tierBadgeClass("gold")}">طلایی: ${m.gold.toLocaleString("fa-IR")}</span>
+                  <span class="px-2.5 py-1 rounded-lg border ${tierBadgeClass("silver")}">نقره‌ای: ${m.silver.toLocaleString("fa-IR")}</span>
+                  <span class="px-2.5 py-1 rounded-lg border ${tierBadgeClass("bronze")}">برنزی: ${m.bronze.toLocaleString("fa-IR")}</span>
+                </div>
+              </div>
+            `;
+          })
+          .join("");
+      }
+
+      function renderPendingLicenses(pendingDocs, listEl, summaryEl) {
+        // جدیدترین‌ها اول
+        pendingDocs.sort((a, b) => {
+          const ta = a.createdAt && a.createdAt.toMillis ? a.createdAt.toMillis() : 0;
+          const tb = b.createdAt && b.createdAt.toMillis ? b.createdAt.toMillis() : 0;
+          return tb - ta;
+        });
+
+        const withEmail = pendingDocs.filter((l) => l.email);
+        summaryEl.innerHTML = `
+          <div class="flex flex-wrap items-center gap-6">
+            <span>مجموع لایسنس‌های فعال‌نشده: <b class="text-white">${pendingDocs.length.toLocaleString("fa-IR")}</b></span>
+            <span>با مشتری مشخص (منتظر واریزی): <b class="text-white">${withEmail.length.toLocaleString("fa-IR")}</b></span>
+          </div>
+        `;
+
+        if (pendingDocs.length === 0) {
+          listEl.innerHTML =
+            '<p class="text-slate-500 text-sm text-center py-6">هیچ لایسنس در انتظاری وجود ندارد.</p>';
+          return;
+        }
+
+        listEl.innerHTML = "";
+        pendingDocs.forEach((l) => {
+          const item = document.createElement("div");
+          item.className = "p-5 bg-[#161920] border border-white/10 rounded-2xl";
+
+          const tierLabel = TIER_LABELS[l.tier] || l.tier || "—";
+          const durationLabel = DURATION_LABELS[l.license_type] || l.license_type || "—";
+          const createdLabel = formatDate(l.createdAt) || "—";
+
+          item.innerHTML = `
+            <div class="flex items-start justify-between gap-2 flex-wrap mb-3">
+              <div>
+                ${
+                  l.name
+                    ? `<span class="text-white font-semibold">${escapeHtml(l.name)}</span>`
+                    : `<span class="text-slate-600 text-sm">بدون نام (لایسنس عمومی/دستی)</span>`
+                }
+                ${
+                  l.email
+                    ? `<span class="block text-slate-500 text-xs mt-0.5 font-mono" dir="ltr">${escapeHtml(l.email)}</span>`
+                    : ""
+                }
+              </div>
+              <div class="text-left">
+                <span class="px-2.5 py-1 rounded-lg border text-[11px] font-bold ${tierBadgeClass(l.tier)}">${escapeHtml(tierLabel)}</span>
+                <span class="block text-slate-500 text-xs mt-1">${escapeHtml(durationLabel)}</span>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between gap-2 flex-wrap bg-[#0d0e12] border border-slate-800 rounded-xl px-4 py-2.5 mb-3">
+              <span class="font-mono text-[#00f5d4] tracking-widest text-sm" dir="ltr">${escapeHtml(l.id)}</span>
+              <button
+                onclick="copyLicenseCode('${l.id}', this)"
+                class="text-xs text-slate-400 hover:text-[#00f5d4] transition-colors"
+              >
+                کپی کد
+              </button>
+            </div>
+
+            <div class="flex items-center justify-between gap-2 flex-wrap text-xs text-slate-500">
+              <span>ساخته‌شده: ${createdLabel}</span>
+              ${l.discountCode ? `<span>کد تخفیف: <span class="font-mono text-slate-400" dir="ltr">${escapeHtml(l.discountCode)}</span></span>` : ""}
+              ${
+                l.delivered
+                  ? `<span class="text-emerald-400">✓ ارسال شده</span>`
+                  : `<button
+                      onclick="markLicenseDelivered('${l.id}', this)"
+                      class="px-3 py-1.5 bg-[#00f5d4]/10 text-[#00f5d4] rounded-lg border border-[#00f5d4]/30 hover:bg-[#00f5d4]/20 transition-colors"
+                    >
+                      علامت‌گذاری به‌عنوان ارسال‌شده
+                    </button>`
+              }
+            </div>
+          `;
+          listEl.appendChild(item);
+        });
+      }
+
+      function copyLicenseCode(code, btn) {
+        navigator.clipboard
+          .writeText(code)
+          .then(() => {
+            const original = btn.innerText;
+            btn.innerText = "کپی شد ✓";
+            setTimeout(() => {
+              if (btn) btn.innerText = original;
+            }, 1500);
+          })
+          .catch((err) => console.error("خطا در کپی کردن:", err));
+      }
+
+      async function markLicenseDelivered(licenseId, btn) {
+        btn.disabled = true;
+        btn.innerText = "در حال ثبت...";
+        try {
+          await db.collection("licenses").doc(licenseId).update({
+            delivered: true,
+            delivered_at: firebase.firestore.FieldValue.serverTimestamp(),
+          });
+          // فقط ظاهر همین ردیف را عوض می‌کنیم، نیازی به بارگذاری دوباره‌ی کل لیست نیست
+          const wrapper = btn.closest("div.flex.items-center.justify-between");
+          if (wrapper) {
+            btn.outerHTML = '<span class="text-emerald-400">✓ ارسال شده</span>';
+          }
+        } catch (err) {
+          console.error("خطا در ثبت وضعیت ارسال:", err);
+          btn.disabled = false;
+          btn.innerText = "خطا — دوباره امتحان کن";
+        }
       }
     </script>
   </body>

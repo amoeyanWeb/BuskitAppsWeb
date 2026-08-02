@@ -420,6 +420,28 @@ const translations = {
       'برای استفاده از اپلیکیشن باید به نوعی صدای ساز را به گوشی موبایل وارد نمود و در اختیار آن گذاشت؛ برای این کار می‌توان از روش‌های زیر استفاده کرد:\n            <ul class="mt-8">\n              <li class="bg-[#00f5d4] text-red-900 mb-4">استفاده از هندزفری</li>\n              <p class="mb-4 max-w-2xl mx-auto text-justify">تنها کافیست هندز فری را به گوشی متصل کنید، هدفون را در گوش خود گذاشته و ساز بنوازید ، صدای ساز از طریق میکروفون هندز فری به داخل گوشی منتقل میشود و سپس پروسس های لازم توسط اپلیکیشن روی آن انجام شده و صدایی پر طنین را از طریق هدفون خواهید شنید</p>\n              <li class="bg-[#00f5d4] text-red-900 mb-4">استفاده از دستگاه irig</li>\n              <p class="mb-4 max-w-2xl mx-auto text-justify">سیم irig را به گوشی متصل و خروجی هدفون آنرا به یک هدفون متصل کنید و یا خروجی دیگر آنرابه یه آمپلی فایر متصل نمایید در صورتی که ساز شمامجهز به میکروفون زیر خرکی یا خروجی الکتریکی صدا میباشد همان خروجی را به ورودی دستگاه irig بدهید. در غیر اینصورت توسط یک میکروفون گیره ای پیزو، صدای ساز رابه دستگاه irig بدهید</p>\n              <li class="bg-[#00f5d4] text-red-900 mb-4">استفاده از دستگاه Brig</li>\n              <p class="mb-4 max-w-2xl mx-auto text-justify">این دستگاه مشابه دستگاه irig بوده اما ازمجموعه سخت افزارهای باسکیت میباشد در صورت لزوم میتوانید این دستگاه را نیز تهیه نمایید که نحوه کارکرد آن دقیقا نظیر irig میباشد</p>\n            </ul>',
 
     purchaseModalTitle: "فرم خرید محصولات باسکیت",
+    purchaseStepContactDesc:
+      "برای مشاهده قیمت و ادامه‌ی خرید، لطفاً ابتدا نام و ایمیل خود را وارد کنید.",
+    purchaseNameLabel: "نام و نام خانوادگی:",
+    purchaseNamePlaceholder: "مثلاً: علی رضایی",
+    purchaseEmailLabel: "ایمیل:",
+    purchaseContactError: "لطفاً نام و یک ایمیل معتبر وارد کنید.",
+    btnPurchaseNextFromContact: "بعدی",
+    purchaseStepDiscountDesc:
+      "اگر کد تخفیف دارید وارد کنید؛ در غیر این صورت می‌توانید این مرحله را رد کنید و با قیمت عادی ادامه دهید.",
+    purchaseDiscountLabel: "کد تخفیف (اختیاری):",
+    purchaseDiscountPlaceholder: "مثلاً: WELCOME20",
+    btnApplyDiscount: "اعمال کد تخفیف",
+    btnSkipDiscount: "ادامه بدون کد تخفیف",
+    btnBackToContact: "بازگشت به مرحله قبل",
+    purchaseDiscountChecking: "در حال بررسی کد تخفیف...",
+    purchaseDiscountSuccess: "کد تخفیف تایید شد و لایسنس شما رزرو گردید ✅",
+    purchaseDiscountUsed: "این کد تخفیف قبلاً استفاده شده است.",
+    purchaseDiscountInvalid: "کد تخفیف نامعتبر است.",
+    purchaseDiscountError: "خطا در ارتباط با سرور. لطفاً دوباره تلاش کنید.",
+    purchaseDiscountRowLabel: "تخفیف:",
+    purchaseDiscountAppliedBannerText:
+      "کد تخفیف {code} برای شما اعمال شد و یک لایسنس با نام و ایمیل شما رزرو گردید. این لایسنس پس از تایید واریزی برایتان ارسال خواهد شد.",
     purchaseSubtotalLabel: "مبلغ کل:",
     purchaseSubtotalRialLabel: "معادل تومان و دلار:",
     purchaseShippingLabel: "هزینه پست:",
@@ -802,6 +824,28 @@ const translations = {
       'To use the app, the instrument\'s audio must be routed into the mobile phone. This can be achieved through the following methods:\n <ul class="mt-8">\n <li class="bg-[#00f5d4] text-red-900 mb-4">Using Earphones/Headset</li>\n <p class="mb-4 max-w-2xl mx-auto text-justify">Simply plug your headset into the phone, put the earphones in your ears, and play. The instrument\'s sound enters the phone through the headset mic, gets processed instantly by the app, and returns as a rich, high-fidelity sound through your earphones.</p>\n <li class="bg-[#00f5d4] text-red-900 mb-4">Using an iRig Device</li>\n <p class="mb-4 max-w-2xl mx-auto text-justify">Connect the iRig cable to the phone and route its audio output to a pair of headphones or an amplifier. If your instrument has an integrated pickup or electronic audio output, connect it directly to the iRig input. Otherwise, capture the sound using a clip-on piezo microphone connected to the iRig.</p>\n <li class="bg-[#00f5d4] text-red-900 mb-4">Using the Brig Device</li>\n <p class="mb-4 max-w-2xl mx-auto text-justify">This device is similar to an iRig but belongs to Buskit\'s proprietary hardware series. If needed, you can purchase this device, which functions exactly like an iRig to deliver flawless signal routing.</p>\n </ul>',
 
     purchaseModalTitle: "Buskit Product Purchase Form",
+    purchaseStepContactDesc:
+      "To see the price and continue your purchase, please enter your name and email first.",
+    purchaseNameLabel: "Full Name:",
+    purchaseNamePlaceholder: "e.g. John Doe",
+    purchaseEmailLabel: "Email:",
+    purchaseContactError: "Please enter your name and a valid email.",
+    btnPurchaseNextFromContact: "Next",
+    purchaseStepDiscountDesc:
+      "If you have a discount code, enter it below; otherwise you can skip this step and continue at the regular price.",
+    purchaseDiscountLabel: "Discount Code (optional):",
+    purchaseDiscountPlaceholder: "e.g. WELCOME20",
+    btnApplyDiscount: "Apply Discount Code",
+    btnSkipDiscount: "Continue without a code",
+    btnBackToContact: "Back to previous step",
+    purchaseDiscountChecking: "Checking discount code...",
+    purchaseDiscountSuccess: "Discount code accepted and a license has been reserved for you ✅",
+    purchaseDiscountUsed: "This discount code has already been used.",
+    purchaseDiscountInvalid: "This discount code is invalid.",
+    purchaseDiscountError: "Server connection error. Please try again.",
+    purchaseDiscountRowLabel: "Discount:",
+    purchaseDiscountAppliedBannerText:
+      "Discount code {code} has been applied, and a license has been reserved under your name and email. It will be sent to you once your payment is confirmed.",
     purchaseSubtotalLabel: "Subtotal:",
     purchaseSubtotalRialLabel: "Equivalent in Toman & USD:",
     purchaseShippingLabel: "Shipping Fee:",
@@ -1191,6 +1235,28 @@ const translations = {
       'Uygulamayı kullanabilmek için enstrüman sesinin bir şekilde cep telefonuna aktarılması gerekir; bunun için aşağıdaki yöntemler kullanılabilir:\n <ul class="mt-8">\n <li class="bg-[#00f5d4] text-red-900 mb-4">Kulaklık Kullanımı</li>\n <p class="mb-4 max-w-2xl mx-auto text-justify">Kulaklığı telefona bağlamanız, kulaklıkları kulağınıza takıp enstrümanı çalmanız yeterlidir. Enstrümanın sesi kulaklık mikrofonu aracılığıyla telefona aktarılır, ardından uygulama tarafından gerekli işlemler yapılır ve kulaklıktan zengin bir ses duyarsınız.</p>\n <li class="bg-[#00f5d4] text-red-900 mb-4">iRig Cihazı Kullanımı</li>\n <p class="mb-4 max-w-2xl mx-auto text-justify">iRig kablosunu telefona bağlayın ve kulaklık çıkışını bir kulaklığa veya amfiye bağlayın. Enstrümanınızda dahili bir eşik altı mikrofonu veya elektrikli ses çıkışı varsa, bu çıkışı doğrudan iRig cihazının girişine bağlayın. Aksi takdirde, mandallı bir piezo mikrofon yardımıyla enstrümanın sesini iRig cihazına aktarın.</p>\n <li class="bg-[#00f5d4] text-red-900 mb-4">Brig Cihazı Kullanımı</li>\n <p class="mb-4 max-w-2xl mx-auto text-justify">Bu cihaz iRig cihazına benzer ancak Buskit donanım serisinin bir ürünüdür. İhtiyaç halinde bu cihazı da temin edebilirsiniz; çalışma prensibi iRig ile tamamen aynıdır.</p>\n </ul>',
 
     purchaseModalTitle: "Buskit Ürün Satın Alma Formu",
+    purchaseStepContactDesc:
+      "Fiyatı görmek ve satın almaya devam etmek için lütfen önce adınızı ve e-postanızı girin.",
+    purchaseNameLabel: "Ad Soyad:",
+    purchaseNamePlaceholder: "örn: Ali Yılmaz",
+    purchaseEmailLabel: "E-posta:",
+    purchaseContactError: "Lütfen adınızı ve geçerli bir e-posta girin.",
+    btnPurchaseNextFromContact: "İleri",
+    purchaseStepDiscountDesc:
+      "İndirim kodunuz varsa girin; yoksa bu adımı atlayıp normal fiyatla devam edebilirsiniz.",
+    purchaseDiscountLabel: "İndirim Kodu (isteğe bağlı):",
+    purchaseDiscountPlaceholder: "örn: WELCOME20",
+    btnApplyDiscount: "İndirim Kodunu Uygula",
+    btnSkipDiscount: "Kodsuz devam et",
+    btnBackToContact: "Önceki adıma dön",
+    purchaseDiscountChecking: "İndirim kodu kontrol ediliyor...",
+    purchaseDiscountSuccess: "İndirim kodu onaylandı ve sizin için bir lisans ayrıldı ✅",
+    purchaseDiscountUsed: "Bu indirim kodu daha önce kullanılmış.",
+    purchaseDiscountInvalid: "Bu indirim kodu geçersiz.",
+    purchaseDiscountError: "Sunucu bağlantı hatası. Lütfen tekrar deneyin.",
+    purchaseDiscountRowLabel: "İndirim:",
+    purchaseDiscountAppliedBannerText:
+      "{code} indirim kodu uygulandı ve adınız/e-postanızla bir lisans ayrıldı. Ödemeniz onaylandıktan sonra size gönderilecektir.",
     purchaseSubtotalLabel: "Ara Toplam:",
     purchaseSubtotalRialLabel: "Tümen ve Dolar Karşılığı:",
     purchaseShippingLabel: "Kargo Ücreti:",
@@ -1599,6 +1665,54 @@ function changeLanguage(lang) {
   if (modalProductNameEl)
     modalProductNameEl.innerText = data.purchaseModalTitle;
 
+  // مرحله ۱: نام و ایمیل
+  const purchaseStepContactDescEl = document.getElementById(
+    "purchaseStepContactDesc",
+  );
+  if (purchaseStepContactDescEl)
+    purchaseStepContactDescEl.innerText = data.purchaseStepContactDesc;
+  const purchaseNameLabelEl = document.getElementById("purchaseNameLabel");
+  if (purchaseNameLabelEl) purchaseNameLabelEl.innerText = data.purchaseNameLabel;
+  const purchaseEmailLabelEl = document.getElementById("purchaseEmailLabel");
+  if (purchaseEmailLabelEl)
+    purchaseEmailLabelEl.innerText = data.purchaseEmailLabel;
+  const purchaseCustomerNameEl = document.getElementById("purchaseCustomerName");
+  if (purchaseCustomerNameEl && data.purchaseNamePlaceholder)
+    purchaseCustomerNameEl.placeholder = data.purchaseNamePlaceholder;
+  const btnPurchaseNextFromContactEl = document.getElementById(
+    "btnPurchaseNextFromContact",
+  );
+  if (btnPurchaseNextFromContactEl)
+    btnPurchaseNextFromContactEl.innerText = data.btnPurchaseNextFromContact;
+
+  // مرحله ۲: کد تخفیف
+  const purchaseStepDiscountDescEl = document.getElementById(
+    "purchaseStepDiscountDesc",
+  );
+  if (purchaseStepDiscountDescEl)
+    purchaseStepDiscountDescEl.innerText = data.purchaseStepDiscountDesc;
+  const purchaseDiscountLabelEl = document.getElementById(
+    "purchaseDiscountLabel",
+  );
+  if (purchaseDiscountLabelEl)
+    purchaseDiscountLabelEl.innerText = data.purchaseDiscountLabel;
+  const purchaseDiscountCodeInputEl = document.getElementById(
+    "purchaseDiscountCodeInput",
+  );
+  if (purchaseDiscountCodeInputEl && data.purchaseDiscountPlaceholder)
+    purchaseDiscountCodeInputEl.placeholder = data.purchaseDiscountPlaceholder;
+  const btnApplyDiscountEl = document.getElementById("btnApplyDiscount");
+  if (btnApplyDiscountEl) btnApplyDiscountEl.innerText = data.btnApplyDiscount;
+  const btnSkipDiscountEl = document.getElementById("btnSkipDiscount");
+  if (btnSkipDiscountEl) btnSkipDiscountEl.innerText = data.btnSkipDiscount;
+  const btnBackToContactEl = document.getElementById("btnBackToContact");
+  if (btnBackToContactEl) btnBackToContactEl.innerText = data.btnBackToContact;
+  const purchaseDiscountRowLabelEl = document.getElementById(
+    "purchaseDiscountRowLabel",
+  );
+  if (purchaseDiscountRowLabelEl)
+    purchaseDiscountRowLabelEl.innerText = data.purchaseDiscountRowLabel;
+
   Object.keys(PURCHASE_ITEMS).forEach((pid) => {
     const nameEl = document.getElementById("chk_" + pid + "_name");
     if (nameEl && data.purchaseItemNames && data.purchaseItemNames[pid])
@@ -1783,6 +1897,7 @@ function openPurchaseModal() {
   const modal = document.getElementById("purchaseModal");
   modal.classList.remove("hidden");
   document.body.style.overflow = "hidden";
+  resetPurchaseWizard();
   recalcPurchaseTotals();
 }
 
@@ -1794,7 +1909,312 @@ function closePurchaseModal() {
     const cb = document.getElementById("chk_" + pid);
     if (cb) cb.checked = false;
   });
+  resetPurchaseWizard();
   recalcPurchaseTotals();
+}
+
+// ====== ویزارد چند مرحله‌ای فرم خرید: ۱) نام و ایمیل  ۲) کد تخفیف (اختیاری)  ۳) محصولات و ثبت سفارش ======
+// طرف قبل از دیدن قیمت باید نام و ایمیلش را وارد کند. کد تخفیف در مرحله‌ی ۲
+// فقط پیش‌نمایش می‌شود (بدون مصرف کردنش). مصرف واقعی کد و رزرو لایسنس(های)
+// واقعی روی سرور لایسنس (livefx-license-server) فقط در انتهای مرحله‌ی ۳،
+// وقتی کاربر محصولات را انتخاب کرد و روی «ثبت سفارش» زد، اتفاق می‌افتد —
+// چون تازه آنجا معلوم می‌شود کدام تیر/مدت لایسنس باید ساخته شود.
+//
+// همه‌ی این عملیات از طریق دو مسیر HTTP روی همان سرور لایسنسی که اپ اندروید
+// هم استفاده می‌کند انجام می‌شود (نه نوشتن مستقیم در Firestore از مرورگر)،
+// چون کالکشن licenses همان کالکشنی است که /activate برای فعال‌سازی واقعی
+// لایسنس استفاده می‌کند و اجازه‌ی نوشتن مستقیم در آن از سمت کلاینت یک حفره‌ی
+// امنیتی جدی است.
+const LICENSE_SERVER_URL = "https://livefx-license-server.onrender.com";
+
+let purchaseCustomer = { name: "", email: "" };
+let purchaseDiscount = null; // { code, percent, amount } — فقط پیش‌نمایش، هنوز مصرف نشده
+let purchaseOrderFinalized = false;
+
+function hidePurchaseEl(id) {
+  const el = document.getElementById(id);
+  if (el) el.classList.add("hidden");
+}
+function showPurchaseEl(id) {
+  const el = document.getElementById(id);
+  if (el) el.classList.remove("hidden");
+}
+
+function resetPurchaseWizard() {
+  purchaseCustomer = { name: "", email: "" };
+  purchaseDiscount = null;
+  purchaseOrderFinalized = false;
+
+  const nameInput = document.getElementById("purchaseCustomerName");
+  const emailInput = document.getElementById("purchaseCustomerEmail");
+  const codeInput = document.getElementById("purchaseDiscountCodeInput");
+  if (nameInput) nameInput.value = "";
+  if (emailInput) emailInput.value = "";
+  if (codeInput) codeInput.value = "";
+
+  hidePurchaseEl("purchaseContactError");
+  hidePurchaseEl("purchaseDiscountMsg");
+  hidePurchaseEl("purchaseDiscountRow");
+  hidePurchaseEl("purchaseDiscountAppliedBanner");
+  hidePurchaseEl("purchaseFinalizeMsg");
+
+  const finalizeBtn = document.getElementById("btnFinalizeOrder");
+  if (finalizeBtn) {
+    finalizeBtn.disabled = false;
+    finalizeBtn.classList.remove("hidden");
+  }
+
+  goToPurchaseStep("contact");
+}
+
+function goToPurchaseStep(step) {
+  const steps = {
+    contact: "purchaseStepContact",
+    discount: "purchaseStepDiscount",
+    products: "purchaseStepProducts",
+  };
+  Object.values(steps).forEach((id) => hidePurchaseEl(id));
+  showPurchaseEl(steps[step]);
+}
+
+function isValidPurchaseEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function handleContactStepNext() {
+  const data = translations[currentLang] || {};
+  const nameInput = document.getElementById("purchaseCustomerName");
+  const emailInput = document.getElementById("purchaseCustomerEmail");
+  const errorEl = document.getElementById("purchaseContactError");
+  const name = (nameInput ? nameInput.value : "").trim();
+  const email = (emailInput ? emailInput.value : "").trim();
+
+  if (!name || !email || !isValidPurchaseEmail(email)) {
+    if (errorEl) {
+      errorEl.innerText =
+        data.purchaseContactError || "لطفاً نام و یک ایمیل معتبر وارد کنید.";
+      errorEl.classList.remove("hidden");
+    }
+    return;
+  }
+  if (errorEl) errorEl.classList.add("hidden");
+
+  purchaseCustomer = { name, email };
+  goToPurchaseStep("discount");
+}
+
+function skipDiscountStep() {
+  purchaseDiscount = null;
+  hidePurchaseEl("purchaseDiscountRow");
+  hidePurchaseEl("purchaseDiscountAppliedBanner");
+  goToPurchaseStep("products");
+  recalcPurchaseTotals();
+}
+
+// فقط یک پیش‌نمایش: از سرور لایسنس می‌پرسیم این کد معتبر و استفاده‌نشده هست
+// یا نه، بدون این‌که چیزی را مصرف/تغییر بدهیم. مصرف واقعی در finalizePurchaseOrder
+// (انتهای مرحله‌ی محصولات) اتفاق می‌افتد.
+async function applyDiscountCode() {
+  const data = translations[currentLang] || {};
+  const codeInput = document.getElementById("purchaseDiscountCodeInput");
+  const msgEl = document.getElementById("purchaseDiscountMsg");
+  const applyBtn = document.getElementById("btnApplyDiscount");
+  const rawCode = (codeInput ? codeInput.value : "").trim();
+
+  if (!rawCode) {
+    // فیلد خالی رها شده: مثل زدن دکمه‌ی «ادامه بدون کد تخفیف» رفتار می‌کنیم
+    skipDiscountStep();
+    return;
+  }
+  const code = rawCode.toUpperCase();
+
+  if (msgEl) {
+    msgEl.className = "text-xs text-slate-400";
+    msgEl.innerText =
+      data.purchaseDiscountChecking || "در حال بررسی کد تخفیف...";
+    msgEl.classList.remove("hidden");
+  }
+  if (applyBtn) applyBtn.disabled = true;
+
+  try {
+    const resp = await fetch(
+      `${LICENSE_SERVER_URL}/check-discount/${encodeURIComponent(code)}`,
+    );
+    const result = await resp.json();
+
+    if (!resp.ok || !result.valid) {
+      let text;
+      if (result.error === "used") {
+        text = data.purchaseDiscountUsed || "این کد تخفیف قبلاً استفاده شده است.";
+      } else if (result.error === "not-found") {
+        text = data.purchaseDiscountInvalid || "کد تخفیف نامعتبر است.";
+      } else {
+        text =
+          data.purchaseDiscountError ||
+          "خطا در ارتباط با سرور. لطفاً دوباره تلاش کنید.";
+      }
+      if (msgEl) {
+        msgEl.className = "text-xs text-red-400";
+        msgEl.innerText = text;
+        msgEl.classList.remove("hidden");
+      }
+      return;
+    }
+
+    purchaseDiscount = {
+      code,
+      percent: Number(result.percent) || 0,
+      amount: Number(result.amount) || 0,
+    };
+
+    if (msgEl) {
+      msgEl.className = "text-xs text-emerald-400";
+      msgEl.innerText =
+        data.purchaseDiscountSuccess ||
+        "کد تخفیف تایید شد و لایسنس شما رزرو گردید ✅";
+      msgEl.classList.remove("hidden");
+    }
+
+    const bannerEl = document.getElementById("purchaseDiscountAppliedBanner");
+    if (bannerEl) {
+      const template =
+        data.purchaseDiscountAppliedBannerText ||
+        "کد تخفیف {code} برای شما اعمال شد.";
+      bannerEl.innerText = template.replace("{code}", code);
+      bannerEl.classList.remove("hidden");
+    }
+
+    recalcPurchaseTotals();
+    setTimeout(() => {
+      goToPurchaseStep("products");
+    }, 900);
+  } catch (err) {
+    console.error("خطا در بررسی کد تخفیف:", err);
+    if (msgEl) {
+      msgEl.className = "text-xs text-red-400";
+      msgEl.innerText =
+        data.purchaseDiscountError ||
+        "خطا در ارتباط با سرور. لطفاً دوباره تلاش کنید.";
+      msgEl.classList.remove("hidden");
+    }
+  } finally {
+    if (applyBtn) applyBtn.disabled = false;
+  }
+}
+
+// ── ثبت نهایی سفارش (دکمه‌ی «ثبت سفارش» در مرحله‌ی محصولات) ────────────
+// چه کد تخفیف اعمال شده باشد چه نه، همین‌جا (که محصولات مشخص‌اند) روی سرور
+// لایسنس یک لایسنسِ واقعی و آماده (is_used:false) برای هر محصول نرم‌افزاریِ
+// انتخاب‌شده رزرو می‌شود؛ دیگر نیازی نیست خودتان دستی لایسنس بسازید — فقط
+// بعد از تایید واریزی از تب «لایسنس‌ها»ی پنل ادمین، کد رزروشده را کپی و برای
+// مشتری ارسال می‌کنید.
+async function finalizePurchaseOrder() {
+  const data = translations[currentLang] || {};
+  const msgEl = document.getElementById("purchaseFinalizeMsg");
+  const finalizeBtn = document.getElementById("btnFinalizeOrder");
+
+  const selectedItems = Object.keys(PURCHASE_ITEMS)
+    .filter((pid) => {
+      const cb = document.getElementById("chk_" + pid);
+      return cb && cb.checked;
+    })
+    .map((pid) => {
+      const nameEl = document.getElementById("chk_" + pid + "_name");
+      return {
+        productKey: pid,
+        name: nameEl ? nameEl.innerText : pid,
+        price: PURCHASE_ITEMS[pid].price,
+        hardware: !!PURCHASE_ITEMS[pid].hardware,
+      };
+    });
+
+  if (selectedItems.length === 0) {
+    if (msgEl) {
+      msgEl.className = "text-xs text-red-400";
+      msgEl.innerText = "لطفاً حداقل یک محصول را انتخاب کنید.";
+      msgEl.classList.remove("hidden");
+    }
+    return;
+  }
+
+  const hasLicenseItem = selectedItems.some((it) => !it.hardware);
+
+  // فقط سخت‌افزار، بدون هیچ محصول نرم‌افزاری/لایسنس‌داری: چیزی برای رزرو
+  // لایسنس نیست، پس نیازی به تماس با سرور نداریم — فقط تایید محلی نشان می‌دهیم.
+  if (!hasLicenseItem) {
+    purchaseOrderFinalized = true;
+    if (msgEl) {
+      msgEl.className = "text-xs text-emerald-400";
+      msgEl.innerText =
+        "سفارش شما ثبت شد. لطفاً طبق اطلاعات بانکی زیر واریز را انجام دهید.";
+      msgEl.classList.remove("hidden");
+    }
+    if (finalizeBtn) finalizeBtn.classList.add("hidden");
+    return;
+  }
+
+  if (finalizeBtn) finalizeBtn.disabled = true;
+  if (msgEl) {
+    msgEl.className = "text-xs text-slate-400";
+    msgEl.innerText = "در حال ثبت سفارش...";
+    msgEl.classList.remove("hidden");
+  }
+
+  try {
+    const resp = await fetch(`${LICENSE_SERVER_URL}/create-order`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        discountCode: purchaseDiscount ? purchaseDiscount.code : null,
+        name: purchaseCustomer.name,
+        email: purchaseCustomer.email,
+        items: selectedItems,
+      }),
+    });
+    const result = await resp.json();
+
+    if (!resp.ok || !result.success) {
+      let text;
+      if (result.error === "used") {
+        text =
+          data.purchaseDiscountUsed ||
+          "این کد تخفیف در همین حین توسط شخص دیگری استفاده شد. لطفاً با پشتیبانی تماس بگیرید.";
+      } else if (result.error === "not-found") {
+        text = data.purchaseDiscountInvalid || "کد تخفیف نامعتبر است.";
+      } else {
+        text =
+          data.purchaseDiscountError ||
+          "خطا در ثبت سفارش. لطفاً دوباره تلاش کنید یا با پشتیبانی تماس بگیرید.";
+      }
+      if (msgEl) {
+        msgEl.className = "text-xs text-red-400";
+        msgEl.innerText = text;
+        msgEl.classList.remove("hidden");
+      }
+      if (finalizeBtn) finalizeBtn.disabled = false;
+      return;
+    }
+
+    purchaseOrderFinalized = true;
+    if (msgEl) {
+      msgEl.className = "text-xs text-emerald-400";
+      msgEl.innerText = purchaseDiscount
+        ? "سفارش شما با کد تخفیف ثبت شد و لایسنس شما رزرو گردید ✅ لطفاً طبق اطلاعات بانکی زیر واریز را انجام دهید؛ لایسنس پس از تایید واریزی برایتان ارسال می‌شود."
+        : "سفارش شما ثبت شد و لایسنس شما رزرو گردید ✅ لطفاً طبق اطلاعات بانکی زیر واریز را انجام دهید؛ لایسنس پس از تایید واریزی برایتان ارسال می‌شود.";
+      msgEl.classList.remove("hidden");
+    }
+    if (finalizeBtn) finalizeBtn.classList.add("hidden");
+  } catch (err) {
+    console.error("خطا در ثبت سفارش:", err);
+    if (msgEl) {
+      msgEl.className = "text-xs text-red-400";
+      msgEl.innerText =
+        data.purchaseDiscountError ||
+        "خطا در ارتباط با سرور. لطفاً دوباره تلاش کنید.";
+      msgEl.classList.remove("hidden");
+    }
+    if (finalizeBtn) finalizeBtn.disabled = false;
+  }
 }
 
 function formatLiraAmount(amount) {
@@ -1818,17 +2238,40 @@ function recalcPurchaseTotals() {
   });
 
   const shipping = hardwareSelected ? PURCHASE_SHIPPING_COST : 0;
-  const total = subtotal + shipping;
+
+  // اعمال کد تخفیف (در صورت وجود) روی مبلغ کل قبل از افزودن هزینه پست
+  let discountAmount = 0;
+  if (purchaseDiscount) {
+    discountAmount =
+      subtotal * ((purchaseDiscount.percent || 0) / 100) +
+      (purchaseDiscount.amount || 0);
+    discountAmount = Math.max(0, Math.min(discountAmount, subtotal));
+  }
+
+  const total = subtotal - discountAmount + shipping;
 
   const subtotalLiraEl = document.getElementById("purchaseSubtotalLira");
   const shippingLiraEl = document.getElementById("purchaseShippingLira");
   const totalLiraEl = document.getElementById("purchaseTotalLira");
   const subtotalRialEl = document.getElementById("purchaseSubtotalRial");
   const totalRialEl = document.getElementById("purchaseTotalRial");
+  const discountRowEl = document.getElementById("purchaseDiscountRow");
+  const discountRowAmountEl = document.getElementById(
+    "purchaseDiscountRowAmount",
+  );
 
   if (subtotalLiraEl) subtotalLiraEl.innerText = formatLiraAmount(subtotal);
   if (shippingLiraEl) shippingLiraEl.innerText = formatLiraAmount(shipping);
   if (totalLiraEl) totalLiraEl.innerText = formatLiraAmount(total);
+
+  if (discountRowEl && discountRowAmountEl) {
+    if (discountAmount > 0) {
+      discountRowAmountEl.innerText = "-" + formatLiraAmount(discountAmount);
+      discountRowEl.classList.remove("hidden");
+    } else {
+      discountRowEl.classList.add("hidden");
+    }
+  }
 
   if (tryToIrrRate) {
     if (subtotalRialEl)

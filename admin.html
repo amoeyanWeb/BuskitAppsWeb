@@ -1204,13 +1204,22 @@
               }
               <div class="flex items-center justify-between gap-2 flex-wrap text-xs text-slate-500 mt-3 pt-3 border-t border-white/10">
                 <span>ساخته‌شده: ${formatDate(d.createdAt) || "—"}</span>
-                <button
-                  onclick="copyLicenseCode('${code}', this)"
-                  class="text-xs text-slate-400 hover:text-[#00f5d4] transition-colors"
-                >
-                  کپی کد
-                </button>
+                <div class="flex items-center gap-3">
+                  <button
+                    onclick="copyLicenseCode('${code}', this)"
+                    class="text-xs text-slate-400 hover:text-[#00f5d4] transition-colors"
+                  >
+                    کپی کد
+                  </button>
+                  <button
+                    onclick="deleteDiscountCode('${code}')"
+                    class="px-3 py-1.5 bg-rose-500/10 text-rose-400 text-xs font-bold rounded-lg border border-rose-500/30 hover:bg-rose-500/20 transition-colors"
+                  >
+                    حذف کد
+                  </button>
+                </div>
               </div>
+              <span id="discount-status-${code}" class="block text-xs text-rose-400 mt-2"></span>
             `;
             listEl.appendChild(item);
           });
@@ -1218,6 +1227,24 @@
           console.error("خطا در بارگذاری کدهای تخفیف:", err);
           listEl.innerHTML =
             '<p class="text-rose-400 text-sm text-center py-6">بارگذاری کدهای تخفیف با خطا مواجه شد. (احتمالاً دسترسی کافی نداری)</p>';
+        }
+      }
+      async function deleteDiscountCode(code) {
+        if (
+          !confirm(
+            `مطمئنی می‌خوای کد «${code}» رو کامل حذف کنی؟ این کار برگشت‌ناپذیره و دیگه کسی نمی‌تونه ازش استفاده کنه (آماری که قبلاً ثبت شده روی لایسنس‌های همون کد دست‌نخورده می‌مونه).`,
+          )
+        )
+          return;
+
+        const statusEl = document.getElementById(`discount-status-${code}`);
+        try {
+          await dbLiveFX.collection("discountCodes").doc(code).delete();
+          loadDiscountCodesTab();
+        } catch (err) {
+          console.error("خطا در حذف کد تخفیف:", err);
+          if (statusEl)
+            statusEl.innerText = "حذف کد با خطا مواجه شد. (احتمالاً دسترسی کافی نداری)";
         }
       }
     </script>

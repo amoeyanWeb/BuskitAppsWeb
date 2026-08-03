@@ -1947,6 +1947,42 @@ let purchaseCustomer = { name: "", email: "" };
 let purchaseDiscount = null; // { code, percent, amount } — فقط پیش‌نمایش، هنوز مصرف نشده
 let purchaseOrderFinalized = false;
 
+// شناسه‌ی محصولاتی که واقعاً لایسنس تولید می‌کنند (برای همین‌ها است که
+// می‌توان جداگانه تصمیم گرفت آیا کد تخفیف روی آن‌ها ثبت شود یا نه)
+const PURCHASE_LICENSE_PIDS = [
+  "p4",
+  "p3",
+  "p1",
+  "p10",
+  "p9",
+  "p8",
+  "p7",
+  "p6",
+  "p2",
+];
+
+// وقتی یک کد تخفیف در مرحله‌ی ۲ اعمال می‌شود، برای هر آیتم لایسنس‌داری که
+// در مرحله‌ی ۳ انتخاب شده یک تیکِ کوچکِ «تخفیف» نشان می‌دهیم تا کاربر
+// بتواند مشخص کند این کد فقط برای کدام لایسنس‌ها حساب شود (نه لزوماً همه‌ی
+// آیتم‌های سفارش) — دقیقاً همان چیزی که آمار فروش هر نماینده را در پنل
+// ادمین درست نگه می‌دارد.
+function syncDiscountToggles() {
+  PURCHASE_LICENSE_PIDS.forEach((pid) => {
+    const wrap = document.querySelector(
+      `.purchase-item-discount-toggle[data-pid="${pid}"]`,
+    );
+    if (!wrap) return;
+    const itemChk = document.getElementById("chk_" + pid);
+    const discountChk = document.getElementById("chk_" + pid + "_discount");
+    const show = !!purchaseDiscount && !!(itemChk && itemChk.checked);
+    wrap.classList.toggle("hidden", !show);
+    // هر بار که تاگل تازه نمایان می‌شود، پیش‌فرض تیک‌خورده باشد
+    if (show && discountChk && discountChk.dataset.touched !== "1") {
+      discountChk.checked = true;
+    }
+  });
+}
+
 function hidePurchaseEl(id) {
   const el = document.getElementById(id);
   if (el) el.classList.add("hidden");
@@ -1967,6 +2003,16 @@ function resetPurchaseWizard() {
   if (nameInput) nameInput.value = "";
   if (emailInput) emailInput.value = "";
   if (codeInput) codeInput.value = "";
+
+  // تاگل‌های «تخفیف» کنار هر آیتم را برای سفارش بعدی به حالت اولیه برگردان
+  PURCHASE_LICENSE_PIDS.forEach((pid) => {
+    const discountChk = document.getElementById("chk_" + pid + "_discount");
+    if (discountChk) {
+      discountChk.checked = true;
+      delete discountChk.dataset.touched;
+    }
+  });
+  syncDiscountToggles();
 
   hidePurchaseEl("purchaseContactError");
   hidePurchaseEl("purchaseDiscountMsg");
@@ -2036,6 +2082,7 @@ function skipDiscountStep() {
   hidePurchaseEl("purchaseDiscountAppliedBanner");
   goToPurchaseStep("products");
   recalcPurchaseTotals();
+  syncDiscountToggles();
 }
 
 // فقط یک پیش‌نمایش: از سرور لایسنس می‌پرسیم این کد اصلاً وجود دارد یا نه،
@@ -2114,6 +2161,7 @@ async function applyDiscountCode() {
     }
 
     recalcPurchaseTotals();
+    syncDiscountToggles();
     setTimeout(() => {
       goToPurchaseStep("products");
     }, 900);
@@ -2149,11 +2197,19 @@ async function finalizePurchaseOrder() {
     })
     .map((pid) => {
       const nameEl = document.getElementById("chk_" + pid + "_name");
+      const discountChk = document.getElementById("chk_" + pid + "_discount");
+      // اگر کد تخفیفی فعال بود و این آیتم لایسنس‌دار است، وضعیت تیکِ
+      // «تخفیف» کنارش تعیین می‌کند که آیا همین لایسنس با کد نماینده
+      // حساب شود یا نه؛ برای آیتم‌هایی که تاگل ندارند (مثلاً سخت‌افزار)
+      // یا وقتی اصلاً کدی اعمال نشده، discountApplied پیش‌فرض false است.
+      const discountApplied =
+        !!purchaseDiscount && !!(discountChk && discountChk.checked);
       return {
         productKey: pid,
         name: nameEl ? nameEl.innerText : pid,
         price: PURCHASE_ITEMS[pid].price,
         hardware: !!PURCHASE_ITEMS[pid].hardware,
+        discountApplied,
       };
     });
 
@@ -2254,6 +2310,7 @@ function formatLiraAmount(amount) {
 
 // محاسبه مبلغ کل، هزینه پست و قیمت نهایی بر اساس آیتم‌های انتخاب‌شده
 function recalcPurchaseTotals() {
+  syncDiscountToggles();
   const data = translations[currentLang] || {};
   let subtotal = 0;
   let hardwareSelected = false;

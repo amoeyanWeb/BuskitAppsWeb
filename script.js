@@ -4,9 +4,9 @@
 // برای تغییر قیمت هر آیتم فقط همین چند عدد رو عوض کن؛ همه‌جای سایت
 // (کارت‌های فروشگاه، فرم خرید، محاسبه‌ی جمع کل) خودکار از همین می‌خونن.
 const prices = {
-  BZ: { M1: 100, Y1: 600, LT: 900 }, // لایسنس برنز (LiveFX): ماهانه / سالانه / دائم
-  SV: { M1: 150, Y1: 950, LT: 1350 }, // لایسنس نقره‌ای (Live Music Tools): ماهانه / سالانه / دائم
-  GL: { M1: 200, Y1: 1200, LT: 1800 }, // لایسنس طلایی (Live Music Tools Pro): ماهانه / سالانه / دائم
+  BZ: { M1: 150, Y1: 600, LT: 900 }, // لایسنس برنز (LiveFX): ماهانه / سالانه / دائم
+  SV: { M1: 250, Y1: 950, LT: 1350 }, // لایسنس نقره‌ای (Live Music Tools): ماهانه / سالانه / دائم
+  GL: { M1: 300, Y1: 1100, LT: 1950 }, // لایسنس طلایی (Live Music Tools Pro): ماهانه / سالانه / دائم
   packi: 850, // پک کامل سخت‌افزاری i
   packb: 750, // پک کامل سخت‌افزاری B
   irig: 450, // دستگاه irig (تکی)
@@ -449,6 +449,7 @@ const translations = {
     purchaseTotalRialLabel: "معادل تومان و دلار قابل پرداخت:",
     purchaseWhatsappNote:
       'پس از واریز وجه به حساب‌های اعلام‌شده، نام و نام خانوادگی، ایمیل و آدرس پستی (در صورت لزوم) و رسید مربوطه را به شماره <span dir="ltr" class="font-mono text-accentNeon">00905312691609</span> واتس‌آپ کنید تا کالای خریداری‌شده برای شما ارسال گردد.',
+    btnFinalizeOrder: " ثبت سفارش و رزرو لایسنس",
     btnBackForm: "بازگشت",
     purchaseItemNames: {
       p4: "لایسنس برنز - یک ماهه ",
@@ -839,7 +840,8 @@ const translations = {
     btnSkipDiscount: "Continue without a code",
     btnBackToContact: "Back to previous step",
     purchaseDiscountChecking: "Checking discount code...",
-    purchaseDiscountSuccess: "Discount code accepted and a license has been reserved for you ✅",
+    purchaseDiscountSuccess:
+      "Discount code accepted and a license has been reserved for you ✅",
     purchaseDiscountUsed: "This discount code has already been used.",
     purchaseDiscountInvalid: "This discount code is invalid.",
     purchaseDiscountError: "Server connection error. Please try again.",
@@ -854,7 +856,7 @@ const translations = {
     purchaseWhatsappNote:
       'After transferring the amount to the designated bank accounts, please WhatsApp your full name, email, shipping address (if applicable), and the payment receipt to <span dir="ltr" class="font-mono text-accentNeon">00905312691609</span> so your purchased items can be processed and shipped.',
     btnBackForm: "Back",
-
+    btnFinalizeOrder: "Submit Order and Reserve License",
     purchaseItemNames: {
       p4: "Bronze License - 1 Month",
       p3: "Bronze License - 1 Year",
@@ -1250,7 +1252,8 @@ const translations = {
     btnSkipDiscount: "Kodsuz devam et",
     btnBackToContact: "Önceki adıma dön",
     purchaseDiscountChecking: "İndirim kodu kontrol ediliyor...",
-    purchaseDiscountSuccess: "İndirim kodu onaylandı ve sizin için bir lisans ayrıldı ✅",
+    purchaseDiscountSuccess:
+      "İndirim kodu onaylandı ve sizin için bir lisans ayrıldı ✅",
     purchaseDiscountUsed: "Bu indirim kodu daha önce kullanılmış.",
     purchaseDiscountInvalid: "Bu indirim kodu geçersiz.",
     purchaseDiscountError: "Sunucu bağlantı hatası. Lütfen tekrar deneyin.",
@@ -1265,7 +1268,7 @@ const translations = {
     purchaseWhatsappNote:
       'Belirtilen hesaplara ücreti yatırdıktan sonra adınızı, soyadınızı, e-postanızı, posta adresinizi (gerekirse) ve ilgili dekontu <span dir="ltr" class="font-mono text-accentNeon">00905312691609</span> numaralı WhatsApp hattına göndermeniz halinde satın alınan ürün tarafınıza gönderilecektir.',
     btnBackForm: "Geri",
-
+    btnFinalizeOrder: "Sipariş Oluştur ve Lisans Rezerve Et",
     purchaseItemNames: {
       p4: "Bronz Lisans - 1 Aylık",
       p3: "Bronz Lisans - 1 Yıllık",
@@ -1672,11 +1675,14 @@ function changeLanguage(lang) {
   if (purchaseStepContactDescEl)
     purchaseStepContactDescEl.innerText = data.purchaseStepContactDesc;
   const purchaseNameLabelEl = document.getElementById("purchaseNameLabel");
-  if (purchaseNameLabelEl) purchaseNameLabelEl.innerText = data.purchaseNameLabel;
+  if (purchaseNameLabelEl)
+    purchaseNameLabelEl.innerText = data.purchaseNameLabel;
   const purchaseEmailLabelEl = document.getElementById("purchaseEmailLabel");
   if (purchaseEmailLabelEl)
     purchaseEmailLabelEl.innerText = data.purchaseEmailLabel;
-  const purchaseCustomerNameEl = document.getElementById("purchaseCustomerName");
+  const purchaseCustomerNameEl = document.getElementById(
+    "purchaseCustomerName",
+  );
   if (purchaseCustomerNameEl && data.purchaseNamePlaceholder)
     purchaseCustomerNameEl.placeholder = data.purchaseNamePlaceholder;
   const btnPurchaseNextFromContactEl = document.getElementById(
@@ -1755,6 +1761,8 @@ function changeLanguage(lang) {
 
   const btnBackFormEl = document.getElementById("btnBackForm");
   if (btnBackFormEl) btnBackFormEl.innerText = data.btnBackForm;
+  const btnFinalizeOrderEl = document.getElementById("btnFinalizeOrder");
+  if (btnFinalizeOrderEl) btnFinalizeOrderEl.innerText = data.btnFinalizeOrder;
 
   // فوتر
   document.getElementById("footerTxt").innerText = data.footerTxt;
@@ -1880,11 +1888,19 @@ const PURCHASE_ITEMS = {
 const PURCHASE_SHIPPING_COST = 220; // لیر
 
 function triggerModalPurchase(productKey) {
+  const modalPid = GRID_TO_MODAL_PID[productKey] || productKey;
+  // فروش قطعات سخت‌افزاری غیرفعال است؛ اگر محصول کلیک‌شده سخت‌افزار باشد
+  // (چه از روی PURCHASE_ITEMS چه از روی خود دکمه)، مودال باز نمی‌شود.
+  if (
+    (PURCHASE_ITEMS[modalPid] && PURCHASE_ITEMS[modalPid].hardware) ||
+    document.getElementById(productKey + "Btn")?.disabled
+  ) {
+    return;
+  }
   openPurchaseModal();
   // productKey همون pid کارت فروشگاهه؛ چون pidهای فرم خرید با pidهای کارت‌های
   // فروشگاه یکی نیستن، اول به pid واقعی محصول در فرم خرید ترجمه‌اش می‌کنیم
   // (نگاه کن به GRID_TO_MODAL_PID در بالای فایل)
-  const modalPid = GRID_TO_MODAL_PID[productKey] || productKey;
   // قبل از هرچیز همه چک‌باکس‌ها را خالی می‌کنیم و فقط محصول کلیک‌شده را انتخاب می‌کنیم
   Object.keys(PURCHASE_ITEMS).forEach((pid) => {
     const cb = document.getElementById("chk_" + pid);
@@ -2022,9 +2038,10 @@ function skipDiscountStep() {
   recalcPurchaseTotals();
 }
 
-// فقط یک پیش‌نمایش: از سرور لایسنس می‌پرسیم این کد معتبر و استفاده‌نشده هست
-// یا نه، بدون این‌که چیزی را مصرف/تغییر بدهیم. مصرف واقعی در finalizePurchaseOrder
-// (انتهای مرحله‌ی محصولات) اتفاق می‌افتد.
+// فقط یک پیش‌نمایش: از سرور لایسنس می‌پرسیم این کد اصلاً وجود دارد یا نه،
+// بدون این‌که چیزی را تغییر بدهیم. کد تخفیف یک‌بارمصرف نیست و هر بار
+// (در finalizePurchaseOrder، انتهای مرحله‌ی محصولات) فقط آمار فروشش
+// یک واحد زیاد می‌شود؛ خودِ کد همیشه معتبر و قابل استفاده‌ی مجدد می‌ماند.
 async function applyDiscountCode() {
   const data = translations[currentLang] || {};
   const codeInput = document.getElementById("purchaseDiscountCodeInput");
@@ -2056,7 +2073,8 @@ async function applyDiscountCode() {
     if (!resp.ok || !result.valid) {
       let text;
       if (result.error === "used") {
-        text = data.purchaseDiscountUsed || "این کد تخفیف قبلاً استفاده شده است.";
+        text =
+          data.purchaseDiscountUsed || "این کد تخفیف قبلاً استفاده شده است.";
       } else if (result.error === "not-found") {
         text = data.purchaseDiscountInvalid || "کد تخفیف نامعتبر است.";
       } else {
@@ -2530,8 +2548,8 @@ function trackAppDownload(appKey) {
 function downloadBuskitTools() {
   trackAppDownload("buskit-tools");
   const link = document.createElement("a");
-  link.href = "./downloads/BuskitTools_v2_4.apk";
-  link.download = "BuskitTools_v2_4.apk";
+  link.href = "./downloads/BuskitTools_v2_5.apk";
+  link.download = "BuskitTools_v2_5.apk";
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
@@ -2623,9 +2641,21 @@ function copyToClipboard(text, button) {
     });
 }
 
+// ====== غیرفعال‌سازی فروش قطعات سخت‌افزاری ======
+// همه‌ی دکمه‌های «خرید» کارت‌های سخت‌افزاری (data-hardware="1") و همچنین
+// چک‌باکس‌های مربوط به سخت‌افزار در فرم خرید (مودال صفحه‌ی دوم) را غیرفعال
+// می‌کند. فقط کافیست فروش سخت‌افزار دوباره فعال شود، تابع زیر را حذف/کامنت کنید.
+function disableHardwarePurchasing() {
+  document.querySelectorAll('[data-hardware="1"]').forEach((el) => {
+    el.disabled = true;
+    if (el.checked) el.checked = false;
+  });
+}
+
 // بارگذاری اولیه با زبان پیش‌فرض (فارسی)
 window.addEventListener("DOMContentLoaded", () => {
   changeLanguage("tr");
+  disableHardwarePurchasing();
   if (typeof recalcPurchaseTotals === "function") {
     recalcPurchaseTotals();
   }

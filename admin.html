@@ -1046,10 +1046,11 @@
 
       // ====== تب کدهای تخفیف و نمایندگان ======
       // ساخت کد از همین‌جا مستقیماً یک سند در discountCodes می‌سازد (این کار
-      // اجازه‌اش داده شده چون از پنل ادمینِ لاگین‌شده انجام می‌شود). اما
-      // «مصرف‌کردن» کد (used:true شدن) فقط توسط سرور لایسنس (با Admin SDK،
-      // موقع ثبت سفارش در سایت) انجام می‌شود — پنل ادمین هیچ‌وقت این کار را
-      // نمی‌کند، پس امکان استفاده‌ی دوباره از یک کد وجود ندارد.
+      // اجازه‌اش داده شده چون از پنل ادمینِ لاگین‌شده انجام می‌شود).
+      // هر کد تخفیف دائمی و قابل استفاده‌ی مجدد است — هیچ‌وقت «مصرف‌شده»
+      // نمی‌شود و بسته‌شدنش رخ نمی‌دهد. سرور لایسنس (با Admin SDK، موقع ثبت
+      // سفارش در سایت) فقط شمارنده‌ی فروشِ آن کد (salesCount) را برای هر
+      // خرید یکی زیاد می‌کند تا آمار فروش/پورسانتِ نماینده مشخص باشد.
       async function createDiscountCode() {
         const codeInput = document.getElementById("newDiscountCode");
         const repInput = document.getElementById("newDiscountRep");
@@ -1092,7 +1093,8 @@
           }
 
           await ref.set({
-            used: false,
+            salesCount: 0,
+            purchases: [],
             percent,
             amount,
             repName: repName || null,
@@ -1139,16 +1141,15 @@
           }
 
           let total = 0;
-          let usedCount = 0;
+          let totalSales = 0;
           snapshot.forEach((doc) => {
             total++;
-            if (doc.data().used) usedCount++;
+            totalSales += Number(doc.data().salesCount) || 0;
           });
           summaryEl.innerHTML = `
             <div class="flex flex-wrap items-center gap-6">
               <span>مجموع کدها: <b class="text-white">${total.toLocaleString("fa-IR")}</b></span>
-              <span>استفاده‌شده: <b class="text-white">${usedCount.toLocaleString("fa-IR")}</b></span>
-              <span>هنوز موجود: <b class="text-white">${(total - usedCount).toLocaleString("fa-IR")}</b></span>
+              <span>مجموع فروش با کد تخفیف: <b class="text-white">${totalSales.toLocaleString("fa-IR")}</b></span>
             </div>
           `;
 
@@ -1177,21 +1178,27 @@
                   }
                 </div>
                 <div class="text-left">
-                  ${
-                    d.used
-                      ? `<span class="px-2.5 py-1 rounded-lg border text-[11px] font-bold bg-rose-500/10 text-rose-400 border-rose-500/30">استفاده‌شده</span>`
-                      : `<span class="px-2.5 py-1 rounded-lg border text-[11px] font-bold bg-emerald-500/10 text-emerald-400 border-emerald-500/30">موجود</span>`
-                  }
+                  <span class="px-2.5 py-1 rounded-lg border text-[11px] font-bold bg-[#00f5d4]/10 text-[#00f5d4] border-[#00f5d4]/30">${(Number(d.salesCount) || 0).toLocaleString("fa-IR")} فروش</span>
                   <span class="block text-slate-500 text-xs mt-1">تخفیف: ${escapeHtml(discountText || "—")}</span>
                 </div>
               </div>
               ${
-                d.used && d.usedBy
+                Array.isArray(d.purchases) && d.purchases.length
                   ? `
-                <div class="pt-3 border-t border-white/10 text-xs text-slate-400">
-                  <span>مشتری: <b class="text-white">${escapeHtml(d.usedBy.name || "—")}</b></span>
-                  <span class="block mt-0.5 font-mono" dir="ltr">${escapeHtml(d.usedBy.email || "")}</span>
-                  <span class="block mt-1 text-slate-500">تاریخ استفاده: ${formatDate(d.usedAt) || "—"}</span>
+                <div class="pt-3 border-t border-white/10 text-xs text-slate-400 flex flex-col gap-1.5">
+                  <span class="text-slate-500">آخرین خریداران:</span>
+                  ${d.purchases
+                    .slice()
+                    .sort((a, b) => (b.usedAt?.toMillis?.() || 0) - (a.usedAt?.toMillis?.() || 0))
+                    .slice(0, 5)
+                    .map(
+                      (p) => `
+                    <div class="flex flex-wrap items-baseline justify-between gap-2">
+                      <span><b class="text-white">${escapeHtml(p.name || "—")}</b> <span class="font-mono" dir="ltr">${escapeHtml(p.email || "")}</span></span>
+                      <span class="text-slate-500">${formatDate(p.usedAt) || "—"}</span>
+                    </div>`,
+                    )
+                    .join("")}
                 </div>`
                   : ""
               }

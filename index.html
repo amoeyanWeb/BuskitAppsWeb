@@ -95,6 +95,22 @@
         border-color: #00f5d4;
         background: rgba(0, 245, 212, 0.08);
       }
+      /* آیتم‌های سخت‌افزاری غیرفعال (چک‌باکس‌های فرم خرید) */
+      .purchase-item-label:has(input:disabled) {
+        opacity: 0.45;
+        cursor: not-allowed;
+        filter: grayscale(0.6);
+      }
+      .purchase-item-label:has(input:disabled):hover {
+        border-color: rgba(51, 65, 85, 0.7);
+      }
+      /* دکمه‌های خرید سخت‌افزار (کارت‌های فروشگاه) وقتی غیرفعال هستند */
+      button[data-hardware="1"]:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+        filter: grayscale(0.7);
+        pointer-events: none;
+      }
       .glow-effect:hover {
         box-shadow: 0 0 20px rgba(0, 245, 212, 0.4);
         border-color: #00f5d4;
@@ -2402,6 +2418,7 @@
               </div>
               <button
                 id="p9Btn"
+                data-hardware="1"
                 onclick="triggerModalPurchase('p9')"
                 class="w-full py-2.5 sm:py-3.5 bg-gradient-to-r from-accentBlue to-indigo-600 hover:from-indigo-600 hover:to-accentBlue text-white font-bold rounded-md sm:rounded-xl shadow-lg transition-all duration-300 text-center text-xs sm:text-sm"
               >
@@ -2464,6 +2481,7 @@
               </div>
               <button
                 id="p15Btn"
+                data-hardware="1"
                 onclick="triggerModalPurchase('p15')"
                 class="w-full py-2.5 sm:py-3.5 bg-gradient-to-r from-accentBlue to-indigo-600 hover:from-indigo-600 hover:to-accentBlue text-white font-bold rounded-md sm:rounded-xl shadow-lg transition-all duration-300 text-center text-xs sm:text-sm"
               >
@@ -2527,6 +2545,7 @@
               </div>
               <button
                 id="p11Btn"
+                data-hardware="1"
                 onclick="triggerModalPurchase('p11')"
                 class="w-full py-2.5 sm:py-3.5 bg-gradient-to-r from-accentBlue to-indigo-600 hover:from-indigo-600 hover:to-accentBlue text-white font-bold rounded-md sm:rounded-xl shadow-lg transition-all duration-300 text-center text-xs sm:text-sm"
               >
@@ -2591,6 +2610,7 @@
               </div>
               <button
                 id="p12Btn"
+                data-hardware="1"
                 onclick="triggerModalPurchase('p12')"
                 class="w-full py-2.5 sm:py-3.5 bg-gradient-to-r from-accentBlue to-indigo-600 hover:from-indigo-600 hover:to-accentBlue text-white font-bold rounded-md sm:rounded-xl shadow-lg transition-all duration-300 text-center text-xs sm:text-sm"
               >
@@ -2655,6 +2675,7 @@
               </div>
               <button
                 id="p13Btn"
+                data-hardware="1"
                 onclick="triggerModalPurchase('p13')"
                 class="w-full py-2.5 sm:py-3.5 bg-gradient-to-r from-accentBlue to-indigo-600 hover:from-indigo-600 hover:to-accentBlue text-white font-bold rounded-md sm:rounded-xl shadow-lg transition-all duration-300 text-center text-xs sm:text-sm"
               >
@@ -2717,6 +2738,7 @@
               </div>
               <button
                 id="p14Btn"
+                data-hardware="1"
                 onclick="triggerModalPurchase('p14')"
                 class="w-full py-2.5 sm:py-3.5 bg-gradient-to-r from-accentBlue to-indigo-600 hover:from-indigo-600 hover:to-accentBlue text-white font-bold rounded-md sm:rounded-xl shadow-lg transition-all duration-300 text-center text-xs sm:text-sm"
               >

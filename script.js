@@ -92,18 +92,18 @@ const translations = {
     heroDownloadBtnLMTpro: "لایسنس طلایی",
     heroDownloadBtnTools:
       "دانلود رایگان اپلیکیشن \n و استفاده رایگان 5 روزه از کلیه امکانات اپلیکیشن",
-    heroTipLiveFX1: "7 افکت",
+    heroTipLiveFX1: "9 افکت",
     heroTipLiveFX2: "تیونر کروماتیک",
     heroTipLiveFX3: "مترونوم فلکسیبل",
     heroTipLiveFX4: "بیش از 20 تنظیم پیش‌فرض",
-    heroTipLMT1: "11 افکت",
+    heroTipLMT1: "13 افکت",
     heroTipLMT2: "تیونر کروماتیک",
     heroTipLMT3: "مترونوم فلکسیبل",
     heroTipLMT4: "بیش از 40 تنظیم پیش‌فرض",
     heroTipLMT5: "امکان ضبط صدا",
     heroTipLMT6: "امکان لود بکینگ ترک",
     heroTipLMT7: "امکان تغییر سرعت بکینگ ترک",
-    heroTipPro1: "15 افکت",
+    heroTipPro1: "18 افکت",
     heroTipPro2: "بیش از 60 تنظیم پیش‌فرض",
     heroTipPro3: "تیونر کروماتیک + میکروتونال",
     heroTipPro4: "مترونوم فلکسیبل",
@@ -447,8 +447,8 @@ const translations = {
     purchaseShippingLabel: "هزینه پست:",
     purchaseTotalLabel: "قیمت کل (قابل پرداخت):",
     purchaseTotalRialLabel: "معادل تومان و دلار قابل پرداخت:",
-    purchaseWhatsappNote:
-      'پس از واریز وجه به حساب‌های اعلام‌شده، نام و نام خانوادگی، ایمیل و آدرس پستی (در صورت لزوم) و رسید مربوطه را به شماره <span dir="ltr" class="font-mono text-accentNeon">00905312691609</span> واتس‌آپ کنید تا کالای خریداری‌شده برای شما ارسال گردد.',
+    purchaseFinalizeMsg:
+      "سفارش شما ثبت شد و لایسنس شما رزرو گردید. لطفاً طبق اطلاعات بانک اعلام‌شده واریز را انجام داده و فیش واریزی را از طریق واتس‌اپ به شماره 00905312691609 به همراه نام و ایمیل ثبت‌شده در هنگام خرید ارسال فرمایید تا بلافاصله لایسنس خریداری‌شده از طریق واتس‌اپ و ایمیل برای شما ارسال گردد.",
     btnFinalizeOrder: " ثبت سفارش و رزرو لایسنس",
     btnBackForm: "بازگشت",
     purchaseItemNames: {
@@ -498,18 +498,18 @@ const translations = {
     heroDownloadBtnLMTpro: "Golden License ",
     heroDownloadBtnTools:
       "Free download of the app\nGet a 5-day free trial with unlimited access to all features",
-    heroTipLiveFX1: "7 Effects",
+    heroTipLiveFX1: "9 Effects",
     heroTipLiveFX2: "Chromatic Tuner",
     heroTipLiveFX3: "Flexible Metronome",
     heroTipLiveFX4: "20+ Built-in Presets",
-    heroTipLMT1: "11 Effects",
+    heroTipLMT1: "13 Effects",
     heroTipLMT2: "Chromatic Tuner",
     heroTipLMT3: "Flexible Metronome",
     heroTipLMT4: "40+ Built-in Presets",
     heroTipLMT5: "Audio Recording",
     heroTipLMT6: "Backing Track Loading",
     heroTipLMT7: "",
-    heroTipPro1: "15 Effects",
+    heroTipPro1: "18 Effects",
     heroTipPro2: "60+ Built-in Presets",
     heroTipPro3: "Chromatic + Microtonal Tuner",
     heroTipPro4: "Flexible Metronome",
@@ -853,8 +853,8 @@ const translations = {
     purchaseShippingLabel: "Shipping Fee:",
     purchaseTotalLabel: "Total Price (Payable):",
     purchaseTotalRialLabel: "Total Payable in Toman & USD:",
-    purchaseWhatsappNote:
-      'After transferring the amount to the designated bank accounts, please WhatsApp your full name, email, shipping address (if applicable), and the payment receipt to <span dir="ltr" class="font-mono text-accentNeon">00905312691609</span> so your purchased items can be processed and shipped.',
+    purchaseFinalizeMsg:
+      "Your order has been placed and your license has been reserved. Please make the payment according to the bank details provided, then send the payment receipt via WhatsApp to 00905312691609, along with the name and email you registered during purchase, so your purchased license can be sent to you immediately via WhatsApp and email.",
     btnBackForm: "Back",
     btnFinalizeOrder: "Submit Order and Reserve License",
     purchaseItemNames: {
@@ -904,18 +904,18 @@ const translations = {
     heroDownloadBtnLMTpro: "Altın Lisans",
     heroDownloadBtnTools:
       "uygulamasını ücretsiz indirin\nTüm özelliklere 5 gün boyunca ücretsiz erişim sağlayın",
-    heroTipLiveFX1: "7 Efekt",
+    heroTipLiveFX1: "9 Efekt",
     heroTipLiveFX2: "Kromatik Akort Aleti",
     heroTipLiveFX3: "Esnek Metronom",
     heroTipLiveFX4: "20'ten fazla hazır ayar",
-    heroTipLMT1: "11 Efekt",
+    heroTipLMT1: "13 Efekt",
     heroTipLMT2: "Kromatik Akort Aleti",
     heroTipLMT3: "Esnek Metronom",
     heroTipLMT4: "40'ten fazla hazır ayar",
     heroTipLMT5: "Ses kaydı özelliği",
     heroTipLMT6: "Altyapı parçası yükleme",
     heroTipLMT7: "Altyapı parçası hızını değiştirme",
-    heroTipPro1: "15 Efekt",
+    heroTipPro1: "18 Efekt",
     heroTipPro2: "60'tan fazla hazır ayar",
     heroTipPro3: "Kromatik + Mikrotonal Akort Aleti",
     heroTipPro4: "Esnek Metronom",
@@ -1265,8 +1265,8 @@ const translations = {
     purchaseShippingLabel: "Kargo Ücreti:",
     purchaseTotalLabel: "Toplam Fiyat (Ödenecek Tutar):",
     purchaseTotalRialLabel: "Ödenecek Tutarın Tümen ve Dolar Karşılığı:",
-    purchaseWhatsappNote:
-      'Belirtilen hesaplara ücreti yatırdıktan sonra adınızı, soyadınızı, e-postanızı, posta adresinizi (gerekirse) ve ilgili dekontu <span dir="ltr" class="font-mono text-accentNeon">00905312691609</span> numaralı WhatsApp hattına göndermeniz halinde satın alınan ürün tarafınıza gönderilecektir.',
+    purchaseFinalizeMsg:
+      "Siparişiniz alındı ve lisansınız rezerve edildi. Lütfen belirtilen banka bilgilerine göre ödemeyi yapın ve ödeme dekontunu, satın alma sırasında kaydettiğiniz ad ve e-posta ile birlikte 00905312691609 numaralı WhatsApp hattına gönderin; satın aldığınız lisans WhatsApp ve e-posta yoluyla hemen size gönderilecektir.",
     btnBackForm: "Geri",
     btnFinalizeOrder: "Sipariş Oluştur ve Lisans Rezerve Et",
     purchaseItemNames: {
@@ -1753,12 +1753,6 @@ function changeLanguage(lang) {
   if (purchaseTotalRialLabelEl)
     purchaseTotalRialLabelEl.innerText = data.purchaseTotalRialLabel;
 
-  const purchaseWhatsappNoteEl = document.getElementById(
-    "purchaseWhatsappNote",
-  );
-  if (purchaseWhatsappNoteEl)
-    purchaseWhatsappNoteEl.innerHTML = data.purchaseWhatsappNote;
-
   const btnBackFormEl = document.getElementById("btnBackForm");
   if (btnBackFormEl) btnBackFormEl.innerText = data.btnBackForm;
   const btnFinalizeOrderEl = document.getElementById("btnFinalizeOrder");
@@ -2230,8 +2224,7 @@ async function finalizePurchaseOrder() {
     purchaseOrderFinalized = true;
     if (msgEl) {
       msgEl.className = "text-xs text-emerald-400";
-      msgEl.innerText =
-        "سفارش شما ثبت شد. لطفاً طبق اطلاعات بانکی زیر واریز را انجام دهید.";
+      msgEl.innerText = data.purchaseFinalizeMsg;
       msgEl.classList.remove("hidden");
     }
     if (finalizeBtn) finalizeBtn.classList.add("hidden");
@@ -2283,9 +2276,7 @@ async function finalizePurchaseOrder() {
     purchaseOrderFinalized = true;
     if (msgEl) {
       msgEl.className = "text-xs text-emerald-400";
-      msgEl.innerText = purchaseDiscount
-        ? "سفارش شما با کد تخفیف ثبت شد و لایسنس شما رزرو گردید ✅ لطفاً طبق اطلاعات بانکی زیر واریز را انجام دهید؛ لایسنس پس از تایید واریزی برایتان ارسال می‌شود."
-        : "سفارش شما ثبت شد و لایسنس شما رزرو گردید ✅ لطفاً طبق اطلاعات بانکی زیر واریز را انجام دهید؛ لایسنس پس از تایید واریزی برایتان ارسال می‌شود.";
+      msgEl.innerText = data.purchaseFinalizeMsg;
       msgEl.classList.remove("hidden");
     }
     if (finalizeBtn) finalizeBtn.classList.add("hidden");

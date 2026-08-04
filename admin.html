@@ -45,6 +45,11 @@
       const dbLiveFX = liveFXApp.firestore();
       const authLiveFX = liveFXApp.auth();
       let liveFXAuthFailed = false;
+
+      // آدرس سرور لایسنس روی Render — همونی که با Admin SDK به پروژه‌ی
+      // LiveFX وصله و از Security Rules رد می‌شه (برای کارهایی مثل حذف کد
+      // تخفیف که از کلاینت مستقیم مجاز نیست)
+      const LICENSE_SERVER_URL = "https://livefx-license-server.onrender.com";
     </script>
 
     <style>
@@ -1239,7 +1244,26 @@
 
         const statusEl = document.getElementById(`discount-status-${code}`);
         try {
-          await dbLiveFX.collection("discountCodes").doc(code).delete();
+          // حذف مستقیم از کلاینت با dbLiveFX.delete() اینجا کار نمی‌کنه چون
+          // Firestore Security Rules پروژه‌ی LiveFX اجازه‌ی delete رو از
+          // کلاینت نمی‌دن (برای همینه که خطای «دسترسی کافی نداری» می‌افتاد).
+          // به‌جاش با idToken همین کاربر لاگین‌شده، از سرور (که با Admin SDK
+          // از این قوانین رد می‌شه) درخواست حذف می‌فرستیم.
+          const user = authLiveFX.currentUser;
+          if (!user) throw new Error("کاربر لاگین نیست");
+          const idToken = await user.getIdToken();
+
+          const resp = await fetch(
+            `${LICENSE_SERVER_URL}/admin/discount/${encodeURIComponent(code)}`,
+            {
+              method: "DELETE",
+              headers: { Authorization: `Bearer ${idToken}` },
+            },
+          );
+          const data = await resp.json().catch(() => ({}));
+          if (!resp.ok || data.status !== "ok") {
+            throw new Error(data.error || "حذف ناموفق بود");
+          }
           loadDiscountCodesTab();
         } catch (err) {
           console.error("خطا در حذف کد تخفیف:", err);

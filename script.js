@@ -73,6 +73,7 @@ const translations = {
     navHome: "خانه",
     navAboutme: "درباره من",
     navLiveFX: "Buskit-Tools چیست",
+    navBuskitFeatures: "امکانات BuskitTools",
     navAppGallery: "صفحات نمونه اپلیکیشن",
     navFeatures: "چرا Buskit-Tools",
     navUsersReview: "نظر کاربران",
@@ -119,7 +120,7 @@ const translations = {
     aboutP3:
       "هر یک از این تجهیزات بخشی از نیازهای هر نوازنده یا خواننده را برطرف خواهد کرد. مطمئن هستم که با بکارگیری از هر یک از این تجهیزات، تجربه و لذت فراموش‌نشدنی از نوازندگی و اجرای موسیقی به دست خواهید آورد.",
     aboutP4:
-      "این وب سایت صرفا به اپلیکیشن های تلفن همراه مجموعه Buskit میپردازد. در حال حاضر اولین اپلیکیشن با نام Buskit-Tools  برای سیستم عامل اندروید آماده بهره برداری علاقمندان بوده و در سه نسخه طلایی، نقره ای و برنز ارائه میشود. هر یک از این سه نسخه دارای امکاناتی تکمیلی برای نوازندگان میباشند. \n\nمژده اینکه اپلیکیشن های دیگری نیز درحال پیاده سازی میباشند و در آینده ای نزدیک ارائه میگردند که از زوایای جدید به رفع نیازهای نوازندگان بالاخص نوازندگان اجرای زنده میپردازند.",
+      "این وب سایت صرفا به اپلیکیشن های تلفن همراه مجموعه Buskit میپردازد. در حال حاضر اولین اپلیکیشن با نام Buskit-Tools  برای سیستم عامل اندروید آماده بهره برداری علاقمندان میباشد. \n\nمژده اینکه اپلیکیشن های دیگری نیز درحال پیاده سازی میباشند و در آینده ای نزدیک ارائه میگردند که از زوایای جدید به رفع نیازهای نوازندگان بالاخص نوازندگان اجرای زنده میپردازند.",
     aboutImgAlt: "محمد رضا عموئیان - نوازنده سه‌تار",
     liveFXTitle: "Buskit-Tools چیست",
     liveFXSubtitle:
@@ -160,6 +161,23 @@ const translations = {
       "از مزایای این دستگاه، عدم نیاز به سیستم صوتی و تجهیزات گران‌قیمت و حرفه‌ای برای داشتن طنین صدایی حرفه‌ای و گوش‌نواز می‌باشد.",
     liveFXP8:
       "امکانات این اپلیکیشن در سه دسته تقسیم و در قالب سه نوع لایسنس طلایی، نقره ای و برنزی در اختیار علاقمندان قرار داده میشود که هر کسی با هر سلیقه و توانایی بتواند از مزایای آن بهره مند شود",
+
+    buskitFeaturesTitle: "امکانات BuskitTools",
+    buskitFeaturesSubtitle:
+      "نسخه حرفه‌ای با امکانات کامل برای اجرا، ضبط و تمرین",
+    buskitFeaturesItem1:
+      "مجهز به پانزده افکت پر کاربرد و معروف در دنیای موسیقی",
+    buskitFeaturesItem2: "حاوی بیش از 60 تنظیم پیش‌فرض",
+    buskitFeaturesItem3:
+      "تیونر کروماتیک + میکروتونال برای کوک کردن یا تنظیم پرده های سازهای ایرانی یا ترکی با امکان تعیین میزان کوک",
+    buskitFeaturesItem4:
+      "مترونوم فلکسیبل با قابلیت اجرای هرگونه ریتم لنگ و هر قالب و فیگور ریتمیک",
+    buskitFeaturesItem5: "امکان لود بکینگ ترک",
+    buskitFeaturesItem6:
+      "امکان ضبط صدای میکس شده بکینگ ترک و صدای ساز داخل حافظه تلفن همراه با فرمت WAVE",
+    buskitFeaturesItem7: "امکان تغییر سرعت بکینگ ترک بدون تغییر فرکانس",
+    buskitFeaturesDescription:
+      "امکانات این اپلیکیشن، آنرا در جایگاهی فراتر از یک افکت باکس یا پدال بورد سخت افزاری قرار داده است امکان لود بکینگ ترک با قابلیت تغییر سرعت بدون تغییر فرکانس آن برای تمرین همنوازی همچنین وجود یک مترونوم با قابلیت منحصر به فرد ایجاد کلیه فیگورهای ریتمیک مورد نظر از یک طرف و امکان ضبط صدای ورودی به همراه بکینگ ترک با فرمت wave در حافظه گوشی آنرا به رویای هر نوازنده تبدیل کرده است که بدون نیاز به تجهیزات گرانقیمت و سنگین و حجیم بتوان در همه جا و همه زمان از ساز خود صدایی رویایی به گوش مخاطبان رسانید. تیونر کروماتیک میکروتونال آن نیز از نقاط قوت این نسخه از اپلیکیشن میباشد که امکان تعیین میزان انحراف از نوت اصلی را نیز به کاربر میدهد. وجود بیش از 40 پریست برای استفاده در شرایط مختلف و سازهای مختلف تسهیلی دیگر در اجراهای نوازندگان میباشد.",
 
     liveFXGalleryAlt1: "نمای اصلی اپلیکیشن باسکیت لایو افکت",
     liveFXGalleryAlt2: "تنظیمات کمپرسور در اپلیکیشن باسکیت لایو افکت",
@@ -279,13 +297,13 @@ const translations = {
     p7B3: "شامل یک سال پشتیبانی فنی و به‌روزرسانی",
     p7PriceVal: "1200",
 
-    p8Badge: "لایسنس طلایی - دائم ",
+    p8Badge: "لایسنس - دائم ",
     p8Desc: "نام محصول",
     p8Title: "لایسنس مادام‌العمر اپلیکیشن با کلیه امکانات",
     p8B1: "معتبر به‌صورت مادام‌العمر",
     p8B2: "قفل تمام افکت‌ها و قابلیت‌های برنامه باز می‌شود",
     p8B3: "شامل پشتیبانی فنی و به‌روزرسانی‌های مادام‌العمر",
-    p8B4: "۵۰ درصد تخفیف برای تمام اپلیکیشن‌ها و به‌روزرسانی‌های آینده",
+    p8B4: "30 درصد تخفیف برای تمام اپلیکیشن‌ها و به‌روزرسانی‌های آینده",
     p8PriceVal: "1800",
 
     p9Badge: "سخت‌افزار",
@@ -479,6 +497,7 @@ const translations = {
     navHome: "Home",
     navAboutme: "About Me",
     navLiveFX: "What is Buskit-Tools",
+    navBuskitFeatures: "BuskitTools Features",
     navAppGallery: "App Sample Screens",
     navFeatures: "Why Buskit-Tools",
     navUsersReview: "User Reviews",
@@ -525,7 +544,7 @@ const translations = {
     aboutP3:
       "Each of these tools addresses a specific need for musicians or singers. I am confident that by using any of this equipment, you will gain an unforgettable experience and pleasure from playing and performing music.",
     aboutP4:
-      "This website focuses exclusively on mobile applications by the Buskit collection. Currently, the first application, named 'Buskit-Tools', is ready for android operating system enthusiasts and is offered in three versions: Gold, Silver, and Bronze. Each of these three versions features complementary tools and options for musicians.\n\nThe good news is that other applications are also being developed and will be released in the near future, addressing the needs of musicians—especially live performance musicians—from completely new perspectives.",
+      "This website is exclusively dedicated to mobile applications from the Buskit suite. Currently, the first application, named Buskit-Tools, is ready for use by enthusiasts on the Android operating system.\n\nThe good news is that other applications are also being developed and will be released in the near future. These upcoming apps will address the needs of musicians—especially live performance musicians—from brand-new perspectives.",
     aboutImgAlt: "Mohammad Reza Amouian - Setar Player",
     liveFXTitle: "What is Buskit-Tools",
     liveFXSubtitle:
@@ -566,6 +585,25 @@ const translations = {
       "One of the core advantages of this system is that it eliminates the need for expensive, heavy professional audio setups to achieve a rich, ear-pleasing, and professional tone.",
     liveFXP8:
       "The features of this application are divided into three categories and made available to enthusiasts in the form of three types of licenses: Gold, Silver, and Bronze, allowing everyone to benefit from its advantages according to their taste and ability.",
+
+    buskitFeaturesTitle: "BuskitTools Features",
+    buskitFeaturesSubtitle:
+      "Professional version with full features for performance, recording, and practice",
+    buskitFeaturesItem1:
+      "Equipped with fifteen widely used and famous effects in the music world",
+    buskitFeaturesItem2: "Contains more than 60 default presets",
+    buskitFeaturesItem3:
+      "Chromatic + microtonal tuner for tuning or adjusting the quarter tones of Iranian or Turkish instruments with cents adjustment capability",
+    buskitFeaturesItem4:
+      "Flexible metronome with the capability to play any complex rhythm and any rhythmic template or figure",
+    buskitFeaturesItem5: "Backing track loading capability",
+    buskitFeaturesItem6:
+      "Capability to record the mixed audio of the backing track and instrument into the mobile phone memory in WAVE format",
+    buskitFeaturesItem7:
+      "Backing track speed alteration capability without changing the pitch frequency",
+    buskitFeaturesDescription:
+      "The features of this application place it far beyond a simple effects box or hardware pedalboard. The ability to load backing tracks with speed adjustment without changing the pitch frequency for jam session practice, a metronome with the unique capability to create any desired rhythmic figure on one hand, combined with the ability to record input audio along with the backing track in WAVE format into the phone's memory on the other, makes it every musician's dream. It allows musicians to deliver a dreamy sound to their audience anywhere and anytime without the need for expensive, heavy, and bulky equipment. Its microtonal chromatic tuner is also one of the strengths of this version of the application, allowing the user to determine the exact deviation from the main note. The presence of more than 40 presets for use in various conditions and with different instruments is another great convenience in musicians' performances.",
+
     liveFXGalleryAlt1: "Main View of Buskit LiveFX Application",
     liveFXGalleryAlt2: "Compressor Settings in Buskit LiveFX Application",
     liveFXGalleryAlt3: "Reverb Types in Buskit LiveFX Application",
@@ -686,13 +724,13 @@ const translations = {
     p7B3: "Includes one year of technical support and updates",
     p7PriceVal: "1200",
 
-    p8Badge: "Gold License - Permanent",
+    p8Badge: "License - Permanent",
     p8Desc: "Product Name",
     p8Title: "Lifetime Application License with Full Features",
     p8B1: "Valid for a lifetime",
     p8B2: "Unlocks all application effects and features",
     p8B3: "Includes lifetime technical support and updates",
-    p8B4: "50% discount on all future applications and updates",
+    p8B4: "30% discount on all future applications and updates",
     p8PriceVal: "1800",
 
     p9Badge: "Hardware",
@@ -885,6 +923,7 @@ const translations = {
     navHome: "Anasayfa",
     navAboutme: "Hakkımda",
     navLiveFX: "Buskit-Tools Nedir",
+    navBuskitFeatures: "BuskitTools Özellikleri",
     navAppGallery: "Uygulama Örnek Sayfaları",
     navFeatures: "Neden Buskit-Tools",
     navUsersReview: "Kullanıcı Yorumları",
@@ -931,7 +970,7 @@ const translations = {
     aboutP3:
       "Bu ekipmanların her biri, bir müzisyenin veya vokalistin belirli bir ihtiyacını karşılayacaktır. Bu ekipmanlardan herhangi birini kullandığınızda, müzik çalmaktan ve performans sergilemekten unutulmaz bir deneyim ve keyif alacağınızdan eminim.",
     aboutP4:
-      "Bu web sitesi yalnızca Buskit bünyesindeki mobil uygulamalara odaklanmaktadır. Şu anda 'Buskit-Tools' adlı ilk uygulama, Android işletim sistemi meraklılarının kullanımına hazır olup Altın, Gümüş ve Bronz olmak üzere üç sürüm halinde sunulmaktadır. Bu üç sürümün her biri, müzisyenler için tamamlayıcı ve ek özellikler barındırmaktadır.\n\nMüjdemiz şu ki, diğer uygulamalar da şu an geliştirilme aşamasındadır ve yakın gelecekte kullanıma sunulacaktır. Bu yeni uygulamalar, müzisyenlerin —özellikle de canlı performans sanatçılarının— ihtiyaçlarını yepyeni açılardan karşılamayı hedeflemektedir.",
+      "Bu web sitesi yalnızca Buskit bünyesindeki mobil uygulamalara ayrılmıştır. Şu anda, Buskit-Tools adını taşıyan ilk uygulama Android işletim sistemi için meraklılarının kullanımına sunulmuştur.\n\nMüjdeyi verelim ki diğer uygulamalar da geliştirilme aşamasındadır ve yakın gelecekte erişime sunulacaktır. Bu yeni uygulamalar, başta canlı performans müzisyenleri olmak üzere, müzisyenlerin ihtiyaçlarını yepyeni açılardan karşılamayı hedeflemektedir.",
     aboutImgAlt: "Mohammad Reza Amouian - Setar Sanatçısı",
     liveFXTitle: "Buskit-Tools Nedir",
     liveFXSubtitle:
@@ -973,6 +1012,25 @@ const translations = {
       "Bu sistemin en büyük avantajlarından biri, profesyonel ve kulak tırmalamayan zengin bir tını elde etmek için pahalı ve ağır ses sistemlerine ihtiyaç duyulmamasıdır.",
     liveFXP8:
       "Bu uygulamanın özellikleri üç kategoriye ayrılmakta ve Altın, Gümüş ve Bronz olmak üzere üç tür lisans şeklinde meraklıların hizmetine sunulmaktadır; böylece her zevke ve yeteneğe sahip herkes uygulamanın avantajlarından yararlanabilir.",
+
+    buskitFeaturesTitle: "BuskitTools Özellikleri",
+    buskitFeaturesSubtitle:
+      "Performans, kayıt ve pratik için tam özellikli profesyonel sürüm",
+    buskitFeaturesItem1:
+      "Müzik dünyasında yaygın olarak kullanılan ve ünlü on beş efektle donatılmıştır",
+    buskitFeaturesItem2: "60'tan fazla hazır ayar (preset) içerir",
+    buskitFeaturesItem3:
+      "İran veya Türk enstrümanlarının koma/perde ayarlarını yapmak için sapma miktarını belirleme özellikli kromatik + mikrotonal tuner",
+    buskitFeaturesItem4:
+      "Her türlü aksak ritmi ve her ritmik kalıbı/figürü çalabilen esnek metronom",
+    buskitFeaturesItem5: "Altyapı (backing track) yükleme seçeneği",
+    buskitFeaturesItem6:
+      "Altyapı parçası ile enstrüman sesinin mikslenmiş halini WAVE formatında telefon hafızasına kaydedebilme",
+    buskitFeaturesItem7:
+      "Frekansı (perdeyi) değiştirmeden altyapı (backing track) hızını değiştirebilme özelliği",
+    buskitFeaturesDescription:
+      "Bu uygulamanın özellikleri, onu sıradan bir efekt kutusu veya donanımsal pedalboard'un çok ötesinde bir konuma yerleştirmektedir. Beraber pratik yapmak için frekansı bozmadan hızı ayarlanabilir altyapı parçaları yükleme özelliği, her türlü ritmik figürü oluşturabilen benzersiz metronom bir yanda; giriş sesini altyapıyla birlikte WAVE formatında telefon hafızasına kaydetme imkanı diğer yanda birleşerek bu uygulamayı her müzisyenin rüyası haline getiriyor. Pahalı, ağır ve hacimli ekipmanlara ihtiyaç duymadan, her yerde ve her zaman enstrümanınızdan rüya gibi bir ses çıkarmanızı sağlar. Mikrotonal kromatik akort cihazı (tuner) ise bu sürümün en güçlü yönlerinden biri olup, kullanıcının ana sesten olan sapma miktarını (koma) tam olarak belirlemesine olanak tanır. Çeşitli koşullarda ve farklı enstrümanlarda kullanılmak üzere 40'tan fazla hazır ayarın bulunması, müzisyenlerin performanslarında sağlanan bir diğer büyük kolaylıktır.",
+
     liveFXGalleryAlt1: "Buskit LiveFX Uygulaması Ana Ekranı",
     liveFXGalleryAlt2: "Buskit LiveFX Uygulaması Kompresör Ayarları",
     liveFXGalleryAlt3: "Buskit LiveFX Uygulaması Reverb Çeşitleri",
@@ -1092,13 +1150,13 @@ const translations = {
     p7B3: "Bir yıllık teknik destek ve güncellemeleri içerir",
     p7PriceVal: "1200",
 
-    p8Badge: "Altın Lisans - Kalıcı",
+    p8Badge: "Lisans - Kalıcı",
     p8Desc: "Ürün Adı",
     p8Title: "Tüm Özellikleri İçeren Ömür Boyu Uygulama Lisansı",
     p8B1: "Ömür boyu geçerlidir",
     p8B2: "Uygulamanın tüm efekt ve özelliklerinin kilidi açılır",
     p8B3: "Ömür boyu teknik destek ve güncellemeleri içerir",
-    p8B4: "Gelecekteki tüm uygulamalar ve güncellemeler için %50 indirim",
+    p8B4: "Gelecekteki tüm uygulamalar ve güncellemeler için %30 indirim",
     p8PriceVal: "1800",
 
     p9Badge: "Donanım",
@@ -1426,6 +1484,9 @@ function changeLanguage(lang) {
   document.getElementById("navHome").innerText = data.navHome;
   document.getElementById("navAboutme").innerText = data.navAboutme;
   document.getElementById("navLiveFX").innerText = data.navLiveFX;
+  const navBuskitFeaturesEl = document.getElementById("navBuskitToolsFeatures");
+  if (navBuskitFeaturesEl)
+    navBuskitFeaturesEl.innerText = data.navBuskitFeatures;
   const navAppGalleryEl = document.getElementById("navAppGallery");
   if (navAppGalleryEl) navAppGalleryEl.innerText = data.navAppGallery;
   const navHowtoUseEl = document.getElementById("navHowtoUse");
@@ -1441,6 +1502,11 @@ function changeLanguage(lang) {
   document.getElementById("navHomeMobile").innerText = data.navHome;
   document.getElementById("navAboutmeMobile").innerText = data.navAboutme;
   document.getElementById("navLiveFXMobile").innerText = data.navLiveFX;
+  const navBuskitFeaturesMobileEl = document.getElementById(
+    "navBuskitToolsFeaturesMobile",
+  );
+  if (navBuskitFeaturesMobileEl)
+    navBuskitFeaturesMobileEl.innerText = data.navBuskitFeatures;
   const navAppGalleryMobileEl = document.getElementById("navAppGalleryMobile");
   if (navAppGalleryMobileEl)
     navAppGalleryMobileEl.innerText = data.navAppGallery;
@@ -1469,12 +1535,6 @@ function changeLanguage(lang) {
   const heroShopBtnEl = document.getElementById("heroShopBtn");
   if (heroShopBtnEl) heroShopBtnEl.innerText = data.heroShopBtn;
 
-  document.getElementById("heroDownloadBtnLiveFX").innerText =
-    data.heroDownloadBtnLiveFX;
-  document.getElementById("heroDownloadBtnLMT").innerText =
-    data.heroDownloadBtnLMT;
-  document.getElementById("heroDownloadBtnPro").innerText =
-    data.heroDownloadBtnLMTpro;
   const heroDownloadBtnToolsEl = document.getElementById(
     "heroDownloadBtnTools",
   );
@@ -1550,6 +1610,34 @@ function changeLanguage(lang) {
   //  document.getElementById("liveFXP6").innerText = data.liveFXP6;
   document.getElementById("liveFXP7").innerText = data.liveFXP7;
   document.getElementById("liveFXP8").innerText = data.liveFXP8;
+
+  // بخش امکانات BuskitTools (نسخه طلایی)
+  const buskitFeaturesTitleEl = document.getElementById("buskitFeaturesTitle");
+  if (buskitFeaturesTitleEl)
+    buskitFeaturesTitleEl.innerText = data.buskitFeaturesTitle;
+  const buskitFeaturesSubtitleEl = document.getElementById(
+    "buskitFeaturesSubtitle",
+  );
+  if (buskitFeaturesSubtitleEl)
+    buskitFeaturesSubtitleEl.innerText = data.buskitFeaturesSubtitle;
+  [
+    "buskitFeaturesItem1",
+    "buskitFeaturesItem2",
+    "buskitFeaturesItem3",
+    "buskitFeaturesItem4",
+    "buskitFeaturesItem5",
+    "buskitFeaturesItem6",
+    "buskitFeaturesItem7",
+  ].forEach((itemId) => {
+    const itemTextEl = document.querySelector(`#${itemId} span:last-child`);
+    if (itemTextEl && data[itemId]) itemTextEl.innerText = data[itemId];
+  });
+  const buskitFeaturesDescriptionEl = document.getElementById(
+    "buskitFeaturesDescription",
+  );
+  if (buskitFeaturesDescriptionEl)
+    buskitFeaturesDescriptionEl.innerText = data.buskitFeaturesDescription;
+
   const liveFXGalleryTitleEl = document.getElementById("liveFXGalleryTitle");
   if (liveFXGalleryTitleEl)
     liveFXGalleryTitleEl.innerText = data.liveFXGalleryTitle;
@@ -2596,8 +2684,8 @@ function trackAppDownload(appKey) {
 function downloadBuskitTools() {
   trackAppDownload("buskit-tools");
   const link = document.createElement("a");
-  link.href = "./downloads/BuskitTools_v2_6.apk";
-  link.download = "BuskitTools_v2_6.apk";
+  link.href = "./downloads/BuskitTools_v3_0.apk";
+  link.download = "BuskitTools_v3_0.apk";
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);

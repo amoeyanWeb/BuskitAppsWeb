@@ -295,6 +295,12 @@
                   >Buskit-Tools چیست</a
                 >
                 <a
+                  href="#BuskitFeatures"
+                  id="navBuskitToolsFeatures"
+                  class="block px-4 py-3 text-white hover:bg-white/15 hover:text-accentNeon transition-colors"
+                  >امکانات BuskitTools</a
+                >
+                <a
                   href="#AppGallery"
                   id="navAppGallery"
                   class="block px-4 py-3 text-white hover:bg-white/15 hover:text-accentNeon transition-colors"
@@ -520,6 +526,13 @@
               >Buskit-Tools چیست</a
             >
             <a
+              href="#BuskitFeatures"
+              id="navBuskitToolsFeaturesMobile"
+              onclick="closeMobileMenu()"
+              class="py-2.5 px-3 rounded-lg hover:bg-white/10 hover:text-accentNeon transition-colors text-slate-300"
+              >امکانات BuskitTools</a
+            >
+            <a
               href="#AppGallery"
               id="navAppGalleryMobile"
               onclick="closeMobileMenu()"
@@ -628,80 +641,6 @@
           
         </p>
         <div class="flex flex-col justify-center items-center gap-4">
-          <div
-            class="flex flex-col sm:flex-row justify-center items-center gap-4"
-          >
-            <div class="relative group w-full sm:w-64">
-              <button
-                id="heroDownloadBtnLiveFX"
-                onclick="openAppModal('livefx')"
-                class="w-full sm:w-64 h-16 px-4 py-2.5 bg-gradient-to-b from-[#d7a06e] to-[#8c5a2b] text-[#4a2a10] font-bold rounded-xl shadow-lg shadow-[#8c5a2b]/30 hover:scale-105 transition-all duration-300 text-center flex items-center justify-center leading-tight"
-              >
-                لایسنس برنز
-              </button>
-              <div
-                class="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-60 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
-              >
-                <ol
-                  class="tooltip-glass rounded-xl px-4 py-3 ps-8 text-xs sm:text-sm text-slate-100 leading-relaxed text-start shadow-xl list-decimal space-y-1"
-                >
-                  <li id="heroTipLiveFX1">7 افکت</li>
-                  <li id="heroTipLiveFX2">تیونر کروماتیک</li>
-                  <li id="heroTipLiveFX3">مترونوم فلکسیبل  </li>
-                  <li id="heroTipLiveFX4">بیش از 10 تنظیم پیش‌فرض</li>
-                </ol>
-              </div>
-            </div>
-            <div class="relative group w-full sm:w-64">
-              <button
-                id="heroDownloadBtnLMT"
-                onclick="openAppModal('lmt')"
-                class="w-full sm:w-64 h-16 px-4 py-2.5 bg-gradient-to-b from-[#f2f2f2] to-[#a8a8a8] text-[#3f3f3f] font-bold rounded-xl shadow-lg shadow-gray-400/30 hover:scale-105 transition-all duration-300 text-center flex items-center justify-center leading-tight"
-              >
-               لایسنس نقره ای
-              </button>
-
-              <div
-                class="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
-              >
-                <ol
-                  class="tooltip-glass rounded-xl px-4 py-3 ps-8 text-xs sm:text-sm text-slate-100 leading-relaxed text-start shadow-xl list-decimal space-y-1"
-                >
-                  <li id="heroTipLMT1">11 افکت</li>
-                  <li id="heroTipLMT2">تیونر کروماتیک</li>
-                  <li id="heroTipLMT3">مترونوم فلکسیبل</li>
-                  <li id="heroTipLMT4">بیش از 20 تنظیم پیش‌فرض</li>
-                  <li id="heroTipLMT5">امکان ضبط صدا</li>
-                  <li id="heroTipLMT6">امکان لود بکینگ ترک</li>
-                
-                </ol>
-              </div>
-            </div>
-            <div class="relative group w-full sm:w-64">
-              <button
-                id="heroDownloadBtnPro"
-                onclick="openAppModal('pro')"
-                class="w-full sm:w-64 h-16 px-4 py-2.5 bg-gradient-to-b from-[#ffe27a] to-[#c99a2e] text-[#7a4b00] font-bold rounded-xl shadow-lg shadow-[#c99a2e]/30 hover:scale-105 transition-all duration-300 text-center flex items-center justify-center leading-tight"
-              >
-لایسنس طلایی 
-              </button>
-              <div
-                class="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
-              >
-                <ol
-                  class="tooltip-glass rounded-xl px-4 py-3 ps-8 text-xs sm:text-sm text-slate-100 leading-relaxed text-start shadow-xl list-decimal space-y-1"
-                >
-                  <li id="heroTipPro1">15 افکت</li>
-                  <li id="heroTipPro2">بیش از 50 تنظیم پیش‌فرض</li>
-                  <li id="heroTipPro3">تیونر کروماتیک + میکروتونال</li>
-                  <li id="heroTipPro4">مترونوم فلکسیبل</li>
-                  <li id="heroTipPro5">امکان ضبط صدا</li>
-                  <li id="heroTipPro6">امکان لود بکینگ ترک</li>
-                  <li id="heroTipPro7">امکان تغییر سرعت بکینگ ترک </li>
-                </ol>
-              </div>
-            </div>
-          </div>
           <div class="relative group w-full sm:w-[34rem]">
             <button
               id="heroDownloadBtnTools"
@@ -1107,6 +1046,92 @@
           امکانات این اپلیکیشن در سه دسته تقسیم و در قالب سه نوع لایسنس طلایی، نقره ای و برنزی در اختیار علاقمندان قرار داده میشود که هر کسی با هر سلیقه و توانایی بتواند از مزایای آن بهره مند شود
           </p>        
         </div>       
+      </div>
+    </section>
+
+    <!-- امکانات BuskitTools (نسخه طلایی) -->
+    <section id="BuskitFeatures" class="py-24 px-6 relative">
+      <!-- پس‌زمینه مشکی نیمه شفاف -->
+      <div class="absolute inset-0 bg-black/60 z-0"></div>
+
+      <div class="max-w-6xl mx-auto relative z-10">
+        <div class="text-center mb-16">
+          <h2
+            id="buskitFeaturesTitle"
+            class="text-4xl font-bold text-white mt-[-80px] mb-4 drop-shadow-[0_4px_12px_rgba(0,0,0,1)]"
+          >
+            امکانات BuskitTools
+          </h2>
+          <p
+            id="buskitFeaturesSubtitle"
+            class="text-slate-300 max-w-2xl mx-auto text-lg drop-shadow-[0_3px_10px_rgba(0,0,0,1)]"
+          >
+            نسخه حرفه‌ای با امکانات کامل برای اجرا، ضبط و تمرین
+          </p>
+        </div>
+
+        <div
+          class="space-y-6 text-justify max-w-4xl mx-auto text-slate-200 leading-relaxed text-[17px]"
+        >
+          <ul
+            id="buskitFeaturesList"
+            class="grid sm:grid-cols-2 gap-3 mb-6"
+          >
+            <li
+              id="buskitFeaturesItem1"
+              class="bg-white/5 border border-white/10 rounded-2xl px-4 py-3 flex items-start gap-2 text-slate-100 text-sm"
+            >
+              <span class="text-accentNeon text-lg leading-none">●</span>
+              <span>مجهز به پانزده افکت پر کاربرد و معروف در دنیای موسیقی</span>
+            </li>
+            <li
+              id="buskitFeaturesItem2"
+              class="bg-white/5 border border-white/10 rounded-2xl px-4 py-3 flex items-start gap-2 text-slate-100 text-sm"
+            >
+              <span class="text-accentNeon text-lg leading-none">●</span>
+              <span>حاوی بیش از 60 تنظیم پیش‌فرض</span>
+            </li>
+            <li
+              id="buskitFeaturesItem3"
+              class="bg-white/5 border border-white/10 rounded-2xl px-4 py-3 flex items-start gap-2 text-slate-100 text-sm"
+            >
+              <span class="text-accentNeon text-lg leading-none">●</span>
+              <span>تیونر کروماتیک + میکروتونال برای کوک کردن یا تنظیم پرده های سازهای ایرانی یا ترکی با امکان تعیین میزان کوک</span>
+            </li>
+            <li
+              id="buskitFeaturesItem4"
+              class="bg-white/5 border border-white/10 rounded-2xl px-4 py-3 flex items-start gap-2 text-slate-100 text-sm"
+            >
+              <span class="text-accentNeon text-lg leading-none">●</span>
+              <span>مترونوم فلکسیبل با قابلیت اجرای هرگونه ریتم لنگ و هر قالب و فیگور ریتمیک</span>
+            </li>
+            <li
+              id="buskitFeaturesItem5"
+              class="bg-white/5 border border-white/10 rounded-2xl px-4 py-3 flex items-start gap-2 text-slate-100 text-sm"
+            >
+              <span class="text-accentNeon text-lg leading-none">●</span>
+              <span>امکان لود بکینگ ترک</span>
+            </li>
+            <li
+              id="buskitFeaturesItem6"
+              class="bg-white/5 border border-white/10 rounded-2xl px-4 py-3 flex items-start gap-2 text-slate-100 text-sm"
+            >
+              <span class="text-accentNeon text-lg leading-none">●</span>
+              <span>امکان ضبط صدای میکس شده بکینگ ترک و صدای ساز داخل حافظه تلفن همراه با فرمت WAVE</span>
+            </li>
+            <li
+              id="buskitFeaturesItem7"
+              class="bg-white/5 border border-white/10 rounded-2xl px-4 py-3 flex items-start gap-2 text-slate-100 text-sm"
+            >
+              <span class="text-accentNeon text-lg leading-none">●</span>
+              <span>امکان تغییر سرعت بکینگ ترک بدون تغییر فرکانس</span>
+            </li>
+          </ul>
+
+          <p id="buskitFeaturesDescription" class="drop-shadow-[0_3px_10px_rgba(0,0,0,1)]">
+            امکانات این اپلیکیشن، آنرا در جایگاهی فراتر از یک افکت باکس یا پدال بورد سخت افزاری قرار داده است امکان لود بکینگ ترک با قابلیت تغییر سرعت بدون تغییر فرکانس آن برای تمرین همنوازی همچنین وجود یک مترونوم با قابلیت منحصر به فرد ایجاد کلیه فیگورهای ریتمیک مورد نظر از یک طرف و امکان ضبط صدای ورودی به همراه بکینگ ترک با فرمت wave در حافظه گوشی آنرا به رویای هر نوازنده تبدیل کرده است که بدون نیاز به تجهیزات گرانقیمت و سنگین و حجیم بتوان در همه جا و همه زمان از ساز خود صدایی رویایی به گوش مخاطبان رسانید. تیونر کروماتیک میکروتونال آن نیز از نقاط قوت این نسخه از اپلیکیشن میباشد که امکان تعیین میزان انحراف از نوت اصلی را نیز به کاربر میدهد. وجود بیش از 40 پریست برای استفاده در شرایط مختلف و سازهای مختلف تسهیلی دیگر در اجراهای نوازندگان میباشد.
+          </p>
+        </div>
       </div>
     </section>
 
@@ -1736,559 +1761,6 @@
             </div>
           </div>
 
-  <!-- 4 یک ماهه لایو اف ایکس -->
-          <div
-            class="bg-darkCard rounded-lg sm:rounded-2xl p-3 sm:p-4 lg:p-5 border sm:border-2 border-accentNeon/40 relative shadow-lg sm:shadow-2xl flex flex-col justify-between glow-effect transition-all duration-300"
-          >
-            <div
-              class="absolute -top-2 sm:-top-4 left-1/2 -translate-x-1/2 bg-accentNeon text-darkBg text-[10px] sm:text-xs font-bold px-2 py-0.5 sm:px-3 sm:py-1 rounded-full uppercase tracking-wider whitespace-nowrap text-center"
-              id="p4Badge"
-            >
-             LiveFX لایسنس یک ماهه
-            </div>
-            <div>
-              <span
-                class="text-slate-400 text-[11px] sm:text-sm mb-1 sm:mb-3 leading-relaxed block"
-                id="p4Desc"
-              >نام محصول :</span>
-              <h4 class="text-sm sm:text-lg font-bold text-white mb-1 sm:mb-3 line-clamp-2" id="p4Title">
-                Buskit-LiveFX application
-              </h4>
-                      <div class="bg-blue-900 rounded-lg sm:rounded-3xl">
-                <img src="./tools.png" class="w-full h-auto mx-auto mb-1 sm:mb-4">
-              </div>
-              <ul
-                class="space-y-1 sm:space-y-2 text-[10px] sm:text-xs text-slate-300 mb-2 sm:mb-5"
-                id="p4BulletList"
-              >
-                <li class="flex items-start sm:items-center gap-1 sm:gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 sm:w-4 sm:h-4 text-accentNeon shrink-0 mt-0.5 sm:mt-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                  <span id="p4B1">این لایسنس تنها یک ماه از تاریخ اولین فعال‌سازی معتبر خواهد بود</span>
-                </li>
-                <li class="flex items-start sm:items-center gap-1 sm:gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 sm:w-4 sm:h-4 text-accentNeon shrink-0 mt-0.5 sm:mt-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                  <span id="p4B2">کلیه افکت‌ها و امکانات اپلیکیشن فعال است</span>
-                </li>
-                <li class="flex items-start sm:items-center gap-1 sm:gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 sm:w-4 sm:h-4 text-accentNeon shrink-0 mt-0.5 sm:mt-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                  <span id="p4B3">پشتیبانی فنی و آپدیت یک‌ماهه</span>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <div
-                class="border border-indigo-600 rounded-md sm:rounded-xl px-2 py-2 sm:px-4 sm:py-4 mb-2 sm:mb-6 flex justify-between items-baseline flex-wrap gap-0.5"
-              >
-                <span class="text-slate-400 text-[10px] sm:text-sm" id="p4PriceLabel"
-                  >قیمت لایسنس:</span
-                >
-                <div>
-                  <span
-                    class="text-base sm:text-xl font-extrabold text-white"
-                    id="p4PriceVal"
-                    >${prices.BZ.M1}</span
-                  >
-                  <span class="text-[10px] sm:text-xs text-slate-400 mr-1" id="p4Currency"
-                    >لیر</span
-                  >
-                  <div class="text-[9px] sm:text-[11px] text-slate-500 mt-1" id="p4RialVal"></div>
-                </div>
-              </div>
-              <button
-                id="p4Btn"
-                onclick="triggerModalPurchase('p4')"
-                class="w-full py-2.5 sm:py-3.5 bg-gradient-to-r from-accentBlue to-indigo-600 hover:from-indigo-600 hover:to-accentBlue text-white font-bold rounded-md sm:rounded-xl shadow-lg transition-all duration-300 text-center text-xs sm:text-sm"
-              >
-                خرید
-              </button>
-            </div>
-          </div>
-
-  <!-- 3 یک ساله لایو اف ایکس -->
-          <div
-            class="bg-darkCard rounded-lg sm:rounded-2xl p-3 sm:p-4 lg:p-5 border sm:border-2 border-accentNeon/40 relative shadow-lg sm:shadow-2xl flex flex-col justify-between glow-effect transition-all duration-300"
-          >
-            <div
-              class="absolute -top-2 sm:-top-4 left-1/2 -translate-x-1/2 bg-accentNeon text-darkBg text-[10px] sm:text-xs font-bold px-2 py-0.5 sm:px-3 sm:py-1 rounded-full uppercase tracking-wider whitespace-nowrap text-center"
-              id="p3Badge"
-            >
-             LiveFX لایسنس یک ساله
-            </div>
-            <div>
-              <span
-                class="text-slate-400 text-[11px] sm:text-sm mb-1 sm:mb-3 leading-relaxed block"
-                id="p3Desc"
-              >نام محصول :</span>
-              <h4 class="text-sm sm:text-lg font-bold text-white mb-1 sm:mb-3 line-clamp-2" id="p3Title">
-                Buskit-LiveFX application
-              </h4>
-                         <div class="bg-blue-900 rounded-lg sm:rounded-3xl">
-                <img src="./tools.png" class="w-full h-auto mx-auto mb-1 sm:mb-4">
-              </div>
-              <ul
-                class="space-y-1 sm:space-y-2 text-[10px] sm:text-xs text-slate-300 mb-2 sm:mb-5"
-                id="p3BulletList"
-              >
-                <li class="flex items-start sm:items-center gap-1 sm:gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 sm:w-4 sm:h-4 text-accentNeon shrink-0 mt-0.5 sm:mt-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                  <span id="p3B1">این لایسنس تنها یک سال از زمان اولین فعال‌سازی معتبر خواهد بود</span>
-                </li>
-                <li class="flex items-start sm:items-center gap-1 sm:gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 sm:w-4 sm:h-4 text-accentNeon shrink-0 mt-0.5 sm:mt-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                  <span id="p3B2">کلیه افکت‌ها و امکانات اپلیکیشن فعال است</span>
-                </li>
-                <li class="flex items-start sm:items-center gap-1 sm:gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 sm:w-4 sm:h-4 text-accentNeon shrink-0 mt-0.5 sm:mt-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                  <span id="p3B3">پشتیبانی فنی و آپدیت یک‌ساله</span>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <div
-                class="border border-indigo-600 rounded-md sm:rounded-xl px-2 py-2 sm:px-4 sm:py-4 mb-2 sm:mb-6 flex justify-between items-baseline flex-wrap gap-0.5"
-              >
-                <span class="text-slate-400 text-[10px] sm:text-sm" id="p3PriceLabel"
-                  >قیمت لایسنس:</span
-                >
-                <div>
-                  <span
-                    class="text-base sm:text-xl font-extrabold text-white"
-                    id="p3PriceVal"
-                    >${prices.BZ.Y1}</span
-                  >
-                  <span class="text-[10px] sm:text-xs text-slate-400 mr-1" id="p3Currency"
-                    >لیر</span
-                  >
-                  <div class="text-[9px] sm:text-[11px] text-slate-500 mt-1" id="p3RialVal"></div>
-                </div>
-              </div>
-              <button
-                id="p3Btn"
-                onclick="triggerModalPurchase('p3')"
-                class="w-full py-2.5 sm:py-3.5 bg-gradient-to-r from-accentBlue to-indigo-600 hover:from-indigo-600 hover:to-accentBlue text-white font-bold rounded-md sm:rounded-xl shadow-lg transition-all duration-300 text-center text-xs sm:text-sm"
-              >
-                خرید
-              </button>
-            </div>
-          </div>
-
-          <!-- 1 دائمی لایو اف ایکس-->
-          <div
-            class="bg-darkCard rounded-lg sm:rounded-2xl p-3 sm:p-4 lg:p-5 border sm:border-2 border-accentNeon/40 relative shadow-lg sm:shadow-2xl flex flex-col justify-between glow-effect transition-all duration-300"
-          >
-         
-            <div
-              class="absolute -top-2 sm:-top-4 left-1/2 -translate-x-1/2 bg-accentNeon text-darkBg text-[10px] sm:text-xs font-bold px-2 py-0.5 sm:px-3 sm:py-1 rounded-full uppercase tracking-wider whitespace-nowrap text-center"
-              id="p1Badge"
-            >
-            LiveFX  لایسنس دائمی
-            </div>
-            <div>
-              <span
-                class="text-slate-400 text-[11px] sm:text-sm mb-1 sm:mb-3 leading-relaxed block"
-                id="p1Desc"
-              >نام محصول :</span>
-              <h4 class="text-sm sm:text-lg font-bold text-white mb-1 sm:mb-3 line-clamp-2" id="p1Title">
-                Buskit-LiveFX application
-              </h4>
-              <div class="bg-blue-900 rounded-lg sm:rounded-3xl">
-                <img src="./tools.png" class="w-full h-auto mx-auto mb-1 sm:mb-4">
-              </div>
-              <ul
-                class="space-y-1 sm:space-y-2 text-[10px] sm:text-xs text-slate-300 mb-2 sm:mb-5"
-                id="p1BulletList"
-              >
-                <li class="flex items-start sm:items-center gap-1 sm:gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 sm:w-4 sm:h-4 text-accentNeon shrink-0 mt-0.5 sm:mt-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                  <span id="p1B1">این لایسنس مادام‌العمر فعال است</span>
-                </li>
-                <li class="flex items-start sm:items-center gap-1 sm:gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 sm:w-4 sm:h-4 text-accentNeon shrink-0 mt-0.5 sm:mt-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                  <span id="p1B2">کلیه افکت‌ها و امکانات اپلیکیشن فعال است</span>
-                </li>
-                <li class="flex items-start sm:items-center gap-1 sm:gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 sm:w-4 sm:h-4 text-accentNeon shrink-0 mt-0.5 sm:mt-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                  <span id="p1B3">پشتیبانی فنی و آپدیت مادام‌العمر</span>
-                </li>
-              
-              </ul>
-            </div>
-            <div>
-              <div
-                class="border border-indigo-600 rounded-md sm:rounded-xl px-2 py-2 sm:px-4 sm:py-4 mb-2 sm:mb-6 flex justify-between items-baseline flex-wrap gap-0.5"
-              >
-                <span class="text-slate-400 text-[10px] sm:text-sm" id="p1PriceLabel"
-                  >قیمت لایسنس:</span
-                >
-                <div>
-                  <span
-                    class="text-base sm:text-xl font-extrabold text-white"
-                    id="p1PriceVal"
-                    >${prices.BZ.LT}</span
-                  >
-                  <span class="text-[10px] sm:text-xs text-slate-400 mr-1" id="p1Currency"
-                    >لیر</span
-                  >
-                  <div class="text-[9px] sm:text-[11px] text-slate-500 mt-1" id="p1RialVal"></div>
-                </div>
-              </div>
-              <button
-                id="p1Btn"
-                onclick="triggerModalPurchase('p1')"
-                class="w-full py-2.5 sm:py-3.5 bg-gradient-to-r from-accentBlue to-indigo-600 hover:from-indigo-600 hover:to-accentBlue text-white font-bold rounded-md sm:rounded-xl shadow-lg transition-all duration-300 text-center text-xs sm:text-sm"
-              >
-                خرید
-              </button>
-            </div>
-          </div>
-
-
-
-  <!--2 یک ماهه LMT -->
-          <div
-            class="bg-darkCard rounded-lg sm:rounded-2xl p-3 sm:p-4 lg:p-5 border sm:border-2 border-accentNeon/40 relative shadow-lg sm:shadow-2xl flex flex-col justify-between glow-effect transition-all duration-300"
-          >
-            <div
-              class="absolute -top-2 sm:-top-4 left-1/2 -translate-x-1/2 bg-accentNeon text-darkBg text-[10px] sm:text-xs font-bold px-2 py-0.5 sm:px-3 sm:py-1 rounded-full uppercase tracking-wider whitespace-nowrap text-center"
-              id="p2Badge"
-            >
-             live music tools لایسنس یک ماهه
-            </div>
-            <div>
-              <span
-                class="text-slate-400 text-[11px] sm:text-sm mb-1 sm:mb-3 leading-relaxed block"
-                id="p2Desc"
-              >نام محصول :</span>
-              <h4 class="text-sm sm:text-lg font-bold text-white mb-1 sm:mb-3 line-clamp-2" id="p2Title">
-                Live Music Tools application
-              </h4>
-                      <div class="bg-blue-900 rounded-lg sm:rounded-3xl">
-                <img src="./tools.png" class="w-full h-auto mx-auto mb-1 sm:mb-4">
-              </div>
-              <ul
-                class="space-y-1 sm:space-y-2 text-[10px] sm:text-xs text-slate-300 mb-2 sm:mb-5"
-                id="p2BulletList"
-              >
-                <li class="flex items-start sm:items-center gap-1 sm:gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 sm:w-4 sm:h-4 text-accentNeon shrink-0 mt-0.5 sm:mt-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                  <span id="p2B1">این لایسنس تنها یک ماه از تاریخ اولین فعال‌سازی معتبر خواهد بود</span>
-                </li>
-                <li class="flex items-start sm:items-center gap-1 sm:gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 sm:w-4 sm:h-4 text-accentNeon shrink-0 mt-0.5 sm:mt-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                  <span id="p2B2">کلیه افکت‌ها و امکانات اپلیکیشن فعال است</span>
-                </li>
-                <li class="flex items-start sm:items-center gap-1 sm:gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 sm:w-4 sm:h-4 text-accentNeon shrink-0 mt-0.5 sm:mt-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                  <span id="p2B3">پشتیبانی فنی و آپدیت یک‌ماهه</span>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <div
-                class="border border-indigo-600 rounded-md sm:rounded-xl px-2 py-2 sm:px-4 sm:py-4 mb-2 sm:mb-6 flex justify-between items-baseline flex-wrap gap-0.5"
-              >
-                <span class="text-slate-400 text-[10px] sm:text-sm" id="p2PriceLabel"
-                  >قیمت لایسنس:</span
-                >
-                <div>
-                  <span
-                    class="text-base sm:text-xl font-extrabold text-white"
-                    id="p2PriceVal"
-                    >${prices.SV.M1}</span
-                  >
-                  <span class="text-[10px] sm:text-xs text-slate-400 mr-1" id="p2Currency"
-                    >لیر</span
-                  >
-                  <div class="text-[9px] sm:text-[11px] text-slate-500 mt-1" id="p2RialVal"></div>
-                </div>
-              </div>
-              <button
-                id="p2Btn"
-                onclick="triggerModalPurchase('p2')"
-                class="w-full py-2.5 sm:py-3.5 bg-gradient-to-r from-accentBlue to-indigo-600 hover:from-indigo-600 hover:to-accentBlue text-white font-bold rounded-md sm:rounded-xl shadow-lg transition-all duration-300 text-center text-xs sm:text-sm"
-              >
-                خرید
-              </button>
-            </div>
-          </div>
-
-  <!-- 6 یک ساله LMT -->
-          <div
-            class="bg-darkCard rounded-lg sm:rounded-2xl p-3 sm:p-4 lg:p-5 border sm:border-2 border-accentNeon/40 relative shadow-lg sm:shadow-2xl flex flex-col justify-between glow-effect transition-all duration-300"
-          >
-            <div
-              class="absolute -top-2 sm:-top-4 left-1/2 -translate-x-1/2 bg-accentNeon text-darkBg text-[10px] sm:text-xs font-bold px-2 py-0.5 sm:px-3 sm:py-1 rounded-full uppercase tracking-wider whitespace-nowrap text-center"
-              id="p6Badge"
-            >
-             Live music tools لایسنس یک ساله
-            </div>
-            <div>
-              <span
-                class="text-slate-400 text-[11px] sm:text-sm mb-1 sm:mb-3 leading-relaxed block"
-                id="p6Desc"
-              >نام محصول :</span>
-              <h4 class="text-sm sm:text-lg font-bold text-white mb-1 sm:mb-3 line-clamp-2" id="p6Title">
-                Live Music Tools application
-              </h4>
-                         <div class="bg-blue-900 rounded-lg sm:rounded-3xl">
-                <img src="./tools.png" class="w-full h-auto mx-auto mb-1 sm:mb-4">
-              </div>
-              <ul
-                class="space-y-1 sm:space-y-2 text-[10px] sm:text-xs text-slate-300 mb-2 sm:mb-5"
-                id="p6BulletList"
-              >
-                <li class="flex items-start sm:items-center gap-1 sm:gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 sm:w-4 sm:h-4 text-accentNeon shrink-0 mt-0.5 sm:mt-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                  <span id="p6B1">این لایسنس تنها یک سال از زمان اولین فعال‌سازی معتبر خواهد بود</span>
-                </li>
-                <li class="flex items-start sm:items-center gap-1 sm:gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 sm:w-4 sm:h-4 text-accentNeon shrink-0 mt-0.5 sm:mt-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                  <span id="p6B2">کلیه افکت‌ها و امکانات اپلیکیشن فعال است</span>
-                </li>
-                <li class="flex items-start sm:items-center gap-1 sm:gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 sm:w-4 sm:h-4 text-accentNeon shrink-0 mt-0.5 sm:mt-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                  <span id="p6B3">پشتیبانی فنی و آپدیت یک‌ساله</span>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <div
-                class="border border-indigo-600 rounded-md sm:rounded-xl px-2 py-2 sm:px-4 sm:py-4 mb-2 sm:mb-6 flex justify-between items-baseline flex-wrap gap-0.5"
-              >
-                <span class="text-slate-400 text-[10px] sm:text-sm" id="p6PriceLabel"
-                  >قیمت لایسنس:</span
-                >
-                <div>
-                  <span
-                    class="text-base sm:text-xl font-extrabold text-white"
-                    id="p6PriceVal"
-                    >${prices.SV.Y1}</span
-                  >
-                  <span class="text-[10px] sm:text-xs text-slate-400 mr-1" id="p6Currency"
-                    >لیر</span
-                  >
-                  <div class="text-[9px] sm:text-[11px] text-slate-500 mt-1" id="p6RialVal"></div>
-                </div>
-              </div>
-              <button
-                id="p6Btn"
-                onclick="triggerModalPurchase('p6')"
-                class="w-full py-2.5 sm:py-3.5 bg-gradient-to-r from-accentBlue to-indigo-600 hover:from-indigo-600 hover:to-accentBlue text-white font-bold rounded-md sm:rounded-xl shadow-lg transition-all duration-300 text-center text-xs sm:text-sm"
-              >
-                خرید
-              </button>
-            </div>
-          </div>
-
-          <!--10  دائمی LMT-->
-          <div
-            class="bg-darkCard rounded-lg sm:rounded-2xl p-3 sm:p-4 lg:p-5 border sm:border-2 border-accentNeon/40 relative shadow-lg sm:shadow-2xl flex flex-col justify-between glow-effect transition-all duration-300"
-          >
-         
-            <div
-              class="absolute -top-2 sm:-top-4 left-1/2 -translate-x-1/2 bg-accentNeon text-darkBg text-[10px] sm:text-xs font-bold px-2 py-0.5 sm:px-3 sm:py-1 rounded-full uppercase tracking-wider whitespace-nowrap text-center"
-              id="p10Badge"
-            >
-            Live Music Tools  لایسنس دائمی
-            </div>
-            <div>
-              <span
-                class="text-slate-400 text-[11px] sm:text-sm mb-1 sm:mb-3 leading-relaxed block"
-                id="p10Desc"
-              >نام محصول :</span>
-              <h4 class="text-sm sm:text-lg font-bold text-white mb-1 sm:mb-3 line-clamp-2" id="p10Title">
-                Live Music Tools application
-              </h4>
-              <div class="bg-blue-900 rounded-lg sm:rounded-3xl">
-                <img src="./tools.png" class="w-full h-auto mx-auto mb-1 sm:mb-4">
-              </div>
-              <ul
-                class="space-y-1 sm:space-y-2 text-[10px] sm:text-xs text-slate-300 mb-2 sm:mb-5"
-                id="p10BulletList"
-              >
-                <li class="flex items-start sm:items-center gap-1 sm:gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 sm:w-4 sm:h-4 text-accentNeon shrink-0 mt-0.5 sm:mt-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                  <span id="p10B1">این لایسنس مادام‌العمر فعال است</span>
-                </li>
-                <li class="flex items-start sm:items-center gap-1 sm:gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 sm:w-4 sm:h-4 text-accentNeon shrink-0 mt-0.5 sm:mt-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                  <span id="p10B2">کلیه افکت‌ها و امکانات اپلیکیشن فعال است</span>
-                </li>
-                <li class="flex items-start sm:items-center gap-1 sm:gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 sm:w-4 sm:h-4 text-accentNeon shrink-0 mt-0.5 sm:mt-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                  <span id="p10B3">پشتیبانی فنی و آپدیت مادام‌العمر</span>
-                </li>
-                
-              </ul>
-            </div>
-            <div>
-              <div
-                class="border border-indigo-600 rounded-md sm:rounded-xl px-2 py-2 sm:px-4 sm:py-4 mb-2 sm:mb-6 flex justify-between items-baseline flex-wrap gap-0.5"
-              >
-                <span class="text-slate-400 text-[10px] sm:text-sm" id="p10PriceLabel"
-                  >قیمت لایسنس:</span
-                >
-                <div>
-                  <span
-                    class="text-base sm:text-xl font-extrabold text-white"
-                    id="p10PriceVal"
-                    >${prices.SV.LT}</span
-                  >
-                  <span class="text-[10px] sm:text-xs text-slate-400 mr-1" id="p10Currency"
-                    >لیر</span
-                  >
-                  <div class="text-[9px] sm:text-[11px] text-slate-500 mt-1" id="p10RialVal"></div>
-                </div>
-              </div>
-              <button
-                id="p10Btn"
-                onclick="triggerModalPurchase('p10')"
-                class="w-full py-2.5 sm:py-3.5 bg-gradient-to-r from-accentBlue to-indigo-600 hover:from-indigo-600 hover:to-accentBlue text-white font-bold rounded-md sm:rounded-xl shadow-lg transition-all duration-300 text-center text-xs sm:text-sm"
-              >
-                خرید
-              </button>
-            </div>
-          </div>
-
-
-
-
-  <!--15 یک ماهه Pro -->
-          <div
-            class="bg-darkCard rounded-lg sm:rounded-2xl p-3 sm:p-4 lg:p-5 border sm:border-2 border-accentNeon/40 relative shadow-lg sm:shadow-2xl flex flex-col justify-between glow-effect transition-all duration-300"
-          >
-            <div
-              class="absolute -top-2 sm:-top-4 left-1/2 -translate-x-1/2 bg-accentNeon text-darkBg text-[10px] sm:text-xs font-bold px-2 py-0.5 sm:px-3 sm:py-1 rounded-full uppercase tracking-wider whitespace-nowrap text-center"
-              id="p16Badge"
-            >
-             Live Music Tools(PRO) لایسنس یک ماهه
-            </div>
-            <div>
-              <span
-                class="text-slate-400 text-[11px] sm:text-sm mb-1 sm:mb-3 leading-relaxed block"
-                id="p16Desc"
-              >نام محصول :</span>
-              <h4 class="text-sm sm:text-lg font-bold text-white mb-1 sm:mb-3 line-clamp-2" id="p16Title">
-                Live Music Tools(PRO) application
-              </h4>
-                      <div class="bg-blue-900 rounded-lg sm:rounded-3xl">
-                <img src="./tools.png" class="w-full h-auto mx-auto mb-1 sm:mb-4">
-              </div>
-              <ul
-                class="space-y-1 sm:space-y-2 text-[10px] sm:text-xs text-slate-300 mb-2 sm:mb-5"
-                id="p16BulletList"
-              >
-                <li class="flex items-start sm:items-center gap-1 sm:gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 sm:w-4 sm:h-4 text-accentNeon shrink-0 mt-0.5 sm:mt-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                  <span id="p16B1">این لایسنس تنها یک ماه از تاریخ اولین فعال‌سازی معتبر خواهد بود</span>
-                </li>
-                <li class="flex items-start sm:items-center gap-1 sm:gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 sm:w-4 sm:h-4 text-accentNeon shrink-0 mt-0.5 sm:mt-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                  <span id="p16B2">کلیه افکت‌ها و امکانات اپلیکیشن فعال است</span>
-                </li>
-                <li class="flex items-start sm:items-center gap-1 sm:gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 sm:w-4 sm:h-4 text-accentNeon shrink-0 mt-0.5 sm:mt-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                  <span id="p16B3">پشتیبانی فنی و آپدیت یک‌ماهه</span>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <div
-                class="border border-indigo-600 rounded-md sm:rounded-xl px-2 py-2 sm:px-4 sm:py-4 mb-2 sm:mb-6 flex justify-between items-baseline flex-wrap gap-0.5"
-              >
-                <span class="text-slate-400 text-[10px] sm:text-sm" id="p16PriceLabel"
-                  >قیمت لایسنس:</span
-                >
-                <div>
-                  <span
-                    class="text-base sm:text-xl font-extrabold text-white"
-                    id="p16PriceVal"
-                    >${prices.GL.M1}</span
-                  >
-                  <span class="text-[10px] sm:text-xs text-slate-400 mr-1" id="p16Currency"
-                    >لیر</span
-                  >
-                  <div class="text-[9px] sm:text-[11px] text-slate-500 mt-1" id="p16RialVal"></div>
-                </div>
-              </div>
-              <button
-                id="p16Btn"
-                onclick="triggerModalPurchase('p16')"
-                class="w-full py-2.5 sm:py-3.5 bg-gradient-to-r from-accentBlue to-indigo-600 hover:from-indigo-600 hover:to-accentBlue text-white font-bold rounded-md sm:rounded-xl shadow-lg transition-all duration-300 text-center text-xs sm:text-sm"
-              >
-                خرید
-              </button>
-            </div>
-          </div>
-
-  <!--7 یک ساله pro -->
-          <div
-            class="bg-darkCard rounded-lg sm:rounded-2xl p-3 sm:p-4 lg:p-5 border sm:border-2 border-accentNeon/40 relative shadow-lg sm:shadow-2xl flex flex-col justify-between glow-effect transition-all duration-300"
-          >
-            <div
-              class="absolute -top-2 sm:-top-4 left-1/2 -translate-x-1/2 bg-accentNeon text-darkBg text-[10px] sm:text-xs font-bold px-2 py-0.5 sm:px-3 sm:py-1 rounded-full uppercase tracking-wider whitespace-nowrap text-center"
-              id="p7Badge"
-            >
-             Live Music Tools(PO) لایسنس یک ساله
-            </div>
-            <div>
-              <span
-                class="text-slate-400 text-[11px] sm:text-sm mb-1 sm:mb-3 leading-relaxed block"
-                id="p7Desc"
-              >نام محصول :</span>
-              <h4 class="text-sm sm:text-lg font-bold text-white mb-1 sm:mb-3 line-clamp-2" id="p7Title">
-                Live Music Tools(PRO) application
-              </h4>
-                         <div class="bg-blue-900 rounded-lg sm:rounded-3xl">
-                <img src="./tools.png" class="w-full h-auto mx-auto mb-1 sm:mb-4">
-              </div>
-              <ul
-                class="space-y-1 sm:space-y-2 text-[10px] sm:text-xs text-slate-300 mb-2 sm:mb-5"
-                id="p7BulletList"
-              >
-                <li class="flex items-start sm:items-center gap-1 sm:gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 sm:w-4 sm:h-4 text-accentNeon shrink-0 mt-0.5 sm:mt-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                  <span id="p7B1">این لایسنس تنها یک سال از زمان اولین فعال‌سازی معتبر خواهد بود</span>
-                </li>
-                <li class="flex items-start sm:items-center gap-1 sm:gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 sm:w-4 sm:h-4 text-accentNeon shrink-0 mt-0.5 sm:mt-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                  <span id="p7B2">کلیه افکت‌ها و امکانات اپلیکیشن فعال است</span>
-                </li>
-                <li class="flex items-start sm:items-center gap-1 sm:gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 sm:w-4 sm:h-4 text-accentNeon shrink-0 mt-0.5 sm:mt-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                  <span id="p7B3">پشتیبانی فنی و آپدیت یک‌ساله</span>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <div
-                class="border border-indigo-600 rounded-md sm:rounded-xl px-2 py-2 sm:px-4 sm:py-4 mb-2 sm:mb-6 flex justify-between items-baseline flex-wrap gap-0.5"
-              >
-                <span class="text-slate-400 text-[10px] sm:text-sm" id="p7PriceLabel"
-                  >قیمت لایسنس:</span
-                >
-                <div>
-                  <span
-                    class="text-base sm:text-xl font-extrabold text-white"
-                    id="p7PriceVal"
-                    >${prices.GL.Y1}</span
-                  >
-                  <span class="text-[10px] sm:text-xs text-slate-400 mr-1" id="p7Currency"
-                    >لیر</span
-                  >
-                  <div class="text-[9px] sm:text-[11px] text-slate-500 mt-1" id="p7RialVal"></div>
-                </div>
-              </div>
-              <button
-                id="p7Btn"
-                onclick="triggerModalPurchase('p7')"
-                class="w-full py-2.5 sm:py-3.5 bg-gradient-to-r from-accentBlue to-indigo-600 hover:from-indigo-600 hover:to-accentBlue text-white font-bold rounded-md sm:rounded-xl shadow-lg transition-all duration-300 text-center text-xs sm:text-sm"
-              >
-                خرید
-              </button>
-            </div>
-          </div>
-
           <!-- 8 دائمی pro-->
           <div
             class="bg-darkCard rounded-lg sm:rounded-2xl p-3 sm:p-4 lg:p-5 border sm:border-2 border-accentNeon/40 relative shadow-lg sm:shadow-2xl flex flex-col justify-between glow-effect transition-all duration-300"
@@ -2298,7 +1770,7 @@
               class="absolute -top-2 sm:-top-4 left-1/2 -translate-x-1/2 bg-accentNeon text-darkBg text-[10px] sm:text-xs font-bold px-2 py-0.5 sm:px-3 sm:py-1 rounded-full uppercase tracking-wider whitespace-nowrap text-center"
               id="p8Badge"
             >
-            Live music toold(PRO)  لایسنس دائمی
+            BuskitTools  لایسنس دائمی
             </div>
             <div>
               <span
@@ -2306,7 +1778,7 @@
                 id="p8Desc"
               >نام محصول :</span>
               <h4 class="text-sm sm:text-lg font-bold text-white mb-1 sm:mb-3 line-clamp-2" id="p8Title">
-                Live Music Tools(PRP) application
+                Buskit Tools application
               </h4>
               <div class="bg-blue-900 rounded-lg sm:rounded-3xl">
                 <img src="./tools.png" class="w-full h-auto mx-auto mb-1 sm:mb-4">
@@ -2329,7 +1801,7 @@
                 </li>
                 <li class="flex items-start sm:items-center gap-1 sm:gap-2">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3 h-3 sm:w-4 sm:h-4 text-accentNeon shrink-0 mt-0.5 sm:mt-0"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
-                  <span id="p8B4">در کلیه محصولات نرم‌افزاری بعدی مشمول ۵۰٪ تخفیف خواهید بود</span>
+                  <span id="p8B4">در کلیه محصولات نرم‌افزاری بعدی مشمول 30٪ تخفیف خواهید بود</span>
                 </li>
               </ul>
             </div>
@@ -3096,88 +2568,8 @@
           ></div>
           <!-- Product Selection Checkboxes -->
           <div class="space-y-2 mb-6" id="purchaseItemsWrapper">
-            <!-- ردیف ۱: لایسنس‌های LiveFX -->
+            <!-- ردیف ۱: لایسنس طلایی (دائم) -->
             <div class="flex flex-wrap gap-2">
-              <label class="purchase-item-label">
-                <input type="checkbox" id="chk_p4" onchange="recalcPurchaseTotals()" class="w-4 h-4 accent-accentNeon shrink-0" />
-                <span class="flex-1" id="chk_p4_name">لایسنس برنز - یک ماهه </span>
-                <span class="text-accentNeon font-bold text-xs whitespace-nowrap" id="chk_p4_price">100 لیر</span>
-                <span class="purchase-item-discount-toggle hidden inline-flex items-center gap-1 text-[10px] text-emerald-400 whitespace-nowrap" data-pid="p4" onclick="event.stopPropagation()">
-                  <input type="checkbox" id="chk_p4_discount" checked class="w-3 h-3 accent-emerald-400" onchange="this.dataset.touched='1'; event.stopPropagation(); recalcPurchaseTotals()" />
-                  تخفیف
-                </span>
-              </label>
-              <label class="purchase-item-label">
-                <input type="checkbox" id="chk_p3" onchange="recalcPurchaseTotals()" class="w-4 h-4 accent-accentNeon shrink-0" />
-                <span class="flex-1" id="chk_p3_name">لایسنس برنز - یک ساله </span>
-                <span class="text-accentNeon font-bold text-xs whitespace-nowrap" id="chk_p3_price">600 لیر</span>
-                <span class="purchase-item-discount-toggle hidden inline-flex items-center gap-1 text-[10px] text-emerald-400 whitespace-nowrap" data-pid="p3" onclick="event.stopPropagation()">
-                  <input type="checkbox" id="chk_p3_discount" checked class="w-3 h-3 accent-emerald-400" onchange="this.dataset.touched='1'; event.stopPropagation(); recalcPurchaseTotals()" />
-                  تخفیف
-                </span>
-              </label>
-              <label class="purchase-item-label">
-                <input type="checkbox" id="chk_p1" onchange="recalcPurchaseTotals()" class="w-4 h-4 accent-accentNeon shrink-0" />
-                <span class="flex-1" id="chk_p1_name">لایسنس برنز - دائم </span>
-                <span class="text-accentNeon font-bold text-xs whitespace-nowrap" id="chk_p1_price">900 لیر</span>
-                <span class="purchase-item-discount-toggle hidden inline-flex items-center gap-1 text-[10px] text-emerald-400 whitespace-nowrap" data-pid="p1" onclick="event.stopPropagation()">
-                  <input type="checkbox" id="chk_p1_discount" checked class="w-3 h-3 accent-emerald-400" onchange="this.dataset.touched='1'; event.stopPropagation(); recalcPurchaseTotals()" />
-                  تخفیف
-                </span>
-              </label>
-            </div>
-
-            <!-- ردیف ۲: لایسنس‌های Live Music Tools -->
-            <div class="flex flex-wrap gap-2">
-              <label class="purchase-item-label">
-                <input type="checkbox" id="chk_p10" onchange="recalcPurchaseTotals()" class="w-4 h-4 accent-accentNeon shrink-0" />
-                <span class="flex-1" id="chk_p10_name">لایسنس نقره ای - یک ماهه </span>
-                <span class="text-accentNeon font-bold text-xs whitespace-nowrap" id="chk_p10_price">150 لیر</span>
-                <span class="purchase-item-discount-toggle hidden inline-flex items-center gap-1 text-[10px] text-emerald-400 whitespace-nowrap" data-pid="p10" onclick="event.stopPropagation()">
-                  <input type="checkbox" id="chk_p10_discount" checked class="w-3 h-3 accent-emerald-400" onchange="this.dataset.touched='1'; event.stopPropagation(); recalcPurchaseTotals()" />
-                  تخفیف
-                </span>
-              </label>
-              <label class="purchase-item-label">
-                <input type="checkbox" id="chk_p9" onchange="recalcPurchaseTotals()" class="w-4 h-4 accent-accentNeon shrink-0" />
-                <span class="flex-1" id="chk_p9_name">لایسنس نقره ای - یکساله </span>
-                <span class="text-accentNeon font-bold text-xs whitespace-nowrap" id="chk_p9_price">950 لیر</span>
-                <span class="purchase-item-discount-toggle hidden inline-flex items-center gap-1 text-[10px] text-emerald-400 whitespace-nowrap" data-pid="p9" onclick="event.stopPropagation()">
-                  <input type="checkbox" id="chk_p9_discount" checked class="w-3 h-3 accent-emerald-400" onchange="this.dataset.touched='1'; event.stopPropagation(); recalcPurchaseTotals()" />
-                  تخفیف
-                </span>
-              </label>
-              <label class="purchase-item-label">
-                <input type="checkbox" id="chk_p8" onchange="recalcPurchaseTotals()" class="w-4 h-4 accent-accentNeon shrink-0" />
-                <span class="flex-1" id="chk_p8_name">لایسنس نقره ای - دائم </span>
-                <span class="text-accentNeon font-bold text-xs whitespace-nowrap" id="chk_p8_price">1350 لیر</span>
-                <span class="purchase-item-discount-toggle hidden inline-flex items-center gap-1 text-[10px] text-emerald-400 whitespace-nowrap" data-pid="p8" onclick="event.stopPropagation()">
-                  <input type="checkbox" id="chk_p8_discount" checked class="w-3 h-3 accent-emerald-400" onchange="this.dataset.touched='1'; event.stopPropagation(); recalcPurchaseTotals()" />
-                  تخفیف
-                </span>
-              </label>
-            </div>
-
-            <!-- ردیف ۳: لایسنس‌های Live Music Tools (Pro) -->
-            <div class="flex flex-wrap gap-2">
-              <label class="purchase-item-label">
-                <input type="checkbox" id="chk_p7" onchange="recalcPurchaseTotals()" class="w-4 h-4 accent-accentNeon shrink-0" />
-                <span class="flex-1" id="chk_p7_name">لایسنس طلایی - یک ماهه </span>
-                <span class="text-accentNeon font-bold text-xs whitespace-nowrap" id="chk_p7_price">200 لیر</span>
-                <span class="purchase-item-discount-toggle hidden inline-flex items-center gap-1 text-[10px] text-emerald-400 whitespace-nowrap" data-pid="p7" onclick="event.stopPropagation()">
-                  <input type="checkbox" id="chk_p7_discount" checked class="w-3 h-3 accent-emerald-400" onchange="this.dataset.touched='1'; event.stopPropagation(); recalcPurchaseTotals()" />
-                  تخفیف
-                </span>
-              </label>
-              <label class="purchase-item-label">
-                <input type="checkbox" id="chk_p6" onchange="recalcPurchaseTotals()" class="w-4 h-4 accent-accentNeon shrink-0" />
-                <span class="flex-1" id="chk_p6_name">لایسنس یکساله Live Music Tools(Pro)</span>
-                <span class="text-accentNeon font-bold text-xs whitespace-nowrap" id="chk_p6_price">1200 لیر</span>
-                <span class="purchase-item-discount-toggle hidden inline-flex items-center gap-1 text-[10px] text-emerald-400 whitespace-nowrap" data-pid="p6" onclick="event.stopPropagation()">
-                  <input type="checkbox" id="chk_p6_discount" checked class="w-3 h-3 accent-emerald-400" onchange="this.dataset.touched='1'; event.stopPropagation(); recalcPurchaseTotals()" />
-                  تخفیف
-                </span>
-              </label>
               <label class="purchase-item-label">
                 <input type="checkbox" id="chk_p2" onchange="recalcPurchaseTotals()" class="w-4 h-4 accent-accentNeon shrink-0" />
                 <span class="flex-1" id="chk_p2_name">لایسنس طلایی - دائم</span>

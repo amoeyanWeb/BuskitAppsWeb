@@ -966,6 +966,10 @@
           const tierLabel = TIER_LABELS[l.tier] || l.tier || "—";
           const durationLabel = DURATION_LABELS[l.license_type] || l.license_type || "—";
           const createdLabel = formatDate(l.createdAt) || "—";
+          // appGeneration ممکنه روی لایسنس‌های قدیمی‌تر (قبل از این فیلد)
+          // اصلاً وجود نداشته باشه — در اون صورت به‌جای خالی گذاشتن، همون
+          // مقدار پیش‌فرض فعلی سرور (v1) رو نشون می‌دیم تا گمراه‌کننده نباشه.
+          const generationLabel = l.appGeneration || "v1";
 
           item.innerHTML = `
             <div class="flex items-start justify-between gap-2 flex-wrap mb-3">
@@ -999,6 +1003,7 @@
 
             <div class="flex items-center justify-between gap-2 flex-wrap text-xs text-slate-500">
               <span>ساخته‌شده: ${createdLabel}</span>
+              <span class="px-2 py-0.5 rounded-md border border-slate-700 text-slate-400 font-mono" dir="ltr">${escapeHtml(generationLabel)}</span>
               ${l.discountCode ? `<span>کد تخفیف: <span class="font-mono text-slate-400" dir="ltr">${escapeHtml(l.discountCode)}</span></span>` : ""}
               ${
                 l.delivered

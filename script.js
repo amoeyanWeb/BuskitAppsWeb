@@ -2684,8 +2684,8 @@ function trackAppDownload(appKey) {
 function downloadBuskitTools() {
   trackAppDownload("buskit-tools");
   const link = document.createElement("a");
-  link.href = "./downloads/BuskitTools_v3_0.apk";
-  link.download = "BuskitTools_v3_0.apk";
+  link.href = "./downloads/BuskitTools_v1.apk";
+  link.download = "BuskitTools_v1.apk";
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);

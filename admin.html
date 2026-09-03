@@ -234,6 +234,13 @@
         >
           کدهای تخفیف و نمایندگان
         </button>
+        <button
+          id="tabBtnVersions"
+          onclick="switchTab('versions')"
+          class="px-4 py-2.5 text-sm font-bold text-slate-500 border-b-2 border-transparent hover:text-slate-300 transition-colors"
+        >
+          ورژن‌ها و آپدیت‌ها
+        </button>
       </div>
 
       <!-- تب پرسش و پاسخ -->
@@ -377,6 +384,167 @@
           </div>
         </div>
       </div>
+
+      <!-- تب ورژن‌ها و آپدیت‌ها -->
+      <div id="tabPanelVersions" class="hidden">
+        <!-- انتخاب اپ -->
+        <div class="mb-8 p-5 bg-[#161920] border border-white/10 rounded-2xl">
+          <label class="block text-slate-400 text-xs mb-1.5">اپ:</label>
+          <select
+            id="versionAppSelect"
+            onchange="loadCurrentVersionStatus()"
+            class="w-full bg-[#0d0e12] border border-slate-800 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#00f5d4] transition-colors"
+          ></select>
+        </div>
+
+        <!-- وضعیت فعلی -->
+        <div class="mb-8 p-5 bg-[#161920] border border-white/10 rounded-2xl">
+          <h2 class="text-white font-bold mb-3 text-sm">وضعیت فعلی این اپ</h2>
+          <div id="currentVersionStatus" class="text-sm text-slate-400">
+            در حال بارگذاری...
+          </div>
+        </div>
+
+        <!-- فرم اعلام ورژن جدید -->
+        <div class="mb-8 p-5 bg-[#161920] border border-white/10 rounded-2xl">
+          <h2 class="text-white font-bold mb-1 text-sm">اعلام ورژن جدید (v)</h2>
+          <p class="text-slate-500 text-xs mb-4">
+            اعلام یک ورژن جدید، شماره‌ی آپدیت (u) همین اپ را خودکار صفر
+            می‌کند — چون آپدیت‌های ورژن قبلی دیگر معنی ندارند.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label class="block text-slate-400 text-xs mb-1.5">شماره ورژن (فقط عدد):</label>
+              <input
+                type="number"
+                id="newVersionNumber"
+                min="1"
+                step="1"
+                dir="ltr"
+                placeholder="مثلاً: 2"
+                class="w-full bg-[#0d0e12] border border-slate-800 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#00f5d4] transition-colors text-left"
+              />
+            </div>
+            <div>
+              <label class="block text-slate-400 text-xs mb-1.5">نوع:</label>
+              <select
+                id="newVersionType"
+                class="w-full bg-[#0d0e12] border border-slate-800 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#00f5d4] transition-colors"
+              >
+                <option value="free">رایگان</option>
+                <option value="paid">پولی</option>
+              </select>
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-slate-400 text-xs mb-1.5">آدرس دانلود مستقیم (برای رایگان):</label>
+              <input
+                type="text"
+                id="newVersionDownloadUrl"
+                dir="ltr"
+                placeholder="https://buskitapps.shop/downloads/..."
+                class="w-full bg-[#0d0e12] border border-slate-800 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#00f5d4] transition-colors font-mono text-left"
+              />
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-slate-400 text-xs mb-1.5">آدرس خرید (برای پولی):</label>
+              <input
+                type="text"
+                id="newVersionPurchaseUrl"
+                dir="ltr"
+                placeholder="https://buskitapps.lemonsqueezy.com/checkout/..."
+                class="w-full bg-[#0d0e12] border border-slate-800 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#00f5d4] transition-colors font-mono text-left"
+              />
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-slate-400 text-xs mb-1.5">توضیح تغییرات (اختیاری):</label>
+              <textarea
+                id="newVersionNotes"
+                rows="2"
+                placeholder="مثلاً: رفع باگ تیونر، اضافه شدن افکت جدید"
+                class="w-full bg-[#0d0e12] border border-slate-800 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#00f5d4] transition-colors"
+              ></textarea>
+            </div>
+          </div>
+          <p id="announceVersionMsg" class="text-xs hidden mb-3"></p>
+          <button
+            onclick="announceVersion()"
+            id="btnAnnounceVersion"
+            class="px-5 py-2.5 bg-[#00f5d4] text-[#0d0e12] text-sm font-bold rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50"
+          >
+            اعلام ورژن جدید
+          </button>
+        </div>
+
+        <!-- فرم اعلام آپدیت جدید -->
+        <div>
+          <h2 class="text-white font-bold mb-1 text-sm">اعلام آپدیت جدید (u)</h2>
+          <p class="text-slate-500 text-xs mb-4">
+            برای آپدیت‌های کوچک روی همون ورژن فعلی — باید قبلش حداقل یک بار
+            برای این اپ ورژن اعلام شده باشه.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+            <div>
+              <label class="block text-slate-400 text-xs mb-1.5">شماره آپدیت (فقط عدد):</label>
+              <input
+                type="number"
+                id="newUpdateNumber"
+                min="1"
+                step="1"
+                dir="ltr"
+                placeholder="مثلاً: 3"
+                class="w-full bg-[#0d0e12] border border-slate-800 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#00f5d4] transition-colors text-left"
+              />
+            </div>
+            <div>
+              <label class="block text-slate-400 text-xs mb-1.5">نوع:</label>
+              <select
+                id="newUpdateType"
+                class="w-full bg-[#0d0e12] border border-slate-800 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#00f5d4] transition-colors"
+              >
+                <option value="free">رایگان</option>
+                <option value="paid">پولی</option>
+              </select>
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-slate-400 text-xs mb-1.5">آدرس دانلود مستقیم (برای رایگان):</label>
+              <input
+                type="text"
+                id="newUpdateDownloadUrl"
+                dir="ltr"
+                placeholder="https://buskitapps.shop/downloads/..."
+                class="w-full bg-[#0d0e12] border border-slate-800 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#00f5d4] transition-colors font-mono text-left"
+              />
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-slate-400 text-xs mb-1.5">آدرس خرید (برای پولی):</label>
+              <input
+                type="text"
+                id="newUpdatePurchaseUrl"
+                dir="ltr"
+                placeholder="https://buskitapps.lemonsqueezy.com/checkout/..."
+                class="w-full bg-[#0d0e12] border border-slate-800 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#00f5d4] transition-colors font-mono text-left"
+              />
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-slate-400 text-xs mb-1.5">توضیح تغییرات (اختیاری):</label>
+              <textarea
+                id="newUpdateNotes"
+                rows="2"
+                placeholder="مثلاً: رفع یک باگ جزئی"
+                class="w-full bg-[#0d0e12] border border-slate-800 rounded-xl px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#00f5d4] transition-colors"
+              ></textarea>
+            </div>
+          </div>
+          <p id="announceUpdateMsg" class="text-xs hidden mb-3"></p>
+          <button
+            onclick="announceUpdate()"
+            id="btnAnnounceUpdate"
+            class="px-5 py-2.5 bg-[#00f5d4] text-[#0d0e12] text-sm font-bold rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50"
+          >
+            اعلام آپدیت جدید
+          </button>
+        </div>
+      </div>
     </div>
 
     <script>
@@ -394,6 +562,7 @@
       let questionsUnsub = null;
       let licensesLoaded = false;
       let discountsLoaded = false;
+      let versionsLoaded = false;
 
       // ====== سوییچ بین تب‌ها ======
       function switchTab(tab) {
@@ -401,19 +570,22 @@
         const btnR = document.getElementById("tabBtnReviews");
         const btnL = document.getElementById("tabBtnLicenses");
         const btnD = document.getElementById("tabBtnDiscounts");
+        const btnV = document.getElementById("tabBtnVersions");
         const panelQ = document.getElementById("tabPanelQuestions");
         const panelR = document.getElementById("tabPanelReviews");
         const panelL = document.getElementById("tabPanelLicenses");
         const panelD = document.getElementById("tabPanelDiscounts");
+        const panelV = document.getElementById("tabPanelVersions");
 
         const activeCls = ["text-[#00f5d4]", "border-[#00f5d4]"];
         const inactiveCls = ["text-slate-500", "border-transparent"];
-        const allBtns = [btnQ, btnR, btnL, btnD];
+        const allBtns = [btnQ, btnR, btnL, btnD, btnV];
         const allPanels = {
           questions: panelQ,
           reviews: panelR,
           licenses: panelL,
           discounts: panelD,
+          versions: panelV,
         };
 
         allBtns.forEach((b) => {
@@ -423,14 +595,14 @@
         Object.values(allPanels).forEach((p) => p.classList.add("hidden"));
 
         allPanels[tab].classList.remove("hidden");
-        const activeBtn = { questions: btnQ, reviews: btnR, licenses: btnL, discounts: btnD }[
+        const activeBtn = { questions: btnQ, reviews: btnR, licenses: btnL, discounts: btnD, versions: btnV }[
           tab
         ];
         activeBtn.classList.add(...activeCls);
         activeBtn.classList.remove(...inactiveCls);
 
         const warningEl = document.getElementById("liveFXAuthWarning");
-        if ((tab === "licenses" || tab === "discounts") && liveFXAuthFailed) {
+        if ((tab === "licenses" || tab === "discounts" || tab === "versions") && liveFXAuthFailed) {
           warningEl.classList.remove("hidden");
         } else {
           warningEl.classList.add("hidden");
@@ -444,6 +616,10 @@
         if (tab === "discounts" && !discountsLoaded) {
           discountsLoaded = true;
           loadDiscountCodesTab();
+        }
+        if (tab === "versions" && !versionsLoaded) {
+          versionsLoaded = true;
+          loadVersionsTab();
         }
       }
 
@@ -1274,6 +1450,245 @@
           console.error("خطا در حذف کد تخفیف:", err);
           if (statusEl)
             statusEl.innerText = "حذف کد با خطا مواجه شد. (احتمالاً دسترسی کافی نداری)";
+        }
+      }
+
+      // ====== ورژن‌ها و آپدیت‌ها ======
+      // این سه‌تا appId باید دقیقاً همون‌هایی باشن که در ALLOWED_APP_IDS
+      // سمت سرور (index.js) تعریف شدن — وگرنه سرور با «Unknown appId» رد
+      // می‌کنه. اگه اپ چهارمی اضافه شد، هم اینجا هم سمت سرور اضافه کن.
+      const VERSION_APPS = [
+        { id: "com.BuskitApp.LiveFX", label: "Buskit Live FX" },
+        { id: "com.BuskitApp.Tools", label: "Buskit Tools" },
+        { id: "com.BuskitApp.LiveTools", label: "Buskit Live Tools" },
+      ];
+
+      function loadVersionsTab() {
+        const sel = document.getElementById("versionAppSelect");
+        sel.innerHTML = VERSION_APPS.map(
+          (a) => `<option value="${a.id}">${a.label}</option>`,
+        ).join("");
+        loadCurrentVersionStatus();
+      }
+
+      async function loadCurrentVersionStatus() {
+        const statusEl = document.getElementById("currentVersionStatus");
+        const appId = document.getElementById("versionAppSelect").value;
+        statusEl.innerHTML = "در حال بارگذاری...";
+
+        try {
+          const user = authLiveFX.currentUser;
+          if (!user) throw new Error("کاربر لاگین نیست");
+          const idToken = await user.getIdToken();
+
+          const resp = await fetch(
+            `${LICENSE_SERVER_URL}/admin/version-info/${encodeURIComponent(appId)}`,
+            { headers: { Authorization: `Bearer ${idToken}` } },
+          );
+          const data = await resp.json().catch(() => ({}));
+          if (!resp.ok || data.status !== "ok") {
+            throw new Error(data.error || "خطا در دریافت وضعیت");
+          }
+
+          const d = data.data;
+          if (!d) {
+            statusEl.innerHTML =
+              '<span class="text-slate-500">هنوز هیچ ورژنی برای این اپ اعلام نشده.</span>';
+            return;
+          }
+
+          const typeLabel = (t) => (t === "paid" ? "پولی" : "رایگان");
+          const linkRow = (label, url) =>
+            url
+              ? `<div class="mt-1 text-xs text-slate-500">${label}: <span class="font-mono" dir="ltr">${escapeHtml(url)}</span></div>`
+              : "";
+
+          statusEl.innerHTML = `
+            <div class="flex flex-wrap gap-x-8 gap-y-2">
+              <span>ورژن فعلی: <b class="text-[#00f5d4] font-mono">v${d.version ?? 1}</b> (${typeLabel(d.versionType)})</span>
+              <span>آپدیت فعلی: <b class="text-[#00f5d4] font-mono">u${d.update ?? 0}</b> (${typeLabel(d.updateType)})</span>
+            </div>
+            ${linkRow("لینک دانلود ورژن", d.versionDownloadUrl)}
+            ${linkRow("لینک خرید ورژن", d.versionPurchaseUrl)}
+            ${linkRow("لینک دانلود آپدیت", d.updateDownloadUrl)}
+            ${linkRow("لینک خرید آپدیت", d.updatePurchaseUrl)}
+            ${d.versionNotes ? `<div class="mt-2 text-xs text-slate-500">توضیح ورژن: ${escapeHtml(d.versionNotes)}</div>` : ""}
+            ${d.updateNotes ? `<div class="mt-1 text-xs text-slate-500">توضیح آپدیت: ${escapeHtml(d.updateNotes)}</div>` : ""}
+          `;
+        } catch (err) {
+          console.error("خطا در دریافت وضعیت ورژن:", err);
+          statusEl.innerHTML =
+            '<span class="text-rose-400">دریافت وضعیت با خطا مواجه شد. (احتمالاً دسترسی کافی نداری)</span>';
+        }
+      }
+
+      async function announceVersion() {
+        const appId = document.getElementById("versionAppSelect").value;
+        const version = Number(document.getElementById("newVersionNumber").value);
+        const versionType = document.getElementById("newVersionType").value;
+        const versionDownloadUrl = document
+          .getElementById("newVersionDownloadUrl")
+          .value.trim();
+        const versionPurchaseUrl = document
+          .getElementById("newVersionPurchaseUrl")
+          .value.trim();
+        const versionNotes = document.getElementById("newVersionNotes").value.trim();
+        const msgEl = document.getElementById("announceVersionMsg");
+        const btn = document.getElementById("btnAnnounceVersion");
+
+        msgEl.classList.add("hidden");
+
+        if (!version || version <= 0) {
+          msgEl.className = "text-xs text-rose-400 mb-3";
+          msgEl.innerText = "شماره‌ی ورژن معتبر وارد کن.";
+          msgEl.classList.remove("hidden");
+          return;
+        }
+        if (versionType === "free" && !versionDownloadUrl) {
+          msgEl.className = "text-xs text-rose-400 mb-3";
+          msgEl.innerText = "برای ورژن رایگان، آدرس دانلود لازمه.";
+          msgEl.classList.remove("hidden");
+          return;
+        }
+        if (versionType === "paid" && !versionPurchaseUrl) {
+          msgEl.className = "text-xs text-rose-400 mb-3";
+          msgEl.innerText = "برای ورژن پولی، آدرس خرید لازمه.";
+          msgEl.classList.remove("hidden");
+          return;
+        }
+
+        btn.disabled = true;
+        btn.innerText = "در حال اعلام...";
+
+        try {
+          const user = authLiveFX.currentUser;
+          if (!user) throw new Error("کاربر لاگین نیست");
+          const idToken = await user.getIdToken();
+
+          const resp = await fetch(`${LICENSE_SERVER_URL}/admin/announce-version`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${idToken}`,
+            },
+            body: JSON.stringify({
+              appId,
+              version,
+              versionType,
+              versionDownloadUrl: versionDownloadUrl || null,
+              versionPurchaseUrl: versionPurchaseUrl || null,
+              versionNotes,
+            }),
+          });
+          const data = await resp.json().catch(() => ({}));
+          if (!resp.ok || data.status !== "ok") {
+            throw new Error(data.error || "اعلام ورژن ناموفق بود");
+          }
+
+          msgEl.className = "text-xs text-emerald-400 mb-3";
+          msgEl.innerText = `ورژن v${version} با موفقیت اعلام شد ✓`;
+          msgEl.classList.remove("hidden");
+
+          document.getElementById("newVersionNumber").value = "";
+          document.getElementById("newVersionDownloadUrl").value = "";
+          document.getElementById("newVersionPurchaseUrl").value = "";
+          document.getElementById("newVersionNotes").value = "";
+
+          loadCurrentVersionStatus();
+        } catch (err) {
+          console.error("خطا در اعلام ورژن:", err);
+          msgEl.className = "text-xs text-rose-400 mb-3";
+          msgEl.innerText =
+            err.message || "اعلام ورژن با خطا مواجه شد. (احتمالاً دسترسی کافی نداری)";
+          msgEl.classList.remove("hidden");
+        } finally {
+          btn.disabled = false;
+          btn.innerText = "اعلام ورژن جدید";
+        }
+      }
+
+      async function announceUpdate() {
+        const appId = document.getElementById("versionAppSelect").value;
+        const update = Number(document.getElementById("newUpdateNumber").value);
+        const updateType = document.getElementById("newUpdateType").value;
+        const updateDownloadUrl = document
+          .getElementById("newUpdateDownloadUrl")
+          .value.trim();
+        const updatePurchaseUrl = document
+          .getElementById("newUpdatePurchaseUrl")
+          .value.trim();
+        const updateNotes = document.getElementById("newUpdateNotes").value.trim();
+        const msgEl = document.getElementById("announceUpdateMsg");
+        const btn = document.getElementById("btnAnnounceUpdate");
+
+        msgEl.classList.add("hidden");
+
+        if (!update || update <= 0) {
+          msgEl.className = "text-xs text-rose-400 mb-3";
+          msgEl.innerText = "شماره‌ی آپدیت معتبر وارد کن.";
+          msgEl.classList.remove("hidden");
+          return;
+        }
+        if (updateType === "free" && !updateDownloadUrl) {
+          msgEl.className = "text-xs text-rose-400 mb-3";
+          msgEl.innerText = "برای آپدیت رایگان، آدرس دانلود لازمه.";
+          msgEl.classList.remove("hidden");
+          return;
+        }
+        if (updateType === "paid" && !updatePurchaseUrl) {
+          msgEl.className = "text-xs text-rose-400 mb-3";
+          msgEl.innerText = "برای آپدیت پولی، آدرس خرید لازمه.";
+          msgEl.classList.remove("hidden");
+          return;
+        }
+
+        btn.disabled = true;
+        btn.innerText = "در حال اعلام...";
+
+        try {
+          const user = authLiveFX.currentUser;
+          if (!user) throw new Error("کاربر لاگین نیست");
+          const idToken = await user.getIdToken();
+
+          const resp = await fetch(`${LICENSE_SERVER_URL}/admin/announce-update`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${idToken}`,
+            },
+            body: JSON.stringify({
+              appId,
+              update,
+              updateType,
+              updateDownloadUrl: updateDownloadUrl || null,
+              updatePurchaseUrl: updatePurchaseUrl || null,
+              updateNotes,
+            }),
+          });
+          const data = await resp.json().catch(() => ({}));
+          if (!resp.ok || data.status !== "ok") {
+            throw new Error(data.error || "اعلام آپدیت ناموفق بود");
+          }
+
+          msgEl.className = "text-xs text-emerald-400 mb-3";
+          msgEl.innerText = `آپدیت u${update} با موفقیت اعلام شد ✓`;
+          msgEl.classList.remove("hidden");
+
+          document.getElementById("newUpdateNumber").value = "";
+          document.getElementById("newUpdateDownloadUrl").value = "";
+          document.getElementById("newUpdatePurchaseUrl").value = "";
+          document.getElementById("newUpdateNotes").value = "";
+
+          loadCurrentVersionStatus();
+        } catch (err) {
+          console.error("خطا در اعلام آپدیت:", err);
+          msgEl.className = "text-xs text-rose-400 mb-3";
+          msgEl.innerText =
+            err.message || "اعلام آپدیت با خطا مواجه شد. (احتمالاً دسترسی کافی نداری)";
+          msgEl.classList.remove("hidden");
+        } finally {
+          btn.disabled = false;
+          btn.innerText = "اعلام آپدیت جدید";
         }
       }
     </script>

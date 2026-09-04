@@ -1476,18 +1476,20 @@
         const appId = document.getElementById("versionAppSelect").value;
         statusEl.innerHTML = "در حال بارگذاری...";
 
+        let httpStatus = null;
         try {
           const user = authLiveFX.currentUser;
-          if (!user) throw new Error("کاربر لاگین نیست");
+          if (!user) throw new Error("کاربر لاگین نیست — دوباره وارد شو.");
           const idToken = await user.getIdToken();
 
           const resp = await fetch(
             `${LICENSE_SERVER_URL}/admin/version-info/${encodeURIComponent(appId)}`,
             { headers: { Authorization: `Bearer ${idToken}` } },
           );
-          const data = await resp.json().catch(() => ({}));
-          if (!resp.ok || data.status !== "ok") {
-            throw new Error(data.error || "خطا در دریافت وضعیت");
+          httpStatus = resp.status;
+          const data = await resp.json().catch(() => null);
+          if (!resp.ok || !data || data.status !== "ok") {
+            throw new Error((data && data.error) || `پاسخ سرور نامعتبر بود (HTTP ${resp.status})`);
           }
 
           const d = data.data;
@@ -1504,9 +1506,17 @@
               : "";
 
           statusEl.innerHTML = `
-            <div class="flex flex-wrap gap-x-8 gap-y-2">
+            <div class="flex flex-wrap items-center gap-x-8 gap-y-2">
               <span>ورژن فعلی: <b class="text-[#00f5d4] font-mono">v${d.version ?? 1}</b> (${typeLabel(d.versionType)})</span>
+              <button onclick="undoVersion()" class="text-xs text-rose-400 hover:text-rose-300 underline underline-offset-2">لغو این ورژن</button>
+            </div>
+            <div class="flex flex-wrap items-center gap-x-8 gap-y-2 mt-2">
               <span>آپدیت فعلی: <b class="text-[#00f5d4] font-mono">u${d.update ?? 0}</b> (${typeLabel(d.updateType)})</span>
+              ${
+                (d.update ?? 0) > 0
+                  ? '<button onclick="undoUpdate()" class="text-xs text-rose-400 hover:text-rose-300 underline underline-offset-2">لغو این آپدیت</button>'
+                  : ""
+              }
             </div>
             ${linkRow("لینک دانلود ورژن", d.versionDownloadUrl)}
             ${linkRow("لینک خرید ورژن", d.versionPurchaseUrl)}
@@ -1514,11 +1524,57 @@
             ${linkRow("لینک خرید آپدیت", d.updatePurchaseUrl)}
             ${d.versionNotes ? `<div class="mt-2 text-xs text-slate-500">توضیح ورژن: ${escapeHtml(d.versionNotes)}</div>` : ""}
             ${d.updateNotes ? `<div class="mt-1 text-xs text-slate-500">توضیح آپدیت: ${escapeHtml(d.updateNotes)}</div>` : ""}
+            <p id="versionUndoMsg" class="text-xs hidden mt-3"></p>
           `;
         } catch (err) {
           console.error("خطا در دریافت وضعیت ورژن:", err);
-          statusEl.innerHTML =
-            '<span class="text-rose-400">دریافت وضعیت با خطا مواجه شد. (احتمالاً دسترسی کافی نداری)</span>';
+          const httpNote = httpStatus ? ` (HTTP ${httpStatus})` : " (اتصال به سرور برقرار نشد)";
+          statusEl.innerHTML = `<span class="text-rose-400">دریافت وضعیت با خطا مواجه شد${httpNote}: ${escapeHtml(err.message || "")}</span>
+            <div class="mt-2 text-xs text-slate-500">اگه تازه route های جدید رو اضافه کردی، مطمئن شو index.js جدید روی Render دیپلوی شده.</div>`;
+        }
+      }
+
+      async function undoVersion() {
+        const appId = document.getElementById("versionAppSelect").value;
+        if (
+          !confirm(
+            "لغو کامل ورژن اعلام‌شده برای این اپ؟ آپدیت مربوط به همین ورژن هم با این کار حذف می‌شه. این کار برگشت‌ناپذیره.",
+          )
+        )
+          return;
+        await runUndo(`/admin/version/${encodeURIComponent(appId)}`, "لغو ورژن");
+      }
+
+      async function undoUpdate() {
+        const appId = document.getElementById("versionAppSelect").value;
+        if (!confirm("لغو آپدیت اعلام‌شده برای این اپ؟ خود ورژن دست‌نخورده می‌مونه."))
+          return;
+        await runUndo(`/admin/update/${encodeURIComponent(appId)}`, "لغو آپدیت");
+      }
+
+      async function runUndo(path, actionLabel) {
+        const msgEl = document.getElementById("versionUndoMsg");
+        try {
+          const user = authLiveFX.currentUser;
+          if (!user) throw new Error("کاربر لاگین نیست");
+          const idToken = await user.getIdToken();
+
+          const resp = await fetch(`${LICENSE_SERVER_URL}${path}`, {
+            method: "DELETE",
+            headers: { Authorization: `Bearer ${idToken}` },
+          });
+          const data = await resp.json().catch(() => ({}));
+          if (!resp.ok || data.status !== "ok") {
+            throw new Error(data.error || `${actionLabel} ناموفق بود`);
+          }
+          loadCurrentVersionStatus();
+        } catch (err) {
+          console.error(`خطا در ${actionLabel}:`, err);
+          if (msgEl) {
+            msgEl.className = "text-xs text-rose-400 mt-3";
+            msgEl.innerText = `${actionLabel} با خطا مواجه شد: ${err.message || ""}`;
+            msgEl.classList.remove("hidden");
+          }
         }
       }
 

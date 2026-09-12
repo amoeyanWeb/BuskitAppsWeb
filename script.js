@@ -2014,7 +2014,7 @@ function closePurchaseModal() {
 // ====== ویزارد چند مرحله‌ای فرم خرید: ۱) نام و ایمیل  ۲) کد تخفیف (اختیاری)  ۳) محصولات و ثبت سفارش ======
 // طرف قبل از دیدن قیمت باید نام و ایمیلش را وارد کند. کد تخفیف در مرحله‌ی ۲
 // فقط پیش‌نمایش می‌شود (بدون مصرف کردنش). مصرف واقعی کد و رزرو لایسنس(های)
-// واقعی روی سرور لایسنس (livefx-license-server) فقط در انتهای مرحله‌ی ۳،
+// واقعی روی سرور لایسنس (buskitapps-license-server) فقط در انتهای مرحله‌ی ۳،
 // وقتی کاربر محصولات را انتخاب کرد و روی «ثبت سفارش» زد، اتفاق می‌افتد —
 // چون تازه آنجا معلوم می‌شود کدام تیر/مدت لایسنس باید ساخته شود.
 //
@@ -2023,7 +2023,7 @@ function closePurchaseModal() {
 // چون کالکشن licenses همان کالکشنی است که /activate برای فعال‌سازی واقعی
 // لایسنس استفاده می‌کند و اجازه‌ی نوشتن مستقیم در آن از سمت کلاینت یک حفره‌ی
 // امنیتی جدی است.
-const LICENSE_SERVER_URL = "https://livefx-license-server.onrender.com";
+const LICENSE_SERVER_URL = "https://buskitapps-license-server.onrender.com";
 
 let purchaseCustomer = { name: "", email: "" };
 let purchaseDiscount = null; // { code, percent, amount } — فقط پیش‌نمایش، هنوز مصرف نشده

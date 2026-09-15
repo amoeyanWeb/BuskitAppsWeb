@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="tr" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buskit Tools İndir</title>
+    <style>
+      @font-face {
+        font-family: "Vazirmatn";
+        src: local("Vazirmatn"), local("Tahoma");
+      }
+
+      :root {
+        --ink: #16233a;
+        --deep: #0f4b8b;
+        --sky: #a4c5e6;
+        --border: #1b5fa8;
+        --paper: #f4f7fb;
+        --go: #2e7d32;
+        --go-dark: #245f27;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Vazirmatn", Tahoma, "Segoe UI", sans-serif;
+        min-height: 100%;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 32px 18px;
+      }
+
+      .card {
+        width: 100%;
+        max-width: 420px;
+        background: #ffffff;
+        border: 2px solid var(--sky);
+        border-radius: 18px;
+        padding: 40px 30px 34px;
+        text-align: center;
+      }
+
+      .mark {
+        width: 64px;
+        height: 64px;
+        margin: 0 auto 22px;
+        border-radius: 16px;
+        background: var(--deep);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .mark svg {
+        width: 32px;
+        height: 32px;
+      }
+
+      h1 {
+        font-size: 21px;
+        font-weight: 700;
+        margin: 0 0 8px;
+        color: var(--deep);
+      }
+
+      p.sub {
+        font-size: 14.5px;
+        line-height: 1.9;
+        color: #55647d;
+        margin: 0 0 30px;
+      }
+
+      a.dl {
+        display: block;
+        text-decoration: none;
+        background: var(--go);
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 700;
+        padding: 15px 20px;
+        border-radius: 12px;
+        border: 2px solid #ffffff;
+        box-shadow: 0 0 0 2px var(--go);
+        transition: background 0.15s ease;
+      }
+
+      a.dl:active {
+        background: var(--go-dark);
+      }
+
+      .filesize {
+        display: block;
+        font-size: 12.5px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.85);
+        margin-top: 3px;
+      }
+
+      .hint {
+        margin-top: 22px;
+        font-size: 12.5px;
+        color: #8492a8;
+        line-height: 1.8;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="mark">
+        <!-- ses dalgası, müzik aracı kimliğiyle uyumlu -->
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M3 12h2.2L8 6l3.5 14L14.5 4L17 18l1.8-6H21"
+            stroke="#ffffff"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+
+      <h1>Buskit Tools</h1>
+      <p class="sub">
+        Uygulamanın en son sürümünü doğrudan Android telefonunuza kurun.
+      </p>
+
+      <a class="dl" href="./downloads/BuskitTools_v1.apk" download>
+        Kurulum Dosyasını İndir (APK)
+      </a>
+
+      <p class="hint">
+        Telefonunuz "bilinmeyen kaynak" uyarısı verirse, ayarlardan kurulum
+        iznini verin — bu normaldir, çünkü uygulama Google Play'den değildir.
+      </p>
+    </div>
+  </body>
+</html>

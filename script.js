@@ -524,7 +524,7 @@ const translations = {
     btnLicenseBackToInfo: "بازگشت به مرحله قبل",
     licenseDoneTitle: "لایسنس شما صادر و ایمیل شد",
     licenseDoneMsg:
-      "لایسنس شما ساخته شد و همین حالا به آدرس ایمیلی که وارد کردید ارسال گردید (اگر در Inbox نبود، پوشه‌ی Spam را هم ببینید). لطفاً ظرف مدت ۲ روز وجه لایسنس (۵۰ دلار) را به یکی از حساب‌های اعلام‌شده واریز و سند واریزی را به BuskitApps@gmail.com ارسال کنید؛ در غیر این صورت سیستم پس از ۲ روز این لایسنس را غیرفعال خواهد کرد. در صورت وجود هر گونه ابهام از طریق خط واتس‌آپ 00905312691609 و یا ایمیل ذکر شده با ما در تماس باشید.",
+      "لایسنس شما ساخته شد و همین حالا به آدرس ایمیلی که وارد کردید ارسال گردید (اگر در Inbox نبود، پوشه‌ی Spam را هم ببینید). لطفاً ظرف مدت ۲ روز وجه لایسنس {{USD_PAREN}} را به یکی از حساب‌های اعلام‌شده واریز و سند واریزی را به BuskitApps@gmail.com ارسال کنید؛ در غیر این صورت سیستم پس از ۲ روز این لایسنس را غیرفعال خواهد کرد. در صورت وجود هر گونه ابهام از طریق خط واتس‌آپ 00905312691609 و یا ایمیل ذکر شده با ما در تماس باشید.",
     licenseAlreadyIssued:
       "برای این آدرس ایمیل قبلاً یک لایسنس صادر شده است. لطفاً صندوق ایمیل خود را بررسی کنید یا با پشتیبانی تماس بگیرید.",
     licenseEmailFailed:
@@ -994,7 +994,7 @@ const translations = {
     btnLicenseBackToInfo: "Back to previous step",
     licenseDoneTitle: "Your license has been issued and emailed",
     licenseDoneMsg:
-      "Your license has been created and sent to the email address you entered (if it is not in your Inbox, please check the Spam folder). Please transfer the license fee (50 USD) to one of the listed accounts within 2 days and send the payment receipt to BuskitApps@gmail.com; otherwise the system will deactivate this license after 2 days. If you have any questions, contact us via WhatsApp at 00905312691609 or the email above.",
+      "Your license has been created and sent to the email address you entered (if it is not in your Inbox, please check the Spam folder). Please transfer the license fee {{USD_PAREN}} to one of the listed accounts within 2 days and send the payment receipt to BuskitApps@gmail.com; otherwise the system will deactivate this license after 2 days. If you have any questions, contact us via WhatsApp at 00905312691609 or the email above.",
     licenseAlreadyIssued:
       "A license has already been issued for this email address. Please check your inbox or contact support.",
     licenseEmailFailed:
@@ -1470,7 +1470,7 @@ const translations = {
     btnLicenseBackToInfo: "Önceki adıma dön",
     licenseDoneTitle: "Lisansınız oluşturuldu ve e-posta ile gönderildi",
     licenseDoneMsg:
-      "Lisansınız oluşturuldu ve girdiğiniz e-posta adresine gönderildi (Gelen Kutusu'nda yoksa lütfen Spam klasörünü de kontrol edin). Lütfen lisans bedelini (50 USD) 2 gün içinde belirtilen hesaplardan birine yatırın ve dekontu BuskitApps@gmail.com adresine gönderin; aksi hâlde sistem 2 gün sonra bu lisansı devre dışı bırakacaktır. Herhangi bir sorunuz olursa 00905312691609 numaralı WhatsApp hattından veya belirtilen e-posta adresinden bizimle iletişime geçebilirsiniz.",
+      "Lisansınız oluşturuldu ve girdiğiniz e-posta adresine gönderildi (Gelen Kutusu'nda yoksa lütfen Spam klasörünü de kontrol edin). Lütfen lisans bedelini {{USD_PAREN}} 2 gün içinde belirtilen hesaplardan birine yatırın ve dekontu BuskitApps@gmail.com adresine gönderin; aksi hâlde sistem 2 gün sonra bu lisansı devre dışı bırakacaktır. Herhangi bir sorunuz olursa 00905312691609 numaralı WhatsApp hattından veya belirtilen e-posta adresinden bizimle iletişime geçebilirsiniz.",
     licenseAlreadyIssued:
       "Bu e-posta adresi için daha önce bir lisans oluşturulmuş. Lütfen e-posta kutunuzu kontrol edin veya destek ile iletişime geçin.",
     licenseEmailFailed:
@@ -1940,7 +1940,7 @@ const translations = {
     btnLicenseBackToInfo: "Zurück zum vorherigen Schritt",
     licenseDoneTitle: "Ihre Lizenz wurde erstellt und per E-Mail gesendet",
     licenseDoneMsg:
-      "Ihre Lizenz wurde erstellt und an die von Ihnen angegebene E-Mail-Adresse gesendet (falls sie nicht im Posteingang ist, prüfen Sie bitte auch den Spam-Ordner). Bitte überweisen Sie den Lizenzbetrag (50 USD) innerhalb von 2 Tagen auf eines der genannten Konten und senden Sie den Zahlungsbeleg an BuskitApps@gmail.com; andernfalls deaktiviert das System diese Lizenz nach 2 Tagen. Bei Fragen kontaktieren Sie uns per WhatsApp unter 00905312691609 oder über die oben genannte E-Mail-Adresse.",
+      "Ihre Lizenz wurde erstellt und an die von Ihnen angegebene E-Mail-Adresse gesendet (falls sie nicht im Posteingang ist, prüfen Sie bitte auch den Spam-Ordner). Bitte überweisen Sie den Lizenzbetrag {{USD_PAREN}} innerhalb von 2 Tagen auf eines der genannten Konten und senden Sie den Zahlungsbeleg an BuskitApps@gmail.com; andernfalls deaktiviert das System diese Lizenz nach 2 Tagen. Bei Fragen kontaktieren Sie uns per WhatsApp unter 00905312691609 oder über die oben genannte E-Mail-Adresse.",
     licenseAlreadyIssued:
       "Für diese E-Mail-Adresse wurde bereits eine Lizenz erstellt. Bitte prüfen Sie Ihren Posteingang oder wenden Sie sich an den Support.",
     licenseEmailFailed:
@@ -2664,7 +2664,7 @@ function changeLanguage(lang) {
     btnLicenseBackFromFormEl.innerText = data.btnLicenseBackToInfo;
   const licenseDoneMsgEl = document.getElementById("licenseDoneMsg");
   if (licenseDoneMsgEl) {
-    licenseDoneMsgEl.innerText = data.licenseDoneMsg;
+    licenseDoneMsgEl.innerText = buildLicenseDoneMsg(lang);
     // متن مرحله‌ی پایانی (اعلام موفقیت رزرو) در فارسی راست‌چین و در
     // انگلیسی/ترکی چپ‌چین نمایش داده می‌شود
     licenseDoneMsgEl.dir = data.dir === "rtl" ? "rtl" : "ltr";
@@ -3539,11 +3539,64 @@ function formatLicenseNumber(amount, maxFractionDigits) {
   return Number(amount).toLocaleString("en-US", opts);
 }
 
+// محاسبه معادل ریالی و لیری مبلغ ۵۰ دلاری لایسنس، بر اساس نرخ لحظه‌ای
+// (tryToUsdRate / tryToIrrRate). اگر نرخ هنوز از Firestore دریافت نشده
+// باشد null برمی‌گرداند.
+function computeLicenseUsdAmounts() {
+  if (!tryToUsdRate || !tryToIrrRate) return null;
+  const usdToTry = 1 / tryToUsdRate;
+  const usdToIrr = tryToIrrRate / tryToUsdRate;
+  return {
+    liraAmount: LICENSE_USD_AMOUNT * usdToTry,
+    irrAmount: LICENSE_USD_AMOUNT * usdToIrr,
+  };
+}
+
+// متن پرانتزیِ «۵۰ دلار یا تتر، معادل ... ریال، همچنین معادل ... لیر ترکیه»
+// که داخل پیام مرحله‌ی پایانی (Step C) جای توکن {{USD_PAREN}} می‌نشیند؛
+// به هر چهار زبان سایت. اگر نرخ لحظه‌ای هنوز آمده نباشد، فقط «۵۰ دلار یا
+// تتر» بدون معادل نمایش داده می‌شود.
+function buildLicenseUsdParenText(lang) {
+  const amounts = computeLicenseUsdAmounts();
+  const irrText = amounts ? formatLicenseNumber(amounts.irrAmount, 0) : null;
+  const tryText = amounts ? formatLicenseNumber(amounts.liraAmount, 0) : null;
+  const templates = {
+    fa: amounts
+      ? `(۵۰ دلار یا تتر، معادل ${irrText} ریال، همچنین معادل ${tryText} لیر ترکیه)`
+      : "(۵۰ دلار یا تتر)",
+    en: amounts
+      ? `(50 USD or USDT, equivalent to ${irrText} IRR, and also equivalent to ${tryText} Turkish Lira)`
+      : "(50 USD or USDT)",
+    tr: amounts
+      ? `(50 USD veya USDT, ${irrText} IRR karşılığı, ayrıca ${tryText} Türk Lirası karşılığı)`
+      : "(50 USD veya USDT)",
+    de: amounts
+      ? `(50 USD oder USDT, entspricht ${irrText} IRR, sowie entspricht ${tryText} Türkischer Lira)`
+      : "(50 USD oder USDT)",
+  };
+  return templates[lang] || templates.en;
+}
+
+// متن کامل مرحله‌ی پایانی مودال خرید لایسنس، با جایگزینی توکن {{USD_PAREN}}
+// داخل رشته‌ی ترجمه‌شده با معادل لحظه‌ای ریال/لیر.
+function buildLicenseDoneMsg(lang) {
+  const data = translations[lang] || {};
+  const template = data.licenseDoneMsg || "";
+  return template.replace("{{USD_PAREN}}", buildLicenseUsdParenText(lang));
+}
+
 // محاسبه و نمایش نرخ‌ها و مبالغ داخل مودال خرید لایسنس، بر اساس نرخ کش‌شده
 // (tryToIrrRate / tryToUsdRate) و زبان فعلی؛ هم بعد از دریافت نرخ از سرور و
 // هم بعد از تغییر زبان صدا زده می‌شود.
 function updateLicenseModalRatesUI() {
   const data = translations[currentLang] || {};
+
+  // با هر بار به‌روزرسانی نرخ (یا تغییر زبان)، معادل ریال/لیر داخل پیام
+  // مرحله‌ی پایانی (Step C) هم دوباره محاسبه و جایگزین می‌شود
+  const licenseDoneMsgEl = document.getElementById("licenseDoneMsg");
+  if (licenseDoneMsgEl)
+    licenseDoneMsgEl.innerText = buildLicenseDoneMsg(currentLang);
+
   const rateUsdTryEl = document.getElementById("licenseRateUsdTry");
   const rateUsdIrrEl = document.getElementById("licenseRateUsdIrr");
   const rateUpdatedEl = document.getElementById("licenseRateUpdatedValue");
@@ -3658,7 +3711,12 @@ function goToLicenseStep(step) {
 }
 
 function resetLicenseModal() {
-  goToLicenseStep("info");
+  // با کلیک روی دکمه «دریافت لایسنس» در صفحه اصلی، مستقیماً فرم دریافت
+  // مشخصات خریدار (نام/ایمیل/واتساپ) نمایش داده می‌شود و پنجره‌ی میانی
+  // (اطلاعات حساب‌های بانکی و دکمه «رزرو لایسنس») حذف شده است. کاربر در
+  // صورت نیاز می‌تواند از طریق دکمه «بازگشت به مرحله قبل» در همان فرم به آن
+  // مرحله برگردد.
+  goToLicenseStep("form");
   const nameInput = document.getElementById("licenseCustomerName");
   const emailInput = document.getElementById("licenseCustomerEmail");
   const whatsappInput = document.getElementById("licenseCustomerWhatsapp");

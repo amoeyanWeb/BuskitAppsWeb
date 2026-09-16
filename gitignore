@@ -68,15 +68,8 @@ node_modules/
 # dataconnect generated files
 .dataconnect
 
-# Sensitive / large files
+# Firebase service account key (credential — never commit this)
 buskitlivefxsite-firebase-adminsdk-fbsvc-79679f7919.json
+
+# Archives
 *.zip
-*.local
-
-# OS / editor files
-.DS_Store
-Thumbs.db
-
-# Extra folders you may want excluded (uncomment if desired)
-# downloads/
-# screenshots/

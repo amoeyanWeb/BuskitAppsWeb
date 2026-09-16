@@ -166,6 +166,22 @@
         transform-origin: center;
         animation: heroDescBlink 1.5s linear infinite;
       }
+
+      /* تیتر چشمک‌زن سبز رنگ مودال خرید لایسنس، هنگام نمایش پیام «لایسنس شما با موفقیت رزرو شد» */
+      @keyframes licenseSuccessBlink {
+        0%,
+        100% {
+          color: #10b981;
+          opacity: 1;
+        }
+        50% {
+          color: #34d399;
+          opacity: 0.5;
+        }
+      }
+      .license-success-blink {
+        animation: licenseSuccessBlink 1s ease-in-out infinite;
+      }
     </style>
   </head>
   <body class="bg-darkBg text-slate-200 antialiased">
@@ -338,7 +354,7 @@
           <a
             href="#shop"
             id="navShop"
-            class="relative pb-1 hover:text-accentNeon transition-colors after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-accentNeon after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
+            class="hidden relative pb-1 hover:text-accentNeon transition-colors after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-accentNeon after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
             >فروشگاه</a
           >
           <a
@@ -443,6 +459,22 @@
                   class="rounded-[2px] shrink-0"
                 />
                 <span>Türkçe</span>
+              </li>
+              <li
+                role="option"
+                data-lang="de"
+                onclick="selectLanguage('de')"
+                class="flex items-center gap-2 px-3 py-2.5 text-slate-200 hover:bg-white/10 hover:text-accentNeon cursor-pointer transition-colors"
+              >
+                <img
+                  src="https://flagcdn.com/24x18/de.png"
+                  srcset="https://flagcdn.com/48x36/de.png 2x"
+                  width="20"
+                  height="15"
+                  alt=""
+                  class="rounded-[2px] shrink-0"
+                />
+                <span>Deutsch</span>
               </li>
             </ul>
           </div>
@@ -573,7 +605,7 @@
           href="#shop"
           id="navShopMobile"
           onclick="closeMobileMenu()"
-          class="py-3 px-3 rounded-lg hover:bg-white/5 hover:text-accentNeon transition-colors"
+          class="hidden py-3 px-3 rounded-lg hover:bg-white/5 hover:text-accentNeon transition-colors"
           >فروشگاه</a
         >
         <a
@@ -653,6 +685,22 @@
                   id="heroDownloadBtnToolsLine2"
                   class="text-xs sm:text-sm font-normal opacity-90"
                   >و استفاده رایگان 5 روزه از کلیه امکانات اپلیکیشن</span
+                >
+              </span>
+            </button>
+          </div>
+          <div class="relative group w-full sm:w-[34rem]">
+            <button
+              id="heroBuyLicenseBtn"
+              onclick="openLicensePurchaseModal()"
+              class="w-full sm:w-[34rem] h-16 px-4 py-2.5 ltr:bg-gradient-to-r rtl:bg-gradient-to-l from-[#8c5a2b] via-[#c0c0c0] to-[#c99a2e] text-darkBg font-bold rounded-xl shadow-lg shadow-slate-400/30 hover:scale-105 transition-all duration-300 text-center flex items-center justify-center"
+            >
+              <span class="flex flex-col items-center justify-center gap-0.5 leading-tight">
+                <span id="heroBuyLicenseBtnLine1">دریافت لایسنس</span>
+                <span
+                  id="heroBuyLicenseBtnLine2"
+                  class="text-xs sm:text-sm font-normal opacity-90"
+                  >اول لایسنس رو دریافت کنید بعد وجهش را پرداخت کنید</span
                 >
               </span>
             </button>
@@ -1755,7 +1803,6 @@
                   <span class="text-[10px] sm:text-xs text-slate-400 mr-1" id="p5Currency"
                     >لیر</span
                   >
-                  <div class="text-[9px] sm:text-[11px] text-slate-500 mt-1" id="p5RialVal"></div>
                 </div>
               </div>
             </div>
@@ -1821,7 +1868,6 @@
                   <span class="text-[10px] sm:text-xs text-slate-400 mr-1" id="p8Currency"
                     >لیر</span
                   >
-                  <div class="text-[9px] sm:text-[11px] text-slate-500 mt-1" id="p8RialVal"></div>
                 </div>
               </div>
               <button
@@ -1885,7 +1931,6 @@
                   <span class="text-[10px] sm:text-xs text-slate-400 mr-1" id="p9Currency"
                     >لیر</span
                   >
-                  <div class="text-[9px] sm:text-[11px] text-slate-500 mt-1" id="p9RialVal"></div>
                 </div>
               </div>
               <button
@@ -1948,7 +1993,6 @@
                   <span class="text-[10px] sm:text-xs text-slate-400 mr-1" id="p5Currency"
                     >لیر</span
                   >
-                  <div class="text-[9px] sm:text-[11px] text-slate-500 mt-1" id="p15RialVal"></div>
                 </div>
               </div>
               <button
@@ -2012,7 +2056,6 @@
                   <span class="text-[10px] sm:text-xs text-slate-400 mr-1" id="p11Currency"
                     >لیر</span
                   >
-                  <div class="text-[9px] sm:text-[11px] text-slate-500 mt-1" id="p11RialVal"></div>
                 </div>
               </div>
               <button
@@ -2077,7 +2120,6 @@
                   <span class="text-[10px] sm:text-xs text-slate-400 mr-1" id="p12Currency"
                     >لیر</span
                   >
-                  <div class="text-[9px] sm:text-[11px] text-slate-500 mt-1" id="p12RialVal"></div>
                 </div>
               </div>
               <button
@@ -2142,7 +2184,6 @@
                   <span class="text-[10px] sm:text-xs text-slate-400 mr-1" id="p13Currency"
                     >لیر</span
                   >
-                  <div class="text-[9px] sm:text-[11px] text-slate-500 mt-1" id="p13RialVal"></div>
                 </div>
               </div>
               <button
@@ -2205,7 +2246,6 @@
                   <span class="text-[10px] sm:text-xs text-slate-400 mr-1" id="p14Currency"
                     >لیر</span
                   >
-                  <div class="text-[9px] sm:text-[11px] text-slate-500 mt-1" id="p14RialVal"></div>
                 </div>
               </div>
               <button
@@ -2626,10 +2666,6 @@
               <span class="text-slate-400" id="purchaseSubtotalLabel">مبلغ کل:</span>
               <span class="text-white font-bold" id="purchaseSubtotalLira">0 لیر</span>
             </div>
-            <div class="flex justify-between items-center text-xs text-slate-500">
-              <span id="purchaseSubtotalRialLabel">معادل تومان و دلار:</span>
-              <span id="purchaseSubtotalRial">—</span>
-            </div>
             <div class="flex justify-between items-center hidden" id="purchaseDiscountRow">
               <span class="text-emerald-400" id="purchaseDiscountRowLabel">تخفیف:</span>
               <span class="text-emerald-400 font-bold" id="purchaseDiscountRowAmount">0 لیر</span>
@@ -2641,10 +2677,6 @@
             <div class="border-t border-slate-800 pt-2 flex justify-between items-center">
               <span class="text-slate-300 font-semibold" id="purchaseTotalLabel">قیمت کل (قابل پرداخت):</span>
               <span class="text-accentNeon font-extrabold" id="purchaseTotalLira">0 لیر</span>
-            </div>
-            <div class="flex justify-between items-center text-xs text-slate-500">
-              <span id="purchaseTotalRialLabel">معادل تومان و دلار قابل پرداخت:</span>
-              <span id="purchaseTotalRial">—</span>
             </div>
           </div>
 
@@ -2730,6 +2762,261 @@
           </button>
           </div>
           <!-- پایان Step 3 (purchaseStepProducts) -->
+        </div>
+      </div>
+    </div>
+
+    <!-- License Purchase Modal (خرید لایسنس دلاری با تخفیف ویژه ایرانیان) -->
+    <div id="licensePurchaseModal" class="fixed inset-0 z-50 overflow-y-auto hidden">
+      <div
+        class="fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity"
+        onclick="closeLicensePurchaseModal()"
+      ></div>
+      <div class="flex min-h-screen items-center justify-center p-4">
+        <div
+          class="relative w-full max-w-lg rounded-2xl bg-darkCard border border-slate-800 p-6 md:p-8 shadow-2xl text-right"
+        >
+          <button
+            onclick="closeLicensePurchaseModal()"
+            class="absolute top-4 left-4 text-slate-400 hover:text-white transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+
+          <h3 class="text-lg md:text-xl font-bold text-white mb-4" id="licenseModalTitle">
+            خرید لایسنس
+          </h3>
+
+          <!-- Step A: نرخ ارز، مبلغ قابل پرداخت، تخفیف ویژه، حساب‌های بانکی و دکمه رزرو -->
+          <div id="licenseStepInfo" class="space-y-4">
+            <div
+              class="bg-slate-900/70 border border-slate-800 rounded-lg px-3 py-2.5 text-xs text-slate-400 space-y-1"
+              id="licenseRatesBox"
+            >
+              <div id="licenseRateUsdTry">نرخ دلار به لیر: ...</div>
+              <div id="licenseRateUsdIrr">نرخ دلار به ریال: ...</div>
+              <div id="licenseRateUpdatedValue" class="text-slate-500"></div>
+            </div>
+
+            <div class="flex justify-between items-center text-sm">
+              <span class="text-slate-400" id="licensePayableLabel"
+                >مبلغ قابل پرداخت:</span
+              >
+              <span class="text-white font-bold" id="licensePayableUsd">$50</span>
+            </div>
+            <div
+              class="flex justify-between items-center text-sm border-t border-slate-800 pt-2"
+            >
+              <span class="text-slate-400" id="licenseTryLabel">معادل لیر:</span>
+              <span class="text-accentNeon font-bold" id="licenseTryAmount">—</span>
+            </div>
+            <div class="flex justify-between items-center text-sm">
+              <span class="text-slate-400" id="licenseIrrLabel">معادل ریال:</span>
+              <span class="text-accentNeon font-bold" id="licenseIrrAmount">—</span>
+            </div>
+
+            <div
+              class="bg-emerald-500/10 border border-emerald-500/30 rounded-lg p-3 text-xs space-y-2"
+            >
+              <p class="text-emerald-400 font-semibold" id="licenseDiscountLabel">
+                تخفیف ویژه ایرانیان 40% به شرط واریز به حساب بانک ملت در ایران
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="text-slate-400" id="licenseDiscountIrrLabel"
+                  >مبلغ قابل پرداخت با تخفیف (ریال):</span
+                >
+                <span class="text-emerald-400 font-bold" id="licenseDiscountIrrAmount"
+                  >—</span
+                >
+              </div>
+            </div>
+
+            <!-- حساب‌های بانکی جهت واریز وجه -->
+            <div
+              class="space-y-3 bg-slate-900/80 p-4 rounded-xl border border-slate-800/60 text-sm"
+            >
+              <p
+                class="font-semibold text-slate-300 border-b border-slate-800 pb-2 mb-1 text-xs"
+                id="licenseBankHeading"
+              >
+                حساب‌های بانکی جهت واریز وجه:
+              </p>
+
+              <!-- کارت ایران -->
+              <div>
+                <div class="flex justify-between items-center mb-1">
+                  <span class="text-slate-400 text-xs" id="licenseBankIranLabel"
+                    >کارت بانکی ایران (ملت):</span
+                  >
+                  <button
+                    onclick="copyToClipboard('6104337333623831', this)"
+                    class="text-xs text-accentNeon hover:underline flex items-center gap-1 copy-btn-txt-license"
+                  >
+                    کپی شماره کارت
+                  </button>
+                </div>
+                <p
+                  class="text-white font-mono tracking-wider text-left bg-darkBg px-2 py-1.5 rounded border border-slate-800"
+                >
+                  6104-3373-3362-3831
+                </p>
+                <p
+                  class="text-slate-500 text-[11px] mt-0.5 text-left"
+                  id="licenseBankIranOwner"
+                >
+                  به نام محمدرضا عموئیان
+                </p>
+              </div>
+
+              <!-- حساب لیر ترکیه -->
+              <div class="mt-3">
+                <div class="flex justify-between items-center mb-1">
+                  <span class="text-slate-400 text-xs" id="licenseBankTrLabel"
+                    >حساب لیر ترکیه (Ziraat Bank):</span
+                  >
+                  <button
+                    onclick="copyToClipboard('TR100001000835962786005001', this)"
+                    class="text-xs text-accentNeon hover:underline flex items-center gap-1 copy-btn-txt-license"
+                  >
+                    کپی IBAN
+                  </button>
+                </div>
+                <p
+                  class="text-white font-mono tracking-wider text-left bg-darkBg px-2 py-1.5 rounded border border-slate-800 text-xs overflow-x-auto"
+                >
+                  TR 1000 0100 0835 96278600 5001
+                </p>
+                <p class="text-slate-500 text-[11px] mt-0.5 text-left" id="licenseBankTrOwner">
+                  MohammadReza Amoeyan
+                </p>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              id="btnLicenseReserve"
+              onclick="showLicenseReserveForm()"
+              class="w-full py-3.5 bg-accentNeon hover:bg-accentNeon/90 text-darkBg font-bold rounded-xl transition-all duration-300 text-center"
+            >
+              رزرو لایسنس
+            </button>
+            <button
+              type="button"
+              id="btnLicenseBackFromInfo"
+              onclick="closeLicensePurchaseModal()"
+              class="w-full py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl transition-all duration-300 text-center"
+            >
+              بازگشت
+            </button>
+          </div>
+
+          <!-- Step B: دریافت نام و ایمیل -->
+          <div id="licenseStepForm" class="hidden space-y-4">
+            <p class="text-sm text-slate-400" id="licenseFormDesc">
+              لطفاً نام و ایمیل خود را وارد کنید:
+            </p>
+            <div>
+              <label
+                class="block text-xs text-slate-400 mb-1"
+                id="licenseNameLabel"
+                >نام و نام خانوادگی:</label
+              >
+              <input
+                type="text"
+                id="licenseCustomerName"
+                placeholder="مثلاً: علی رضایی"
+                class="w-full bg-darkBg border border-slate-800 rounded-lg px-3 py-2.5 text-sm text-white focus:outline-none focus:border-accentNeon"
+              />
+            </div>
+            <div>
+              <label
+                class="block text-xs text-slate-400 mb-1"
+                id="licenseEmailLabel"
+                >ایمیل:
+                <span id="licenseEmailHint" class="text-slate-500 font-normal"
+                  >(لطفا آدرس ایمیلی که به آن دسترسی دارید وارد کنید زیرا
+                  لایسنس به این آدرس ارسال خواهد شد)</span
+                ></label
+              >
+              <input
+                type="text"
+                inputmode="email"
+                autocomplete="email"
+                id="licenseCustomerEmail"
+                placeholder="you@example.com"
+                dir="ltr"
+                class="w-full bg-darkBg border border-slate-800 rounded-lg px-3 py-2.5 text-sm text-white text-left focus:outline-none focus:border-accentNeon"
+              />
+            </div>
+            <div>
+              <label
+                class="block text-xs text-slate-400 mb-1"
+                id="licenseWhatsappLabel"
+                >شماره واتس آپ:</label
+              >
+              <input
+                type="text"
+                inputmode="tel"
+                autocomplete="tel"
+                id="licenseCustomerWhatsapp"
+                placeholder="+98 912 000 0000"
+                dir="ltr"
+                class="w-full bg-darkBg border border-slate-800 rounded-lg px-3 py-2.5 text-sm text-white text-left focus:outline-none focus:border-accentNeon"
+              />
+            </div>
+            <p id="licenseFormError" class="text-xs text-red-400 hidden"></p>
+            <button
+              type="button"
+              id="btnLicenseSubmitForm"
+              onclick="submitLicenseReservation()"
+              class="w-full py-3.5 bg-accentNeon hover:bg-accentNeon/90 text-darkBg font-bold rounded-xl transition-all duration-300 text-center"
+            >
+              ثبت و دریافت لایسنس
+            </button>
+            <button
+              type="button"
+              id="btnLicenseBackFromForm"
+              onclick="goToLicenseStep('info')"
+              class="w-full py-2 text-slate-400 hover:text-white text-xs transition-colors text-center"
+            >
+              بازگشت به مرحله قبل
+            </button>
+          </div>
+
+          <!-- Step C: پیام پایانی راهنمای ارسال رسید (جهت متن با تغییر زبان در changeLanguage تنظیم می‌شود) -->
+          <div id="licenseStepDone" class="hidden space-y-4">
+            <p class="text-sm text-slate-300 leading-7 text-right" id="licenseDoneMsg">
+              لایسنس شما ساخته شد و همین حالا به آدرس ایمیلی که وارد کردید
+              ارسال گردید (اگر در Inbox نبود، پوشه‌ی Spam را هم ببینید).
+              لطفاً ظرف مدت ۲ روز وجه لایسنس (۵۰ دلار) را به یکی از
+              حساب‌های اعلام‌شده واریز و سند واریزی را به
+              BuskitApps@gmail.com ارسال کنید؛ در غیر این صورت سیستم پس از
+              ۲ روز این لایسنس را غیرفعال خواهد کرد. در صورت وجود هر گونه
+              ابهام از طریق خط واتس‌آپ 00905312691609 و یا ایمیل ذکر شده با
+              ما در تماس باشید.
+            </p>
+            <button
+              type="button"
+              id="btnLicenseBackFromDone"
+              onclick="closeLicensePurchaseModal()"
+              class="w-full py-3.5 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl transition-all duration-300 text-center"
+            >
+              بازگشت
+            </button>
+          </div>
         </div>
       </div>
     </div>

@@ -248,6 +248,13 @@
         >
           ورژن‌ها و آپدیت‌ها
         </button>
+        <button
+          id="tabBtnRates"
+          onclick="switchTab('rates')"
+          class="px-4 py-2.5 text-sm font-bold text-slate-500 border-b-2 border-transparent hover:text-slate-300 transition-colors"
+        >
+          نرخ ارز
+        </button>
       </div>
 
       <!-- تب پرسش و پاسخ -->
@@ -595,6 +602,39 @@
           </button>
         </div>
       </div>
+
+      <!-- تب نرخ ارز -->
+      <div id="tabPanelRates" class="hidden">
+        <div class="mb-8 p-5 bg-[#161920] border border-white/10 rounded-2xl">
+          <h2 class="text-white font-bold mb-1 text-sm">نرخ فعلی ذخیره‌شده</h2>
+          <p class="text-slate-500 text-xs mb-4">
+            همین نرخی که الان روی سایت (فروشگاه و فرم لایسنس) نمایش داده می‌شه —
+            از سند <span dir="ltr" class="font-mono">rates/latest</span> در فایراستور.
+          </p>
+          <div id="currentRatesStatus" class="text-sm text-slate-400 mb-1">
+            در حال بارگذاری...
+          </div>
+        </div>
+
+        <div class="p-5 bg-[#161920] border border-white/10 rounded-2xl">
+          <h2 class="text-white font-bold mb-1 text-sm">به‌روزرسانی دستی و لحظه‌ای</h2>
+          <p class="text-slate-500 text-xs mb-4">
+            با کلیک روی دکمه زیر، سرور همین حالا (بدون منتظر موندن برای ساعت
+            ۱۳ یا ۱۵) از همون منبع‌های همیشگی — دلار/لیر از doviz.com (و در
+            صورت شکست Frankfurter) و دلار/ریال بازار آزاد از bonbast (و در
+            صورت شکست brsapi) — نرخ رو می‌گیره و سند
+            <span dir="ltr" class="font-mono">rates/latest</span> رو آپدیت می‌کنه.
+          </p>
+          <p id="refreshRatesMsg" class="text-xs hidden mb-3"></p>
+          <button
+            onclick="refreshRatesNow()"
+            id="btnRefreshRates"
+            class="px-5 py-2.5 bg-[#00f5d4] text-[#0d0e12] text-sm font-bold rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50"
+          >
+            بروزرسانی لحظه‌ای نرخ‌ها
+          </button>
+        </div>
+      </div>
     </div>
 
     <script>
@@ -614,6 +654,7 @@
       let licenseRequestsUnsub = null;
       let discountsLoaded = false;
       let versionsLoaded = false;
+      let ratesLoaded = false;
 
       // ====== سوییچ بین تب‌ها ======
       function switchTab(tab) {
@@ -623,16 +664,18 @@
         const btnLR = document.getElementById("tabBtnLicenseRequests");
         const btnD = document.getElementById("tabBtnDiscounts");
         const btnV = document.getElementById("tabBtnVersions");
+        const btnRates = document.getElementById("tabBtnRates");
         const panelQ = document.getElementById("tabPanelQuestions");
         const panelR = document.getElementById("tabPanelReviews");
         const panelL = document.getElementById("tabPanelLicenses");
         const panelLR = document.getElementById("tabPanelLicenseRequests");
         const panelD = document.getElementById("tabPanelDiscounts");
         const panelV = document.getElementById("tabPanelVersions");
+        const panelRates = document.getElementById("tabPanelRates");
 
         const activeCls = ["text-[#00f5d4]", "border-[#00f5d4]"];
         const inactiveCls = ["text-slate-500", "border-transparent"];
-        const allBtns = [btnQ, btnR, btnL, btnLR, btnD, btnV];
+        const allBtns = [btnQ, btnR, btnL, btnLR, btnD, btnV, btnRates];
         const allPanels = {
           questions: panelQ,
           reviews: panelR,
@@ -640,6 +683,7 @@
           licenseRequests: panelLR,
           discounts: panelD,
           versions: panelV,
+          rates: panelRates,
         };
 
         allBtns.forEach((b) => {
@@ -656,12 +700,13 @@
           licenseRequests: btnLR,
           discounts: btnD,
           versions: btnV,
+          rates: btnRates,
         }[tab];
         activeBtn.classList.add(...activeCls);
         activeBtn.classList.remove(...inactiveCls);
 
         const warningEl = document.getElementById("liveFXAuthWarning");
-        if ((tab === "licenses" || tab === "discounts" || tab === "versions") && liveFXAuthFailed) {
+        if ((tab === "licenses" || tab === "discounts" || tab === "versions" || tab === "rates") && liveFXAuthFailed) {
           warningEl.classList.remove("hidden");
         } else {
           warningEl.classList.add("hidden");
@@ -680,6 +725,10 @@
         if (tab === "versions" && !versionsLoaded) {
           versionsLoaded = true;
           loadVersionsTab();
+        }
+        if (tab === "rates" && !ratesLoaded) {
+          ratesLoaded = true;
+          loadRatesTab();
         }
       }
 
@@ -1902,6 +1951,86 @@
         } finally {
           btn.disabled = false;
           btn.innerText = "اعلام آپدیت جدید";
+        }
+      }
+
+      // ====== تب نرخ ارز ======
+      function loadRatesTab() {
+        // خواندن سند نرخ به‌صورت زنده از فایراستور سایت اصلی (db) —
+        // همون سندی که script.js سایت هم می‌خونه (rates/latest)
+        db.collection("rates")
+          .doc("latest")
+          .onSnapshot(
+            (doc) => renderCurrentRates(doc),
+            (err) => {
+              console.error("خطا در خواندن نرخ ارز:", err);
+              document.getElementById("currentRatesStatus").innerText =
+                "خطا در خواندن نرخ ارز از فایراستور.";
+            }
+          );
+      }
+
+      function renderCurrentRates(doc) {
+        const el = document.getElementById("currentRatesStatus");
+        if (!doc.exists) {
+          el.innerText = "هنوز هیچ نرخی در فایراستور ذخیره نشده.";
+          return;
+        }
+        const data = doc.data() || {};
+        const tsField = data.updatedAt || data.lastUpdated || data.date || null;
+        const updatedText =
+          tsField && tsField.toDate ? formatDate(tsField) : "نامشخص";
+
+        el.innerHTML = `
+          <div class="flex flex-wrap gap-x-6 gap-y-1.5">
+            <span>لیر → ریال: <b class="text-white">${
+              data.tryToRial ? data.tryToRial.toLocaleString("fa-IR") : "—"
+            }</b></span>
+            <span>لیر → دلار: <b class="text-white">${
+              data.tryToUsd ? data.tryToUsd.toLocaleString("fa-IR") : "—"
+            }</b></span>
+          </div>
+          <p class="text-slate-500 text-xs mt-2">آخرین به‌روزرسانی: ${escapeHtml(
+            updatedText
+          )}</p>
+        `;
+      }
+
+      async function refreshRatesNow() {
+        const msgEl = document.getElementById("refreshRatesMsg");
+        const btn = document.getElementById("btnRefreshRates");
+
+        msgEl.classList.add("hidden");
+        btn.disabled = true;
+        btn.innerText = "در حال دریافت نرخ...";
+
+        try {
+          const user = authLiveFX.currentUser;
+          if (!user) throw new Error("کاربر لاگین نیست");
+          const idToken = await user.getIdToken();
+
+          const resp = await fetch(`${LICENSE_SERVER_URL}/admin/refresh-rates`, {
+            method: "POST",
+            headers: { Authorization: `Bearer ${idToken}` },
+          });
+          const data = await resp.json().catch(() => ({}));
+          if (!resp.ok || data.status !== "ok") {
+            throw new Error(data.error || "بروزرسانی نرخ ناموفق بود");
+          }
+
+          msgEl.className = "text-xs text-emerald-400 mb-3";
+          msgEl.innerText = "نرخ‌ها با موفقیت بروزرسانی شدند ✓";
+          msgEl.classList.remove("hidden");
+          // renderCurrentRates خودش با onSnapshot به‌روز می‌شه، نیازی به فراخوانی دستی نیست
+        } catch (err) {
+          console.error("خطا در بروزرسانی نرخ:", err);
+          msgEl.className = "text-xs text-rose-400 mb-3";
+          msgEl.innerText =
+            err.message || "بروزرسانی نرخ با خطا مواجه شد. (احتمالاً دسترسی کافی نداری)";
+          msgEl.classList.remove("hidden");
+        } finally {
+          btn.disabled = false;
+          btn.innerText = "بروزرسانی لحظه‌ای نرخ‌ها";
         }
       }
     </script>

@@ -2018,8 +2018,26 @@
             throw new Error(data.error || "بروزرسانی نرخ ناموفق بود");
           }
 
+          const parts = [];
+          if (data.usdTry) {
+            parts.push(
+              data.usdTry.success
+                ? `لیر/دلار: ${data.usdTry.source}`
+                : "لیر/دلار: ناموفق"
+            );
+          }
+          if (data.usdIrr) {
+            parts.push(
+              data.usdIrr.success
+                ? `لیر/ریال: ${data.usdIrr.source}`
+                : "لیر/ریال: ناموفق"
+            );
+          }
+
           msgEl.className = "text-xs text-emerald-400 mb-3";
-          msgEl.innerText = "نرخ‌ها با موفقیت بروزرسانی شدند ✓";
+          msgEl.innerText = `بروزرسانی انجام شد ✓${
+            parts.length ? " (" + parts.join(" — ") + ")" : ""
+          }`;
           msgEl.classList.remove("hidden");
           // renderCurrentRates خودش با onSnapshot به‌روز می‌شه، نیازی به فراخوانی دستی نیست
         } catch (err) {

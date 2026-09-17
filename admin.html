@@ -1266,6 +1266,9 @@
                     </button>
                   </div>
                 </td>
+                <td class="px-4 py-3 text-slate-400 whitespace-nowrap">${
+                  l.seller ? escapeHtml(l.seller) : `<span class="text-slate-600">—</span>`
+                }</td>
                 <td class="px-4 py-3 text-slate-500 whitespace-nowrap">${activatedLabel}</td>
               </tr>
             `;
@@ -1280,6 +1283,7 @@
                 <th class="px-4 py-3 text-right font-bold">ایمیل</th>
                 <th class="px-4 py-3 text-right font-bold">واتس‌آپ</th>
                 <th class="px-4 py-3 text-right font-bold">شماره لایسنس</th>
+                <th class="px-4 py-3 text-right font-bold">فروشنده</th>
                 <th class="px-4 py-3 text-right font-bold">تاریخ فعال‌سازی</th>
               </tr>
             </thead>

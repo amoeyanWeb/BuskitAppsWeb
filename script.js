@@ -92,8 +92,7 @@ const translations = {
     heroDownloadBtnLMT: "لایسنس نقره ای",
     heroDownloadBtnLMTpro: "لایسنس طلایی",
     heroDownloadBtnTools:
-      "دانلود رایگان اپلیکیشن \n و استفاده رایگان 5 روزه از کلیه امکانات اپلیکیشن",
-    heroBuyLicenseBtn: "دریافت لایسنس\nاول لایسنس رو دریافت کنید بعد وجهش را پرداخت کنید",
+      "دانلود رایگان اپلیکیشن \n دریافت رایگان لایسنس دو روزه و امکان استفاده از کلیه امکانات اپلیکیشن",
     heroTipLiveFX1: "9 افکت",
     heroTipLiveFX2: "تیونر کروماتیک",
     heroTipLiveFX3: "مترونوم فلکسیبل",
@@ -565,8 +564,7 @@ const translations = {
     heroDownloadBtnLMT: "Silver Licens ",
     heroDownloadBtnLMTpro: "Golden License ",
     heroDownloadBtnTools:
-      "Free download of the app\nGet a 5-day free trial with unlimited access to all features",
-    heroBuyLicenseBtn: "Get License\nGet your license first, then complete the payment",
+      "Free download of the app\nGet a free 2-day license with access to all app features",
     heroTipLiveFX1: "9 Effects",
     heroTipLiveFX2: "Chromatic Tuner",
     heroTipLiveFX3: "Flexible Metronome",
@@ -1040,8 +1038,7 @@ const translations = {
     heroDownloadBtnLMT: "Gümüş Lisans",
     heroDownloadBtnLMTpro: "Altın Lisans",
     heroDownloadBtnTools:
-      "uygulamasını ücretsiz indirin\nTüm özelliklere 5 gün boyunca ücretsiz erişim sağlayın",
-    heroBuyLicenseBtn: "Lisans Al\nÖnce lisansınızı alın, ardından ödemeyi yapın",
+      "uygulamasını ücretsiz indirin\n2 günlük ücretsiz lisans ve uygulamanın tüm özelliklerini kullanma imkânı",
     heroTipLiveFX1: "9 Efekt",
     heroTipLiveFX2: "Kromatik Akort Aleti",
     heroTipLiveFX3: "Esnek Metronom",
@@ -1521,8 +1518,7 @@ const translations = {
     heroDownloadBtnLMT: "Silber-Lizenz ",
     heroDownloadBtnLMTpro: "Gold-Lizenz ",
     heroDownloadBtnTools:
-      "Kostenloser Download der App\nErhalte eine 5-tägige kostenlose Testversion mit unbegrenztem Zugriff auf alle Funktionen",
-    heroBuyLicenseBtn: "Lizenz erhalten\nErhalten Sie zuerst die Lizenz, zahlen Sie dann",
+      "Kostenloser Download der App\nKostenlose 2-Tage-Lizenz mit Zugriff auf alle App-Funktionen",
     heroTipLiveFX1: "9 Effekte",
     heroTipLiveFX2: "Chromatisches Stimmgerät",
     heroTipLiveFX3: "Flexibles Metronom",
@@ -2585,18 +2581,6 @@ function changeLanguage(lang) {
   // به‌روزرسانی معادل ریالی قیمت‌ها با زبان جدید (از نرخ کش‌شده استفاده می‌کند)
   if (typeof updateRialPrices === "function") {
     updateRialPrices();
-  }
-
-  // بروزرسانی متن‌های مودال خرید لایسنس (دکمه، برچسب‌ها، نرخ‌ها و پیام پایانی)
-  const heroBuyLicenseBtnEl = document.getElementById("heroBuyLicenseBtn");
-  if (heroBuyLicenseBtnEl && data.heroBuyLicenseBtn) {
-    const buyLicenseLines = data.heroBuyLicenseBtn
-      .split("\n")
-      .map((line) => line.trim());
-    const buyLine1El = document.getElementById("heroBuyLicenseBtnLine1");
-    const buyLine2El = document.getElementById("heroBuyLicenseBtnLine2");
-    if (buyLine1El) buyLine1El.innerText = buyLicenseLines[0] || "";
-    if (buyLine2El) buyLine2El.innerText = buyLicenseLines[1] || "";
   }
 
   const licenseModalTitleEl = document.getElementById("licenseModalTitle");

@@ -77,7 +77,7 @@ const translations = {
     navAppGallery: "صفحات نمونه اپلیکیشن",
     navFeatures: "چرا Buskit-Tools",
     navUsersReview: "نظر کاربران",
-    navVideos: "اجراهای زنده",
+    navVideos: "ویدئوهای معرفی",
     navShop: "فروشگاه",
     navMessageme: "پرسش و پاسخ",
     navContacts: "تماس با من",
@@ -194,18 +194,10 @@ const translations = {
     videosTitle: "ویدیوهای اجرای زنده با باسکیت",
     videosDesc:
       "طنین و قدرت واقعی پردازش آنی را در اجراهای زیر با سازهای مختلف بشنوید و تماشا کنید.",
-    v1Tag: "تست افکت گیتار الکتریک",
-    v1Title: "اجرای قطعه فلامنکو با ریورب استودیویی",
-    v1Desc:
-      "در این ویدیو از پری‌ست Space Reverb و Delay غنی اپلیکیشن برای عمق دادن به تکنوازی استفاده شده است.",
-    v2Tag: "تست افکت سازهای سنتی",
-    v2Title: "تکنوازی سه‌تار با افکت پامپ و فضا سازی زنده",
-    v2Desc:
-      "اتصال خروجی پیکاپ سه‌تار به اپلیکیشن و اعمال افکت امبینت مدرن بدون کوچکترین تغییر در اصالت صدا.",
-    v3Tag: "تست زنده وکال و ساز کوبه‌ای",
-    v3Title: "اجرای خیابانی لوپینگ با اپلیکیشن باسکیت",
-    v3Desc:
-      "نمایش قدرت پردازش و میکس همزمان سیگنال ساز و میکروفون با کمترین میزان مصرف باتری گوشی.",
+    v1Title: "ویدئوی معرفی یک",
+    v2Title: "ویدئوی معرفی دو",
+    v3Title: "ویدئوی معرفی سه",
+    v4Title: "ویدئوی معرفی چهار",
     featuresTitle: "چرا نوازندگان باسکیت را انتخاب می‌کنند؟",
     featuresDesc:
       "یک مهندسی دقیق در تلفیق سخت‌افزار، نرم‌افزار و درک نیازهای یک موزیسین روی صحنه.",
@@ -549,7 +541,7 @@ const translations = {
     navAppGallery: "App Sample Screens",
     navFeatures: "Why Buskit-Tools",
     navUsersReview: "User Reviews",
-    navVideos: "Live Performances",
+    navVideos: "Introduction Videos",
     navShop: "Shop",
     navMessageme: "Q&A",
     navContacts: "Contact Me",
@@ -669,18 +661,10 @@ const translations = {
     videosTitle: "Live Performance Videos with Buskit",
     videosDesc:
       "Hear and watch the real tone and instant processing power in the following performances across various instruments.",
-    v1Tag: "Electric Guitar Effect Test",
-    v1Title: "Flamenco Piece Performance with Studio Reverb",
-    v1Desc:
-      "In this video, the app's rich Space Reverb and Delay presets are used to add depth to the solo performance.",
-    v2Tag: "Traditional Instrument Effect Test",
-    v2Title: "Setar Solo with Pump Effect and Live Ambient Soundscapes",
-    v2Desc:
-      "Connecting the Setar pickup output to the application, applying a modern ambient effect without losing the authentic acoustic core.",
-    v3Tag: "Live Vocal and Percussion Test",
-    v3Title: "Street Looping Performance via Buskit App",
-    v3Desc:
-      "Demonstrating the simultaneous mixing and processing power of instrument and microphone signals with ultra-low battery consumption.",
+    v1Title: "Introduction Video 1",
+    v2Title: "Introduction Video 2",
+    v3Title: "Introduction Video 3",
+    v4Title: "Introduction Video 4",
     featuresTitle: "Why Do Musicians Choose Buskit?",
     featuresDesc:
       "A precise blend of hardware engineering, software optimization, and a deep understanding of a musician's needs on stage.",
@@ -1023,7 +1007,7 @@ const translations = {
     navAppGallery: "Uygulama Örnek Sayfaları",
     navFeatures: "Neden Buskit-Tools",
     navUsersReview: "Kullanıcı Yorumları",
-    navVideos: "Canlı Performanslar",
+    navVideos: "Tanıtım Videoları",
     navShop: "Mağaza",
     navMessageme: "Soru-Cevap",
     navContacts: "İletişim",
@@ -1143,18 +1127,10 @@ const translations = {
     videosTitle: "Buskit ile Canlı Performans Videoları",
     videosDesc:
       "Farklı enstrümanlarla yapılan aşağıdaki performanslarda gerçek tınıyı ve anlık işlemci gücünü dinleyin ve izleyin.",
-    v1Tag: "Elektro Gitar Efekt Testi",
-    v1Title: "Stüdyo Reverb ile Flamenko Parçası İcrası",
-    v1Desc:
-      "Bu videoda, solo performansa derinlik katmak amacıyla uygulamanın zengin Space Reverb ve Delay hazır ayarları kullanılmıştır.",
-    v2Tag: "Geleneksel Enstrüman Efekt Testi",
-    v2Title: "Pump Efekti ve Canlı Ambiyans ile Setar Solosu",
-    v2Desc:
-      "Setar manyetik çıkışının uygulamaya bağlanması ve sesin orijinal yapısı bozulmadan modern ambiyans efektinin uygulanması.",
-    v3Tag: "Canlı Vokal ve Vurmalı Çalgı Testi",
-    v3Title: "Buskit Uygulaması ile Sokakta Looping Performansı",
-    v3Desc:
-      "Enstrüman ve mikrofon sinyalinin en düşük telefon pil tüketimiyle aynı anda mikslenmesi ve işlenmesi.",
+    v1Title: "Tanıtım Videosu 1",
+    v2Title: "Tanıtım Videosu 2",
+    v3Title: "Tanıtım Videosu 3",
+    v4Title: "Tanıtım Videosu 4",
     featuresTitle: "Müzisyenler Neden Buskit'i Seçiyor?",
     featuresDesc:
       "Donanım mühendisliği, yazılım optimizasyonu ve sahnedeki bir müzisyenin ihtiyaçlarının derinlemesine anlaşılmasının hassas bir birleşimi.",
@@ -1503,7 +1479,7 @@ const translations = {
     navAppGallery: "App-Beispielansichten",
     navFeatures: "Warum Buskit-Tools",
     navUsersReview: "Nutzerbewertungen",
-    navVideos: "Live-Auftritte",
+    navVideos: "Vorstellungsvideos",
     navShop: "Shop",
     navMessageme: "Fragen & Antworten",
     navContacts: "Kontakt",
@@ -1623,18 +1599,10 @@ const translations = {
     videosTitle: "Live-Auftrittsvideos mit Buskit",
     videosDesc:
       "Hören und sehen Sie den echten Klang und die sofortige Verarbeitungsleistung in den folgenden Auftritten mit verschiedenen Instrumenten.",
-    v1Tag: "Effekttest mit E-Gitarre",
-    v1Title: "Flamenco-Stück mit Studio-Hall",
-    v1Desc:
-      "In diesem Video werden die satten Space-Reverb- und Delay-Presets der App verwendet, um dem Solo-Auftritt Tiefe zu verleihen.",
-    v2Tag: "Effekttest mit traditionellem Instrument",
-    v2Title: "Setar-Solo mit Pump-Effekt und Live-Ambient-Klanglandschaften",
-    v2Desc:
-      "Der Tonabnehmer-Ausgang der Setar wird mit der Anwendung verbunden, wobei ein moderner Ambient-Effekt angewendet wird, ohne den authentischen akustischen Kern zu verlieren.",
-    v3Tag: "Live-Test mit Gesang und Percussion",
-    v3Title: "Street-Looping-Auftritt mit der Buskit-App",
-    v3Desc:
-      "Demonstration der gleichzeitigen Misch- und Verarbeitungsleistung von Instrumenten- und Mikrofonsignalen bei extrem niedrigem Batterieverbrauch.",
+    v1Title: "Vorstellungsvideo 1",
+    v2Title: "Vorstellungsvideo 2",
+    v3Title: "Vorstellungsvideo 3",
+    v4Title: "Vorstellungsvideo 4",
     featuresTitle: "Warum entscheiden sich Musiker für Buskit?",
     featuresDesc:
       "Eine präzise Mischung aus Hardware-Engineering, Software-Optimierung und einem tiefen Verständnis für die Bedürfnisse eines Musikers auf der Bühne.",
@@ -2300,15 +2268,10 @@ function changeLanguage(lang) {
   // بخش ویدیوها
   document.getElementById("videosTitle").innerText = data.videosTitle;
   document.getElementById("videosDesc").innerText = data.videosDesc;
-  document.getElementById("v1Tag").innerText = data.v1Tag;
   document.getElementById("v1Title").innerText = data.v1Title;
-  document.getElementById("v1Desc").innerText = data.v1Desc;
-  document.getElementById("v2Tag").innerText = data.v2Tag;
   document.getElementById("v2Title").innerText = data.v2Title;
-  document.getElementById("v2Desc").innerText = data.v2Desc;
-  document.getElementById("v3Tag").innerText = data.v3Tag;
   document.getElementById("v3Title").innerText = data.v3Title;
-  document.getElementById("v3Desc").innerText = data.v3Desc;
+  document.getElementById("v4Title").innerText = data.v4Title;
 
   // بخش ویژگی‌ها
   document.getElementById("featuresTitle").innerText = data.featuresTitle;

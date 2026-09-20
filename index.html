@@ -349,7 +349,7 @@
             href="#videos"
             id="navVideos"
             class="relative pb-1 hover:text-accentNeon transition-colors after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-accentNeon after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
-            >اجراهای زنده</a
+            >ویدئوهای معرفی</a
           >
           <a
             href="#shop"
@@ -599,7 +599,7 @@
           id="navVideosMobile"
           onclick="closeMobileMenu()"
           class="py-3 px-3 rounded-lg hover:bg-white/5 hover:text-accentNeon transition-colors"
-          >اجراهای زنده</a
+          >ویدئوهای معرفی</a
         >
         <a
           href="#shop"
@@ -709,135 +709,233 @@
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           <!-- Video Item 1 -->
           <div
-            class="bg-darkCard rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group"
+            class="video-card bg-darkCard rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+            role="button"
+            tabindex="0"
+            data-video="screenshots/video1.mp4"
+            aria-label="video 1"
           >
-            <div
-              class="relative aspect-video bg-slate-900 flex items-center justify-center"
-            >
-              <div
-                class="absolute inset-0 bg-cover bg-center opacity-60 group-hover:scale-105 transition-transform duration-500"
-                style="
-                  background-image: url(&quot;https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=500&auto=format&fit=crop&q=60&quot;);
-                "
-              ></div>
-              <button
-                class="relative z-10 w-16 h-16 rounded-full bg-accentNeon/90 text-darkBg flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  class="w-6 h-6 mx-1"
-                >
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </button>
+            <div class="relative aspect-video bg-slate-900 overflow-hidden">
+              <video
+                class="absolute inset-0 w-full h-full object-cover pointer-events-none group-hover:scale-105 transition-transform duration-500"
+                src="screenshots/video1.mp4#t=0.5"
+                preload="metadata"
+                muted
+                playsinline
+                tabindex="-1"
+              ></video>
+              <span class="absolute inset-0 z-10 flex items-center justify-center bg-black/25 group-hover:bg-black/10 transition-colors">
+                <span class="w-16 h-16 rounded-full bg-accentNeon/90 text-darkBg flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6 mx-1"><path d="M8 5v14l11-7z" /></svg>
+                </span>
+              </span>
             </div>
-            <div class="p-6">
-              <span
-                class="text-xs font-semibold text-accentNeon uppercase tracking-wider block mb-2"
-                id="v1Tag"
-                >تست افکت گیتار الکتریک</span
-              >
-              <h3 class="text-lg font-bold text-white mb-2" id="v1Title">
-                اجرای قطعه فلامنکو با ریورب استودیویی
+            <div class="p-5">
+              <h3 class="text-base md:text-lg font-bold text-white text-center" id="v1Title">
+                ویدئوی معرفی یک
               </h3>
-              <p class="text-slate-400 text-sm leading-relaxed" id="v1Desc">
-                در این ویدیو از پری‌ست Space Reverb و Delay غنی اپلیکیشن برای
-                عمق دادن به تکنوازی استفاده شده است.
-              </p>
             </div>
           </div>
-
           <!-- Video Item 2 -->
           <div
-            class="bg-darkCard rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group"
+            class="video-card bg-darkCard rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+            role="button"
+            tabindex="0"
+            data-video="screenshots/video2.mp4"
+            aria-label="video 2"
           >
-            <div
-              class="relative aspect-video bg-slate-900 flex items-center justify-center"
-            >
-              <div
-                class="absolute inset-0 bg-cover bg-center opacity-60 group-hover:scale-105 transition-transform duration-500"
-                style="
-                  background-image: url(&quot;https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=500&auto=format&fit=crop&q=60&quot;);
-                "
-              ></div>
-              <button
-                class="relative z-10 w-16 h-16 rounded-full bg-accentNeon/90 text-darkBg flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  class="w-6 h-6 mx-1"
-                >
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </button>
+            <div class="relative aspect-video bg-slate-900 overflow-hidden">
+              <video
+                class="absolute inset-0 w-full h-full object-cover pointer-events-none group-hover:scale-105 transition-transform duration-500"
+                src="screenshots/video2.mp4#t=0.5"
+                preload="metadata"
+                muted
+                playsinline
+                tabindex="-1"
+              ></video>
+              <span class="absolute inset-0 z-10 flex items-center justify-center bg-black/25 group-hover:bg-black/10 transition-colors">
+                <span class="w-16 h-16 rounded-full bg-accentNeon/90 text-darkBg flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6 mx-1"><path d="M8 5v14l11-7z" /></svg>
+                </span>
+              </span>
             </div>
-            <div class="p-6">
-              <span
-                class="text-xs font-semibold text-accentNeon uppercase tracking-wider block mb-2"
-                id="v2Tag"
-                >تست افکت سازهای سنتی</span
-              >
-              <h3 class="text-lg font-bold text-white mb-2" id="v2Title">
-                تکنوازی سه‌تار با افکت پامپ و فضا سازی زنده
+            <div class="p-5">
+              <h3 class="text-base md:text-lg font-bold text-white text-center" id="v2Title">
+                ویدئوی معرفی دو
               </h3>
-              <p class="text-slate-400 text-sm leading-relaxed" id="v2Desc">
-                اتصال خروجی پیکاپ سه‌تار به اپلیکیشن و اعمال افکت امبینت مدرن
-                بدون کوچکترین تغییر در اصالت صدا.
-              </p>
             </div>
           </div>
-
           <!-- Video Item 3 -->
           <div
-            class="bg-darkCard rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group"
+            class="video-card bg-darkCard rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+            role="button"
+            tabindex="0"
+            data-video="screenshots/video3.mp4"
+            aria-label="video 3"
           >
-            <div
-              class="relative aspect-video bg-slate-900 flex items-center justify-center"
-            >
-              <div
-                class="absolute inset-0 bg-cover bg-center opacity-60 group-hover:scale-105 transition-transform duration-500"
-                style="
-                  background-image: url(&quot;https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=500&auto=format&fit=crop&q=60&quot;);
-                "
-              ></div>
-              <button
-                class="relative z-10 w-16 h-16 rounded-full bg-accentNeon/90 text-darkBg flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  class="w-6 h-6 mx-1"
-                >
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </button>
+            <div class="relative aspect-video bg-slate-900 overflow-hidden">
+              <video
+                class="absolute inset-0 w-full h-full object-cover pointer-events-none group-hover:scale-105 transition-transform duration-500"
+                src="screenshots/video3.mp4#t=0.5"
+                preload="metadata"
+                muted
+                playsinline
+                tabindex="-1"
+              ></video>
+              <span class="absolute inset-0 z-10 flex items-center justify-center bg-black/25 group-hover:bg-black/10 transition-colors">
+                <span class="w-16 h-16 rounded-full bg-accentNeon/90 text-darkBg flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6 mx-1"><path d="M8 5v14l11-7z" /></svg>
+                </span>
+              </span>
             </div>
-            <div class="p-6">
-              <span
-                class="text-xs font-semibold text-accentNeon uppercase tracking-wider block mb-2"
-                id="v3Tag"
-                >تست زنده وکال و ساز کوبه‌ای</span
-              >
-              <h3 class="text-lg font-bold text-white mb-2" id="v3Title">
-                اجرای خیابانی لوپینگ با اپلیکیشن باسکیت
+            <div class="p-5">
+              <h3 class="text-base md:text-lg font-bold text-white text-center" id="v3Title">
+                ویدئوی معرفی سه
               </h3>
-              <p class="text-slate-400 text-sm leading-relaxed" id="v3Desc">
-                نمایش قدرت پردازش و میکس همزمان سیگنال ساز و میکروفون با کمترین
-                میزان مصرف باتری گوشی.
-              </p>
+            </div>
+          </div>
+          <!-- Video Item 4 -->
+          <div
+            class="video-card bg-darkCard rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+            role="button"
+            tabindex="0"
+            data-video="screenshots/video4.mp4"
+            aria-label="video 4"
+          >
+            <div class="relative aspect-video bg-slate-900 overflow-hidden">
+              <video
+                class="absolute inset-0 w-full h-full object-cover pointer-events-none group-hover:scale-105 transition-transform duration-500"
+                src="screenshots/video4.mp4#t=0.5"
+                preload="metadata"
+                muted
+                playsinline
+                tabindex="-1"
+              ></video>
+              <span class="absolute inset-0 z-10 flex items-center justify-center bg-black/25 group-hover:bg-black/10 transition-colors">
+                <span class="w-16 h-16 rounded-full bg-accentNeon/90 text-darkBg flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6 mx-1"><path d="M8 5v14l11-7z" /></svg>
+                </span>
+              </span>
+            </div>
+            <div class="p-5">
+              <h3 class="text-base md:text-lg font-bold text-white text-center" id="v4Title">
+                ویدئوی معرفی چهار
+              </h3>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Fullscreen video player -->
+    <div
+      id="videoModal"
+      class="hidden fixed inset-0 z-[200] bg-black items-center justify-center"
+      style="height: 100vh; height: 100dvh"
+      role="dialog"
+      aria-modal="true"
+    >
+      <button
+        id="videoModalClose"
+        type="button"
+        aria-label="Close"
+        class="absolute z-10 w-11 h-11 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center border border-white/30"
+        style="top: max(12px, env(safe-area-inset-top)); right: max(12px, env(safe-area-inset-right))"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6L6 18" /></svg>
+      </button>
+      <video
+        id="videoModalPlayer"
+        class="w-full h-full bg-black"
+        style="object-fit: contain"
+        controls
+        playsinline
+        controlsList="nodownload"
+      ></video>
+    </div>
+
+    <script>
+      (function () {
+        const modal = document.getElementById("videoModal");
+        const player = document.getElementById("videoModalPlayer");
+        const closeBtn = document.getElementById("videoModalClose");
+        let isOpen = false;
+
+        function enterFullscreen() {
+          try {
+            const req =
+              modal.requestFullscreen ||
+              modal.webkitRequestFullscreen ||
+              modal.msRequestFullscreen;
+            if (req) {
+              const p = req.call(modal);
+              if (p && p.catch) p.catch(() => {});
+            }
+          } catch (e) {}
+        }
+
+        function exitFullscreen() {
+          try {
+            const fsEl = document.fullscreenElement || document.webkitFullscreenElement;
+            if (fsEl) {
+              const ex = document.exitFullscreen || document.webkitExitFullscreen;
+              if (ex) {
+                const p = ex.call(document);
+                if (p && p.catch) p.catch(() => {});
+              }
+            }
+          } catch (e) {}
+        }
+
+        function openVideo(src) {
+          isOpen = true;
+          player.src = src;
+          modal.classList.remove("hidden");
+          modal.classList.add("flex");
+          document.body.style.overflow = "hidden";
+          enterFullscreen();
+          const p = player.play();
+          if (p && p.catch) p.catch(() => {});
+          closeBtn.focus({ preventScroll: true });
+        }
+
+        function closeVideo() {
+          if (!isOpen) return;
+          isOpen = false;
+          player.pause();
+          player.removeAttribute("src");
+          player.load();
+          modal.classList.add("hidden");
+          modal.classList.remove("flex");
+          document.body.style.overflow = "";
+          exitFullscreen();
+        }
+
+        document.querySelectorAll(".video-card").forEach((card) => {
+          card.addEventListener("click", () => openVideo(card.dataset.video));
+          card.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              openVideo(card.dataset.video);
+            }
+          });
+        });
+
+        closeBtn.addEventListener("click", closeVideo);
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") closeVideo();
+        });
+        // When the user leaves browser fullscreen (Esc / back gesture), close the player too
+        ["fullscreenchange", "webkitfullscreenchange"].forEach((ev) =>
+          document.addEventListener(ev, () => {
+            if (isOpen && !(document.fullscreenElement || document.webkitFullscreenElement)) closeVideo();
+          }),
+        );
+      })();
+    </script>
 
     <!-- About Me Section -->
 

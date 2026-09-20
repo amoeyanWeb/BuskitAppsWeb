@@ -4,6 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Buskit Tools İndir</title>
+
+    <!-- Firebase SDK (برای ثبت آمار دانلود اپ از این صفحه) -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyDO6bqHivptMf3SuwX3cBj3i_bD_jc1z7M",
+        authDomain: "buskitlivefxsite.firebaseapp.com",
+        projectId: "buskitlivefxsite",
+        storageBucket: "buskitlivefxsite.firebasestorage.app",
+        messagingSenderId: "403517891310",
+        appId: "1:403517891310:web:c177190040e590c4cd09ff",
+        measurementId: "G-1WCJB15HP0",
+      };
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+
+      // ====== ثبت آمار دانلود اپ از طریق همین صفحه‌ی دانلود ======
+      // منبع "page" هست تا در پنل ادمین از دانلودهای انجام‌شده از داخل
+      // خود سایت (source: "site") جدا دیده بشه؛ تاریخ آخرین دانلود هم
+      // همراهش ذخیره می‌شه.
+      function trackAppDownloadFromPage(appKey) {
+        if (typeof db === "undefined" || !db) return;
+        db.collection("downloads")
+          .doc(appKey)
+          .set(
+            {
+              count: firebase.firestore.FieldValue.increment(1),
+              pageCount: firebase.firestore.FieldValue.increment(1),
+              pageLastDownloadAt: firebase.firestore.FieldValue.serverTimestamp(),
+            },
+            { merge: true },
+          )
+          .catch((err) =>
+            console.error("خطا در ثبت آمار دانلود از صفحه‌ی دانلود:", err),
+          );
+      }
+    </script>
     <style>
       @font-face {
         font-family: "Vazirmatn";
@@ -67,15 +105,8 @@
           border-radius: 14px;
         }
 
-        .mark {
-          width: 54px;
-          height: 54px;
+        .logo {
           margin-bottom: 16px;
-        }
-
-        .mark svg {
-          width: 26px;
-          height: 26px;
         }
 
         h1 {
@@ -142,20 +173,12 @@
         border-color: var(--deep);
       }
 
-      .mark {
-        width: 64px;
-        height: 64px;
+      .logo {
+        width: 100%;
+        height: auto;
         margin: 0 auto 22px;
-        border-radius: 16px;
-        background: var(--deep);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .mark svg {
-        width: 32px;
-        height: 32px;
+        display: block;
+        border-radius: 10px;
       }
 
       h1 {
@@ -241,20 +264,8 @@
         <button class="lang-btn" data-lang="de">Deutsch</button>
       </div>
 
-      <div class="mark">
-        <!-- ses dalgası, müzik aracı kimliğiyle uyumlu -->
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M3 12h2.2L8 6l3.5 14L14.5 4L17 18l1.8-6H21"
-            stroke="#ffffff"
-            stroke-width="1.8"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-      </div>
+      <img class="logo" src="./buskit-logo.png" alt="Buskit Tools" />
 
-      <h1 id="title">Buskit Tools</h1>
       <p class="sub" id="subtitle">
         Uygulamanın en son sürümünü doğrudan Android telefonunuza kurun.
       </p>
@@ -265,6 +276,7 @@
           id="appBtn"
           href="./downloads/BuskitTools_v1.apk"
           download
+          onclick="trackAppDownloadFromPage('buskit-tools')"
         >
           <span id="appBtnText">Kurulum Dosyasını İndir (APK)</span>
         </a>
@@ -373,7 +385,6 @@
         document.documentElement.dir = t.dir;
         document.title = t.pageTitle;
 
-        document.getElementById("title").textContent = t.title;
         document.getElementById("subtitle").textContent = t.subtitle;
         document.getElementById("appBtnText").textContent = t.appBtn;
         document.getElementById("brochureBtnText").textContent = t.brochureBtn;

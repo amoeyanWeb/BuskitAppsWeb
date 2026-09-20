@@ -179,10 +179,66 @@
       <!-- آمار دانلود اپ -->
       <div class="mb-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div
-          class="p-5 bg-[#161920] border border-white/10 rounded-2xl flex items-center justify-between sm:col-span-1"
+          class="p-5 bg-[#161920] border border-white/10 rounded-2xl flex items-center justify-between"
         >
           <div>
-            <p class="text-slate-400 text-xs mb-1">تعداد دانلود Buskit-Tools</p>
+            <p class="text-slate-400 text-xs mb-1">دانلود از سایت (Buskit-Tools)</p>
+            <p id="downloadsToolsSiteCount" class="text-2xl font-bold text-[#00f5d4]">
+              در حال بارگذاری...
+            </p>
+            <p class="text-slate-500 text-[11px] mt-1">
+              آخرین دانلود: <span id="downloadsToolsSiteLastAt">—</span>
+            </p>
+          </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-9 h-9 text-slate-600"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
+            />
+          </svg>
+        </div>
+
+        <div
+          class="p-5 bg-[#161920] border border-white/10 rounded-2xl flex items-center justify-between"
+        >
+          <div>
+            <p class="text-slate-400 text-xs mb-1">دانلود از صفحه دانلود (Buskit-Tools)</p>
+            <p id="downloadsToolsPageCount" class="text-2xl font-bold text-[#00f5d4]">
+              در حال بارگذاری...
+            </p>
+            <p class="text-slate-500 text-[11px] mt-1">
+              آخرین دانلود: <span id="downloadsToolsPageLastAt">—</span>
+            </p>
+          </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-9 h-9 text-slate-600"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
+            />
+          </svg>
+        </div>
+
+        <div
+          class="p-5 bg-[#161920] border border-white/10 rounded-2xl flex items-center justify-between"
+        >
+          <div>
+            <p class="text-slate-400 text-xs mb-1">مجموع کل دانلود Buskit-Tools</p>
             <p id="downloadsToolsCount" class="text-2xl font-bold text-[#00f5d4]">
               در حال بارگذاری...
             </p>
@@ -198,7 +254,7 @@
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
-              d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
+              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
             />
           </svg>
         </div>
@@ -855,10 +911,23 @@
       }
 
       // ====== آمار دانلود اپ ======
+      function formatDownloadDate(timestamp) {
+        if (!timestamp || typeof timestamp.toDate !== "function") return "—";
+        const d = timestamp.toDate();
+        return d.toLocaleString("fa-IR", {
+          dateStyle: "short",
+          timeStyle: "short",
+        });
+      }
+
       function loadAppDownloads() {
         console.log("[loadAppDownloads] شروع خواندن آمار دانلود...");
-        const el = document.getElementById("downloadsToolsCount");
-        if (!el) {
+        const totalEl = document.getElementById("downloadsToolsCount");
+        const siteCountEl = document.getElementById("downloadsToolsSiteCount");
+        const siteLastAtEl = document.getElementById("downloadsToolsSiteLastAt");
+        const pageCountEl = document.getElementById("downloadsToolsPageCount");
+        const pageLastAtEl = document.getElementById("downloadsToolsPageLastAt");
+        if (!totalEl && !siteCountEl && !pageCountEl) {
           console.warn("[loadAppDownloads] المان پیدا نشد برای: buskit-tools");
           return;
         }
@@ -866,13 +935,38 @@
           .doc("buskit-tools")
           .get()
           .then((doc) => {
-            const count = doc.exists ? doc.data().count || 0 : 0;
-            console.log("[loadAppDownloads] buskit-tools =", count, "(exists:", doc.exists, ")");
-            el.innerText = count.toLocaleString("fa-IR");
+            const data = doc.exists ? doc.data() : {};
+            const total = data.count || 0;
+            const siteCount = data.siteCount || 0;
+            const pageCount = data.pageCount || 0;
+            console.log(
+              "[loadAppDownloads] buskit-tools total/site/page =",
+              total,
+              siteCount,
+              pageCount,
+              "(exists:",
+              doc.exists,
+              ")",
+            );
+            if (totalEl) totalEl.innerText = total.toLocaleString("fa-IR");
+            if (siteCountEl)
+              siteCountEl.innerText = siteCount.toLocaleString("fa-IR");
+            if (pageCountEl)
+              pageCountEl.innerText = pageCount.toLocaleString("fa-IR");
+            if (siteLastAtEl)
+              siteLastAtEl.innerText = formatDownloadDate(
+                data.siteLastDownloadAt,
+              );
+            if (pageLastAtEl)
+              pageLastAtEl.innerText = formatDownloadDate(
+                data.pageLastDownloadAt,
+              );
           })
           .catch((err) => {
             console.error("خطا در دریافت آمار دانلود buskit-tools:", err);
-            el.innerText = "—";
+            if (totalEl) totalEl.innerText = "—";
+            if (siteCountEl) siteCountEl.innerText = "—";
+            if (pageCountEl) pageCountEl.innerText = "—";
           });
       }
 

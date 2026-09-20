@@ -506,6 +506,11 @@ const translations = {
     licenseBankIranOwner: "به نام محمدرضا عموئیان",
     licenseBankTrLabel: "حساب لیر ترکیه (Ziraat Bank):",
     licenseBankTrOwner: "MohammadReza Amoeyan",
+    licenseDoneBankHeading: "شماره حساب‌های معتبر:",
+    licenseDoneBankIranLabel: "کارت بانکی ایران (ملت):",
+    licenseDoneBankIranOwner: "به نام محمدرضا عموئیان",
+    licenseDoneBankTrLabel: "حساب لیر ترکیه (Ziraat Bank):",
+    licenseDoneBankTrOwner: "MohammadReza Amoeyan",
     btnLicenseReserve: "رزرو لایسنس",
     btnLicenseBack: "بازگشت",
     licenseFormDesc: "لطفاً نام، ایمیل و شماره واتس آپ خود را وارد کنید:",
@@ -976,6 +981,11 @@ const translations = {
     licenseBankIranOwner: "MohammadReza Amoeyan",
     licenseBankTrLabel: "Turkey TRY account (Ziraat Bank):",
     licenseBankTrOwner: "MohammadReza Amoeyan",
+    licenseDoneBankHeading: "Valid account numbers:",
+    licenseDoneBankIranLabel: "Iran bank card (Mellat):",
+    licenseDoneBankIranOwner: "MohammadReza Amoeyan",
+    licenseDoneBankTrLabel: "Turkey TRY account (Ziraat Bank):",
+    licenseDoneBankTrOwner: "MohammadReza Amoeyan",
     btnLicenseReserve: "Reserve License",
     btnLicenseBack: "Back",
     licenseFormDesc: "Please enter your name, email and WhatsApp number:",
@@ -1452,6 +1462,11 @@ const translations = {
     licenseBankIranOwner: "MohammadReza Amoeyan",
     licenseBankTrLabel: "Türkiye TL hesabı (Ziraat Bankası):",
     licenseBankTrOwner: "MohammadReza Amoeyan",
+    licenseDoneBankHeading: "Geçerli hesap numaraları:",
+    licenseDoneBankIranLabel: "İran banka kartı (Mellat):",
+    licenseDoneBankIranOwner: "MohammadReza Amoeyan",
+    licenseDoneBankTrLabel: "Türkiye TL hesabı (Ziraat Bankası):",
+    licenseDoneBankTrOwner: "MohammadReza Amoeyan",
     btnLicenseReserve: "Lisans Rezervasyonu",
     btnLicenseBack: "Geri",
     licenseFormDesc: "Lütfen ad soyad, e-posta ve WhatsApp numaranızı girin:",
@@ -1922,6 +1937,11 @@ const translations = {
     licenseBankIranOwner: "MohammadReza Amoeyan",
     licenseBankTrLabel: "Türkisches TRY-Konto (Ziraat Bank):",
     licenseBankTrOwner: "MohammadReza Amoeyan",
+    licenseDoneBankHeading: "Gültige Kontonummern:",
+    licenseDoneBankIranLabel: "Iranische Bankkarte (Mellat):",
+    licenseDoneBankIranOwner: "MohammadReza Amoeyan",
+    licenseDoneBankTrLabel: "Türkisches TRY-Konto (Ziraat Bank):",
+    licenseDoneBankTrOwner: "MohammadReza Amoeyan",
     btnLicenseReserve: "Lizenz reservieren",
     btnLicenseBack: "Zurück",
     licenseFormDesc: "Bitte geben Sie Ihren Namen, Ihre E-Mail-Adresse und Ihre WhatsApp-Nummer ein:",
@@ -2615,6 +2635,31 @@ function changeLanguage(lang) {
   const licenseBankTrOwnerEl = document.getElementById("licenseBankTrOwner");
   if (licenseBankTrOwnerEl)
     licenseBankTrOwnerEl.innerText = data.licenseBankTrOwner;
+  const licenseDoneBankHeadingEl = document.getElementById(
+    "licenseDoneBankHeading",
+  );
+  if (licenseDoneBankHeadingEl)
+    licenseDoneBankHeadingEl.innerText = data.licenseDoneBankHeading;
+  const licenseDoneBankIranLabelEl = document.getElementById(
+    "licenseDoneBankIranLabel",
+  );
+  if (licenseDoneBankIranLabelEl)
+    licenseDoneBankIranLabelEl.innerText = data.licenseDoneBankIranLabel;
+  const licenseDoneBankIranOwnerEl = document.getElementById(
+    "licenseDoneBankIranOwner",
+  );
+  if (licenseDoneBankIranOwnerEl)
+    licenseDoneBankIranOwnerEl.innerText = data.licenseDoneBankIranOwner;
+  const licenseDoneBankTrLabelEl = document.getElementById(
+    "licenseDoneBankTrLabel",
+  );
+  if (licenseDoneBankTrLabelEl)
+    licenseDoneBankTrLabelEl.innerText = data.licenseDoneBankTrLabel;
+  const licenseDoneBankTrOwnerEl = document.getElementById(
+    "licenseDoneBankTrOwner",
+  );
+  if (licenseDoneBankTrOwnerEl)
+    licenseDoneBankTrOwnerEl.innerText = data.licenseDoneBankTrOwner;
   const btnLicenseReserveEl = document.getElementById("btnLicenseReserve");
   if (btnLicenseReserveEl) btnLicenseReserveEl.innerText = data.btnLicenseReserve;
   const btnLicenseBackFromInfoEl = document.getElementById(
@@ -3406,22 +3451,36 @@ const appModalDataTR = {
 };
 
 // ====== ثبت آمار دانلود هر اپ در Firestore ======
-function trackAppDownload(appKey) {
-  console.log("[trackAppDownload] فراخوانی شد برای:", appKey);
+// source: "site" یعنی دانلود از طریق دکمه‌ی داخل همین سایت (index.html)،
+// "page" یعنی دانلود از طریق صفحه‌ی مستقل دانلود (download.html).
+// جدا از شمارنده‌ی کل (count، برای سازگاری با قبل)، به تفکیک منبع هم یک
+// شمارنده (siteCount/pageCount) و تاریخ آخرین دانلود (siteLastDownloadAt/
+// pageLastDownloadAt) در همون سند ذخیره می‌شه تا در پنل ادمین قابل دیدن باشه.
+function trackAppDownload(appKey, source) {
+  console.log("[trackAppDownload] فراخوانی شد برای:", appKey, "منبع:", source);
   if (typeof db === "undefined" || !db) {
     console.warn("[trackAppDownload] متغیر db تعریف نشده — آمار ثبت نمی‌شود.");
     return;
   }
+  const countField = source === "page" ? "pageCount" : "siteCount";
+  const dateField = source === "page" ? "pageLastDownloadAt" : "siteLastDownloadAt";
   db.collection("downloads")
     .doc(appKey)
-    .set({ count: firebase.firestore.FieldValue.increment(1) }, { merge: true })
-    .then(() => console.log("[trackAppDownload] با موفقیت ثبت شد:", appKey))
+    .set(
+      {
+        count: firebase.firestore.FieldValue.increment(1),
+        [countField]: firebase.firestore.FieldValue.increment(1),
+        [dateField]: firebase.firestore.FieldValue.serverTimestamp(),
+      },
+      { merge: true },
+    )
+    .then(() => console.log("[trackAppDownload] با موفقیت ثبت شد:", appKey, source))
     .catch((err) => console.error("خطا در ثبت آمار دانلود اپ:", err));
 }
 
-// ====== دانلود مستقیم اپلیکیشن Buskit-Tools ======
+// ====== دانلود مستقیم اپلیکیشن Buskit-Tools (از داخل خود سایت) ======
 function downloadBuskitTools() {
-  trackAppDownload("buskit-tools");
+  trackAppDownload("buskit-tools", "site");
   const link = document.createElement("a");
   link.href = "./downloads/BuskitTools_v1.apk";
   link.download = "BuskitTools_v1.apk";
@@ -3533,22 +3592,32 @@ function copyToClipboard(text, button) {
 // سرور لایسنس) و به او گفته می‌شود رسید واریزی را به ایمیل ما ارسال کند.
 const LICENSE_USD_AMOUNT = 50; // مبلغ پایه لایسنس به دلار
 const LICENSE_IRAN_DISCOUNT = 0.4; // ۴۰٪ تخفیف ویژه واریز به حساب ایران
+// ضریب تعدیل معادل ریالی قیمت لایسنس — هر جا معادل ریال/تومان مبلغ ۵۰ دلاری
+// لایسنس از روی نرخ لحظه‌ای دلار→ریال محاسبه می‌شود (هم متن پایانی مودال خرید
+// لایسنس، هم مبلغ و تخفیف نمایش داده‌شده داخل خود مودال)، همین یک عدد در نرخ
+// دلار→ریال ضرب می‌شود تا مبلغ نمایشی ارزان‌تر شود. مثلاً 0.6 یعنی معادل
+// ریالیِ نمایش‌داده‌شده ۶۰٪ نرخ واقعی است. فقط همین عدد رو تغییر بده؛ روی
+// معادل لیر یا خود مبلغ دلاری تأثیری ندارد. عدد 1 یعنی بدون هیچ تعدیلی.
+const LICENSE_IRR_RATE_ADJUSTMENT = 0.6;
+
+// مبلغ ریالیِ لایسنس، فیکس و مستقل از نرخ ارز: ۴,۶۰۰,۰۰۰ تومان (= ۴۶,۰۰۰,۰۰۰ ریال)
+// این عدد دیگر در نرخ لیر/دلار ضرب نمی‌شود؛ فقط معادل لیری همچنان از نرخ لحظه‌ای محاسبه می‌شود.
+const LICENSE_FIXED_TOMAN_AMOUNT = 4600000;
+const LICENSE_FIXED_IRR_AMOUNT = LICENSE_FIXED_TOMAN_AMOUNT * 10;
 
 function formatLicenseNumber(amount, maxFractionDigits) {
   const opts = { maximumFractionDigits: maxFractionDigits || 0 };
   return Number(amount).toLocaleString("en-US", opts);
 }
 
-// محاسبه معادل ریالی و لیری مبلغ ۵۰ دلاری لایسنس، بر اساس نرخ لحظه‌ای
-// (tryToUsdRate / tryToIrrRate). اگر نرخ هنوز از Firestore دریافت نشده
-// باشد null برمی‌گرداند.
+// محاسبه معادل ریالی (فیکس، ضرب‌نشده در نرخ ارز) و لیری (بر اساس نرخ لحظه‌ای)
+// مبلغ لایسنس. اگر نرخ لیر هنوز از Firestore دریافت نشده باشد null برمی‌گرداند.
 function computeLicenseUsdAmounts() {
   if (!tryToUsdRate || !tryToIrrRate) return null;
   const usdToTry = 1 / tryToUsdRate;
-  const usdToIrr = tryToIrrRate / tryToUsdRate;
   return {
     liraAmount: LICENSE_USD_AMOUNT * usdToTry,
-    irrAmount: LICENSE_USD_AMOUNT * usdToIrr,
+    irrAmount: LICENSE_FIXED_IRR_AMOUNT,
   };
 }
 
@@ -3631,7 +3700,9 @@ function updateLicenseModalRatesUI() {
   // ۱ لیر = tryToUsdRate دلار  ⇐  ۱ دلار = 1/tryToUsdRate لیر
   const usdToTry = 1 / tryToUsdRate;
   // ۱ لیر = tryToIrrRate ریال و ۱ لیر = tryToUsdRate دلار ⇐ ۱ دلار = tryToIrrRate/tryToUsdRate ریال
-  const usdToIrr = tryToIrrRate / tryToUsdRate;
+  // (ضرب‌شده در LICENSE_IRR_RATE_ADJUSTMENT تا معادل ریالی نمایشی ارزان‌تر شود)
+  const usdToIrr =
+    (tryToIrrRate / tryToUsdRate) * LICENSE_IRR_RATE_ADJUSTMENT;
 
   const liraAmount = LICENSE_USD_AMOUNT * usdToTry;
   const irrAmount = LICENSE_USD_AMOUNT * usdToIrr;

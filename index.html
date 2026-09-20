@@ -3008,6 +3008,68 @@
               ابهام از طریق خط واتس‌آپ 00905312691609 و یا ایمیل ذکر شده با
               ما در تماس باشید.
             </p>
+
+            <!-- شماره حساب‌های معتبر جهت واریز وجه لایسنس -->
+            <div
+              class="space-y-3 bg-slate-900/80 p-4 rounded-xl border border-slate-800/60 text-sm"
+            >
+              <p
+                class="font-semibold text-slate-300 border-b border-slate-800 pb-2 mb-1 text-xs"
+                id="licenseDoneBankHeading"
+              >
+                شماره حساب‌های معتبر:
+              </p>
+
+              <!-- کارت ایران -->
+              <div>
+                <div class="flex justify-between items-center mb-1">
+                  <span class="text-slate-400 text-xs" id="licenseDoneBankIranLabel"
+                    >کارت بانکی ایران (ملت):</span
+                  >
+                  <button
+                    onclick="copyToClipboard('6104337333623831', this)"
+                    class="text-xs text-accentNeon hover:underline flex items-center gap-1 copy-btn-txt-license"
+                  >
+                    کپی شماره کارت
+                  </button>
+                </div>
+                <p
+                  class="text-white font-mono tracking-wider text-left bg-darkBg px-2 py-1.5 rounded border border-slate-800"
+                >
+                  6104-3373-3362-3831
+                </p>
+                <p
+                  class="text-slate-500 text-[11px] mt-0.5 text-left"
+                  id="licenseDoneBankIranOwner"
+                >
+                  به نام محمدرضا عموئیان
+                </p>
+              </div>
+
+              <!-- حساب لیر ترکیه -->
+              <div class="mt-3">
+                <div class="flex justify-between items-center mb-1">
+                  <span class="text-slate-400 text-xs" id="licenseDoneBankTrLabel"
+                    >حساب لیر ترکیه (Ziraat Bank):</span
+                  >
+                  <button
+                    onclick="copyToClipboard('TR100001000835962786005001', this)"
+                    class="text-xs text-accentNeon hover:underline flex items-center gap-1 copy-btn-txt-license"
+                  >
+                    کپی IBAN
+                  </button>
+                </div>
+                <p
+                  class="text-white font-mono tracking-wider text-left bg-darkBg px-2 py-1.5 rounded border border-slate-800 text-xs overflow-x-auto"
+                >
+                  TR 1000 0100 0835 96278600 5001
+                </p>
+                <p class="text-slate-500 text-[11px] mt-0.5 text-left" id="licenseDoneBankTrOwner">
+                  MohammadReza Amoeyan
+                </p>
+              </div>
+            </div>
+
             <button
               type="button"
               id="btnLicenseBackFromDone"

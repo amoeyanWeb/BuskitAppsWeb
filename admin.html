@@ -374,6 +374,86 @@
             </p>
           </div>
         </div>
+
+        <!-- لیست لایسنس‌های Lifetime (دائم) -->
+        <div class="mt-8">
+          <h2 class="text-white font-bold mb-1 text-sm">
+            لایسنس‌های Lifetime (دائم)
+          </h2>
+          <p class="text-slate-500 text-xs mb-4">
+            همه‌ی لایسنس‌های دائمی (<span dir="ltr">license_type = lifetime</span>) —
+            از هر منبعی صادر شده باشند (سایت، صفحه‌ی پرداخت، مایکت یا کافه‌بازار).
+          </p>
+          <div
+            id="lifetimeLicensesSummary"
+            class="mb-4 p-4 bg-[#161920] border border-white/10 rounded-2xl text-sm text-slate-400"
+          ></div>
+          <div id="lifetimeLicensesList" class="overflow-x-auto rounded-2xl border border-white/10">
+            <p class="text-slate-500 text-sm text-center py-6">
+              در حال بارگذاری لایسنس‌های Lifetime...
+            </p>
+          </div>
+        </div>
+
+        <!-- لیست لایسنس‌های پروبیشن (آزمایشی) -->
+        <div class="mt-8">
+          <h2 class="text-white font-bold mb-1 text-sm">
+            لایسنس‌های پروبیشن (آزمایشی)
+          </h2>
+          <p class="text-slate-500 text-xs mb-4">
+            لایسنس‌های پروبیشن به همراه تاریخ فعال‌سازی و تاریخ انقضایشان.
+            لایسنس‌هایی که تاریخ انقضایشان گذشته با رنگ قرمز مشخص می‌شوند.
+          </p>
+          <div
+            id="probationLicensesSummary"
+            class="mb-4 p-4 bg-[#161920] border border-white/10 rounded-2xl text-sm text-slate-400"
+          ></div>
+          <div id="probationLicensesList" class="overflow-x-auto rounded-2xl border border-white/10">
+            <p class="text-slate-500 text-sm text-center py-6">
+              در حال بارگذاری لایسنس‌های پروبیشن...
+            </p>
+          </div>
+        </div>
+
+        <!-- خریدهای کافه‌بازار -->
+        <div class="mt-8">
+          <h2 class="text-white font-bold mb-1 text-sm">
+            خریدهای کافه‌بازار (CAFEBAZAAR)
+          </h2>
+          <p class="text-slate-500 text-xs mb-4">
+            لایسنس‌هایی که از طریق خرید درون‌برنامه‌ای کافه‌بازار ساخته و فعال شده‌اند
+            (<span dir="ltr">source = bazaar</span>).
+          </p>
+          <div
+            id="bazaarLicensesSummary"
+            class="mb-4 p-4 bg-[#161920] border border-white/10 rounded-2xl text-sm text-slate-400"
+          ></div>
+          <div id="bazaarLicensesList" class="overflow-x-auto rounded-2xl border border-white/10">
+            <p class="text-slate-500 text-sm text-center py-6">
+              در حال بارگذاری خریدهای کافه‌بازار...
+            </p>
+          </div>
+        </div>
+
+        <!-- خریدهای مایکت -->
+        <div class="mt-8">
+          <h2 class="text-white font-bold mb-1 text-sm">
+            خریدهای مایکت (MYKET)
+          </h2>
+          <p class="text-slate-500 text-xs mb-4">
+            لایسنس‌هایی که از طریق خرید درون‌برنامه‌ای مایکت ساخته و فعال شده‌اند
+            (<span dir="ltr">source = myket</span>).
+          </p>
+          <div
+            id="myketLicensesSummary"
+            class="mb-4 p-4 bg-[#161920] border border-white/10 rounded-2xl text-sm text-slate-400"
+          ></div>
+          <div id="myketLicensesList" class="overflow-x-auto rounded-2xl border border-white/10">
+            <p class="text-slate-500 text-sm text-center py-6">
+              در حال بارگذاری خریدهای مایکت...
+            </p>
+          </div>
+        </div>
       </div>
 
       <!-- تب درخواست‌های لایسنس -->
@@ -1215,19 +1295,119 @@
       }
 
       // ====== تب لایسنس‌ها ======
+      // فیلدهای واقعی سند licenses در Firestore (بر اساس سرور — index.js):
+      //   tier          → همیشه "gold" (چون فقط یک محصول می‌فروشی، فعلاً بی‌اثر)
+      //   license_type  → "lifetime" | "probation" | "5days"
+      //   source        → "website-direct" | "website-discount" | "website-probation" |
+      //                    "app-probation" | "lemonsqueezy" | "myket" | "bazaar"
+      //   is_used, activated_at, expires_at, name, email, whatsapp, seller
+
       const TIER_LABELS = { gold: "طلایی", silver: "نقره‌ای", bronze: "برنزی" };
-      const DURATION_LABELS = {
-        lifetime: "دائم",
-        "1year": "یک‌ساله",
-        "1month": "یک‌ماهه",
-        "5days": "۵ روزه",
-      };
 
       function tierBadgeClass(tier) {
         if (tier === "gold") return "bg-amber-500/10 text-amber-400 border-amber-500/30";
         if (tier === "silver") return "bg-slate-400/10 text-slate-300 border-slate-400/30";
         if (tier === "bronze") return "bg-orange-700/10 text-orange-400 border-orange-700/30";
         return "bg-slate-500/10 text-slate-400 border-slate-500/30";
+      }
+
+      // ── نوع لایسنس (license_type) ────────────────────────────────────────
+      const LICENSE_TYPE_LABELS = {
+        lifetime: "دائم (Lifetime)",
+        probation: "پروبیشن (آزمایشی)",
+        "5days": "۵ روزه (Free Trial)",
+      };
+
+      function getLicenseTypeValue(l) {
+        return String(l.license_type || "").toLowerCase();
+      }
+
+      function licenseTypeBadgeClass(v) {
+        if (v === "lifetime") return "bg-emerald-500/10 text-emerald-400 border-emerald-500/30";
+        if (v === "probation") return "bg-sky-500/10 text-sky-400 border-sky-500/30";
+        if (v === "5days") return "bg-purple-500/10 text-purple-400 border-purple-500/30";
+        return "bg-slate-500/10 text-slate-400 border-slate-500/30";
+      }
+
+      function licenseTypeBadgeHtml(v) {
+        if (!v) return `<span class="text-slate-600">—</span>`;
+        const label = LICENSE_TYPE_LABELS[v] || escapeHtml(v);
+        return `<span class="px-2 py-0.5 rounded-lg border text-[11px] whitespace-nowrap ${licenseTypeBadgeClass(
+          v
+        )}">${label}</span>`;
+      }
+
+      // ── منبع/محل خرید یا صدور لایسنس (source) ────────────────────────────
+      // سه دسته‌ی اصلی که در پنل نشان داده می‌شود: SITE / MYKET / CAFEBAZAAR
+      // توجه: مفهوم SITE/PAGE که در بخش «آمار دانلود اپ» بالاتر همین صفحه
+      // دیده می‌شود (downloadsToolsSiteCount در برابر downloadsToolsPageCount)
+      // یک چیز کاملاً جداست — آن‌جا فقط شمارش کلیک روی دکمه‌ی دانلود APK است
+      // (از خودِ سایت در برابر صفحه‌ی download.html)، نه صدور لایسنس. هیچ
+      // لایسنسی از صفحه‌ی download.html صادر نمی‌شود، پس این‌جا گروه PAGE
+      // معنا ندارد. lemonsqueezy هم صرفاً درگاه پرداختِ فرم خرید سایت است،
+      // پس در گروه SITE قرار می‌گیرد.
+      const SOURCE_LABELS = {
+        "website-direct": "سایت",
+        "website-discount": "سایت (کد تخفیف)",
+        "website-probation": "سایت — پروبیشن",
+        "app-probation": "اپ — پروبیشن",
+        lemonsqueezy: "سایت — صفحه پرداخت",
+        myket: "مایکت",
+        bazaar: "کافه‌بازار",
+      };
+      const SOURCE_GROUP_TAGS = { site: "SITE", myket: "MYKET", bazaar: "CAFEBAZAAR" };
+
+      function getLicenseSourceValue(l) {
+        return String(l.source || "").toLowerCase();
+      }
+
+      // منبع خام را به یکی از سه دسته‌ی SITE/MYKET/CAFEBAZAAR نگاشت می‌کند
+      function sourceGroupKey(source) {
+        if (source === "myket") return "myket";
+        if (source === "bazaar") return "bazaar";
+        if (source) return "site"; // website-direct / website-discount / website-probation / app-probation / lemonsqueezy
+        return null;
+      }
+
+      function sourceBadgeClass(source) {
+        if (source === "myket") return "bg-teal-500/10 text-teal-400 border-teal-500/30";
+        if (source === "bazaar") return "bg-lime-500/10 text-lime-400 border-lime-500/30";
+        if (source === "lemonsqueezy") return "bg-indigo-500/10 text-indigo-400 border-indigo-500/30";
+        if (source.startsWith("website")) return "bg-indigo-500/10 text-indigo-400 border-indigo-500/30";
+        if (source.startsWith("app")) return "bg-fuchsia-500/10 text-fuchsia-400 border-fuchsia-500/30";
+        return "bg-slate-500/10 text-slate-400 border-slate-500/30";
+      }
+
+      function sourceBadgeHtml(source) {
+        if (!source) return `<span class="text-slate-600">—</span>`;
+        const label = SOURCE_LABELS[source] || escapeHtml(source);
+        const group = sourceGroupKey(source);
+        const groupTag = group
+          ? ` <span class="text-[10px] text-slate-500" dir="ltr">${SOURCE_GROUP_TAGS[group]}</span>`
+          : "";
+        return `<span class="px-2 py-0.5 rounded-lg border text-[11px] whitespace-nowrap ${sourceBadgeClass(
+          source
+        )}">${label}</span>${groupTag}`;
+      }
+
+      // ── تاریخ فعال‌سازی / انقضا (Firestore Timestamp) ────────────────────
+      function getLicenseActivatedDate(l) {
+        return l.activated_at && typeof l.activated_at.toDate === "function"
+          ? l.activated_at.toDate()
+          : null;
+      }
+
+      function getLicenseExpiryDate(l) {
+        return l.expires_at && typeof l.expires_at.toDate === "function"
+          ? l.expires_at.toDate()
+          : null;
+      }
+
+      // برای نمایش رشته‌های طولانی (توکن خرید و مانند آن) به‌صورت کوتاه‌شده
+      function truncateMiddle(str, front, back) {
+        if (!str) return "";
+        if (str.length <= front + back + 1) return str;
+        return `${str.slice(0, front)}…${str.slice(-back)}`;
       }
 
       function monthKeyFromDate(date) {
@@ -1253,6 +1433,16 @@
         const statsEl = document.getElementById("licenseMonthlyStats");
         const allListEl = document.getElementById("allLicensesList");
         const allSummaryEl = document.getElementById("allLicensesSummary");
+        const lifetimeListEl = document.getElementById("lifetimeLicensesList");
+        const lifetimeSummaryEl = document.getElementById("lifetimeLicensesSummary");
+        const probationListEl = document.getElementById("probationLicensesList");
+        const probationSummaryEl = document.getElementById("probationLicensesSummary");
+        const bazaarListEl = document.getElementById("bazaarLicensesList");
+        const bazaarSummaryEl = document.getElementById("bazaarLicensesSummary");
+        const myketListEl = document.getElementById("myketLicensesList");
+        const myketSummaryEl = document.getElementById("myketLicensesSummary");
+
+        const allListEls = [lifetimeListEl, probationListEl, bazaarListEl, myketListEl];
 
         try {
           const snapshot = await dbLiveFX.collection("licenses").get();
@@ -1275,11 +1465,18 @@
 
           renderLicenseMonthlyStats(monthly);
           renderAllLicenses(allDocs, allListEl, allSummaryEl);
+          renderLifetimeLicenses(allDocs, lifetimeListEl, lifetimeSummaryEl);
+          renderProbationLicenses(allDocs, probationListEl, probationSummaryEl);
+          renderStoreLicenses(allDocs, "bazaar", bazaarListEl, bazaarSummaryEl, "bazaar_sku_id", "bazaar_purchase_token");
+          renderStoreLicenses(allDocs, "myket", myketListEl, myketSummaryEl, "myket_sku_id", "myket_purchase_token");
         } catch (err) {
           console.error("خطا در بارگذاری لایسنس‌ها:", err);
           statsEl.innerHTML =
             '<p class="text-rose-400 text-sm text-center py-6">بارگذاری آمار لایسنس‌ها با خطا مواجه شد. (احتمالاً دسترسی کافی نداری)</p>';
           allListEl.innerHTML = "";
+          allListEls.forEach((el) => {
+            if (el) el.innerHTML = "";
+          });
         }
       }
 
@@ -1360,6 +1557,8 @@
                     </button>
                   </div>
                 </td>
+                <td class="px-4 py-3">${licenseTypeBadgeHtml(getLicenseTypeValue(l))}</td>
+                <td class="px-4 py-3">${sourceBadgeHtml(getLicenseSourceValue(l))}</td>
                 <td class="px-4 py-3 text-slate-400 whitespace-nowrap">${
                   l.seller ? escapeHtml(l.seller) : `<span class="text-slate-600">—</span>`
                 }</td>
@@ -1377,7 +1576,258 @@
                 <th class="px-4 py-3 text-right font-bold">ایمیل</th>
                 <th class="px-4 py-3 text-right font-bold">واتس‌آپ</th>
                 <th class="px-4 py-3 text-right font-bold">شماره لایسنس</th>
+                <th class="px-4 py-3 text-right font-bold">نوع لایسنس</th>
+                <th class="px-4 py-3 text-right font-bold">منبع</th>
                 <th class="px-4 py-3 text-right font-bold">فروشنده</th>
+                <th class="px-4 py-3 text-right font-bold">تاریخ فعال‌سازی</th>
+              </tr>
+            </thead>
+            <tbody class="bg-[#161920]">
+              ${rows}
+            </tbody>
+          </table>
+        `;
+      }
+
+      // ── لایسنس‌های Lifetime (دائم) ────────────────────────────────────────
+      function renderLifetimeLicenses(allDocs, listEl, summaryEl) {
+        const docs = allDocs.filter((l) => getLicenseTypeValue(l) === "lifetime");
+
+        docs.sort((a, b) => {
+          const ta = (a.activated_at && a.activated_at.toMillis && a.activated_at.toMillis()) ||
+            (a.createdAt && a.createdAt.toMillis ? a.createdAt.toMillis() : 0);
+          const tb = (b.activated_at && b.activated_at.toMillis && b.activated_at.toMillis()) ||
+            (b.createdAt && b.createdAt.toMillis ? b.createdAt.toMillis() : 0);
+          return tb - ta;
+        });
+
+        summaryEl.innerHTML = `
+          <div class="flex flex-wrap items-center gap-6">
+            <span>مجموع لایسنس‌های Lifetime: <b class="text-white">${docs.length.toLocaleString("fa-IR")}</b></span>
+          </div>
+        `;
+
+        if (docs.length === 0) {
+          listEl.innerHTML =
+            '<p class="text-slate-500 text-sm text-center py-6">هیچ لایسنس Lifetime‌ای وجود ندارد.</p>';
+          return;
+        }
+
+        const rows = docs
+          .map((l) => {
+            const activatedDate = getLicenseActivatedDate(l);
+            const activatedLabel = activatedDate
+              ? escapeHtml(activatedDate.toLocaleString("fa-IR"))
+              : `<span class="text-slate-600">فعال نشده</span>`;
+
+            return `
+              <tr class="border-b border-white/5 last:border-0 hover:bg-white/5 transition-colors">
+                <td class="px-4 py-3 text-white font-semibold whitespace-nowrap">${
+                  l.name ? escapeHtml(l.name) : `<span class="text-slate-600">—</span>`
+                }</td>
+                <td class="px-4 py-3 text-slate-400 font-mono" dir="ltr">${escapeHtml(l.email || "—")}</td>
+                <td class="px-4 py-3">
+                  <div class="flex items-center gap-2">
+                    <span class="font-mono text-[#00f5d4] tracking-widest text-xs" dir="ltr">${escapeHtml(l.id)}</span>
+                    <button
+                      onclick="copyLicenseCode('${l.id}', this)"
+                      class="text-[11px] text-slate-400 hover:text-[#00f5d4] transition-colors whitespace-nowrap"
+                    >
+                      کپی
+                    </button>
+                  </div>
+                </td>
+                <td class="px-4 py-3">${sourceBadgeHtml(getLicenseSourceValue(l))}</td>
+                <td class="px-4 py-3 text-slate-500 whitespace-nowrap">${activatedLabel}</td>
+              </tr>
+            `;
+          })
+          .join("");
+
+        listEl.innerHTML = `
+          <table class="w-full text-sm" dir="rtl">
+            <thead>
+              <tr class="border-b border-white/10 text-slate-400 text-xs">
+                <th class="px-4 py-3 text-right font-bold">نام</th>
+                <th class="px-4 py-3 text-right font-bold">ایمیل</th>
+                <th class="px-4 py-3 text-right font-bold">شماره لایسنس</th>
+                <th class="px-4 py-3 text-right font-bold">منبع</th>
+                <th class="px-4 py-3 text-right font-bold">تاریخ فعال‌سازی</th>
+              </tr>
+            </thead>
+            <tbody class="bg-[#161920]">
+              ${rows}
+            </tbody>
+          </table>
+        `;
+      }
+
+      // ── لایسنس‌های پروبیشن (آزمایشی) ─────────────────────────────────────
+      function renderProbationLicenses(allDocs, listEl, summaryEl) {
+        const probationDocs = allDocs.filter((l) => getLicenseTypeValue(l) === "probation");
+
+        // جدیدترین‌ها اول
+        probationDocs.sort((a, b) => {
+          const ta = a.createdAt && a.createdAt.toMillis ? a.createdAt.toMillis() : 0;
+          const tb = b.createdAt && b.createdAt.toMillis ? b.createdAt.toMillis() : 0;
+          return tb - ta;
+        });
+
+        const now = new Date();
+        const expiredCount = probationDocs.filter((l) => {
+          const exp = getLicenseExpiryDate(l);
+          return exp && exp.getTime() < now.getTime();
+        }).length;
+
+        summaryEl.innerHTML = `
+          <div class="flex flex-wrap items-center gap-6">
+            <span>مجموع لایسنس‌های پروبیشن: <b class="text-white">${probationDocs.length.toLocaleString(
+              "fa-IR"
+            )}</b></span>
+            <span>منقضی‌شده: <b class="text-rose-400">${expiredCount.toLocaleString("fa-IR")}</b></span>
+          </div>
+        `;
+
+        if (probationDocs.length === 0) {
+          listEl.innerHTML =
+            '<p class="text-slate-500 text-sm text-center py-6">هیچ لایسنس پروبیشنی وجود ندارد.</p>';
+          return;
+        }
+
+        const rows = probationDocs
+          .map((l) => {
+            const activatedDate = getLicenseActivatedDate(l);
+            const activatedLabel = activatedDate
+              ? escapeHtml(activatedDate.toLocaleString("fa-IR"))
+              : `<span class="text-slate-600">فعال نشده</span>`;
+
+            const expiryDate = getLicenseExpiryDate(l);
+            const isExpired = expiryDate ? expiryDate.getTime() < now.getTime() : false;
+            const expiryLabel = expiryDate
+              ? escapeHtml(expiryDate.toLocaleString("fa-IR"))
+              : `<span class="text-slate-600">${activatedDate ? "بدون انقضا" : "هنوز فعال نشده"}</span>`;
+
+            return `
+              <tr class="border-b border-white/5 last:border-0 hover:bg-white/5 transition-colors">
+                <td class="px-4 py-3 text-white font-semibold whitespace-nowrap">${
+                  l.name ? escapeHtml(l.name) : `<span class="text-slate-600">بدون نام</span>`
+                }</td>
+                <td class="px-4 py-3 text-slate-400 font-mono" dir="ltr">${escapeHtml(l.email || "—")}</td>
+                <td class="px-4 py-3 text-slate-400 font-mono" dir="ltr">${escapeHtml(l.whatsapp || "—")}</td>
+                <td class="px-4 py-3">
+                  <div class="flex items-center gap-2">
+                    <span class="font-mono text-[#00f5d4] tracking-widest text-xs" dir="ltr">${escapeHtml(l.id)}</span>
+                    <button
+                      onclick="copyLicenseCode('${l.id}', this)"
+                      class="text-[11px] text-slate-400 hover:text-[#00f5d4] transition-colors whitespace-nowrap"
+                    >
+                      کپی
+                    </button>
+                  </div>
+                </td>
+                <td class="px-4 py-3">${sourceBadgeHtml(getLicenseSourceValue(l))}</td>
+                <td class="px-4 py-3 text-slate-500 whitespace-nowrap">${activatedLabel}</td>
+                <td class="px-4 py-3 whitespace-nowrap font-semibold ${
+                  isExpired ? "text-rose-400" : "text-slate-300"
+                }">
+                  ${expiryLabel}${
+              isExpired ? ' <span class="text-[10px] font-normal">(منقضی)</span>' : ""
+            }
+                </td>
+              </tr>
+            `;
+          })
+          .join("");
+
+        listEl.innerHTML = `
+          <table class="w-full text-sm" dir="rtl">
+            <thead>
+              <tr class="border-b border-white/10 text-slate-400 text-xs">
+                <th class="px-4 py-3 text-right font-bold">نام</th>
+                <th class="px-4 py-3 text-right font-bold">ایمیل</th>
+                <th class="px-4 py-3 text-right font-bold">واتس‌آپ</th>
+                <th class="px-4 py-3 text-right font-bold">شماره لایسنس</th>
+                <th class="px-4 py-3 text-right font-bold">منبع</th>
+                <th class="px-4 py-3 text-right font-bold">تاریخ فعال‌سازی</th>
+                <th class="px-4 py-3 text-right font-bold">تاریخ انقضا</th>
+              </tr>
+            </thead>
+            <tbody class="bg-[#161920]">
+              ${rows}
+            </tbody>
+          </table>
+        `;
+      }
+
+      // ── لایسنس‌های خریداری‌شده از فروشگاه‌ها (کافه‌بازار / مایکت) ─────────────
+      // این لایسنس‌ها نام/ایمیل/واتس‌آپ ندارند (چون مستقیم از پرداخت درون‌برنامه‌ای
+      // خودِ فروشگاه صادر می‌شن، نه فرم سایت) — به‌جاش شناسه‌ی محصول (SKU) و
+      // توکن خرید (برای پیگیری در پنل همون فروشگاه) نمایش داده می‌شه.
+      function renderStoreLicenses(allDocs, sourceValue, listEl, summaryEl, skuField, tokenField) {
+        const docs = allDocs.filter((l) => getLicenseSourceValue(l) === sourceValue);
+
+        docs.sort((a, b) => {
+          const ta = a.activated_at && a.activated_at.toMillis ? a.activated_at.toMillis() : 0;
+          const tb = b.activated_at && b.activated_at.toMillis ? b.activated_at.toMillis() : 0;
+          return tb - ta;
+        });
+
+        summaryEl.innerHTML = `
+          <div class="flex flex-wrap items-center gap-6">
+            <span>مجموع خریدها: <b class="text-white">${docs.length.toLocaleString("fa-IR")}</b></span>
+          </div>
+        `;
+
+        if (docs.length === 0) {
+          listEl.innerHTML =
+            '<p class="text-slate-500 text-sm text-center py-6">هنوز هیچ خریدی ثبت نشده.</p>';
+          return;
+        }
+
+        const rows = docs
+          .map((l) => {
+            const activatedDate = getLicenseActivatedDate(l);
+            const activatedLabel = activatedDate
+              ? escapeHtml(activatedDate.toLocaleString("fa-IR"))
+              : `<span class="text-slate-600">—</span>`;
+            const sku = l[skuField] ? escapeHtml(l[skuField]) : `<span class="text-slate-600">—</span>`;
+            const rawToken = l[tokenField] || "";
+            const tokenLabel = rawToken
+              ? `<span class="font-mono text-[11px]" dir="ltr" title="${escapeHtml(rawToken)}">${escapeHtml(
+                  truncateMiddle(rawToken, 10, 6)
+                )}</span>`
+              : `<span class="text-slate-600">—</span>`;
+
+            return `
+              <tr class="border-b border-white/5 last:border-0 hover:bg-white/5 transition-colors">
+                <td class="px-4 py-3">
+                  <div class="flex items-center gap-2">
+                    <span class="font-mono text-[#00f5d4] tracking-widest text-xs" dir="ltr">${escapeHtml(l.id)}</span>
+                    <button
+                      onclick="copyLicenseCode('${l.id}', this)"
+                      class="text-[11px] text-slate-400 hover:text-[#00f5d4] transition-colors whitespace-nowrap"
+                    >
+                      کپی
+                    </button>
+                  </div>
+                </td>
+                <td class="px-4 py-3">${licenseTypeBadgeHtml(getLicenseTypeValue(l))}</td>
+                <td class="px-4 py-3 text-slate-400 whitespace-nowrap">${sku}</td>
+                <td class="px-4 py-3 text-slate-400 whitespace-nowrap">${tokenLabel}</td>
+                <td class="px-4 py-3 text-slate-500 whitespace-nowrap">${activatedLabel}</td>
+              </tr>
+            `;
+          })
+          .join("");
+
+        listEl.innerHTML = `
+          <table class="w-full text-sm" dir="rtl">
+            <thead>
+              <tr class="border-b border-white/10 text-slate-400 text-xs">
+                <th class="px-4 py-3 text-right font-bold">شماره لایسنس</th>
+                <th class="px-4 py-3 text-right font-bold">نوع لایسنس</th>
+                <th class="px-4 py-3 text-right font-bold">SKU</th>
+                <th class="px-4 py-3 text-right font-bold">توکن خرید</th>
                 <th class="px-4 py-3 text-right font-bold">تاریخ فعال‌سازی</th>
               </tr>
             </thead>

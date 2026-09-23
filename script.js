@@ -191,13 +191,18 @@ const translations = {
     liveFXGalleryTitle: "صفحات نمونه اپلیکیشن",
     liveFXGallerySubtitle:
       "نگاهی به محیط کاربری و صفحات مختلف اپلیکیشن Buskit Tools",
-    videosTitle: "ویدیوهای اجرای زنده با باسکیت",
+    videosTitle: "ویدئوهای معرفی موارد استفاده اپلیکیشن BuskitTools",
     videosDesc:
-      "طنین و قدرت واقعی پردازش آنی را در اجراهای زیر با سازهای مختلف بشنوید و تماشا کنید.",
+      "توانایی ها و موارد استفاده و معرفی اپلیکیشن",
     v1Title: "ویدئوی معرفی یک",
     v2Title: "ویدئوی معرفی دو",
     v3Title: "ویدئوی معرفی سه",
     v4Title: "ویدئوی معرفی چهار",
+    v5Title: "ویدئوی معرفی پنج",
+    v6Title: "ویدئوی معرفی شش",
+    v7Title: "ویدئوی معرفی هفت",
+    v8Title: "ویدئوی معرفی هشت",
+    v9Title: "ویدئوی معرفی نه",
     featuresTitle: "چرا نوازندگان باسکیت را انتخاب می‌کنند؟",
     featuresDesc:
       "یک مهندسی دقیق در تلفیق سخت‌افزار، نرم‌افزار و درک نیازهای یک موزیسین روی صحنه.",
@@ -658,13 +663,18 @@ const translations = {
     liveFXGalleryTitle: "App Sample Screens",
     liveFXGallerySubtitle:
       "A look at the interface and different screens of the Buskit Tools application",
-    videosTitle: "Live Performance Videos with Buskit",
+    videosTitle: "Introduction Videos: Use Cases of the BuskitTools App",
     videosDesc:
-      "Hear and watch the real tone and instant processing power in the following performances across various instruments.",
+      "Features, use cases, and an introduction to the app",
     v1Title: "Introduction Video 1",
     v2Title: "Introduction Video 2",
     v3Title: "Introduction Video 3",
     v4Title: "Introduction Video 4",
+    v5Title: "Introduction Video 5",
+    v6Title: "Introduction Video 6",
+    v7Title: "Introduction Video 7",
+    v8Title: "Introduction Video 8",
+    v9Title: "Introduction Video 9",
     featuresTitle: "Why Do Musicians Choose Buskit?",
     featuresDesc:
       "A precise blend of hardware engineering, software optimization, and a deep understanding of a musician's needs on stage.",
@@ -1124,13 +1134,18 @@ const translations = {
     liveFXGalleryTitle: "Uygulama Örnek Sayfaları",
     liveFXGallerySubtitle:
       "Buskit Tools uygulamasının arayüzüne ve farklı sayfalarına bir bakış",
-    videosTitle: "Buskit ile Canlı Performans Videoları",
+    videosTitle: "BuskitTools Uygulamasının Kullanım Alanları Tanıtım Videoları",
     videosDesc:
-      "Farklı enstrümanlarla yapılan aşağıdaki performanslarda gerçek tınıyı ve anlık işlemci gücünü dinleyin ve izleyin.",
+      "Uygulamanın özellikleri, kullanım alanları ve tanıtımı",
     v1Title: "Tanıtım Videosu 1",
     v2Title: "Tanıtım Videosu 2",
     v3Title: "Tanıtım Videosu 3",
     v4Title: "Tanıtım Videosu 4",
+    v5Title: "Tanıtım Videosu 5",
+    v6Title: "Tanıtım Videosu 6",
+    v7Title: "Tanıtım Videosu 7",
+    v8Title: "Tanıtım Videosu 8",
+    v9Title: "Tanıtım Videosu 9",
     featuresTitle: "Müzisyenler Neden Buskit'i Seçiyor?",
     featuresDesc:
       "Donanım mühendisliği, yazılım optimizasyonu ve sahnedeki bir müzisyenin ihtiyaçlarının derinlemesine anlaşılmasının hassas bir birleşimi.",
@@ -1596,13 +1611,18 @@ const translations = {
     liveFXGalleryTitle: "App-Beispielansichten",
     liveFXGallerySubtitle:
       "Ein Blick auf die Benutzeroberfläche und verschiedene Ansichten der Buskit-Tools-Anwendung",
-    videosTitle: "Live-Auftrittsvideos mit Buskit",
+    videosTitle: "Vorstellungsvideos: Einsatzmöglichkeiten der BuskitTools-App",
     videosDesc:
-      "Hören und sehen Sie den echten Klang und die sofortige Verarbeitungsleistung in den folgenden Auftritten mit verschiedenen Instrumenten.",
+      "Funktionen, Einsatzmöglichkeiten und Vorstellung der App",
     v1Title: "Vorstellungsvideo 1",
     v2Title: "Vorstellungsvideo 2",
     v3Title: "Vorstellungsvideo 3",
     v4Title: "Vorstellungsvideo 4",
+    v5Title: "Vorstellungsvideo 5",
+    v6Title: "Vorstellungsvideo 6",
+    v7Title: "Vorstellungsvideo 7",
+    v8Title: "Vorstellungsvideo 8",
+    v9Title: "Vorstellungsvideo 9",
     featuresTitle: "Warum entscheiden sich Musiker für Buskit?",
     featuresDesc:
       "Eine präzise Mischung aus Hardware-Engineering, Software-Optimierung und einem tiefen Verständnis für die Bedürfnisse eines Musikers auf der Bühne.",
@@ -2272,6 +2292,11 @@ function changeLanguage(lang) {
   document.getElementById("v2Title").innerText = data.v2Title;
   document.getElementById("v3Title").innerText = data.v3Title;
   document.getElementById("v4Title").innerText = data.v4Title;
+  document.getElementById("v5Title").innerText = data.v5Title;
+  document.getElementById("v6Title").innerText = data.v6Title;
+  document.getElementById("v7Title").innerText = data.v7Title;
+  document.getElementById("v8Title").innerText = data.v8Title;
+  document.getElementById("v9Title").innerText = data.v9Title;
 
   // بخش ویژگی‌ها
   document.getElementById("featuresTitle").innerText = data.featuresTitle;

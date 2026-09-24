@@ -1521,11 +1521,41 @@
         });
 
         const activatedCount = allDocs.filter((l) => l.is_used).length;
+        // تعداد لایسنس‌های ترایال — از روی فیلد license_type خوانده می‌شود
+        // (license_type === "5days")، نه از هیچ شمارنده‌ی دیگری مثل کد
+        // تخفیف FREETRIAL5.
+        const trialCount = allDocs.filter((l) => getLicenseTypeValue(l) === "5days").length;
+
+        // ── شمارش به تفکیک نوع/منبع لایسنس، به همراه تعداد فعال‌شده‌ی هرکدام ──
+        const breakdownGroups = [
+          { label: "دائم (Lifetime)", docs: allDocs.filter((l) => getLicenseTypeValue(l) === "lifetime") },
+          { label: "پروبیشن (آزمایشی)", docs: allDocs.filter((l) => getLicenseTypeValue(l) === "probation") },
+          { label: "ترایال (۵ روزه)", docs: allDocs.filter((l) => getLicenseTypeValue(l) === "5days") },
+          { label: "مایکت", docs: allDocs.filter((l) => getLicenseSourceValue(l) === "myket") },
+          { label: "کافه‌بازار", docs: allDocs.filter((l) => getLicenseSourceValue(l) === "bazaar") },
+        ];
+
+        const breakdownHtml = breakdownGroups
+          .map((g) => {
+            const activated = g.docs.filter((l) => l.is_used).length;
+            return `
+              <div class="p-4 bg-[#161920] border border-white/10 rounded-2xl">
+                <p class="text-slate-400 text-xs mb-1">${g.label}</p>
+                <p class="text-white font-bold">${g.docs.length.toLocaleString("fa-IR")}</p>
+                <p class="text-slate-500 text-[11px] mt-1">فعال‌شده: <b class="text-[#00f5d4]">${activated.toLocaleString("fa-IR")}</b></p>
+              </div>
+            `;
+          })
+          .join("");
+
         summaryEl.innerHTML = `
-          <div class="flex flex-wrap items-center gap-6">
+          <div class="flex flex-wrap items-center gap-6 mb-4">
             <span>مجموع لایسنس‌ها: <b class="text-white">${allDocs.length.toLocaleString("fa-IR")}</b></span>
             <span>فعال‌شده: <b class="text-white">${activatedCount.toLocaleString("fa-IR")}</b></span>
             <span>فعال‌نشده: <b class="text-white">${(allDocs.length - activatedCount).toLocaleString("fa-IR")}</b></span>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+            ${breakdownHtml}
           </div>
         `;
 
@@ -1601,9 +1631,11 @@
           return tb - ta;
         });
 
+        const activatedCount = docs.filter((l) => l.is_used).length;
         summaryEl.innerHTML = `
           <div class="flex flex-wrap items-center gap-6">
             <span>مجموع لایسنس‌های Lifetime: <b class="text-white">${docs.length.toLocaleString("fa-IR")}</b></span>
+            <span>فعال‌شده: <b class="text-[#00f5d4]">${activatedCount.toLocaleString("fa-IR")}</b></span>
           </div>
         `;
 
@@ -1678,12 +1710,14 @@
           const exp = getLicenseExpiryDate(l);
           return exp && exp.getTime() < now.getTime();
         }).length;
+        const activatedCount = probationDocs.filter((l) => l.is_used).length;
 
         summaryEl.innerHTML = `
           <div class="flex flex-wrap items-center gap-6">
             <span>مجموع لایسنس‌های پروبیشن: <b class="text-white">${probationDocs.length.toLocaleString(
               "fa-IR"
             )}</b></span>
+            <span>فعال‌شده: <b class="text-[#00f5d4]">${activatedCount.toLocaleString("fa-IR")}</b></span>
             <span>منقضی‌شده: <b class="text-rose-400">${expiredCount.toLocaleString("fa-IR")}</b></span>
           </div>
         `;
@@ -1772,9 +1806,11 @@
           return tb - ta;
         });
 
+        const activatedCount = docs.filter((l) => l.is_used).length;
         summaryEl.innerHTML = `
           <div class="flex flex-wrap items-center gap-6">
             <span>مجموع خریدها: <b class="text-white">${docs.length.toLocaleString("fa-IR")}</b></span>
+            <span>فعال‌شده: <b class="text-[#00f5d4]">${activatedCount.toLocaleString("fa-IR")}</b></span>
           </div>
         `;
 

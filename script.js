@@ -2091,6 +2091,9 @@ setInterval(fetchTryToIrrRate, 60 * 60 * 1000);
 
 function changeLanguage(lang) {
   currentLang = lang;
+  try {
+    localStorage.setItem("buskitLang", lang);
+  } catch (e) {}
   const data = translations[lang];
 
   // تنظیم راست‌چین یا چپ‌چین بودن المان‌ها کل صفحه
@@ -2472,6 +2475,19 @@ function changeLanguage(lang) {
 
   // فوتر
   document.getElementById("footerTxt").innerText = data.footerTxt;
+
+  // لینک صفحه‌ی حریم خصوصی در فوتر (privacy.html) — متن و زبان صفحه‌ی مقصد
+  const footerPrivacyEl = document.getElementById("footerPrivacy");
+  if (footerPrivacyEl) {
+    const privacyLabels = {
+      fa: "سیاست حفظ حریم خصوصی",
+      en: "Privacy Policy",
+      tr: "Gizlilik Politikası",
+      de: "Datenschutzerklärung",
+    };
+    footerPrivacyEl.innerText = privacyLabels[lang] || privacyLabels.en;
+    footerPrivacyEl.href = "privacy.html?lang=" + lang;
+  }
 
   // پاپ آپ ثبت فیش
   const mContainer = document.getElementById("modalContainer");
@@ -3894,7 +3910,14 @@ function disableHardwarePurchasing() {
 
 // بارگذاری اولیه با زبان پیش‌فرض (فارسی)
 window.addEventListener("DOMContentLoaded", () => {
-  changeLanguage("tr");
+  let startLang = "tr";
+  try {
+    const saved = localStorage.getItem("buskitLang");
+    if (saved && translations[saved]) startLang = saved;
+  } catch (e) {}
+  // selectLanguage علاوه بر changeLanguage، پرچم/برچسب دراپ‌داون را هم همگام می‌کند
+  if (startLang !== "tr") selectLanguage(startLang);
+  else changeLanguage("tr");
   disableHardwarePurchasing();
   if (typeof recalcPurchaseTotals === "function") {
     recalcPurchaseTotals();

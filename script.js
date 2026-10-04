@@ -92,7 +92,7 @@ const translations = {
     heroDownloadBtnLMT: "لایسنس نقره ای",
     heroDownloadBtnLMTpro: "لایسنس طلایی",
     heroDownloadBtnTools:
-      "دانلود رایگان اپلیکیشن \n دریافت رایگان لایسنس دو روزه و امکان استفاده از کلیه امکانات اپلیکیشن",
+      "دانلود رایگان اپلیکیشن از گوگل پلی",
     heroTipLiveFX1: "9 افکت",
     heroTipLiveFX2: "تیونر کروماتیک",
     heroTipLiveFX3: "مترونوم فلکسیبل",
@@ -188,6 +188,8 @@ const translations = {
     liveFXGalleryAlt7: "اکولایزر ۹ باند در اپلیکیشن باسکیت لایو افکت",
     liveFXGalleryAlt8: "نمای دیگری از صفحه افکت‌های اپلیکیشن باسکیت لایو افکت",
     liveFXGalleryAlt9: "نمای تکمیلی از محیط کاربری اپلیکیشن باسکیت لایو افکت",
+    liveFXGalleryAlt12: "نمای تکمیلی از محیط کاربری اپلیکیشن باسکیت لایو افکت",
+    liveFXGalleryAlt13: "نمای تکمیلی از محیط کاربری اپلیکیشن باسکیت لایو افکت",
     liveFXGalleryTitle: "صفحات نمونه اپلیکیشن",
     liveFXGallerySubtitle:
       "نگاهی به محیط کاربری و صفحات مختلف اپلیکیشن Buskit Tools",
@@ -561,7 +563,7 @@ const translations = {
     heroDownloadBtnLMT: "Silver Licens ",
     heroDownloadBtnLMTpro: "Golden License ",
     heroDownloadBtnTools:
-      "Free download of the app\nGet a free 2-day license with access to all app features",
+      "Free download of the app from Google Play",
     heroTipLiveFX1: "9 Effects",
     heroTipLiveFX2: "Chromatic Tuner",
     heroTipLiveFX3: "Flexible Metronome",
@@ -660,6 +662,8 @@ const translations = {
     liveFXGalleryAlt8:
       "Alternative Effects Page View of Buskit LiveFX Application",
     liveFXGalleryAlt9: "Additional View of Buskit LiveFX Application Interface",
+    liveFXGalleryAlt12: "Additional View of Buskit LiveFX Application Interface",
+    liveFXGalleryAlt13: "Additional View of Buskit LiveFX Application Interface",
     liveFXGalleryTitle: "App Sample Screens",
     liveFXGallerySubtitle:
       "A look at the interface and different screens of the Buskit Tools application",
@@ -1032,7 +1036,7 @@ const translations = {
     heroDownloadBtnLMT: "Gümüş Lisans",
     heroDownloadBtnLMTpro: "Altın Lisans",
     heroDownloadBtnTools:
-      "uygulamasını ücretsiz indirin\n2 günlük ücretsiz lisans ve uygulamanın tüm özelliklerini kullanma imkânı",
+      "Uygulamayı Google Play'den ücretsiz indirin",
     heroTipLiveFX1: "9 Efekt",
     heroTipLiveFX2: "Kromatik Akort Aleti",
     heroTipLiveFX3: "Esnek Metronom",
@@ -1131,6 +1135,8 @@ const translations = {
     liveFXGalleryAlt8:
       "Buskit LiveFX Uygulaması Efekt Sayfası Alternatif Görünümü",
     liveFXGalleryAlt9: "Buskit LiveFX Uygulaması Arayüzünden Ek Bir Görünüm",
+    liveFXGalleryAlt12: "Buskit LiveFX Uygulaması Arayüzünden Ek Bir Görünüm",
+    liveFXGalleryAlt13: "Buskit LiveFX Uygulaması Arayüzünden Ek Bir Görünüm",
     liveFXGalleryTitle: "Uygulama Örnek Sayfaları",
     liveFXGallerySubtitle:
       "Buskit Tools uygulamasının arayüzüne ve farklı sayfalarına bir bakış",
@@ -1509,7 +1515,7 @@ const translations = {
     heroDownloadBtnLMT: "Silber-Lizenz ",
     heroDownloadBtnLMTpro: "Gold-Lizenz ",
     heroDownloadBtnTools:
-      "Kostenloser Download der App\nKostenlose 2-Tage-Lizenz mit Zugriff auf alle App-Funktionen",
+      "App kostenlos bei Google Play herunterladen",
     heroTipLiveFX1: "9 Effekte",
     heroTipLiveFX2: "Chromatisches Stimmgerät",
     heroTipLiveFX3: "Flexibles Metronom",
@@ -1608,6 +1614,8 @@ const translations = {
     liveFXGalleryAlt8:
       "Alternative Ansicht der Effektseite der Buskit-LiveFX-Anwendung",
     liveFXGalleryAlt9: "Weitere Ansicht der Benutzeroberfläche der Buskit-LiveFX-Anwendung",
+    liveFXGalleryAlt12: "Weitere Ansicht der Benutzeroberfläche der Buskit-LiveFX-Anwendung",
+    liveFXGalleryAlt13: "Weitere Ansicht der Benutzeroberfläche der Buskit-LiveFX-Anwendung",
     liveFXGalleryTitle: "App-Beispielansichten",
     liveFXGallerySubtitle:
       "Ein Blick auf die Benutzeroberfläche und verschiedene Ansichten der Buskit-Tools-Anwendung",
@@ -2121,7 +2129,6 @@ function changeLanguage(lang) {
   document.getElementById("navFeatures").innerText = data.navFeatures;
   document.getElementById("navUsersReview").innerText = data.navUsersReview;
   document.getElementById("navVideos").innerText = data.navVideos;
-  document.getElementById("navShop").innerText = data.navShop;
   document.getElementById("navMessageme").innerText = data.navMessageme;
   document.getElementById("navContacts").innerText = data.navContacts;
 
@@ -2145,7 +2152,6 @@ function changeLanguage(lang) {
   document.getElementById("navUsersReviewMobile").innerText =
     data.navUsersReview;
   document.getElementById("navVideosMobile").innerText = data.navVideos;
-  document.getElementById("navShopMobile").innerText = data.navShop;
   document.getElementById("navMessagemeMobile").innerText = data.navMessageme;
   document.getElementById("navContactsMobile").innerText = data.navContacts;
   const headerCTAEl = document.getElementById("headerCTA");
@@ -2170,9 +2176,7 @@ function changeLanguage(lang) {
       .split("\n")
       .map((line) => line.trim());
     const line1El = document.getElementById("heroDownloadBtnToolsLine1");
-    const line2El = document.getElementById("heroDownloadBtnToolsLine2");
     if (line1El) line1El.innerText = toolsLines[0] || "";
-    if (line2El) line2El.innerText = toolsLines[1] || "";
   }
 
   // تولتیپ‌های سه دکمه دانلود در بخش هیرو
@@ -2273,7 +2277,7 @@ function changeLanguage(lang) {
   );
   if (liveFXGallerySubtitleEl)
     liveFXGallerySubtitleEl.innerText = data.liveFXGallerySubtitle;
-  [1, 2, 3, 4, 5, 6, 7, 8, 9].forEach((n) => {
+  [1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 13].forEach((n) => {
     const galEl = document.getElementById("liveFXGalleryImg" + n);
     if (galEl) galEl.alt = data["liveFXGalleryAlt" + n];
   });
@@ -2318,8 +2322,6 @@ function changeLanguage(lang) {
   document.getElementById("f6Desc").innerText = data.f6Desc;
 
   // بخش محصولات (هر 16 کارت محصول، نه فقط اولی)
-  document.getElementById("shopTitle").innerText = data.shopTitle;
-  document.getElementById("shopDesc").innerText = data.shopDesc;
   // document.getElementById("shopDescPayment").innerText = data.shopDescPayment;
   // document.getElementById("shopDescHardware").innerText = data.shopDescHardware;
 

@@ -190,6 +190,7 @@ const translations = {
     liveFXGalleryAlt9: "نمای تکمیلی از محیط کاربری اپلیکیشن باسکیت لایو افکت",
     liveFXGalleryAlt12: "نمای تکمیلی از محیط کاربری اپلیکیشن باسکیت لایو افکت",
     liveFXGalleryAlt13: "نمای تکمیلی از محیط کاربری اپلیکیشن باسکیت لایو افکت",
+    liveFXGalleryAlt14: "نمای تکمیلی از محیط کاربری اپلیکیشن باسکیت لایو افکت",
     liveFXGalleryTitle: "صفحات نمونه اپلیکیشن",
     liveFXGallerySubtitle:
       "نگاهی به محیط کاربری و صفحات مختلف اپلیکیشن Buskit Tools",
@@ -664,6 +665,7 @@ const translations = {
     liveFXGalleryAlt9: "Additional View of Buskit LiveFX Application Interface",
     liveFXGalleryAlt12: "Additional View of Buskit LiveFX Application Interface",
     liveFXGalleryAlt13: "Additional View of Buskit LiveFX Application Interface",
+    liveFXGalleryAlt14: "Additional View of Buskit LiveFX Application Interface",
     liveFXGalleryTitle: "App Sample Screens",
     liveFXGallerySubtitle:
       "A look at the interface and different screens of the Buskit Tools application",
@@ -1137,6 +1139,7 @@ const translations = {
     liveFXGalleryAlt9: "Buskit LiveFX Uygulaması Arayüzünden Ek Bir Görünüm",
     liveFXGalleryAlt12: "Buskit LiveFX Uygulaması Arayüzünden Ek Bir Görünüm",
     liveFXGalleryAlt13: "Buskit LiveFX Uygulaması Arayüzünden Ek Bir Görünüm",
+    liveFXGalleryAlt14: "Buskit LiveFX Uygulaması Arayüzünden Ek Bir Görünüm",
     liveFXGalleryTitle: "Uygulama Örnek Sayfaları",
     liveFXGallerySubtitle:
       "Buskit Tools uygulamasının arayüzüne ve farklı sayfalarına bir bakış",
@@ -1616,6 +1619,7 @@ const translations = {
     liveFXGalleryAlt9: "Weitere Ansicht der Benutzeroberfläche der Buskit-LiveFX-Anwendung",
     liveFXGalleryAlt12: "Weitere Ansicht der Benutzeroberfläche der Buskit-LiveFX-Anwendung",
     liveFXGalleryAlt13: "Weitere Ansicht der Benutzeroberfläche der Buskit-LiveFX-Anwendung",
+    liveFXGalleryAlt14: "Weitere Ansicht der Benutzeroberfläche der Buskit-LiveFX-Anwendung",
     liveFXGalleryTitle: "App-Beispielansichten",
     liveFXGallerySubtitle:
       "Ein Blick auf die Benutzeroberfläche und verschiedene Ansichten der Buskit-Tools-Anwendung",
@@ -2277,7 +2281,7 @@ function changeLanguage(lang) {
   );
   if (liveFXGallerySubtitleEl)
     liveFXGallerySubtitleEl.innerText = data.liveFXGallerySubtitle;
-  [1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 13].forEach((n) => {
+  [1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 13, 14].forEach((n) => {
     const galEl = document.getElementById("liveFXGalleryImg" + n);
     if (galEl) galEl.alt = data["liveFXGalleryAlt" + n];
   });

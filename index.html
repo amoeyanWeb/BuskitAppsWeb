@@ -52,6 +52,13 @@
         },
       };
     </script>
+    <!-- ====== زبان‌ها: هر زبان یک فایل جدا در پوشه‌ی lang/ ====== -->
+    <script src="lang/languages.js"></script>
+    <script src="lang/i18n.js"></script>
+    <script>
+      // زبان شروع (ذخیره‌شده یا پیش‌فرض) را قبل از script.js بارگذاری می‌کند
+      BuskitI18n.writeStartTag();
+    </script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&family=Inter:wght@300;400;600;800&display=swap");
 
@@ -67,9 +74,8 @@
         background-position: center; /* قرارگیری عکس در مرکز صفحه */
       }
 
-      /* تغییر فونت برای زبان‌های انگلیسی و ترکی */
-      body.lang-en,
-      body.lang-tr {
+      /* تغییر فونت برای همه‌ی زبان‌های چپ‌به‌راست (انگلیسی، ترکی، آلمانی و زبان‌های جدید) */
+      body.dir-ltr {
         font-family: "Inter", sans-serif;
       }
 
@@ -245,10 +251,10 @@
           <!-- Logo Image -->
           <img
             id="siteLogo"
-            src="./tools.png"
+            src="./downloads/buskitapp_logo_pro.png"
             alt="Buskit Live FX"
             onclick="handleLogoClick()"
-            class="h-12 w-auto max-h-[52px] object-contain drop-shadow-xl transition-all duration-300 cursor-pointer select-none"
+            class="h-12 w-auto max-h-[52px] object-contain rounded-xl drop-shadow-xl transition-all duration-300 cursor-pointer select-none"
           />
         </div>
 
@@ -273,7 +279,7 @@
               id="navBuskitToolsBtn"
               class="flex items-center gap-1 relative pb-1 hover:text-accentNeon transition-colors after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-accentNeon after:scale-x-0 group-hover:after:scale-x-100 after:transition-transform after:duration-300 focus:outline-none"
             >
-              <span id="navBuskitToolsLabel">Buskit-Tools</span>
+              <span id="navBuskitToolsLabel">Buskit</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="w-3 h-3 transition-transform duration-200 group-hover:rotate-180"
@@ -315,12 +321,6 @@
                   id="navBuskitToolsFeatures"
                   class="block px-4 py-3 text-white hover:bg-white/15 hover:text-accentNeon transition-colors"
                   >امکانات BuskitTools</a
-                >
-                <a
-                  href="#AppGallery"
-                  id="navAppGallery"
-                  class="block px-4 py-3 text-white hover:bg-white/15 hover:text-accentNeon transition-colors"
-                  >صفحات نمونه اپلیکیشن</a
                 >
                 <a
                   href="#HowToUse"
@@ -404,72 +404,9 @@
             <ul
               id="langDropdownList"
               role="listbox"
-              class="hidden absolute left-0 mt-2 w-40 rounded-xl overflow-hidden border border-slate-700 bg-darkCard/95 backdrop-blur-xl shadow-xl z-50 text-xs font-semibold"
+              class="hidden absolute right-0 mt-2 w-40 rounded-xl overflow-hidden border border-slate-700 bg-darkCard/95 backdrop-blur-xl shadow-xl z-50 text-xs font-semibold"
             >
-              <li
-                role="option"
-                data-lang="fa"
-                onclick="selectLanguage('fa')"
-                class="flex items-center gap-2 px-3 py-2.5 text-slate-200 hover:bg-white/10 hover:text-accentNeon cursor-pointer transition-colors"
-              >
-                <img
-                  src="https://flagcdn.com/24x18/ir.png"
-                  srcset="https://flagcdn.com/48x36/ir.png 2x"
-                  width="20"
-                  height="15"
-                  alt=""
-                  class="rounded-[2px] shrink-0"
-                />
-                <span>فارسی</span>
-              </li>
-              <li
-                role="option"
-                data-lang="en"
-                onclick="selectLanguage('en')"
-                class="flex items-center gap-2 px-3 py-2.5 text-slate-200 hover:bg-white/10 hover:text-accentNeon cursor-pointer transition-colors"
-              >
-                <img
-                  src="https://flagcdn.com/24x18/gb.png"
-                  srcset="https://flagcdn.com/48x36/gb.png 2x"
-                  width="20"
-                  height="15"
-                  alt=""
-                  class="rounded-[2px] shrink-0"
-                />
-                <span>English</span>
-              </li>
-              <li
-                role="option"
-                data-lang="tr"
-                onclick="selectLanguage('tr')"
-                class="flex items-center gap-2 px-3 py-2.5 text-slate-200 hover:bg-white/10 hover:text-accentNeon cursor-pointer transition-colors"
-              >
-                <img
-                  src="https://flagcdn.com/24x18/tr.png"
-                  srcset="https://flagcdn.com/48x36/tr.png 2x"
-                  width="20"
-                  height="15"
-                  alt=""
-                  class="rounded-[2px] shrink-0"
-                />
-                <span>Türkçe</span>
-              </li>
-              <li
-                role="option"
-                data-lang="de"
-                onclick="selectLanguage('de')"
-                class="flex items-center gap-2 px-3 py-2.5 text-slate-200 hover:bg-white/10 hover:text-accentNeon cursor-pointer transition-colors"
-              >
-                <img
-                  src="https://flagcdn.com/24x18/de.png"
-                  srcset="https://flagcdn.com/48x36/de.png 2x"
-                  width="20"
-                  height="15"
-                  alt=""
-                  class="rounded-[2px] shrink-0"
-                />
-                <span>Deutsch</span>
-              </li>
+              <!-- آیتم‌های زبان خودکار از lang/languages.js ساخته می‌شوند -->
             </ul>
           </div>
 
@@ -525,7 +462,7 @@
             aria-expanded="false"
             class="w-full flex items-center justify-between py-3 px-3 rounded-lg hover:bg-white/5 hover:text-accentNeon transition-colors"
           >
-            <span id="navBuskitToolsMobileLabel">Buskit-Tools</span>
+            <span id="navBuskitToolsMobileLabel">Buskit</span>
             <svg
               id="navBuskitToolsMobileChevron"
               xmlns="http://www.w3.org/2000/svg"
@@ -557,13 +494,6 @@
               onclick="closeMobileMenu()"
               class="py-2.5 px-3 rounded-lg hover:bg-white/10 hover:text-accentNeon transition-colors text-slate-300"
               >امکانات BuskitTools</a
-            >
-            <a
-              href="#AppGallery"
-              id="navAppGalleryMobile"
-              onclick="closeMobileMenu()"
-              class="py-2.5 px-3 rounded-lg hover:bg-white/10 hover:text-accentNeon transition-colors text-slate-300"
-              >صفحات نمونه اپلیکیشن</a
             >
             <a
               href="#HowToUse"
@@ -615,7 +545,7 @@
     <!-- Hero Section -->
     <section
       id="hero"
-      class="relative pt-36 pb-20 px-6 min-h-screen flex items-center justify-center overflow-hidden"
+      class="relative pt-44 pb-20 px-6 min-h-screen flex items-center justify-center overflow-hidden"
     >
       <!-- لایه گرادینت تیره برای افزایش کنتراست و خوانایی عالی متن‌ها روی ترام و نورها -->
       <div
@@ -638,21 +568,26 @@
           نسخه جدید لایو افکت سازگار با انواع گوشی های اندروید منتشر شد
         </span> -->
         <h3
-          class="text-4xl md:text-2xl font-extrabold text-white mb-6 leading-tight"
+          class="text-xl md:text-2xl font-extrabold text-white mb-6 leading-tight"
           id="heroAppLabel"
         >
         سری اپلیکیشن های
         </h3>
-        <h1 class="text-4xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
-        Buskit-Tools</h1>
+        <h1 class="text-6xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
+        Buskit</h1>
           <span
             id="heroTagline"
             class="text-2xl md:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-accentNeon to-teal-400 font-extrabold"
             >آرزوی هر نوازنده</span
           >
-        <br> <br> <br> <br>
         <p
-          class="text-slate-400 text-lg max-w-2xl mx-auto mb-10 leading-relaxed"
+          id="heroVersions"
+          class="mt-12 text-lg md:text-2xl text-white/90 font-semibold"
+        >
+          در سه نسخه برنزی، نقره‌ای و طلایی
+        </p>
+        <p
+          class="text-slate-400 text-lg max-w-2xl mx-auto mt-2 mb-4 leading-relaxed"
           id="heroDesc"
         >
           
@@ -664,13 +599,33 @@
             <button
               id="heroDownloadBtnTools"
               onclick="downloadBuskitTools()"
-              class="w-full sm:w-[34rem] h-16 px-4 py-2.5 ltr:bg-gradient-to-r rtl:bg-gradient-to-l from-[#8c5a2b] via-[#c0c0c0] to-[#c99a2e] text-darkBg font-bold rounded-xl shadow-lg shadow-slate-400/30 hover:scale-105 transition-all duration-300 text-center flex items-center justify-center"
+              class="w-full sm:w-[34rem] min-h-[4rem] px-4 py-2.5 ltr:bg-gradient-to-r rtl:bg-gradient-to-l from-[#8c5a2b] via-[#c0c0c0] to-[#c99a2e] text-darkBg font-bold rounded-xl shadow-lg shadow-slate-400/30 hover:scale-105 transition-all duration-300 text-center flex items-center justify-center"
             >
-              <span class="flex flex-col items-center justify-center gap-0.5 leading-tight">
-                <span id="heroDownloadBtnToolsLine1">دانلود رایگان اپلیکیشن از گوگل پلی</span>
-              </span>
+              <span id="heroDownloadBtnToolsLine1">دانلود رایگان اپلیکیشن از گوگل پلی</span>
             </button>
           </div>
+          <div class="relative group w-full sm:w-[34rem]">
+            <button
+              id="heroDownloadBtnMyket"
+              onclick="downloadBuskitMyket()"
+              class="w-full sm:w-[34rem] min-h-[4rem] px-4 py-2.5 ltr:bg-gradient-to-r rtl:bg-gradient-to-l from-[#8c5a2b] via-[#c0c0c0] to-[#c99a2e] text-darkBg font-bold rounded-xl shadow-lg shadow-slate-400/30 hover:scale-105 transition-all duration-300 text-center flex items-center justify-center"
+            >
+              <span id="heroDownloadBtnMyketText">دانلود رایگان اپلیکیشن از سایت Myket</span>
+            </button>
+          </div>
+          <div class="relative group w-full sm:w-[34rem]">
+            <button
+              id="heroDownloadBtnBazaar"
+              onclick="downloadBuskitBazaar()"
+              class="w-full sm:w-[34rem] min-h-[4rem] px-4 py-2.5 ltr:bg-gradient-to-r rtl:bg-gradient-to-l from-[#8c5a2b] via-[#c0c0c0] to-[#c99a2e] text-darkBg font-bold rounded-xl shadow-lg shadow-slate-400/30 hover:scale-105 transition-all duration-300 text-center flex items-center justify-center"
+            >
+              <span id="heroDownloadBtnBazaarText">دانلود رایگان اپلیکیشن از سایت CafeBazaar</span>
+            </button>
+          </div>
+          <p
+            id="heroDownloadBtnToolsLine2"
+            class="text-sm sm:text-base font-semibold text-white/80 text-center max-w-[34rem] drop-shadow-[0_3px_10px_rgba(0,0,0,1)]"
+          >به همراه 5 روز استفاده رایگان از کلیه امکانات نسخه طلایی</p>
         </div>
       </div>
     </section>
@@ -1151,7 +1106,7 @@
             id="liveFXTitle"
             class="text-4xl font-bold text-white mt-[-80px] mb-4 drop-shadow-[0_4px_12px_rgba(0,0,0,1)]"
           >
-            Buskit-Tools چیست؟
+            Buskit چیست؟
           </h2>
           <p
             id="liveFXSubtitle"
@@ -1252,6 +1207,11 @@
               class="px-4 py-1.5 rounded-full text-sm bg-accentNeon/10 text-accentNeon border border-accentNeon/20"
               >لو پس فیلتر</span
             >
+            <span
+              id="liveFXTag16"
+              class="px-4 py-1.5 rounded-full text-sm bg-accentNeon/10 text-accentNeon border border-accentNeon/20"
+              >پیچ شیفتر</span
+            >
           </div>
 
           <div
@@ -1305,7 +1265,7 @@
       </div>
     </section>
 
-    <!-- امکانات BuskitTools (نسخه طلایی) -->
+    <!-- انواع نسخه‌های اپلیکیشن (برنزی، نقره‌ای، طلایی) -->
     <section id="BuskitFeatures" class="py-24 px-6 relative">
       <!-- پس‌زمینه مشکی نیمه شفاف -->
       <div class="absolute inset-0 bg-black/60 z-0"></div>
@@ -1316,257 +1276,598 @@
             id="buskitFeaturesTitle"
             class="text-4xl font-bold text-white mt-[-80px] mb-4 drop-shadow-[0_4px_12px_rgba(0,0,0,1)]"
           >
-            امکانات BuskitTools
+            انواع نسخه‌های اپلیکیشن
           </h2>
-          <p
-            id="buskitFeaturesSubtitle"
-            class="text-slate-300 max-w-2xl mx-auto text-lg drop-shadow-[0_3px_10px_rgba(0,0,0,1)]"
-          >
-            نسخه حرفه‌ای با امکانات کامل برای اجرا، ضبط و تمرین
-          </p>
         </div>
 
         <div
-          class="space-y-6 text-justify max-w-4xl mx-auto text-slate-200 leading-relaxed text-[17px]"
+          class="max-w-4xl mx-auto text-slate-200 leading-relaxed text-[17px]"
         >
-          <ul
-            id="buskitFeaturesList"
-            class="grid sm:grid-cols-2 gap-3 mb-6"
+          <h3
+            id="buskitBronzeTitle"
+            class="text-2xl font-bold text-white text-center mb-5 drop-shadow-[0_4px_12px_rgba(0,0,0,1)]"
           >
+            نسخه برنزی
+          </h3>
+          <ul class="grid sm:grid-cols-2 gap-3">
             <li
-              id="buskitFeaturesItem1"
+              id="buskitBronze1"
               class="bg-white/5 border border-white/10 rounded-2xl px-4 py-3 flex items-start gap-2 text-slate-100 text-sm"
             >
               <span class="text-accentNeon text-lg leading-none">●</span>
-              <span>مجهز به پانزده افکت پر کاربرد و معروف در دنیای موسیقی</span>
+              <span>مجهز به 9 افکت پر کاربرد در دنیای نوازندگی (نویز گیت، کمپرسور، اکولایزر، دیلی، ریورب، اوور درایو، فیزر و ...)</span>
             </li>
             <li
-              id="buskitFeaturesItem2"
+              id="buskitBronze2"
               class="bg-white/5 border border-white/10 rounded-2xl px-4 py-3 flex items-start gap-2 text-slate-100 text-sm"
             >
               <span class="text-accentNeon text-lg leading-none">●</span>
-              <span>حاوی بیش از 60 تنظیم پیش‌فرض</span>
+              <span>تیونر کروماتیک</span>
             </li>
             <li
-              id="buskitFeaturesItem3"
+              id="buskitBronze3"
               class="bg-white/5 border border-white/10 rounded-2xl px-4 py-3 flex items-start gap-2 text-slate-100 text-sm"
             >
               <span class="text-accentNeon text-lg leading-none">●</span>
-              <span>تیونر کروماتیک + میکروتونال برای کوک کردن یا تنظیم پرده های سازهای ایرانی یا ترکی با امکان تعیین میزان کوک</span>
+              <span>مترونوم فلکسیبل</span>
             </li>
             <li
-              id="buskitFeaturesItem4"
+              id="buskitBronze4"
               class="bg-white/5 border border-white/10 rounded-2xl px-4 py-3 flex items-start gap-2 text-slate-100 text-sm"
             >
               <span class="text-accentNeon text-lg leading-none">●</span>
-              <span>مترونوم فلکسیبل با قابلیت اجرای هرگونه ریتم لنگ و هر قالب و فیگور ریتمیک</span>
+              <span>امکان لود تا 4 لاین بکینگ ترک با فرمت wave</span>
             </li>
             <li
-              id="buskitFeaturesItem5"
+              id="buskitBronze5"
               class="bg-white/5 border border-white/10 rounded-2xl px-4 py-3 flex items-start gap-2 text-slate-100 text-sm"
             >
               <span class="text-accentNeon text-lg leading-none">●</span>
-              <span>امکان لود بکینگ ترک</span>
-            </li>
-            <li
-              id="buskitFeaturesItem6"
-              class="bg-white/5 border border-white/10 rounded-2xl px-4 py-3 flex items-start gap-2 text-slate-100 text-sm"
-            >
-              <span class="text-accentNeon text-lg leading-none">●</span>
-              <span>امکان ضبط صدای میکس شده بکینگ ترک و صدای ساز داخل حافظه تلفن همراه با فرمت WAVE</span>
-            </li>
-            <li
-              id="buskitFeaturesItem7"
-              class="bg-white/5 border border-white/10 rounded-2xl px-4 py-3 flex items-start gap-2 text-slate-100 text-sm"
-            >
-              <span class="text-accentNeon text-lg leading-none">●</span>
-              <span>امکان تغییر سرعت بکینگ ترک بدون تغییر فرکانس</span>
+              <span>امکان ضبط صدای میکس شده ساز و بکینگ ترک در حافظه گوشی به فرمت wave</span>
             </li>
           </ul>
+          <h3
+            id="bronzeGalleryTitle"
+            class="text-2xl font-bold text-white text-center mb-6 mt-14 drop-shadow-[0_4px_12px_rgba(0,0,0,1)]"
+          >
+            صفحات نمونه از نسخه برنزی
+          </h3>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5">
+            <button
+              type="button"
+              class="bronze-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+              onclick="openScreenshotLightbox('./screenshots/bronze-01.jpeg')"
+            >
+              <img
+                id="bronzeGalleryImg1"
+                src="./screenshots/bronze-01.jpeg"
+                alt="صفحه نمونه 1 از نسخه برنزی اپلیکیشن"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </button>
+            <button
+              type="button"
+              class="bronze-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+              onclick="openScreenshotLightbox('./screenshots/bronze-02.jpeg')"
+            >
+              <img
+                id="bronzeGalleryImg2"
+                src="./screenshots/bronze-02.jpeg"
+                alt="صفحه نمونه 2 از نسخه برنزی اپلیکیشن"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </button>
+            <button
+              type="button"
+              class="bronze-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+              onclick="openScreenshotLightbox('./screenshots/bronze-03.jpeg')"
+            >
+              <img
+                id="bronzeGalleryImg3"
+                src="./screenshots/bronze-03.jpeg"
+                alt="صفحه نمونه 3 از نسخه برنزی اپلیکیشن"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </button>
+            <button
+              type="button"
+              class="bronze-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+              onclick="openScreenshotLightbox('./screenshots/bronze-04.jpeg')"
+            >
+              <img
+                id="bronzeGalleryImg4"
+                src="./screenshots/bronze-04.jpeg"
+                alt="صفحه نمونه 4 از نسخه برنزی اپلیکیشن"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </button>
+            <button
+              type="button"
+              class="bronze-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+              onclick="openScreenshotLightbox('./screenshots/bronze-05.jpeg')"
+            >
+              <img
+                id="bronzeGalleryImg5"
+                src="./screenshots/bronze-05.jpeg"
+                alt="صفحه نمونه 5 از نسخه برنزی اپلیکیشن"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </button>
+            <button
+              type="button"
+              class="bronze-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+              onclick="openScreenshotLightbox('./screenshots/bronze-06.jpeg')"
+            >
+              <img
+                id="bronzeGalleryImg6"
+                src="./screenshots/bronze-06.jpeg"
+                alt="صفحه نمونه 6 از نسخه برنزی اپلیکیشن"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </button>
+            <button
+              type="button"
+              class="bronze-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+              onclick="openScreenshotLightbox('./screenshots/bronze-07.jpeg')"
+            >
+              <img
+                id="bronzeGalleryImg7"
+                src="./screenshots/bronze-07.jpeg"
+                alt="صفحه نمونه 7 از نسخه برنزی اپلیکیشن"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </button>
+            <button
+              type="button"
+              class="bronze-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+              onclick="openScreenshotLightbox('./screenshots/bronze-08.jpeg')"
+            >
+              <img
+                id="bronzeGalleryImg8"
+                src="./screenshots/bronze-08.jpeg"
+                alt="صفحه نمونه 8 از نسخه برنزی اپلیکیشن"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </button>
+          </div>
 
-          <p id="buskitFeaturesDescription" class="drop-shadow-[0_3px_10px_rgba(0,0,0,1)]">
-            امکانات این اپلیکیشن، آنرا در جایگاهی فراتر از یک افکت باکس یا پدال بورد سخت افزاری قرار داده است امکان لود بکینگ ترک با قابلیت تغییر سرعت بدون تغییر فرکانس آن برای تمرین همنوازی همچنین وجود یک مترونوم با قابلیت منحصر به فرد ایجاد کلیه فیگورهای ریتمیک مورد نظر از یک طرف و امکان ضبط صدای ورودی به همراه بکینگ ترک با فرمت wave در حافظه گوشی آنرا به رویای هر نوازنده تبدیل کرده است که بدون نیاز به تجهیزات گرانقیمت و سنگین و حجیم بتوان در همه جا و همه زمان از ساز خود صدایی رویایی به گوش مخاطبان رسانید. تیونر کروماتیک میکروتونال آن نیز از نقاط قوت این نسخه از اپلیکیشن میباشد که امکان تعیین میزان انحراف از نوت اصلی را نیز به کاربر میدهد. وجود بیش از 40 پریست برای استفاده در شرایط مختلف و سازهای مختلف تسهیلی دیگر در اجراهای نوازندگان میباشد.
-          </p>
-        </div>
-      </div>
-    </section>
+          <h3
+            id="buskitSilverTitle"
+            class="text-2xl font-bold text-white text-center mb-5 mt-14 drop-shadow-[0_4px_12px_rgba(0,0,0,1)]"
+          >
+            نسخه نقره‌ای
+          </h3>
+          <ul class="grid sm:grid-cols-2 gap-3">
+            <li
+              id="buskitSilver1"
+              class="bg-white/5 border border-white/10 rounded-2xl px-4 py-3 flex items-start gap-2 text-slate-100 text-sm"
+            >
+              <span class="text-accentNeon text-lg leading-none">●</span>
+              <span>مجهز به 19 افکت پر کاربرد در دنیای نوازندگی (علاوه بر افکت‌های نسخه برنز، 5 نوع دیستورشن و اوور درایو، پیچ شیفتر، فلنجر، کوروس و ...)</span>
+            </li>
+            <li
+              id="buskitSilver2"
+              class="bg-white/5 border border-white/10 rounded-2xl px-4 py-3 flex items-start gap-2 text-slate-100 text-sm"
+            >
+              <span class="text-accentNeon text-lg leading-none">●</span>
+              <span>تیونر میکروتونال با امکان تغییر مبنای فرکانسی</span>
+            </li>
+            <li
+              id="buskitSilver3"
+              class="bg-white/5 border border-white/10 rounded-2xl px-4 py-3 flex items-start gap-2 text-slate-100 text-sm"
+            >
+              <span class="text-accentNeon text-lg leading-none">●</span>
+              <span>مترونوم فلکسیبل با قابلیت افزایش اتوماتیک تمپو بر اساس زمان یا تعداد میزان طی شده</span>
+            </li>
+            <li
+              id="buskitSilver4"
+              class="bg-white/5 border border-white/10 rounded-2xl px-4 py-3 flex items-start gap-2 text-slate-100 text-sm"
+            >
+              <span class="text-accentNeon text-lg leading-none">●</span>
+              <span>امکان لود تا 6 لاین بکینگ ترک با فرمت wave با قابلیت تغییر سرعت پخش به دو شکل با حفظ پیچ و یا ساده</span>
+            </li>
+            <li
+              id="buskitSilver5"
+              class="bg-white/5 border border-white/10 rounded-2xl px-4 py-3 flex items-start gap-2 text-slate-100 text-sm"
+            >
+              <span class="text-accentNeon text-lg leading-none">●</span>
+              <span>امکان ضبط صدای میکس شده ساز و بکینگ ترک در حافظه گوشی به فرمت wave</span>
+            </li>
+            <li
+              id="buskitSilver6"
+              class="bg-white/5 border border-white/10 rounded-2xl px-4 py-3 flex items-start gap-2 text-slate-100 text-sm"
+            >
+              <span class="text-accentNeon text-lg leading-none">●</span>
+              <span>دیاپازون میکروتونال در محدوده 8 اکتاو</span>
+            </li>
+          </ul>
+          <h3
+            id="silverGalleryTitle"
+            class="text-2xl font-bold text-white text-center mb-6 mt-14 drop-shadow-[0_4px_12px_rgba(0,0,0,1)]"
+          >
+            صفحات نمونه از نسخه نقره‌ای
+          </h3>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5">
+            <button
+              type="button"
+              class="silver-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+              onclick="openScreenshotLightbox('./screenshots/silver-01.jpeg')"
+            >
+              <img
+                id="silverGalleryImg1"
+                src="./screenshots/silver-01.jpeg"
+                alt="صفحه نمونه 1 از نسخه نقره‌ای اپلیکیشن"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </button>
+            <button
+              type="button"
+              class="silver-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+              onclick="openScreenshotLightbox('./screenshots/silver-02.jpeg')"
+            >
+              <img
+                id="silverGalleryImg2"
+                src="./screenshots/silver-02.jpeg"
+                alt="صفحه نمونه 2 از نسخه نقره‌ای اپلیکیشن"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </button>
+            <button
+              type="button"
+              class="silver-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+              onclick="openScreenshotLightbox('./screenshots/silver-03.jpeg')"
+            >
+              <img
+                id="silverGalleryImg3"
+                src="./screenshots/silver-03.jpeg"
+                alt="صفحه نمونه 3 از نسخه نقره‌ای اپلیکیشن"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </button>
+            <button
+              type="button"
+              class="silver-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+              onclick="openScreenshotLightbox('./screenshots/silver-04.jpeg')"
+            >
+              <img
+                id="silverGalleryImg4"
+                src="./screenshots/silver-04.jpeg"
+                alt="صفحه نمونه 4 از نسخه نقره‌ای اپلیکیشن"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </button>
+            <button
+              type="button"
+              class="silver-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+              onclick="openScreenshotLightbox('./screenshots/silver-05.jpeg')"
+            >
+              <img
+                id="silverGalleryImg5"
+                src="./screenshots/silver-05.jpeg"
+                alt="صفحه نمونه 5 از نسخه نقره‌ای اپلیکیشن"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </button>
+            <button
+              type="button"
+              class="silver-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+              onclick="openScreenshotLightbox('./screenshots/silver-06.jpeg')"
+            >
+              <img
+                id="silverGalleryImg6"
+                src="./screenshots/silver-06.jpeg"
+                alt="صفحه نمونه 6 از نسخه نقره‌ای اپلیکیشن"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </button>
+            <button
+              type="button"
+              class="silver-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+              onclick="openScreenshotLightbox('./screenshots/silver-07.jpeg')"
+            >
+              <img
+                id="silverGalleryImg7"
+                src="./screenshots/silver-07.jpeg"
+                alt="صفحه نمونه 7 از نسخه نقره‌ای اپلیکیشن"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </button>
+            <button
+              type="button"
+              class="silver-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+              onclick="openScreenshotLightbox('./screenshots/silver-08.jpeg')"
+            >
+              <img
+                id="silverGalleryImg8"
+                src="./screenshots/silver-08.jpeg"
+                alt="صفحه نمونه 8 از نسخه نقره‌ای اپلیکیشن"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </button>
+            <button
+              type="button"
+              class="silver-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+              onclick="openScreenshotLightbox('./screenshots/silver-09.jpeg')"
+            >
+              <img
+                id="silverGalleryImg9"
+                src="./screenshots/silver-09.jpeg"
+                alt="صفحه نمونه 9 از نسخه نقره‌ای اپلیکیشن"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </button>
+            <button
+              type="button"
+              class="silver-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+              onclick="openScreenshotLightbox('./screenshots/silver-10.jpeg')"
+            >
+              <img
+                id="silverGalleryImg10"
+                src="./screenshots/silver-10.jpeg"
+                alt="صفحه نمونه 10 از نسخه نقره‌ای اپلیکیشن"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </button>
+            <button
+              type="button"
+              class="silver-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+              onclick="openScreenshotLightbox('./screenshots/silver-11.jpeg')"
+            >
+              <img
+                id="silverGalleryImg11"
+                src="./screenshots/silver-11.jpeg"
+                alt="صفحه نمونه 11 از نسخه نقره‌ای اپلیکیشن"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </button>
+          </div>
 
-    <!-- صفحات نمونه اپلیکیشن -->
-    <section id="AppGallery" class="py-24 px-6 relative">
-      <div class="absolute inset-0 bg-black/60 z-0"></div>
-
-      <div class="max-w-6xl mx-auto relative z-10">
-        <div class="text-center mb-16">
-          <h2
-            id="liveFXGalleryTitle"
-            class="text-4xl font-bold text-white mb-4 drop-shadow-[0_4px_12px_rgba(0,0,0,1)]"
+          <h3
+            id="buskitGoldTitle"
+            class="text-2xl font-bold text-white text-center mb-5 mt-14 drop-shadow-[0_4px_12px_rgba(0,0,0,1)]"
           >
-            صفحات نمونه اپلیکیشن
-          </h2>
-          <p
-            id="liveFXGallerySubtitle"
-            class="text-slate-300 max-w-2xl mx-auto text-lg drop-shadow-[0_3px_10px_rgba(0,0,0,1)]"
+            نسخه طلایی
+          </h3>
+          <ul class="grid sm:grid-cols-2 gap-3">
+            <li
+              id="buskitGold1"
+              class="bg-white/5 border border-white/10 rounded-2xl px-4 py-3 flex items-start gap-2 text-slate-100 text-sm"
+            >
+              <span class="text-accentNeon text-lg leading-none">●</span>
+              <span>مجهز به 19 افکت پر کاربرد در دنیای نوازندگی (علاوه بر افکت‌های نسخه برنز، 5 نوع دیستورشن و اوور درایو، پیچ شیفتر، فلنجر، کوروس و ...)</span>
+            </li>
+            <li
+              id="buskitGold2"
+              class="bg-white/5 border border-white/10 rounded-2xl px-4 py-3 flex items-start gap-2 text-slate-100 text-sm"
+            >
+              <span class="text-accentNeon text-lg leading-none">●</span>
+              <span>تیونر میکروتونال با امکان تغییر مبنای فرکانسی</span>
+            </li>
+            <li
+              id="buskitGold3"
+              class="bg-white/5 border border-white/10 rounded-2xl px-4 py-3 flex items-start gap-2 text-slate-100 text-sm"
+            >
+              <span class="text-accentNeon text-lg leading-none">●</span>
+              <span>مترونوم فلکسیبل با قابلیت افزایش اتوماتیک تمپو بر اساس زمان یا تعداد میزان طی شده</span>
+            </li>
+            <li
+              id="buskitGold4"
+              class="bg-white/5 border border-white/10 rounded-2xl px-4 py-3 flex items-start gap-2 text-slate-100 text-sm"
+            >
+              <span class="text-accentNeon text-lg leading-none">●</span>
+              <span>امکان لود تا 8 لاین بکینگ ترک با فرمت wave با قابلیت تغییر سرعت پخش به دو شکل با حفظ پیچ و یا ساده</span>
+            </li>
+            <li
+              id="buskitGold5"
+              class="bg-white/5 border border-white/10 rounded-2xl px-4 py-3 flex items-start gap-2 text-slate-100 text-sm"
+            >
+              <span class="text-accentNeon text-lg leading-none">●</span>
+              <span>امکان ضبط صدای میکس شده ساز و بکینگ ترک در حافظه گوشی به فرمت wave</span>
+            </li>
+            <li
+              id="buskitGold6"
+              class="bg-white/5 border border-white/10 rounded-2xl px-4 py-3 flex items-start gap-2 text-slate-100 text-sm"
+            >
+              <span class="text-accentNeon text-lg leading-none">●</span>
+              <span>دیاپازون میکروتونال در محدوده 8 اکتاو</span>
+            </li>
+            <li
+              id="buskitGold7"
+              class="bg-white/5 border border-white/10 rounded-2xl px-4 py-3 flex items-start gap-2 text-slate-100 text-sm"
+            >
+              <span class="text-accentNeon text-lg leading-none">●</span>
+              <span>وجود درامز ماشین برای ساخت پترن‌های درامز با تکنیک‌های معمول درامز</span>
+            </li>
+            <li
+              id="buskitGold8"
+              class="bg-white/5 border border-white/10 rounded-2xl px-4 py-3 flex items-start gap-2 text-slate-100 text-sm"
+            >
+              <span class="text-accentNeon text-lg leading-none">●</span>
+              <span>امکان ساخت بکینگ ترک هارمونیک از طریق ورود آکوردها و اختصاص پترن‌های آماده یا پیاده‌سازی شده توسط درامز ماشین همین اپ</span>
+            </li>
+          </ul>
+          <h3
+            id="goldGalleryTitle"
+            class="text-2xl font-bold text-white text-center mb-6 mt-14 drop-shadow-[0_4px_12px_rgba(0,0,0,1)]"
           >
-            نگاهی به محیط کاربری و صفحات مختلف اپلیکیشن Buskit LiveFX
-          </p>
-        </div>
-
-        <div
-          class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6"
-        >
-          <div
-            class="aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard"
-          >
-            <img
-              id="liveFXGalleryImg1"
-              src="./screenshots/livefx-gallery-01.jpeg"
-              alt="نمای اصلی اپلیکیشن باسکیت لایو افکت"
-              loading="lazy"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div
-            class="aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard"
-          >
-            <img
-              id="liveFXGalleryImg2"
-              src="./screenshots/livefx-gallery-02.jpeg"
-              alt="تنظیمات کمپرسور در اپلیکیشن باسکیت لایو افکت"
-              loading="lazy"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div
-            class="aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard"
-          >
-            <img
-              id="liveFXGalleryImg3"
-              src="./screenshots/livefx-gallery-03.jpeg"
-              alt="انواع ریورب در اپلیکیشن باسکیت لایو افکت"
-              loading="lazy"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div
-            class="aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard"
-          >
-            <img
-              id="liveFXGalleryImg4"
-              src="./screenshots/livefx-gallery-04.jpeg"
-              alt="منوی امکانات اپلیکیشن باسکیت لایو افکت"
-              loading="lazy"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div
-            class="aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard"
-          >
-            <img
-              id="liveFXGalleryImg5"
-              src="./screenshots/livefx-gallery-05.jpeg"
-              alt="صفحه اصلی افکت‌ها و مترونوم اپلیکیشن باسکیت لایو افکت"
-              loading="lazy"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div
-            class="aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard"
-          >
-            <img
-              id="liveFXGalleryImg6"
-              src="./screenshots/livefx-gallery-06.jpeg"
-              alt="بارگذاری بکینگ‌ترک در اپلیکیشن باسکیت لایو افکت"
-              loading="lazy"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div
-            class="aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard"
-          >
-            <img
-              id="liveFXGalleryImg7"
-              src="./screenshots/livefx-gallery-07.jpeg"
-              alt="اکولایزر ۹ باند در اپلیکیشن باسکیت لایو افکت"
-              loading="lazy"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div
-            class="aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard"
-          >
-            <img
-              id="liveFXGalleryImg8"
-              src="./screenshots/livefx-gallery-08.jpeg"
-              alt="نمای دیگری از صفحه افکت‌های اپلیکیشن باسکیت لایو افکت"
-              loading="lazy"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div
-            class="aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard"
-          >
-            <img
-              id="liveFXGalleryImg9"
-              src="./screenshots/livefx-gallery-09.jpeg"
-              alt="نمای تکمیلی از محیط کاربری اپلیکیشن باسکیت لایو افکت"
-              loading="lazy"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div
-            class="aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard"
-          >
-            <img
-              id="liveFXGalleryImg9"
-              src="./screenshots/livefx-gallery-10.jpeg"
-              alt="نمای تکمیلی از محیط کاربری اپلیکیشن باسکیت لایو افکت"
-              loading="lazy"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div
-            class="aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard"
-          >
-            <img
-              id="liveFXGalleryImg9"
-              src="./screenshots/livefx-gallery-11.jpeg"
-              alt="نمای تکمیلی از محیط کاربری اپلیکیشن باسکیت لایو افکت"
-              loading="lazy"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div
-            class="aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard"
-          >
-            <img
-              id="liveFXGalleryImg12"
-              src="./screenshots/livefx-gallery-12.jpeg"
-              alt="نمای تکمیلی از محیط کاربری اپلیکیشن باسکیت لایو افکت"
-              loading="lazy"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div
-            class="aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard"
-          >
-            <img
-              id="liveFXGalleryImg13"
-              src="./screenshots/livefx-gallery-13.jpeg"
-              alt="نمای تکمیلی از محیط کاربری اپلیکیشن باسکیت لایو افکت"
-              loading="lazy"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div
-            class="aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard"
-          >
-            <img
-              id="liveFXGalleryImg14"
-              src="./screenshots/livefx-gallery-14.jpeg"
-              alt="نمای تکمیلی از محیط کاربری اپلیکیشن باسکیت لایو افکت"
-              loading="lazy"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
+            صفحات نمونه از نسخه طلایی
+          </h3>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5">
+            <button
+              type="button"
+              class="gold-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+              onclick="openScreenshotLightbox('./screenshots/gold-01.jpeg')"
+            >
+              <img
+                id="goldGalleryImg1"
+                src="./screenshots/gold-01.jpeg"
+                alt="صفحه نمونه 1 از نسخه طلایی اپلیکیشن"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </button>
+            <button
+              type="button"
+              class="gold-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+              onclick="openScreenshotLightbox('./screenshots/gold-02.jpeg')"
+            >
+              <img
+                id="goldGalleryImg2"
+                src="./screenshots/gold-02.jpeg"
+                alt="صفحه نمونه 2 از نسخه طلایی اپلیکیشن"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </button>
+            <button
+              type="button"
+              class="gold-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+              onclick="openScreenshotLightbox('./screenshots/gold-03.jpeg')"
+            >
+              <img
+                id="goldGalleryImg3"
+                src="./screenshots/gold-03.jpeg"
+                alt="صفحه نمونه 3 از نسخه طلایی اپلیکیشن"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </button>
+            <button
+              type="button"
+              class="gold-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+              onclick="openScreenshotLightbox('./screenshots/gold-04.jpeg')"
+            >
+              <img
+                id="goldGalleryImg4"
+                src="./screenshots/gold-04.jpeg"
+                alt="صفحه نمونه 4 از نسخه طلایی اپلیکیشن"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </button>
+            <button
+              type="button"
+              class="gold-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+              onclick="openScreenshotLightbox('./screenshots/gold-05.jpeg')"
+            >
+              <img
+                id="goldGalleryImg5"
+                src="./screenshots/gold-05.jpeg"
+                alt="صفحه نمونه 5 از نسخه طلایی اپلیکیشن"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </button>
+            <button
+              type="button"
+              class="gold-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+              onclick="openScreenshotLightbox('./screenshots/gold-06.jpeg')"
+            >
+              <img
+                id="goldGalleryImg6"
+                src="./screenshots/gold-06.jpeg"
+                alt="صفحه نمونه 6 از نسخه طلایی اپلیکیشن"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </button>
+            <button
+              type="button"
+              class="gold-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+              onclick="openScreenshotLightbox('./screenshots/gold-07.jpeg')"
+            >
+              <img
+                id="goldGalleryImg7"
+                src="./screenshots/gold-07.jpeg"
+                alt="صفحه نمونه 7 از نسخه طلایی اپلیکیشن"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </button>
+            <button
+              type="button"
+              class="gold-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+              onclick="openScreenshotLightbox('./screenshots/gold-08.jpeg')"
+            >
+              <img
+                id="goldGalleryImg8"
+                src="./screenshots/gold-08.jpeg"
+                alt="صفحه نمونه 8 از نسخه طلایی اپلیکیشن"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </button>
+            <button
+              type="button"
+              class="gold-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+              onclick="openScreenshotLightbox('./screenshots/gold-09.jpeg')"
+            >
+              <img
+                id="goldGalleryImg9"
+                src="./screenshots/gold-09.jpeg"
+                alt="صفحه نمونه 9 از نسخه طلایی اپلیکیشن"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </button>
+            <button
+              type="button"
+              class="gold-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+              onclick="openScreenshotLightbox('./screenshots/gold-10.jpeg')"
+            >
+              <img
+                id="goldGalleryImg10"
+                src="./screenshots/gold-10.jpeg"
+                alt="صفحه نمونه 10 از نسخه طلایی اپلیکیشن"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </button>
+            <button
+              type="button"
+              class="gold-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+              onclick="openScreenshotLightbox('./screenshots/gold-11.jpeg')"
+            >
+              <img
+                id="goldGalleryImg11"
+                src="./screenshots/gold-11.jpeg"
+                alt="صفحه نمونه 11 از نسخه طلایی اپلیکیشن"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </button>
+            <button
+              type="button"
+              class="gold-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
+              onclick="openScreenshotLightbox('./screenshots/gold-12.jpeg')"
+            >
+              <img
+                id="goldGalleryImg12"
+                src="./screenshots/gold-12.jpeg"
+                alt="صفحه نمونه 12 از نسخه طلایی اپلیکیشن"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </button>
           </div>
         </div>
       </div>
@@ -1590,11 +1891,13 @@
           >
             برای استفاده از اپلیکیشن باید به نوعی صدای ساز را به گوشی موبایل وارد نمود و در اختیار آن گذاشت برای اینکار میتوان از روشهای زیر استفاده کرد :
             <ul class="mt-8 ">
-              <li class="bg-[#00f5d4] text-red-900 mb-4"> استفاده از هندزفری </li>
+              <li class="bg-[#00f5d4] text-red-900 mb-4"> استفاده از میکروفون داخلی گوشی </li>
+              <p class=" mb-4 max-w-2xl mx-auto text-justify">تنها کافیست اپ را در مد استفاده از میکروفون داخلی بگذارید و یک هدفون به آن متصل کنید و یا مستقیم خروجی هدفون را به آمپلی فایر متصل کنید. به این شکل، گوشی نقش یک میکروفون را ایفا می‌کند که مجهز به 19 افکت و امکانات دیگر مختص نوازندگی است. سپس به سادگی ساز بنوازید و صدای پر طنین و گوش‌نواز خروجی را روی هدفون یا آمپلی فایر بشنوید.</p>
+              <li class="bg-[#00f5d4] text-red-900 mb-4"> استفاده از هندزفری و میکروفون خارجی آن </li>
               <p class=" mb-4 max-w-2xl mx-auto text-justify">تنها کافیست هندز فری را به گوشی متصل کنید، هدفون را در گوش خود گذاشته و ساز بنوازید ، صدای ساز از طریق میکروفون هندز فری به داخل گوشی منتقل میشود و سپس پروسس های لازم توسط اپلیکیشن روی آن انجام شده و صدایی پر طنین را از طریق هدفون خواهید شنید</p>
-              <li class="bg-[#00f5d4] text-red-900  mb-4"> استفاده از دستگاه  irig </li>
+              <li class="bg-[#00f5d4] text-red-900  mb-4"> استفاده از دستگاه irig و میکروفون زیر خرکی یا پیزو و یا میکروفون دینامیکی خارجی </li>
               <p class=" mb-4 max-w-2xl mx-auto text-justify"> سیم irig  را به گوشی متصل و خروجی هدفون آنرا به یک هدفون متصل کنید و یا خروجی دیگر آنرابه یه آمپلی فایر متصل نمایید در صورتی که ساز شمامجهز به میکروفون زیر خرکی یا خروجی الکتریکی صدا میباشد همان خروجی را به ورودی دستگاه irig بدهید. در غیر اینصورت توسط یک میکروفون گیره ای پیزو، صدای ساز رابه دستگاه irig بدهید</p>
-               <li class="bg-[#00f5d4] text-red-900  mb-4"> استفاده از دستگاه Brig</li> 
+               <li class="bg-[#00f5d4] text-red-900  mb-4"> استفاده از دستگاه Brig و میکروفون زیر خرکی یا پیزو و یا میکروفون دینامیکی خارجی </li> 
                <p class=" mb-4 max-w-2xl mx-auto text-justify">این دستگاه مشابه دستگاه irig بوده اما ازمجموعه سخت افزارهای باسکیت  میباشد در صورت لزوم میتوانید این دستگاه را نیز تهیه نمایید که نحوه کارکرد آن دقیقا نظیر irig میباشد</p>
             </ul>
           </div>
@@ -2042,7 +2345,7 @@
       id="Contacts"
       class="py-24 px-6 bg-darkCard/40 border-t border-slate-900"
     >
-      <div class="max-w-4xl mx-auto text-center">
+      <div class="max-w-5xl mx-auto text-center">
         <h2
           id="contactTitle"
           class="text-4xl font-bold text-white mt-[-80px] mb-4 drop-shadow-[0_6px_20px_rgba(0,0,0,0.9)]"
@@ -2053,7 +2356,26 @@
           برای دریافت اطلاعات بیشتر، مشاوره و خرید با من در ارتباط باشید
         </p>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <!-- ردیف اول: ایمیل و واتساپ -->
+        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <!-- Email -->
+          <a
+            href="mailto:Buskitapps@gmail.com"
+            class="group flex items-center gap-6 bg-darkCard/80 hover:bg-darkCard p-7 rounded-3xl border border-slate-700 hover:border-blue-500 transition-all duration-300"
+          >
+            <div
+              class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center text-4xl shadow-lg flex-shrink-0"
+            >
+              ✉️
+            </div>
+            <div>
+              <p id="contactEmailLabel" class="text-sm text-blue-400 font-medium">ایمیل</p>
+              <p class="text-white font-semibold text-xl break-words" dir="ltr">
+                BuskitApps@gmail.com
+              </p>
+            </div>
+          </a>
+
           <!-- WhatsApp -->
           <a
             href="https://wa.me/905312691609"
@@ -2072,24 +2394,16 @@
               </p>
             </div>
           </a>
+        </div>
 
-          <!-- Instagram -->
-          <a
-            href="https://instagram.com/Buskit.Equipments"
-            target="_blank"
-            class="group flex items-center gap-6 bg-darkCard/80 hover:bg-darkCard p-7 rounded-3xl border border-slate-700 hover:border-pink-500 transition-all duration-300"
-          >
-            <div
-              class="w-16 h-16 bg-gradient-to-br from-pink-500 via-purple-500 to-orange-500 rounded-2xl flex items-center justify-center text-4xl shadow-lg flex-shrink-0"
-            >
-              📷
-            </div>
-            <div>
-              <p id="contactInstagramLabel" class="text-sm text-pink-400 font-medium">اینستاگرام</p>
-              <p class="text-white font-semibold text-xl" dir="ltr">@BuskitApps</p>
-            </div>
-          </a>
-
+        <!-- شبکه‌های اجتماعی -->
+        <h3
+          id="contactSocialTitle"
+          class="text-3xl font-bold text-white mt-16 mb-8 drop-shadow-[0_6px_20px_rgba(0,0,0,0.9)]"
+        >
+          شبکه‌های اجتماعی
+        </h3>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           <!-- TikTok -->
           <a
             href="https://www.tiktok.com/@BuskitApps"
@@ -2116,38 +2430,41 @@
             </div>
           </a>
 
-          <!-- Email -->
+          <!-- WhatsApp -->
           <a
-            href="mailto:Buskitapps@gmail.com"
-            class="group flex items-center gap-6 bg-darkCard/80 hover:bg-darkCard p-7 rounded-3xl border border-slate-700 hover:border-blue-500 transition-all duration-300 md:col-span-2 lg:col-span-1"
+            href="https://wa.me/905312691609"
+            target="_blank"
+            class="group flex items-center gap-6 bg-darkCard/80 hover:bg-darkCard p-7 rounded-3xl border border-slate-700 hover:border-green-500 transition-all duration-300"
           >
             <div
-              class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center text-4xl shadow-lg flex-shrink-0"
+              class="w-16 h-16 bg-green-400 rounded-2xl flex items-center justify-center text-4xl shadow-lg flex-shrink-0"
             >
-              ✉️
+              💬
             </div>
             <div>
-              <p id="contactEmailLabel" class="text-sm text-blue-400 font-medium">ایمیل</p>
-              <p class="text-white font-semibold text-xl break-all" dir="ltr">
-                BuskitApps@gmail.com
+              <p id="contactWhatsappLabel2" class="text-sm text-emerald-400 font-medium">واتساپ</p>
+              <p class="text-white font-semibold text-xl tracking-wider" dir="ltr">
+                +905312691609
               </p>
             </div>
           </a>
 
-          <!-- Location -->
-          <div
-            class="flex items-center gap-6 bg-darkCard/80 p-7 rounded-3xl border border-slate-700 md:col-span-2 lg:col-span-1"
+          <!-- Instagram -->
+          <a
+            href="https://instagram.com/Buskit.Equipments"
+            target="_blank"
+            class="group flex items-center gap-6 bg-darkCard/80 hover:bg-darkCard p-7 rounded-3xl border border-slate-700 hover:border-pink-500 transition-all duration-300"
           >
             <div
-              class="w-16 h-16 bg-amber-500 rounded-2xl flex items-center justify-center text-4xl shadow-lg flex-shrink-0"
+              class="w-16 h-16 bg-gradient-to-br from-pink-500 via-purple-500 to-orange-500 rounded-2xl flex items-center justify-center text-4xl shadow-lg flex-shrink-0"
             >
-              📍
+              📷
             </div>
             <div>
-              <p id="contactLocationLabel" class="text-sm text-amber-400 font-medium">دفتر مرکزی</p>
-              <p id="contactLocationValue" class="text-white font-semibold text-xl">استانبول، ترکیه</p>
+              <p id="contactInstagramLabel" class="text-sm text-pink-400 font-medium">اینستاگرام</p>
+              <p class="text-white font-semibold text-xl" dir="ltr">@BuskitApps</p>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </section>

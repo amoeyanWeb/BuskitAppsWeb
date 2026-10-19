@@ -66,1919 +66,26 @@ const GRID_TO_MODAL_PID = {
   // p5 لایسنس رایگان ۵ روزه است و در فرم خرید فروخته نمی‌شود (دکمه‌ی خرید ندارد)
 };
 
-const translations = {
-  fa: {
-    dir: "rtl",
-    title: "اپلیکیشن های باسکیت تولز",
-    navHome: "خانه",
-    navAboutme: "درباره من",
-    navLiveFX: "Buskit-Tools چیست",
-    navBuskitFeatures: "امکانات BuskitTools",
-    navAppGallery: "صفحات نمونه اپلیکیشن",
-    navFeatures: "چرا Buskit-Tools",
-    navUsersReview: "نظر کاربران",
-    navVideos: "ویدئوهای معرفی",
-    navShop: "فروشگاه",
-    navMessageme: "پرسش و پاسخ",
-    navContacts: "تماس با من",
-    headerCTA: "تهیه لایسنس پرو",
-    heroBadge: "نسخه جدید لایو افکت نسل جدید صادر شد",
-    heroAppLabel: "سری اپلیکیشن های",
-    heroTagline: "آرزوی هر نوازنده",
-    heroHeadline:
-      'استودیوی افکت حرفه‌ای زنده، <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-accentNeon to-teal-400">در جیب و همراه شما</span>',
-    heroDesc: "با تاخیر صفر  و امکاناتی خاص ",
-    heroDownloadBtnLiveFX: "لایسنس برنزی",
-    heroDownloadBtnLMT: "لایسنس نقره ای",
-    heroDownloadBtnLMTpro: "لایسنس طلایی",
-    heroDownloadBtnTools:
-      "دانلود رایگان اپلیکیشن از گوگل پلی",
-    heroTipLiveFX1: "9 افکت",
-    heroTipLiveFX2: "تیونر کروماتیک",
-    heroTipLiveFX3: "مترونوم فلکسیبل",
-    heroTipLiveFX4: "بیش از 20 تنظیم پیش‌فرض",
-    heroTipLMT1: "13 افکت",
-    heroTipLMT2: "تیونر کروماتیک",
-    heroTipLMT3: "مترونوم فلکسیبل",
-    heroTipLMT4: "بیش از 40 تنظیم پیش‌فرض",
-    heroTipLMT5: "امکان ضبط صدا",
-    heroTipLMT6: "امکان لود بکینگ ترک",
-    heroTipLMT7: "امکان تغییر سرعت بکینگ ترک",
-    heroTipPro1: "18 افکت",
-    heroTipPro2: "بیش از 25 تنظیم پیش‌فرض",
-    heroTipPro3: "تیونر کروماتیک + میکروتونال",
-    heroTipPro4: "مترونوم فلکسیبل",
-    heroTipPro5: "امکان ضبط صدا",
-    heroTipPro6: "امکان لود بکینگ ترک",
-    heroTipPro7: "امکان تغییر سرعت بکینگ ترک بدون تغییر فرکانس",
-
-    aboutTitle: "درباره من",
-    aboutP1:
-      'من <span class="text-accentNeon font-semibold">محمد رضا عموئیان</span>، مهندس الکترونیک با بیش از <span class="text-white font-medium">۴۰ سال تجربه طراحی مدارات الکترونیک و پیاده‌سازی انواع نرم‌افزارهای کامپیوتری و در عین حال</span> نوازندگی و اجرای موسیقی هستم.',
-    aboutP2:
-      'بر آن شدم تا چکیده نیازهای نوازندگان اجراهای زنده در خیابان، گروه‌های کوچک و اجراهای خصوصی و شخصی را در قالب مجموعه سخت‌افزارها و نرم‌افزارهایی با نام تجاری <span class="text-accentNeon font-bold">Buskit</span> به تدریج در اختیار علاقمندان قرار دهم.',
-    aboutP3:
-      "هر یک از این تجهیزات بخشی از نیازهای هر نوازنده یا خواننده را برطرف خواهد کرد. مطمئن هستم که با بکارگیری از هر یک از این تجهیزات، تجربه و لذت فراموش‌نشدنی از نوازندگی و اجرای موسیقی به دست خواهید آورد.",
-    aboutP4:
-      "این وب سایت صرفا به اپلیکیشن های تلفن همراه مجموعه Buskit میپردازد. در حال حاضر اولین اپلیکیشن با نام Buskit-Tools  برای سیستم عامل اندروید آماده بهره برداری علاقمندان میباشد. \n\nمژده اینکه اپلیکیشن های دیگری نیز درحال پیاده سازی میباشند و در آینده ای نزدیک ارائه میگردند که از زوایای جدید به رفع نیازهای نوازندگان بالاخص نوازندگان اجرای زنده میپردازند.",
-    aboutImgAlt: "محمد رضا عموئیان - نوازنده سه‌تار",
-    liveFXTitle: "Buskit-Tools چیست",
-    liveFXSubtitle:
-      " مجموعه اپلیکیشن های Real-Time واقعی و بدون تأخیر، ابزارهایی بدون جایگزین برای هر سهولت و افزایش کیفیت اجرای هر نوازنده یا خواننده",
-    liveFXP1:
-      "اپلیکیشنها سری باسکیت تولز، فراتر از یک اپلیکیشن همراه، با امکاناتی که تنها در رویای هر نوازنده جلوه میکند",
-    liveFXP2:
-      "این اپلیکیشن امکان اضافه کردن انواع افکت‌های صوتی زیر را فراهم می‌کند که می‌توان همزمان کلیه‌ی آن‌ها را نیز روی صوت ورودی اعمال نمود. همچنین امکان ضبط و ذخیره‌سازی مستقیم قطعات اجرا شده پس از اعمال افکت‌های انتخابی روی حافظه‌ی گوشی تلفن همراه را نیز دارد.",
-    liveFXTag1: "اکولایزر",
-    liveFXTag2: "کمپرسور",
-    liveFXTag3: "فلنجر",
-    liveFXTag4: "فیزر",
-    liveFXTag5: "دیلی",
-    liveFXTag6: "انواع ریورب",
-    liveFXTag7: "لیمیتر",
-    liveFXTag8: "اکسایتر",
-    liveFXTag9: "کوروس",
-    liveFXTag10: "نویز گیت",
-    liveFXTag11: "پری‌امپ",
-    liveFXTag12: "لو پس فیلتر",
-    liveFXTag13: " واو واو",
-    liveFXTag14: "دیستورشن",
-    liveFXTag15: "اوور درایو",
-    liveFXChainLabel: "زنجیره‌ی این افکت‌ها بصورت زیر در نظر گرفته شده است:",
-    liveFXChainText:
-      "پری‌امپ ← نویز گیت ← کمپرسور ← اکولایزر ← واو واو ← اوردرایو ← دیستورشن ← کوروس ← فلنجر ← فیزر ← اکسایتر ← دیلی ← ریورب ← اکتاو ← لوپس فیلتر ← لیمیتر",
-    liveFXChainNote:
-      "در انتهای زنجیره نیز یک ماژول output gain در نظر گرفته شده که گین کل مجموعه را به یکباره کاهش یا افزایش میدهد",
-    liveFXP3:
-      "این دستگاه صوت ورودی را از طریق میکروفون اکسترنال دریافت کرده، پروسس لازم و انتخاب شده را روی آن انجام داده و خروجی را به‌صورت همزمان و بدون تأخیر به خروجی هدفون گوشی ارسال می‌دارد.",
-    liveFXP4:
-      "علاوه بر افکت‌های مذکور، امکان لود کردن تیونر کروماتیک برای کوک کردن هر نوع ساز و همچنین لود کردن بکینگ‌ترک برای تمرین همنوازی یا اجرای هم‌زمان یا هم‌نوازی مجدد با نواخته‌های خود یا دیگران وجود دارد.",
-    liveFXP5:
-      "از خصوصیات دیگر این اپ، مجهز بودن به مترونوم فلکسیبل می‌باشد که هرگونه فیگور ریتمیکی را به سادگی امکان اجرا می‌دهد.",
-    liveFXP6:
-      "برای ورود صدای ساز یا خواننده به تلفن همراه به‌سادگی می‌توان از هندز فری گوشی که مجهز به میکروفون و هدفون است استفاده نمود، اما در صورتی که بخواهید خروجی را به آمپلی‌فایر متصل کنید، لازم است از دستگاه‌های موجود iRig و یا در صورت درخواست، دستگاه سخت‌افزاری w-full که از مجموعه دستگاه‌های سری Buskit می‌باشد، به‌عنوان سخت‌افزار همراه این اپلیکیشن استفاده نمایید. صدای خروجیِ پردازش شده توسط گوشی نیز از طریق همین دستگاه به ورودی آگزیلاری یا ورودی گیتار هر نوع آمپلی‌فایر حتی آماتور منتقل می‌شود و شاهد صدایی رویایی خواهید بود.",
-    liveFXP7:
-      "از مزایای این دستگاه، عدم نیاز به سیستم صوتی و تجهیزات گران‌قیمت و حرفه‌ای برای داشتن طنین صدایی حرفه‌ای و گوش‌نواز می‌باشد.",
-    liveFXP8:
-      "امکانات این اپلیکیشن در سه دسته تقسیم و در قالب سه نوع لایسنس طلایی، نقره ای و برنزی در اختیار علاقمندان قرار داده میشود که هر کسی با هر سلیقه و توانایی بتواند از مزایای آن بهره مند شود",
-
-    buskitFeaturesTitle: "امکانات BuskitTools",
-    buskitFeaturesSubtitle:
-      "نسخه حرفه‌ای با امکانات کامل برای اجرا، ضبط و تمرین",
-    buskitFeaturesItem1:
-      "مجهز به پانزده افکت پر کاربرد و معروف در دنیای موسیقی",
-    buskitFeaturesItem2: "حاوی بیش از 25 تنظیم پیش‌فرض",
-    buskitFeaturesItem3:
-      "تیونر کروماتیک + میکروتونال برای کوک کردن یا تنظیم پرده های سازهای ایرانی یا ترکی با امکان تعیین میزان کوک",
-    buskitFeaturesItem4:
-      "مترونوم فلکسیبل با قابلیت اجرای هرگونه ریتم لنگ و هر قالب و فیگور ریتمیک",
-    buskitFeaturesItem5: "امکان لود بکینگ ترک",
-    buskitFeaturesItem6:
-      "امکان ضبط صدای میکس شده بکینگ ترک و صدای ساز داخل حافظه تلفن همراه با فرمت WAVE",
-    buskitFeaturesItem7: "امکان تغییر سرعت بکینگ ترک بدون تغییر فرکانس",
-    buskitFeaturesDescription:
-      "امکانات این اپلیکیشن، آنرا در جایگاهی فراتر از یک افکت باکس یا پدال بورد سخت افزاری قرار داده است امکان لود بکینگ ترک با قابلیت تغییر سرعت بدون تغییر فرکانس آن برای تمرین همنوازی همچنین وجود یک مترونوم با قابلیت منحصر به فرد ایجاد کلیه فیگورهای ریتمیک مورد نظر از یک طرف و امکان ضبط صدای ورودی به همراه بکینگ ترک با فرمت wave در حافظه گوشی آنرا به رویای هر نوازنده تبدیل کرده است که بدون نیاز به تجهیزات گرانقیمت و سنگین و حجیم بتوان در همه جا و همه زمان از ساز خود صدایی رویایی به گوش مخاطبان رسانید. تیونر کروماتیک میکروتونال آن نیز از نقاط قوت این نسخه از اپلیکیشن میباشد که امکان تعیین میزان انحراف از نوت اصلی را نیز به کاربر میدهد. وجود بیش از 40 پریست برای استفاده در شرایط مختلف و سازهای مختلف تسهیلی دیگر در اجراهای نوازندگان میباشد.",
-
-    liveFXGalleryAlt1: "نمای اصلی اپلیکیشن باسکیت لایو افکت",
-    liveFXGalleryAlt2: "تنظیمات کمپرسور در اپلیکیشن باسکیت لایو افکت",
-    liveFXGalleryAlt3: "انواع ریورب در اپلیکیشن باسکیت لایو افکت",
-    liveFXGalleryAlt4: "منوی امکانات اپلیکیشن باسکیت لایو افکت",
-    liveFXGalleryAlt5: "صفحه اصلی افکت‌ها و مترونوم اپلیکیشن باسکیت لایو افکت",
-    liveFXGalleryAlt6: "بارگذاری بکینگ‌ترک در اپلیکیشن باسکیت لایو افکت",
-    liveFXGalleryAlt7: "اکولایزر ۹ باند در اپلیکیشن باسکیت لایو افکت",
-    liveFXGalleryAlt8: "نمای دیگری از صفحه افکت‌های اپلیکیشن باسکیت لایو افکت",
-    liveFXGalleryAlt9: "نمای تکمیلی از محیط کاربری اپلیکیشن باسکیت لایو افکت",
-    liveFXGalleryAlt12: "نمای تکمیلی از محیط کاربری اپلیکیشن باسکیت لایو افکت",
-    liveFXGalleryAlt13: "نمای تکمیلی از محیط کاربری اپلیکیشن باسکیت لایو افکت",
-    liveFXGalleryAlt14: "نمای تکمیلی از محیط کاربری اپلیکیشن باسکیت لایو افکت",
-    liveFXGalleryTitle: "صفحات نمونه اپلیکیشن",
-    liveFXGallerySubtitle:
-      "نگاهی به محیط کاربری و صفحات مختلف اپلیکیشن Buskit Tools",
-    videosTitle: "ویدئوهای معرفی موارد استفاده اپلیکیشن BuskitTools",
-    videosDesc:
-      "توانایی ها و موارد استفاده و معرفی اپلیکیشن",
-    v1Title: "ویدئوی معرفی یک",
-    v2Title: "ویدئوی معرفی دو",
-    v3Title: "ویدئوی معرفی سه",
-    v4Title: "ویدئوی معرفی چهار",
-    v5Title: "ویدئوی معرفی پنج",
-    v6Title: "ویدئوی معرفی شش",
-    v7Title: "ویدئوی معرفی هفت",
-    v8Title: "ویدئوی معرفی هشت",
-    v9Title: "ویدئوی معرفی نه",
-    featuresTitle: "چرا نوازندگان باسکیت را انتخاب می‌کنند؟",
-    featuresDesc:
-      "یک مهندسی دقیق در تلفیق سخت‌افزار، نرم‌افزار و درک نیازهای یک موزیسین روی صحنه.",
-    f1Title: "تأخیر فوق‌العاده پایین (Ultra-low Latency)",
-    f1Desc:
-      "با استفاده از هسته پردازشی بومی، تاخیر صدا به حداقل ممکن (زیر چند میلی‌ثانیه) رسیده تا هیچ لگی حین نواختن حس نکنید.",
-    f2Title: "پری‌ست‌های منعطف و کاستوم",
-    f2Desc:
-      "بانک کاملی از افکت‌های پرکاربرد (Reverb, Delay, Chorus, Overdrive) با قابلیت شخصی‌سازی تک‌تک پارامترها و ذخیره آن‌ها.",
-    f3Title: "امکانات",
-    f3Desc:
-      'امکانات این اپلیکیشن برای نوازندگان بسیار جذاب است نظیر: <ul class="list-disc pr-5 space-y-1"><li>امکان لود و همنوازی با ریتم‌های از پیش تعیین شده یا ترکی که خود نوازنده قبلاً اجرا کرده</li><li>امکان ذخیره قطعه نواخته شده روی حافظه گوشی با کیفیت بالا و گوش کردن آن در آینده</li><li>مترونوم منعطف که قابلیت اجرا هرگونه ریتم چه ساده و یا ترکیبی و چه لنگ را دارد</li><li>مجهز بودن به انواع افکت‌های مرسوم و پرکاربرد برای جلوه دادن به صدای ساز</li></ul>',
-    f4Title: "سازگاری",
-    f4Desc:
-      "سازگار با انواع گوشی های بازار حتی مدلهای نسبتا قدیمی، قابلیت کار با هندز فری نرمال گوشی، قابلیت کار با irig همچنین قابل استفاده با دستگاه w-full از همین مجموعه.",
-    f5Title: "امکان تست رایگان",
-    f5Desc:
-      "لایسنس 5 روزه رایگان تست نرم افزار و قابلیت های آن وهمچنین بررسی سازگاری با دستگاه تلفن همراه یا تبلت هنرمندان گرامی",
-    f6Title: "تنوع پکیج های موجود",
-    f6Desc:
-      "برای این اپلیکیشن سه نوع لایسنس در نظر گرفته شده که هر لایسنس امکانات خاص خود را در اختیار کاربر میگذارد و نیز برای هر لایسنس سه مدل زمانی یک ماهه ، یک ساله و مادام العمر برای استفاده از آن پیش بینی شده است",
-    shopTitle: "فروشگاه و محصولات",
-    shopDesc:
-      "لایسنس‌های نرم‌افزاری و محصولات دیگر را می‌توانید از این بخش تهیه کنید.",
-    // shopDescPayment:
-    //   "برای دریافت لایسنس های نرم افزارهای خریداری شده پس از ارسال فیش واریزی به واتس آپ با شماره 00905312691609 لایسنس از طریق همان شماره ارسال خواهدشد",
-    // shopDescHardware:
-    //   "برای دریافت سخت افزارهای خریداری شده پس از ارسال فیش واریزی به واتس آپ با شماره 00905312691609 و اعلام آدرس ، تجهیزات مربوطه ارسال خواهند شد",
-    shopProductNameLabel: "نام محصول :",
-    shopPriceLabel: "قیمت :",
-    shopCurrency: "لیر",
-    rialLabel: "ریال",
-    millionLabel: "میلیون",
-    tomanLabel: "تومان",
-    shopProductTitle: "Buskit-Tools application",
-    shopBuyBtn: "خرید",
-
-    p1Badge: "لایسنس  برنزی - دائم ",
-    p1Title: "لایسنس مادام العمراپلیکیشن با امکانات برنز ",
-    p1B1: "این لایسنس برای همیشه فعال باقی می‌ماند",
-    p1B2: "قفل کلیه افکت‌ها و قابلیت‌های برنامه در لایسنس برنز باز می‌شود",
-    p1B3: "شامل پشتیبانی فنی و به‌روزرسانی‌های مادام‌العمر",
-    p1B4: "",
-    p1PriceVal: "1000",
-
-    p2Badge: "لایسنس نقره ای - ۱ ماهه",
-    p2Title: "لایسنس یک ماهه اپلیکیشن با امکانات نقره ای  ",
-    p2B1: "معتبر دقیقاً به مدت یک ماه از تاریخ اولین فعال‌سازی",
-    p2B2: "قفل تمام افکت‌ها و قابلیت‌های برنامه برای لایسنس نقره ای باز می‌شود",
-    p2B3: "شامل یک ماه پشتیبانی فنی و به‌روزرسانی",
-    p2PriceVal: "150",
-
-    p3Badge: "لایسنس برنزی - ۱ ساله ",
-    p3Title: "لایسنس یک ساله اپلیکیشن با امکانات برنزی  ",
-    p3B1: "معتبر دقیقاً به مدت یک سال از تاریخ اولین فعال‌سازی",
-    p3B2: "قفل تمام افکت‌ها و قابلیت‌های برنامه بر اساس امکانات برنز باز می‌شود",
-    p3B3: "شامل یک سال پشتیبانی فنی و به‌روزرسانی",
-    p3PriceVal: "600",
-
-    p4Badge: "لایسنس بزنری - ۱ ماهه ",
-    p4Title: "لایسنس یک ماهه اپلیکیشن با امکانات برنز  ",
-    p4B1: "معتبر دقیقاً به مدت یک ماه از تاریخ اولین فعال‌سازی",
-    p4B2: "قفل تمام افکت‌ها و قابلیت‌های برنامه بر اساس لایستن برنز باز می‌شود",
-    p4B3: "شامل یک ماه پشتیبانی فنی و به‌روزرسانی",
-    p4PriceVal: "100",
-
-    p5Badge: "لایسنس رایگان",
-    p5Title: " لایسنس رایگان برای اپلیکیشن ",
-    p5B1: "معتبر دقیقاً به مدت پنج روز از تاریخ اولین فعال‌سازی",
-    p5B2: "کاربر از کلیه امکانات اپلیکیشن بهره مند خواهد بود",
-    p5B3: "شامل پنج روز پشتیبانی فنی و به‌روزرسانی",
-    p5LicenseLabel: "لایسنس:",
-    p5PriceVal: "0",
-    disabledTxt: "اتمام موجودی",
-
-    p6Badge: "لایسنس نقره ای - ۱ ساله ",
-    p6Desc: "نام محصول",
-    p6Title: "لایسنس یک ساله اپلیکیشن با امکانات نقره ای ",
-    p6B1: "معتبر دقیقاً به مدت یک سال از تاریخ اولین فعال‌سازی",
-    p6B2: "قفل تمام افکت‌ها و قابلیت‌های برنامه بر اساس لایسنس نقره ای باز می‌شود",
-    p6B3: "شامل یک سال پشتیبانی فنی و به‌روزرسانی",
-    p6PriceVal: "950",
-
-    p7Badge: "لایسنس طلایی - ۱ ساله ",
-    p7Desc: "نام محصول",
-    p7Title: "لایسنس یک ساله اپلیکیشن با امکانات طلایی ",
-    p7B1: "معتبر دقیقاً به مدت یک سال از تاریخ اولین فعال‌سازی",
-    p7B2: "قفل تمام افکت‌ها و قابلیت‌های برنامه باز می‌شود",
-    p7B3: "شامل یک سال پشتیبانی فنی و به‌روزرسانی",
-    p7PriceVal: "1200",
-
-    p8Badge: "لایسنس - دائم ",
-    p8Desc: "نام محصول",
-    p8Title: "لایسنس مادام‌العمر اپلیکیشن با کلیه امکانات",
-    p8B1: "معتبر به‌صورت مادام‌العمر",
-    p8B2: "قفل تمام افکت‌ها و قابلیت‌های برنامه باز می‌شود",
-    p8B3: "شامل پشتیبانی فنی و به‌روزرسانی‌های مادام‌العمر",
-    p8B4: "30 درصد تخفیف برای تمام اپلیکیشن‌ها و به‌روزرسانی‌های آینده",
-    p8PriceVal: "1800",
-
-    p9Badge: "سخت‌افزار",
-    p9Desc: "نام محصول",
-    p9Title: "پک سخت‌افزاری irig",
-    p9B1: "شامل: irig + کابل + میکروفون پیزو",
-    p9PriceVal: "850",
-
-    p10Badge: "لایسنس نقره ای - دائم ",
-    p10Desc: "نام محصول",
-    p10Title: "لایسنس مادام‌العمر اپلیکیشن با امکانات نقره ای ",
-    p10B1: "معتبر به‌صورت مادام‌العمر",
-    p10B2:
-      "قفل تمام افکت‌ها و قابلیت‌های برنامه بر اساس امکانات نقره ای باز می‌شود",
-    p10B3: "شامل پشتیبانی فنی و به‌روزرسانی‌های مادام‌العمر",
-    p10B4: "۲۵ درصد تخفیف برای تمام اپلیکیشن‌ها و به‌روزرسانی‌های آینده",
-    p10PriceVal: "1350",
-
-    p11Badge: "سخت‌افزار",
-    p11Desc: "نام محصول",
-    p11Title: "دستگاه irig",
-    p11B1: "دستگاه irig",
-    p11PriceVal: "450",
-
-    p12Badge: "سخت‌افزار",
-    p12Desc: "نام محصول",
-    p12Title: "دستگاه Brig",
-    p12B1: "دستگاه Brig",
-    p12PriceVal: "350",
-
-    p13Badge: "سخت‌افزار",
-    p13Desc: "نام محصول",
-    p13Title: "کابل استریو",
-    p13B1: "کابل صدا استریو ۳.۵ میلی‌متری دو سر فیش (نری به نری)",
-    p13PriceVal: "130",
-
-    p14Badge: "سخت‌افزار",
-    p14Desc: "نام محصول",
-    p14Title: "میکروفون پیزو",
-    p14B1: "میکروفون پیزو",
-    p14PriceVal: "250",
-
-    p15Badge: "سخت‌افزار",
-    p15Desc: "نام محصول",
-    p15Title: "پک سخت‌افزاری Brig",
-    p15B1: "شامل: Brig + کابل + میکروفون پیزو",
-    p15PriceVal: "750",
-
-    p16Badge: "لایسنس طلایی - ۱ ماهه ",
-    p16Title: "لایسنس مادام‌العمر اپلیکیشن با امکانات طلایی ",
-    p16B1: "معتبر دقیقاً به مدت یک ماه از تاریخ اولین فعال‌سازی",
-    p16B2: "قفل تمام افکت‌ها و قابلیت‌های برنامه باز می‌شود",
-    p16B3: "شامل یک ماه پشتیبانی فنی و به‌روزرسانی",
-    p16PriceVal: "200",
-
-    footerTxt:
-      "© 2026 اپلیکیشن باسکیت (Buskit). تمامی حقوق برای طراح و توسعه‌دهنده محفوظ است.",
-    mPriceLabel: "قیمت:",
-    mBankHeading: "حساب‌های بانکی جهت واریز وجه:",
-    mBankIranLabel: "کارت بانکی ایران (ملت):",
-    mBankIranOwner: "به نام محمدرضا عموئیان",
-    mBankTrLabel: "حساب لیر ترکیه (Ziraat Bank):",
-    copyBtnTxt: "کپی شماره کارت",
-    copyIbanTxt: "کپی IBAN",
-    lblFullName: "نام و نام خانوادگی خریدار:",
-    lblContact: "ایمیل یا آیدی تلگرام (جهت ارسال لایسنس):",
-    lblReceiptFile: "بارگذاری تصویر فیش واریزی:",
-    fileLabelText: "کلیک کنید یا فایل تصویر را به اینجا بکشید",
-    btnSubmitForm: "ارسال نهایی و ثبت درخواست لایسنس",
-    placeholderName: "مثلا: علی رضایی",
-    placeholderContact: "email@example.com یا @username",
-    alertNoFile: "لطفاً ابتدا تصویر فیش واریزی را بارگذاری کنید.",
-    alertSuccess:
-      "با تشکر، فیش واریزی و اطلاعات شما با موفقیت ثبت شد. پس از بررسی و تایید واریز، لایسنس برای شما ارسال خواهد شد.",
-    contactTitle: "تماس با من",
-    contactDesc:
-      "برای دریافت اطلاعات بیشتر، مشاوره و خرید با من در ارتباط باشید",
-    contactWhatsappLabel: "واتساپ",
-    contactInstagramLabel: "اینستاگرام",
-    contactTiktokLabel: "تیک‌تاک",
-    contactEmailLabel: "ایمیل",
-    contactLocationLabel: "محل اقامت",
-    contactLocationValue: "استانبول، ترکیه",
-    reviewsTitle: "نظر کاربران",
-    reviewsDesc:
-      "تجربه‌ی خودت از استفاده از باسکیت رو با بقیه‌ی نوازندگان به اشتراک بذار.",
-    reviewNameLabel: "نام:",
-    reviewEmailLabel: "ایمیل (اختیاری):",
-    reviewRatingLabel: "امتیاز شما:",
-    reviewQuestionsLabel:
-      "نظر شما درباره‌ی موارد زیر چیه؟ (اختیاری — اگه پر نکنی، بر اساس امتیازی که با ستاره دادی به‌صورت خودکار تخمین زده می‌شه)",
-    reviewSubmitBtn: "ثبت نظر",
-    reviewSubmittingTxt: "در حال ارسال...",
-    reviewsSummaryTitle: "جمع‌بندی نظرات تا این لحظه",
-    reviewsLoading: "در حال بارگذاری نظرات...",
-    reviewsEmptyTxt: "هنوز نظری ثبت نشده. اولین نفر باش!",
-    reviewsLoadErrorTxt: "بارگذاری نظرات با خطا مواجه شد.",
-    reviewErrName: "لطفاً نامت رو پر کن.",
-    reviewErrRating: "امتیاز رو باید پر کنی.",
-    reviewErrSubmit: "ثبت نظر با خطا مواجه شد. لطفاً دوباره تلاش کن.",
-    reviewQuestions: [
-      { short: "کیفیت صدا", label: "کیفیت صدا و افکت‌ها" },
-      { short: "تاخیر", label: "میزان تاخیر (Latency) هنگام اجرا" },
-      { short: "سادگی استفاده", label: "سادگی و راحتی استفاده از اپلیکیشن" },
-      { short: "سازگاری", label: "سازگاری با گوشی/دستگاه شما" },
-      { short: "امکانات", label: "امکانات اپلیکیشن" },
-    ],
-    answerExcellent: "عالی",
-    answerGood: "خوب",
-    answerBad: "بد",
-    answerDontKnow: "نمی‌دونم",
-    qaTitle: "پرسش و پاسخ",
-    qaDesc:
-      "سوالت رو برام بنویس، در اولین فرصت پاسخ می‌دم و جوابش همینجا زیر پیامت نمایش داده می‌شه.",
-    qaNameLabel: "نام:",
-    qaMessageLabel: "پیام / سوال شما:",
-    qaSubmitBtn: "ارسال پیام",
-    qaSubmittingTxt: "در حال ارسال...",
-    qaLoading: "در حال بارگذاری پیام‌ها...",
-    qaEmptyTxt: "هنوز پیامی ثبت نشده. اولین نفر باش!",
-    qaLoadErrorTxt: "بارگذاری پیام‌ها با خطا مواجه شد.",
-    qaErrName: "لطفاً نامت رو پر کن.",
-    qaErrMessage: "لطفاً پیامت رو بنویس.",
-    qaErrSubmit: "ارسال پیام با خطا مواجه شد. لطفاً دوباره تلاش کن.",
-    qaReplyLabel: "پاسخ من:",
-    qaAwaitingReplyTxt: "در انتظار پاسخ...",
-
-    // ====== کلیدهای جدید برای تکمیل ترجمه سه‌زبانه ======
-    navHowtoUse: "نحوه استفاده",
-    liveMusicToolsTitle: "نحوه استفاده از اپلیکیشن",
-    liveMusicToolsSubtitle:
-      'برای استفاده از اپلیکیشن باید به نوعی صدای ساز را به گوشی موبایل وارد نمود و در اختیار آن گذاشت؛ برای این کار می‌توان از روش‌های زیر استفاده کرد:\n            <ul class="mt-8">\n              <li class="bg-[#00f5d4] text-red-900 mb-4">استفاده از هندزفری</li>\n              <p class="mb-4 max-w-2xl mx-auto text-justify">تنها کافیست هندز فری را به گوشی متصل کنید، هدفون را در گوش خود گذاشته و ساز بنوازید ، صدای ساز از طریق میکروفون هندز فری به داخل گوشی منتقل میشود و سپس پروسس های لازم توسط اپلیکیشن روی آن انجام شده و صدایی پر طنین را از طریق هدفون خواهید شنید</p>\n              <li class="bg-[#00f5d4] text-red-900 mb-4">استفاده از دستگاه irig</li>\n              <p class="mb-4 max-w-2xl mx-auto text-justify">سیم irig را به گوشی متصل و خروجی هدفون آنرا به یک هدفون متصل کنید و یا خروجی دیگر آنرابه یه آمپلی فایر متصل نمایید در صورتی که ساز شمامجهز به میکروفون زیر خرکی یا خروجی الکتریکی صدا میباشد همان خروجی را به ورودی دستگاه irig بدهید. در غیر اینصورت توسط یک میکروفون گیره ای پیزو، صدای ساز رابه دستگاه irig بدهید</p>\n              <li class="bg-[#00f5d4] text-red-900 mb-4">استفاده از دستگاه Brig</li>\n              <p class="mb-4 max-w-2xl mx-auto text-justify">این دستگاه مشابه دستگاه irig بوده اما ازمجموعه سخت افزارهای باسکیت میباشد در صورت لزوم میتوانید این دستگاه را نیز تهیه نمایید که نحوه کارکرد آن دقیقا نظیر irig میباشد</p>\n            </ul>',
-
-    purchaseModalTitle: "فرم خرید محصولات باسکیت",
-    purchaseStepContactDesc:
-      "برای مشاهده قیمت و ادامه‌ی خرید، لطفاً ابتدا نام و ایمیل خود را وارد کنید.",
-    purchaseNameLabel: "نام و نام خانوادگی:",
-    purchaseNamePlaceholder: "مثلاً: علی رضایی",
-    purchaseEmailLabel: "ایمیل:",
-    purchaseContactError: "لطفاً نام و یک ایمیل معتبر وارد کنید.",
-    btnPurchaseNextFromContact: "بعدی",
-    purchaseStepDiscountDesc:
-      "اگر کد تخفیف دارید وارد کنید؛ در غیر این صورت می‌توانید این مرحله را رد کنید و با قیمت عادی ادامه دهید.",
-    purchaseDiscountLabel: "کد تخفیف (اختیاری):",
-    purchaseDiscountPlaceholder: "مثلاً: WELCOME20",
-    btnApplyDiscount: "اعمال کد تخفیف",
-    btnSkipDiscount: "ادامه بدون کد تخفیف",
-    btnBackToContact: "بازگشت به مرحله قبل",
-    purchaseDiscountChecking: "در حال بررسی کد تخفیف...",
-    purchaseDiscountSuccess: "کد تخفیف تایید شد و لایسنس شما رزرو گردید ✅",
-    purchaseDiscountUsed: "این کد تخفیف قبلاً استفاده شده است.",
-    purchaseDiscountInvalid: "کد تخفیف نامعتبر است.",
-    purchaseDiscountError: "خطا در ارتباط با سرور. لطفاً دوباره تلاش کنید.",
-    purchaseDiscountRowLabel: "تخفیف:",
-    purchaseDiscountAppliedBannerText:
-      "کد تخفیف {code} برای شما اعمال شد و یک لایسنس با نام و ایمیل شما رزرو گردید. این لایسنس پس از تایید واریزی برایتان ارسال خواهد شد.",
-    purchaseSubtotalLabel: "مبلغ کل:",
-    purchaseSubtotalRialLabel: "معادل تومان و دلار:",
-    purchaseShippingLabel: "هزینه پست:",
-    purchaseTotalLabel: "قیمت کل (قابل پرداخت):",
-    purchaseTotalRialLabel: "معادل تومان و دلار قابل پرداخت:",
-    purchaseFinalizeMsg:
-      "سفارش شما ثبت شد و لایسنس شما رزرو گردید. لطفاً طبق اطلاعات بانک اعلام‌شده واریز را انجام داده و فیش واریزی را از طریق واتس‌اپ به شماره 00905312691609 به همراه نام و ایمیل ثبت‌شده در هنگام خرید ارسال فرمایید تا بلافاصله لایسنس خریداری‌شده از طریق واتس‌اپ و ایمیل برای شما ارسال گردد.",
-    btnFinalizeOrder: " ثبت سفارش و رزرو لایسنس",
-    btnBackForm: "بازگشت",
-    purchaseItemNames: {
-      p4: "لایسنس برنز - یک ماهه ",
-      p3: "لایسنس برنز - یک ساله ",
-      p1: "لایسنس برنز - دائم ",
-      p10: "لایسنس نقره ای - یک ماهه ",
-      p9: "لایسنس نقره ای - یک ساله ",
-      p8: "لایسنس  نقره ای  - دائم ",
-      p7: "لایسنس طلائی - یک ماهه ",
-      p6: "لایسنس طلایی - یک ساله ",
-      p2: "لایسنس طلائی - دائم ",
-      p5: "پک سخت‌افزاری i",
-      p11: "پک سخت‌افزاری B",
-      p12: "دستگاه irig",
-      p13: "دستگاه Brig",
-      p15: "میکروفون پیزو",
-      p14: "کابل 3.5 میلیمتری",
-    },
-    // ====== مودال خرید لایسنس (دلاری با تخفیف ویژه ایرانیان) ======
-    licenseModalTitle: "خرید لایسنس",
-    licenseFormTitle: "مشخصات خریدار",
-    licenseRateUsdTryLabel: "نرخ دلار به لیر:",
-    licenseRateUsdIrrLabel: "نرخ دلار به ریال:",
-    licenseRateUpdatedLabel: "تاریخ به‌روزرسانی نرخ:",
-    licenseRateLoading: "در حال دریافت نرخ...",
-    licensePayableLabel: "مبلغ قابل پرداخت:",
-    licensePayableUsd: "50 دلار",
-    licenseTryLabel: "معادل لیر:",
-    licenseIrrLabel: "معادل ریال:",
-    licenseDiscountLabel:
-      "تخفیف ویژه ایرانیان 40% به شرط واریز به حساب بانک ملت در ایران",
-    licenseDiscountIrrLabel: "مبلغ قابل پرداخت با تخفیف (ریال):",
-    licenseBankHeading: "حساب‌های بانکی جهت واریز وجه:",
-    licenseBankIranLabel: "کارت بانکی ایران (ملت):",
-    licenseBankIranOwner: "به نام محمدرضا عموئیان",
-    licenseBankTrLabel: "حساب لیر ترکیه (Ziraat Bank):",
-    licenseBankTrOwner: "MohammadReza Amoeyan",
-    licenseDoneBankHeading: "شماره حساب‌های معتبر:",
-    licenseDoneBankIranLabel: "کارت بانکی ایران (ملت):",
-    licenseDoneBankIranOwner: "به نام محمدرضا عموئیان",
-    licenseDoneBankTrLabel: "حساب لیر ترکیه (Ziraat Bank):",
-    licenseDoneBankTrOwner: "MohammadReza Amoeyan",
-    btnLicenseReserve: "رزرو لایسنس",
-    btnLicenseBack: "بازگشت",
-    licenseFormDesc: "لطفاً نام، ایمیل و شماره واتس آپ خود را وارد کنید:",
-    licenseNameLabel: "نام و نام خانوادگی:",
-    licenseNamePlaceholder: "مثلاً: علی رضایی",
-    licenseEmailLabel: "ایمیل:",
-    licenseEmailHint:
-      "(لطفا آدرس ایمیلی که به آن دسترسی دارید وارد کنید زیرا لایسنس به این آدرس ارسال خواهد شد)",
-    licenseWhatsappLabel: "شماره واتس آپ:",
-    licenseWhatsappPlaceholder: "+98 912 000 0000",
-    licenseFormError:
-      "لطفاً نام، یک ایمیل معتبر و شماره واتس آپ خود را وارد کنید.",
-    licenseSubmittingTxt: "در حال ثبت درخواست...",
-    licenseSubmitError: "خطا در ثبت درخواست. لطفاً دوباره تلاش کنید.",
-    btnLicenseSubmitForm: "ثبت و دریافت لایسنس",
-    btnLicenseBackToInfo: "بازگشت به مرحله قبل",
-    licenseDoneTitle: "لایسنس شما صادر و ایمیل شد",
-    licenseDoneMsg:
-      "لایسنس شما ساخته شد و همین حالا به آدرس ایمیلی که وارد کردید ارسال گردید (اگر در Inbox نبود، پوشه‌ی Spam را هم ببینید). لطفاً ظرف مدت ۲ روز وجه لایسنس {{USD_PAREN}} را به یکی از حساب‌های اعلام‌شده واریز و سند واریزی را به BuskitApps@gmail.com ارسال کنید؛ در غیر این صورت سیستم پس از ۲ روز این لایسنس را غیرفعال خواهد کرد. در صورت وجود هر گونه ابهام از طریق خط واتس‌آپ 00905312691609 و یا ایمیل ذکر شده با ما در تماس باشید.",
-    licenseAlreadyIssued:
-      "برای این آدرس ایمیل قبلاً یک لایسنس صادر شده است. لطفاً صندوق ایمیل خود را بررسی کنید یا با پشتیبانی تماس بگیرید.",
-    licenseEmailFailed:
-      "لایسنس ساخته شد اما ارسال ایمیل با مشکل مواجه شد. لطفاً از طریق واتس‌آپ 00905312691609 یا ایمیل BuskitApps@gmail.com با ما تماس بگیرید.",
-
-    text1: "امکانات اپلیکیشن",
-    text2: "معرفی",
-    text3: "تصاویری از اپلیکیشن",
-    appModalDownloadBtn: "دانلود اپلیکیشن",
-  },
-  en: {
-    dir: "ltr",
-    title: "Buskit Tools Applications",
-    navHome: "Home",
-    navAboutme: "About Me",
-    navLiveFX: "What is Buskit-Tools",
-    navBuskitFeatures: "BuskitTools Features",
-    navAppGallery: "App Sample Screens",
-    navFeatures: "Why Buskit-Tools",
-    navUsersReview: "User Reviews",
-    navVideos: "Introduction Videos",
-    navShop: "Shop",
-    navMessageme: "Q&A",
-    navContacts: "Contact Me",
-    headerCTA: "Get Pro License",
-    heroBadge: "The new generation of LiveFX has been released",
-    heroAppLabel: "Application Series of",
-    heroTagline: "Every Musician's Dream",
-    heroHeadline:
-      'Professional Live Effect Studio, <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-accentNeon to-teal-400">In Your Pocket & On the Go</span>',
-    heroDesc: "Zero latency and exclusive features",
-    heroDownloadBtnLiveFX: "Bronze License",
-    heroDownloadBtnLMT: "Silver Licens ",
-    heroDownloadBtnLMTpro: "Golden License ",
-    heroDownloadBtnTools:
-      "Free download of the app from Google Play",
-    heroTipLiveFX1: "9 Effects",
-    heroTipLiveFX2: "Chromatic Tuner",
-    heroTipLiveFX3: "Flexible Metronome",
-    heroTipLiveFX4: "20+ Built-in Presets",
-    heroTipLMT1: "13 Effects",
-    heroTipLMT2: "Chromatic Tuner",
-    heroTipLMT3: "Flexible Metronome",
-    heroTipLMT4: "40+ Built-in Presets",
-    heroTipLMT5: "Audio Recording",
-    heroTipLMT6: "Backing Track Loading",
-    heroTipLMT7: "",
-    heroTipPro1: "18 Effects",
-    heroTipPro2: "25+ Built-in Presets",
-    heroTipPro3: "Chromatic + Microtonal Tuner",
-    heroTipPro4: "Flexible Metronome",
-    heroTipPro5: "Audio Recording",
-    heroTipPro6: "Backing Track Loading",
-    heroTipPro7: "Backing Track Speed Change",
-
-    aboutTitle: "About Me",
-    aboutP1:
-      'I am <span class="text-accentNeon font-semibold">Mohammad Reza Amoeyan</span>, an electronics engineer with over <span class="text-white font-medium">40 years of experience in electronic circuit design and computer software development, while actively</span> performing and playing music.',
-    aboutP2:
-      'I decided to gradually share the essence of live performance needs for street musicians, small bands, and private/personal gigs with music lovers through a series of hardware and software solutions under the brand name <span class="text-accentNeon font-bold">Buskit</span>.',
-    aboutP3:
-      "Each of these tools addresses a specific need for musicians or singers. I am confident that by using any of this equipment, you will gain an unforgettable experience and pleasure from playing and performing music.",
-    aboutP4:
-      "This website is exclusively dedicated to mobile applications from the Buskit suite. Currently, the first application, named Buskit-Tools, is ready for use by enthusiasts on the Android operating system.\n\nThe good news is that other applications are also being developed and will be released in the near future. These upcoming apps will address the needs of musicians—especially live performance musicians—from brand-new perspectives.",
-    aboutImgAlt: "Mohammad Reza Amouian - Setar Player",
-    liveFXTitle: "What is Buskit-Tools",
-    liveFXSubtitle:
-      "A collection of true Real-Time and zero-latency applications—irreplaceable tools to facilitate and elevate the performance quality of any musician or singer.",
-    liveFXP1:
-      "The Buskit-Tools application series is far beyond a standard companion app, boasting features that usually only exist in a musician's dream.",
-    liveFXP2:
-      "This app allows you to add the following audio effects, all of which can be applied to the input audio simultaneously. It also features direct recording and saving of the performed tracks right into your smartphone's storage after applying the selected effects.",
-    liveFXTag1: "Equalizer",
-    liveFXTag2: "Compressor",
-    liveFXTag3: "Flanger",
-    liveFXTag4: "Phaser",
-    liveFXTag5: "Delay",
-    liveFXTag6: "Reverb Types",
-    liveFXTag7: "Limiter",
-    liveFXTag8: "Exciter",
-    liveFXTag9: "Chorus",
-    liveFXTag10: "Noise Gate",
-    liveFXTag11: "Preamp",
-    liveFXTag12: "Low-Pass Filter",
-    liveFXTag13: "Wah-Wah",
-    liveFXTag14: "Distortion",
-    liveFXTag15: "Overdrive",
-    liveFXChainLabel: "The effects signal chain is structured as follows:",
-    liveFXChainText:
-      "Preamp ← Noise Gate ← Compressor ← Equalizer ← Wah-Wah ← Overdrive ← Distortion ← Chorus ← Flanger ← Phaser ← Exciter ← Delay ← Reverb ← Octave ← Low-Pass Filter ← Limiter",
-    liveFXChainNote:
-      "At the end of the chain, an output gain module is included to decrease or increase the overall gain of the entire setup at once.",
-    liveFXP3:
-      "The application captures the input audio via an external microphone, applies the selected real-time processes, and routes the output simultaneously with zero latency to the phone's headphone jack.",
-    liveFXP4:
-      "In addition to the aforementioned effects, you can load a chromatic tuner to tune any type of instrument, as well as load backing tracks to practice jam sessions, play along live, or overdub your own or others' performances.",
-    liveFXP5:
-      "Another notable feature of this app is its flexible metronome, which allows you to execute any rhythmic patterns or odd time signatures effortlessly.",
-    liveFXP6:
-      "To input the instrument or vocal audio into your smartphone, you can simply use standard earphones equipped with a microphone and headphone jack. However, if you wish to connect the output to an amplifier, you will need to use existing iRig devices or, upon request, the Brig hardware device from the Buskit series as the companion hardware for this app. The processed audio output from the phone is then routed through this device into the AUX or guitar input of any amplifier—even amateur ones—delivering a dreamy, professional sound.",
-    liveFXP7:
-      "One of the core advantages of this system is that it eliminates the need for expensive, heavy professional audio setups to achieve a rich, ear-pleasing, and professional tone.",
-    liveFXP8:
-      "The features of this application are divided into three categories and made available to enthusiasts in the form of three types of licenses: Gold, Silver, and Bronze, allowing everyone to benefit from its advantages according to their taste and ability.",
-
-    buskitFeaturesTitle: "BuskitTools Features",
-    buskitFeaturesSubtitle:
-      "Professional version with full features for performance, recording, and practice",
-    buskitFeaturesItem1:
-      "Equipped with fifteen widely used and famous effects in the music world",
-    buskitFeaturesItem2: "Contains more than 25 default presets",
-    buskitFeaturesItem3:
-      "Chromatic + microtonal tuner for tuning or adjusting the quarter tones of Iranian or Turkish instruments with cents adjustment capability",
-    buskitFeaturesItem4:
-      "Flexible metronome with the capability to play any complex rhythm and any rhythmic template or figure",
-    buskitFeaturesItem5: "Backing track loading capability",
-    buskitFeaturesItem6:
-      "Capability to record the mixed audio of the backing track and instrument into the mobile phone memory in WAVE format",
-    buskitFeaturesItem7:
-      "Backing track speed alteration capability without changing the pitch frequency",
-    buskitFeaturesDescription:
-      "The features of this application place it far beyond a simple effects box or hardware pedalboard. The ability to load backing tracks with speed adjustment without changing the pitch frequency for jam session practice, a metronome with the unique capability to create any desired rhythmic figure on one hand, combined with the ability to record input audio along with the backing track in WAVE format into the phone's memory on the other, makes it every musician's dream. It allows musicians to deliver a dreamy sound to their audience anywhere and anytime without the need for expensive, heavy, and bulky equipment. Its microtonal chromatic tuner is also one of the strengths of this version of the application, allowing the user to determine the exact deviation from the main note. The presence of more than 40 presets for use in various conditions and with different instruments is another great convenience in musicians' performances.",
-
-    liveFXGalleryAlt1: "Main View of Buskit LiveFX Application",
-    liveFXGalleryAlt2: "Compressor Settings in Buskit LiveFX Application",
-    liveFXGalleryAlt3: "Reverb Types in Buskit LiveFX Application",
-    liveFXGalleryAlt4: "Features Menu of Buskit LiveFX Application",
-    liveFXGalleryAlt5:
-      "Main Effects and Metronome Page of Buskit LiveFX Application",
-    liveFXGalleryAlt6: "Loading Backing Track in Buskit LiveFX Application",
-    liveFXGalleryAlt7: "9-Band Equalizer in Buskit LiveFX Application",
-    liveFXGalleryAlt8:
-      "Alternative Effects Page View of Buskit LiveFX Application",
-    liveFXGalleryAlt9: "Additional View of Buskit LiveFX Application Interface",
-    liveFXGalleryAlt12: "Additional View of Buskit LiveFX Application Interface",
-    liveFXGalleryAlt13: "Additional View of Buskit LiveFX Application Interface",
-    liveFXGalleryAlt14: "Additional View of Buskit LiveFX Application Interface",
-    liveFXGalleryTitle: "App Sample Screens",
-    liveFXGallerySubtitle:
-      "A look at the interface and different screens of the Buskit Tools application",
-    videosTitle: "Introduction Videos: Use Cases of the BuskitTools App",
-    videosDesc:
-      "Features, use cases, and an introduction to the app",
-    v1Title: "Introduction Video 1",
-    v2Title: "Introduction Video 2",
-    v3Title: "Introduction Video 3",
-    v4Title: "Introduction Video 4",
-    v5Title: "Introduction Video 5",
-    v6Title: "Introduction Video 6",
-    v7Title: "Introduction Video 7",
-    v8Title: "Introduction Video 8",
-    v9Title: "Introduction Video 9",
-    featuresTitle: "Why Do Musicians Choose Buskit?",
-    featuresDesc:
-      "A precise blend of hardware engineering, software optimization, and a deep understanding of a musician's needs on stage.",
-    f1Title: "Ultra-low Latency",
-    f1Desc:
-      "Utilizing a native processing core, audio latency is kept to an absolute minimum (under a few milliseconds) so you feel zero lag while playing.",
-    f2Title: "Flexible Custom Presets",
-    f2Desc:
-      "A complete bank of widely-used effects (Reverb, Delay, Chorus, Overdrive) with full parameter customization and saving options.",
-    f3Title: "Features",
-    f3Desc:
-      'The features of this application are highly attractive to musicians, including: <ul class="list-disc pl-5 space-y-1"><li>Ability to load and play along with preset rhythms or tracks previously recorded by the player</li><li>High-quality recording directly onto the phone storage for future listening</li><li>A flexible metronome capable of handling simple, compound, or complex/odd rhythms</li><li>Equipped with various standard and popular effects to enhance the instrument\'s sound</li></ul>',
-    f4Title: "Compatibility",
-    f4Desc:
-      "Compatible with various smartphones on the market, even older models. Works with standard earphones, iRig devices, and the dedicated Brig device from our series.",
-    f5Title: "Free Trial Available",
-    f5Desc:
-      "A 5-day free trial license to test the software, its full capabilities, and verify compatibility with your mobile device or tablet.",
-    f6Title: "Variety of Available Packages",
-    f6Desc:
-      "Three types of licenses have been designed for this application, each providing the user with specific features. Additionally, three duration models—one-month, one-year, and lifetime—are available for the use of each license.",
-    shopTitle: "Shop & Products",
-    shopDesc:
-      "You can purchase software licenses and hardware products directly from this section.",
-    // shopDescPayment:
-    //   "To receive your purchased software licenses, please send your payment receipt via WhatsApp to 00905312691609. The license code will be sent back to you through the same number.",
-    // shopDescHardware:
-    //   "To receive your purchased hardware, please send your payment receipt and physical address via WhatsApp to 00905312691609. The equipment will then be shipped to you.",
-    shopProductNameLabel: "Product Name:",
-    shopPriceLabel: "Price:",
-    shopCurrency: "TRY",
-    rialLabel: "Rial",
-    millionLabel: "Million",
-    tomanLabel: "Toman",
-    shopProductTitle: "Buskit-Tools application",
-    shopBuyBtn: "Buy",
-
-    p1Badge: "Bronze License - Permanent",
-    p1Title: "Lifetime Application License with Bronze Features",
-    p1B1: "This license remains active forever",
-    p1B2: "Unlocks all application effects and features within the Bronze license scope",
-    p1B3: "Includes lifetime technical support and updates",
-    p1B4: "",
-    p1PriceVal: "1000",
-
-    p2Badge: "Silver License - 1 Month",
-    p2Title: "1-Month Application License with Silver Features",
-    p2B1: "Valid exactly for one month from the date of first activation",
-    p2B2: "Unlocks all application effects and features within the Silver license scope",
-    p2B3: "Includes one month of technical support and updates",
-    p2PriceVal: "150",
-
-    p3Badge: "Bronze License - 1 Year",
-    p3Title: "1-Year Application License with Bronze Features",
-    p3B1: "Valid exactly for one year from the date of first activation",
-    p3B2: "Unlocks all application effects and features based on Bronze specifications",
-    p3B3: "Includes one year of technical support and updates",
-    p3PriceVal: "600",
-
-    p4Badge: "Bronze License - 1 Month",
-    p4Title: "1-Month Application License with Bronze Features",
-    p4B1: "Valid exactly for one month from the date of first activation",
-    p4B2: "Unlocks all application effects and features based on the Bronze license scope",
-    p4B3: "Includes one month of technical support and updates",
-    p4PriceVal: "100",
-
-    p5Badge: "Free License",
-    p5Title: "Free Application License",
-    p5B1: "Valid exactly for five days from the date of first activation",
-    p5B2: "The user will have full access to all application features",
-    p5B3: "Includes five days of technical support and updates",
-    p5LicenseLabel: "License:",
-    p5PriceVal: "0",
-    disabledTxt: "Out of Stock",
-
-    p6Badge: "Silver License - 1 Year",
-    p6Desc: "Product Name",
-    p6Title: "1-Year Application License with Silver Features",
-    p6B1: "Valid exactly for one year from the date of first activation",
-    p6B2: "Unlocks all application effects and features based on the Silver license scope",
-    p6B3: "Includes one year of technical support and updates",
-    p6PriceVal: "950",
-
-    p7Badge: "Gold License - 1 Year",
-    p7Desc: "Product Name",
-    p7Title: "1-Year Application License with Gold Features",
-    p7B1: "Valid exactly for one year from the date of first activation",
-    p7B2: "Unlocks all application effects and features",
-    p7B3: "Includes one year of technical support and updates",
-    p7PriceVal: "1200",
-
-    p8Badge: "License - Permanent",
-    p8Desc: "Product Name",
-    p8Title: "Lifetime Application License with Full Features",
-    p8B1: "Valid for a lifetime",
-    p8B2: "Unlocks all application effects and features",
-    p8B3: "Includes lifetime technical support and updates",
-    p8B4: "30% discount on all future applications and updates",
-    p8PriceVal: "1800",
-
-    p9Badge: "Hardware",
-    p9Desc: "Product Name",
-    p9Title: "iRig Hardware Pack",
-    p9B1: "Includes: iRig + Cable + Piezo Microphone",
-    p9PriceVal: "850",
-
-    p10Badge: "Silver License - Permanent",
-    p10Desc: "Product Name",
-    p10Title: "Lifetime Application License with Silver Features",
-    p10B1: "Valid for a lifetime",
-    p10B2:
-      "Unlocks all application effects and features based on Silver specifications",
-    p10B3: "Includes lifetime technical support and updates",
-    p10B4: "25% discount on all future applications and updates",
-    p10PriceVal: "1350",
-
-    p11Badge: "Hardware",
-    p11Desc: "Product Name",
-    p11Title: "iRig Device",
-    p11B1: "iRig Device",
-    p11PriceVal: "450",
-
-    p12Badge: "Hardware",
-    p12Desc: "Product Name",
-    p12Title: "BRig Device",
-    p12B1: "BRig Device",
-    p12PriceVal: "350",
-
-    p13Badge: "Hardware",
-    p13Desc: "Product Name",
-    p13Title: "Stereo Cable",
-    p13B1: "3.5mm Stereo Audio Cable with dual male connectors (Male to Male)",
-    p13PriceVal: "130",
-
-    p14Badge: "Hardware",
-    p14Desc: "Product Name",
-    p14Title: "Piezo Microphone",
-    p14B1: "Piezo Microphone",
-    p14PriceVal: "250",
-
-    p15Badge: "Hardware",
-    p15Desc: "Product Name",
-    p15Title: "BRig Hardware Pack",
-    p15B1: "Includes: BRig + Cable + Piezo Microphone",
-    p15PriceVal: "750",
-
-    p16Badge: "Gold License - 1 Month",
-    p16Title: "1-Month Application License with Gold Features",
-    p16B1: "Valid exactly for one month from the date of first activation",
-    p16B2: "Unlocks all application effects and features",
-    p16B3: "Includes one month of technical support and updates",
-    p16PriceVal: "200",
-    footerTxt:
-      "© 2026 Buskit Application. All rights reserved for the designer and developer.",
-    mPriceLabel: "Price:",
-    mBankHeading: "Bank Accounts for Payment:",
-    mBankIranLabel: "Iran Bank Card (Mellat):",
-    mBankIranOwner: "A/C Holder: Mohammad Reza Amouian",
-    mBankTrLabel: "Turkey Lira Account (Ziraat Bank):",
-    copyBtnTxt: "Copy Card Number",
-    copyIbanTxt: "Copy IBAN",
-    lblFullName: "Buyer's Full Name:",
-    lblContact: "Email or Telegram ID (for license delivery):",
-    lblReceiptFile: "Upload Payment Receipt Image:",
-    fileLabelText: "Click or drag and drop your receipt image here",
-    btnSubmitForm: "Submit Order & Request License",
-    placeholderName: "e.g., John Doe",
-    placeholderContact: "email@example.com or @username",
-    alertNoFile: "Please upload your payment receipt image first.",
-    alertSuccess:
-      "Thank you! Your receipt and information have been successfully submitted. Your license will be sent to you as soon as the payment is reviewed and verified.",
-    contactTitle: "Contact Me",
-    contactDesc: "Get in touch for more information, guidance, and purchases.",
-    contactWhatsappLabel: "WhatsApp",
-    contactInstagramLabel: "Instagram",
-    contactTiktokLabel: "TikTok",
-    contactEmailLabel: "Email",
-    contactLocationLabel: "Location",
-    contactLocationValue: "Istanbul, Turkey",
-    reviewsTitle: "User Reviews",
-    reviewsDesc:
-      "Share your experience using Buskit with other fellow musicians.",
-    reviewNameLabel: "Name:",
-    reviewEmailLabel: "Email (Optional):",
-    reviewRatingLabel: "Your Rating:",
-    reviewQuestionsLabel:
-      "What do you think about the following features? (Optional — if left blank, estimated automatically based on your star rating)",
-    reviewSubmitBtn: "Submit Review",
-    reviewSubmittingTxt: "Submitting...",
-    reviewsSummaryTitle: "Review Summary To Date",
-    reviewsLoading: "Loading reviews...",
-    reviewsEmptyTxt: "No reviews yet. Be the first to share your thoughts!",
-    reviewsLoadErrorTxt: "Failed to load reviews.",
-    reviewErrName: "Please enter your name.",
-    reviewErrRating: "Please provide a star rating.",
-    reviewErrSubmit: "Failed to submit review. Please try again.",
-    reviewQuestions: [
-      { short: "Sound Quality", label: "Sound Quality & Effects" },
-      { short: "Latency", label: "Latency Level During Live Performance" },
-      { short: "Ease of Use", label: "App Simplicity & Ease of Use" },
-      { short: "Compatibility", label: "Compatibility with Your Device" },
-      { short: "Features", label: "Application Features" },
-    ],
-    answerExcellent: "Excellent",
-    answerGood: "Good",
-    answerBad: "Poor",
-    answerDontKnow: "Don't Know",
-    qaTitle: "Questions & Answers",
-    qaDesc:
-      "Write down your questions. I will reply as soon as possible, and the response will appear directly right beneath your message.",
-    qaNameLabel: "Name:",
-    qaMessageLabel: "Your Message / Question:",
-    qaSubmitBtn: "Send Message",
-    qaSubmittingTxt: "Sending...",
-    qaLoading: "Loading messages...",
-    qaEmptyTxt: "No messages yet. Be the first to ask!",
-    qaLoadErrorTxt: "Failed to load messages.",
-    qaErrName: "Please enter your name.",
-    qaErrMessage: "Please type your message.",
-    qaErrSubmit: "Failed to send message. Please try again.",
-    qaReplyLabel: "My Reply:",
-    qaAwaitingReplyTxt: "Awaiting reply...",
-
-    // ====== New keys for complete translation ======
-    navHowtoUse: "How to Use",
-    liveMusicToolsTitle: "How to Use the Application",
-    liveMusicToolsSubtitle:
-      'To use the app, the instrument\'s audio must be routed into the mobile phone. This can be achieved through the following methods:\n <ul class="mt-8">\n <li class="bg-[#00f5d4] text-red-900 mb-4">Using Earphones/Headset</li>\n <p class="mb-4 max-w-2xl mx-auto text-justify">Simply plug your headset into the phone, put the earphones in your ears, and play. The instrument\'s sound enters the phone through the headset mic, gets processed instantly by the app, and returns as a rich, high-fidelity sound through your earphones.</p>\n <li class="bg-[#00f5d4] text-red-900 mb-4">Using an iRig Device</li>\n <p class="mb-4 max-w-2xl mx-auto text-justify">Connect the iRig cable to the phone and route its audio output to a pair of headphones or an amplifier. If your instrument has an integrated pickup or electronic audio output, connect it directly to the iRig input. Otherwise, capture the sound using a clip-on piezo microphone connected to the iRig.</p>\n <li class="bg-[#00f5d4] text-red-900 mb-4">Using the Brig Device</li>\n <p class="mb-4 max-w-2xl mx-auto text-justify">This device is similar to an iRig but belongs to Buskit\'s proprietary hardware series. If needed, you can purchase this device, which functions exactly like an iRig to deliver flawless signal routing.</p>\n </ul>',
-
-    purchaseModalTitle: "Buskit Product Purchase Form",
-    purchaseStepContactDesc:
-      "To see the price and continue your purchase, please enter your name and email first.",
-    purchaseNameLabel: "Full Name:",
-    purchaseNamePlaceholder: "e.g. John Doe",
-    purchaseEmailLabel: "Email:",
-    purchaseContactError: "Please enter your name and a valid email.",
-    btnPurchaseNextFromContact: "Next",
-    purchaseStepDiscountDesc:
-      "If you have a discount code, enter it below; otherwise you can skip this step and continue at the regular price.",
-    purchaseDiscountLabel: "Discount Code (optional):",
-    purchaseDiscountPlaceholder: "e.g. WELCOME20",
-    btnApplyDiscount: "Apply Discount Code",
-    btnSkipDiscount: "Continue without a code",
-    btnBackToContact: "Back to previous step",
-    purchaseDiscountChecking: "Checking discount code...",
-    purchaseDiscountSuccess:
-      "Discount code accepted and a license has been reserved for you ✅",
-    purchaseDiscountUsed: "This discount code has already been used.",
-    purchaseDiscountInvalid: "This discount code is invalid.",
-    purchaseDiscountError: "Server connection error. Please try again.",
-    purchaseDiscountRowLabel: "Discount:",
-    purchaseDiscountAppliedBannerText:
-      "Discount code {code} has been applied, and a license has been reserved under your name and email. It will be sent to you once your payment is confirmed.",
-    purchaseSubtotalLabel: "Subtotal:",
-    purchaseSubtotalRialLabel: "Equivalent in Toman & USD:",
-    purchaseShippingLabel: "Shipping Fee:",
-    purchaseTotalLabel: "Total Price (Payable):",
-    purchaseTotalRialLabel: "Total Payable in Toman & USD:",
-    purchaseFinalizeMsg:
-      "Your order has been placed and your license has been reserved. Please make the payment according to the bank details provided, then send the payment receipt via WhatsApp to 00905312691609, along with the name and email you registered during purchase, so your purchased license can be sent to you immediately via WhatsApp and email.",
-    btnBackForm: "Back",
-    btnFinalizeOrder: "Submit Order and Reserve License",
-    purchaseItemNames: {
-      p4: "Bronze License - 1 Month",
-      p3: "Bronze License - 1 Year",
-      p1: "Bronze License - Lifetime",
-      p10: "Silver License - 1 Month",
-      p9: "Silver License - 1 Year",
-      p8: "Silver License - Lifetime",
-      p7: "Gold License - 1 Month",
-      p6: "Gold License - 1 Year",
-      p2: "Gold License - Lifetime",
-      p5: "Hardware Pack i",
-      p11: "Hardware Pack B",
-      p12: "iRig Device",
-      p13: "bRig Device",
-      p15: "Piezo Microphone",
-      p14: "3.5mm Cable",
-    },
-    // ====== License purchase modal (USD priced, special Iran discount) ======
-    licenseModalTitle: "Buy License",
-    licenseFormTitle: "Buyer Details",
-    licenseRateUsdTryLabel: "USD to TRY rate:",
-    licenseRateUsdIrrLabel: "USD to IRR rate:",
-    licenseRateUpdatedLabel: "Rate last updated:",
-    licenseRateLoading: "Fetching rates...",
-    licensePayableLabel: "Amount payable:",
-    licensePayableUsd: "$50",
-    licenseTryLabel: "Equivalent in TRY:",
-    licenseIrrLabel: "Equivalent in IRR:",
-    licenseDiscountLabel:
-      "Special 40% discount for Iranian customers, if paid to the Bank Mellat account in Iran",
-    licenseDiscountIrrLabel: "Discounted amount payable (IRR):",
-    licenseBankHeading: "Bank accounts for payment:",
-    licenseBankIranLabel: "Iran bank card (Mellat):",
-    licenseBankIranOwner: "MohammadReza Amoeyan",
-    licenseBankTrLabel: "Turkey TRY account (Ziraat Bank):",
-    licenseBankTrOwner: "MohammadReza Amoeyan",
-    licenseDoneBankHeading: "Valid account numbers:",
-    licenseDoneBankIranLabel: "Iran bank card (Mellat):",
-    licenseDoneBankIranOwner: "MohammadReza Amoeyan",
-    licenseDoneBankTrLabel: "Turkey TRY account (Ziraat Bank):",
-    licenseDoneBankTrOwner: "MohammadReza Amoeyan",
-    btnLicenseReserve: "Reserve License",
-    btnLicenseBack: "Back",
-    licenseFormDesc: "Please enter your name, email and WhatsApp number:",
-    licenseNameLabel: "Full name:",
-    licenseNamePlaceholder: "e.g. John Smith",
-    licenseEmailLabel: "Email:",
-    licenseEmailHint:
-      "(Please enter an email address you have access to, as the license will be sent to this address)",
-    licenseWhatsappLabel: "WhatsApp number:",
-    licenseWhatsappPlaceholder: "+1 555 000 0000",
-    licenseFormError:
-      "Please enter your name, a valid email, and your WhatsApp number.",
-    licenseSubmittingTxt: "Submitting your request...",
-    licenseSubmitError: "Error submitting the request. Please try again.",
-    btnLicenseSubmitForm: "Submit & Get License",
-    btnLicenseBackToInfo: "Back to previous step",
-    licenseDoneTitle: "Your license has been issued and emailed",
-    licenseDoneMsg:
-      "Your license has been created and sent to the email address you entered (if it is not in your Inbox, please check the Spam folder). Please transfer the license fee {{USD_PAREN}} to one of the listed accounts within 2 days and send the payment receipt to BuskitApps@gmail.com; otherwise the system will deactivate this license after 2 days. If you have any questions, contact us via WhatsApp at 00905312691609 or the email above.",
-    licenseAlreadyIssued:
-      "A license has already been issued for this email address. Please check your inbox or contact support.",
-    licenseEmailFailed:
-      "The license was created but the email could not be sent. Please contact us via WhatsApp at 00905312691609 or at BuskitApps@gmail.com.",
-
-    text1: "App Features",
-    text2: "Introduction",
-    text3: "App Screenshots",
-    appModalDownloadBtn: "Download Application",
-  },
-  tr: {
-    dir: "ltr",
-    title: "Buskit Tools Uygulamaları",
-    navHome: "Anasayfa",
-    navAboutme: "Hakkımda",
-    navLiveFX: "Buskit-Tools Nedir",
-    navBuskitFeatures: "BuskitTools Özellikleri",
-    navAppGallery: "Uygulama Örnek Sayfaları",
-    navFeatures: "Neden Buskit-Tools",
-    navUsersReview: "Kullanıcı Yorumları",
-    navVideos: "Tanıtım Videoları",
-    navShop: "Mağaza",
-    navMessageme: "Soru-Cevap",
-    navContacts: "İletişim",
-    headerCTA: "Pro Lisans Satın Al",
-    heroBadge: "Yeni nesil LiveFX'in yeni sürümü yayınlandı",
-    heroAppLabel: "Uygulama Serisi:",
-    heroTagline: "Her Müzisyenin Hayali",
-    heroHeadline:
-      'Profesyonel Canlı Efekt Stüdyosu, <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-accentNeon to-teal-400">Cebinizde ve Her An Yanınızda</span>',
-    heroDesc: "Sıfır gecikme ve benzersiz özelliklerle",
-    heroDownloadBtnLiveFX: "Bronz Lisans",
-    heroDownloadBtnLMT: "Gümüş Lisans",
-    heroDownloadBtnLMTpro: "Altın Lisans",
-    heroDownloadBtnTools:
-      "Uygulamayı Google Play'den ücretsiz indirin",
-    heroTipLiveFX1: "9 Efekt",
-    heroTipLiveFX2: "Kromatik Akort Aleti",
-    heroTipLiveFX3: "Esnek Metronom",
-    heroTipLiveFX4: "20'ten fazla hazır ayar",
-    heroTipLMT1: "13 Efekt",
-    heroTipLMT2: "Kromatik Akort Aleti",
-    heroTipLMT3: "Esnek Metronom",
-    heroTipLMT4: "40'ten fazla hazır ayar",
-    heroTipLMT5: "Ses kaydı özelliği",
-    heroTipLMT6: "Altyapı parçası yükleme",
-    heroTipLMT7: "Altyapı parçası hızını değiştirme",
-    heroTipPro1: "18 Efekt",
-    heroTipPro2: "25'tan fazla hazır ayar",
-    heroTipPro3: "Kromatik + Mikrotonal Akort Aleti",
-    heroTipPro4: "Esnek Metronom",
-    heroTipPro5: "Ses kaydı özelliği",
-    heroTipPro6: "Altyapı parçası yükleme",
-    heroTipPro7: "altyapı parçası hızını değiştirme",
-
-    aboutTitle: "Hakkımda",
-    aboutP1:
-      'Ben <span class="text-accentNeon font-semibold">Mohammad Reza Amoeyan</span>. Elektronik devre tasarımı ve bilgisayar yazılımı geliştirme alanında <span class="text-white font-medium">40 yılı aşkın deneyime sahip bir elektronik mühendisiyim; aynı zamanda aktif olarak</span> enstrüman çalıyor ve müzik icra ediyorum.',
-    aboutP2:
-      'Sokak müzisyenlerinin, küçük grupların ve özel/bireysel performansların canlı sahne ihtiyaçlarını damıtarak, <span class="text-accentNeon font-bold">Buskit</span> ticari markası altında bir donanım ve yazılım serisi olarak müzikseverlerin beğenisine sunmaya karar verdim.',
-    aboutP3:
-      "Bu ekipmanların her biri, bir müzisyenin veya vokalistin belirli bir ihtiyacını karşılayacaktır. Bu ekipmanlardan herhangi birini kullandığınızda, müzik çalmaktan ve performans sergilemekten unutulmaz bir deneyim ve keyif alacağınızdan eminim.",
-    aboutP4:
-      "Bu web sitesi yalnızca Buskit bünyesindeki mobil uygulamalara ayrılmıştır. Şu anda, Buskit-Tools adını taşıyan ilk uygulama Android işletim sistemi için meraklılarının kullanımına sunulmuştur.\n\nMüjdeyi verelim ki diğer uygulamalar da geliştirilme aşamasındadır ve yakın gelecekte erişime sunulacaktır. Bu yeni uygulamalar, başta canlı performans müzisyenleri olmak üzere, müzisyenlerin ihtiyaçlarını yepyeni açılardan karşılamayı hedeflemektedir.",
-    aboutImgAlt: "Mohammad Reza Amouian - Setar Sanatçısı",
-    liveFXTitle: "Buskit-Tools Nedir",
-    liveFXSubtitle:
-      "Her müzisyenin veya şarkıcının performans kalitesini artırmak ve kolaylaştırmak için tasarlanmış, gerçek zamanlı (Real-Time) ve sıfır gecikmeli, alternatifsiz bir uygulama setidir.",
-    liveFXP1:
-      "Buskit-Tools uygulama serisi, standart bir yardımcı uygulamanın çok ötesinde, sadece bir müzisyenin rüyalarında görebileceği özelliklere sahiptir.",
-    liveFXP2:
-      "Bu uygulama, aşağıdaki ses efektlerini eklemenize olanak tanır ve bunların tümü giriş sesine aynı anda uygulanabilir. Ayrıca, seçilen efektler uygulandıktan sonra icra edilen parçaları doğrudan akıllı telefonun hafızasına kaydetme özelliğine de sahiptir.",
-    liveFXTag1: "Ekolayzer",
-    liveFXTag2: "Kompresör",
-    liveFXTag3: "Flanger",
-    liveFXTag4: "Phaser",
-    liveFXTag5: "Delay (Gecikme)",
-    liveFXTag6: "Reverb Çeşitleri",
-    liveFXTag7: "Limiter",
-    liveFXTag8: "Exciter",
-    liveFXTag9: "Chorus",
-    liveFXTag10: "Noise Gate",
-    liveFXTag11: "Preamp",
-    liveFXTag12: "Alçak Geçiren Filtre",
-    liveFXTag13: "Wah-Wah",
-    liveFXTag14: "Distortion",
-    liveFXTag15: "Overdrive",
-    liveFXChainLabel:
-      "Bu efektlerin sinyal zinciri şu şekilde yapılandırılmıştır:",
-    liveFXChainText:
-      "Preamp ← Noise Gate ← Kompresör ← Ekolayzer ← Wah-Wah ← Overdrive ← Distortion ← Chorus ← Flanger ← Phaser ← Exciter ← Delay ← Reverb ← Oktav ← Alçak Geçiren Filtre ← Limiter",
-    liveFXChainNote:
-      "Zincirin sonunda, tüm sistemin genel kazancını (gain) tek seferde azaltıp artırabilen bir output gain modülü yer almaktadır.",
-    liveFXP3:
-      "Uygulama, harici mikrofon aracılığıyla giriş sesini alır, seçilen işlemleri anında gerçekleştirir ve çıkışı eşzamanlı olarak, sıfır gecikmeyle telefonun kulaklık çıkışına gönderir.",
-    liveFXP4:
-      "Bahsedilen efektlerin yanı sıra, her türlü enstrümanı akort etmek için bir kromatik akort cihazı (tuner) yükleyebilir, ayrıca eşlik etmek veya kendi çaldıklarınızla/başkalarıyla jam session yapmak için altyapı parçaları (backing track) yükleyebilirsiniz.",
-    liveFXP5:
-      "Uygulamanın bir diğer öne çıkan özelliği, her türlü ritmik yapıyı veya aksak ritimleri kolayca çalmanıza olanak tanıyan esnek metronomudur.",
-    liveFXP6:
-      "Enstrüman veya vokal sesini telefona aktarmak için mikrofonlu standart bir telefon kulaklığı kullanabilirsiniz. Ancak çıkışı bir amfiye bağlamak isterseniz, mevcut iRig cihazlarını veya talep halinde Buskit serisinin bir parçası olan Brig donanım cihazını bu uygulamanın eşlikçi donanımı olarak kullanmanız gerekir. Telefon tarafından işlenen ses çıkışı, bu cihaz vasıtasıyla her türlü amfinin (amatör amfiler dahil) AUX veya gitar girişine aktarılır ve rüya gibi profesyonel bir sese dönüşür.",
-    liveFXP7:
-      "Bu sistemin en büyük avantajlarından biri, profesyonel ve kulak tırmalamayan zengin bir tını elde etmek için pahalı ve ağır ses sistemlerine ihtiyaç duyulmamasıdır.",
-    liveFXP8:
-      "Bu uygulamanın özellikleri üç kategoriye ayrılmakta ve Altın, Gümüş ve Bronz olmak üzere üç tür lisans şeklinde meraklıların hizmetine sunulmaktadır; böylece her zevke ve yeteneğe sahip herkes uygulamanın avantajlarından yararlanabilir.",
-
-    buskitFeaturesTitle: "BuskitTools Özellikleri",
-    buskitFeaturesSubtitle:
-      "Performans, kayıt ve pratik için tam özellikli profesyonel sürüm",
-    buskitFeaturesItem1:
-      "Müzik dünyasında yaygın olarak kullanılan ve ünlü on beş efektle donatılmıştır",
-    buskitFeaturesItem2: "25'tan fazla hazır ayar (preset) içerir",
-    buskitFeaturesItem3:
-      "İran veya Türk enstrümanlarının koma/perde ayarlarını yapmak için sapma miktarını belirleme özellikli kromatik + mikrotonal tuner",
-    buskitFeaturesItem4:
-      "Her türlü aksak ritmi ve her ritmik kalıbı/figürü çalabilen esnek metronom",
-    buskitFeaturesItem5: "Altyapı (backing track) yükleme seçeneği",
-    buskitFeaturesItem6:
-      "Altyapı parçası ile enstrüman sesinin mikslenmiş halini WAVE formatında telefon hafızasına kaydedebilme",
-    buskitFeaturesItem7:
-      "Frekansı (perdeyi) değiştirmeden altyapı (backing track) hızını değiştirebilme özelliği",
-    buskitFeaturesDescription:
-      "Bu uygulamanın özellikleri, onu sıradan bir efekt kutusu veya donanımsal pedalboard'un çok ötesinde bir konuma yerleştirmektedir. Beraber pratik yapmak için frekansı bozmadan hızı ayarlanabilir altyapı parçaları yükleme özelliği, her türlü ritmik figürü oluşturabilen benzersiz metronom bir yanda; giriş sesini altyapıyla birlikte WAVE formatında telefon hafızasına kaydetme imkanı diğer yanda birleşerek bu uygulamayı her müzisyenin rüyası haline getiriyor. Pahalı, ağır ve hacimli ekipmanlara ihtiyaç duymadan, her yerde ve her zaman enstrümanınızdan rüya gibi bir ses çıkarmanızı sağlar. Mikrotonal kromatik akort cihazı (tuner) ise bu sürümün en güçlü yönlerinden biri olup, kullanıcının ana sesten olan sapma miktarını (koma) tam olarak belirlemesine olanak tanır. Çeşitli koşullarda ve farklı enstrümanlarda kullanılmak üzere 40'tan fazla hazır ayarın bulunması, müzisyenlerin performanslarında sağlanan bir diğer büyük kolaylıktır.",
-
-    liveFXGalleryAlt1: "Buskit LiveFX Uygulaması Ana Ekranı",
-    liveFXGalleryAlt2: "Buskit LiveFX Uygulaması Kompresör Ayarları",
-    liveFXGalleryAlt3: "Buskit LiveFX Uygulaması Reverb Çeşitleri",
-    liveFXGalleryAlt4: "Buskit LiveFX Uygulaması Özellikler Menüsü",
-    liveFXGalleryAlt5: "Buskit LiveFX Uygulaması Ana Efekt ve Metronom Sayfası",
-    liveFXGalleryAlt6: "Buskit LiveFX Uygulamasına Backing Track Yükleme",
-    liveFXGalleryAlt7: "Buskit LiveFX Uygulaması 9-Bant Ekolayzer",
-    liveFXGalleryAlt8:
-      "Buskit LiveFX Uygulaması Efekt Sayfası Alternatif Görünümü",
-    liveFXGalleryAlt9: "Buskit LiveFX Uygulaması Arayüzünden Ek Bir Görünüm",
-    liveFXGalleryAlt12: "Buskit LiveFX Uygulaması Arayüzünden Ek Bir Görünüm",
-    liveFXGalleryAlt13: "Buskit LiveFX Uygulaması Arayüzünden Ek Bir Görünüm",
-    liveFXGalleryAlt14: "Buskit LiveFX Uygulaması Arayüzünden Ek Bir Görünüm",
-    liveFXGalleryTitle: "Uygulama Örnek Sayfaları",
-    liveFXGallerySubtitle:
-      "Buskit Tools uygulamasının arayüzüne ve farklı sayfalarına bir bakış",
-    videosTitle: "BuskitTools Uygulamasının Kullanım Alanları Tanıtım Videoları",
-    videosDesc:
-      "Uygulamanın özellikleri, kullanım alanları ve tanıtımı",
-    v1Title: "Tanıtım Videosu 1",
-    v2Title: "Tanıtım Videosu 2",
-    v3Title: "Tanıtım Videosu 3",
-    v4Title: "Tanıtım Videosu 4",
-    v5Title: "Tanıtım Videosu 5",
-    v6Title: "Tanıtım Videosu 6",
-    v7Title: "Tanıtım Videosu 7",
-    v8Title: "Tanıtım Videosu 8",
-    v9Title: "Tanıtım Videosu 9",
-    featuresTitle: "Müzisyenler Neden Buskit'i Seçiyor?",
-    featuresDesc:
-      "Donanım mühendisliği, yazılım optimizasyonu ve sahnedeki bir müzisyenin ihtiyaçlarının derinlemesine anlaşılmasının hassas bir birleşimi.",
-    f1Title: "Ultra Düşük Gecikme (Ultra-low Latency)",
-    f1Desc:
-      "Yerel işlemci çekirdeği sayesinde ses gecikmesi minimuma (birkaç milisaniyenin altına) indirilmiştir, böylece çalarken hiçbir gecikme hissetmezsiniz.",
-    f2Title: "Esnek ve Özel Hazır Ayarlar (Presets)",
-    f2Desc:
-      "Sık kullanılan efektlerden (Reverb, Delay, Chorus, Overdrive) oluşan, her parametresi özelleştirilebilen ve kaydedilebilen eksiksiz bir banka.",
-    f3Title: "Özellikler",
-    f3Desc:
-      'Bu uygulamanın sunduğu özellikler müzisyenler için son derece caziptir: <ul class="list-disc pl-5 space-y-1"><li>Önceden belirlenmiş ritimlerle veya müzisyenin daha önce kaydettiği parçalarla birlikte çalabilme</li><li>Çalınan parçayı yüksek kalitede telefon hafızasına kaydedip daha sonra dinleyebilme</li><li>Basit, bileşik veya aksak tüm ritimleri çalabilen esnek metronom</li><li>Enstrüman sesine estetik katacak çeşitli popüler efektlerle donatılmış olması</li></ul>',
-    f4Title: "Uyumluluk",
-    f4Desc:
-      "Piyasadaki eski modeller dahil birçok akıllı telefonla uyumludur. Standart kulaklıklarla, iRig cihazlarıyla ve serimizin özel Brig cihazıyla çalışabilir.",
-    f5Title: "Ücretsiz Deneme İmkanı",
-    f5Desc:
-      "Yazılımı, tüm özelliklerini ve sanatçılarımızın telefon veya tabletleriyle uyumluluğunu test etmek için 5 günlük ücretsiz deneme lisansı.",
-    f6Title: "Mevcut Paket Çeşitliliği",
-    f6Desc:
-      "Bu uygulama için, her biri kullanıcıya özel özellikler sunan üç tür lisans belirlenmiştir. Ayrıca, her lisansın kullanımı için bir aylık, bir yıllık ve ömür boyu olmak üzere üç farklı zaman modeli öngörülmüştür.",
-    shopTitle: "Mağaza ve Ürünler",
-    shopDesc:
-      "Yazılım lisanslarını ve diğer donanım ürünlerini bu bölümden temin edebilirsiniz.",
-    // shopDescPayment:
-    //   "Satın alınan yazılım lisanslarını teslim almak için ödeme dekontunu 00905312691609 numaralı WhatsApp hattına göndermeniz yeterlidir. Lisans kodunuz aynı numara üzerinden iletilecektir.",
-    // shopDescHardware:
-    //   "Satın alınan donanımları teslim almak için ödeme dekontunu ve adresinizi 00905312691609 numaralı WhatsApp hattına ilettiğinizde, ilgili ekipmanlar adresinize kargolanacaktır.",
-    shopProductNameLabel: "Ürün Adı:",
-    shopPriceLabel: "Ücret:",
-    shopCurrency: "TL",
-    rialLabel: "Riyal",
-    millionLabel: "Milyon",
-    tomanLabel: "Tümen",
-    shopProductTitle: "Buskit-LiveFX application",
-    shopBuyBtn: "Satın Al",
-
-    p1Badge: "Bronz Lisans - Kalıcı",
-    p1Title: "Bronz Özellikli Ömür Boyu Uygulama Lisansı",
-    p1B1: "Bu lisans sonsuza kadar aktif kalır",
-    p1B2: "Uygulamanın tüm efekt ve özelliklerinin kilidi Bronz lisans kapsamında açılır",
-    p1B3: "Ömür boyu teknik destek ve güncellemeleri içerir",
-    p1B4: "",
-    p1PriceVal: "1000",
-
-    p2Badge: "Gümüş Lisans - 1 Aylık",
-    p2Title: "Gümüş Özellikli 1 Aylık Uygulama Lisansı",
-    p2B1: "İlk aktivasyon tarihinden itibaren tam bir ay boyunca geçerlidir",
-    p2B2: "Uygulamanın tüm efekt ve özelliklerinin kilidi Gümüş lisans için açılır",
-    p2B3: "Bir aylık teknik destek ve güncellemeleri içerir",
-    p2PriceVal: "150",
-
-    p3Badge: "Bronz Lisans - 1 Yıllık",
-    p3Title: "Bronz Özellikli 1 Yıllık Uygulama Lisansı",
-    p3B1: "İlk aktivasyon tarihinden itibaren tam bir yıl boyunca geçerlidir",
-    p3B2: "Uygulamanın tüm efekt ve özelliklerinin kilidi Bronz özelliklerine göre açılır",
-    p3B3: "Bir yıllık teknik destek ve güncellemeleri içerir",
-    p3PriceVal: "600",
-
-    p4Badge: "Bronz Lisans - 1 Aylık",
-    p4Title: "Bronz Özellikli 1 Aylık Uygulama Lisansı",
-    p4B1: "İlk aktivasyon tarihinden itibaren tam bir ay boyunca geçerlidir",
-    p4B2: "Uygulamanın tüm efekt ve özelliklerinin kilidi Bronz lisans modeline göre açılır",
-    p4B3: "Bir aylık teknik destek ve güncellemeleri içerir",
-    p4PriceVal: "100",
-
-    p5Badge: "Ücretsiz Lisans",
-    p5Title: "Uygulama İçin Ücretsiz Lisans",
-    p5B1: "İlk aktivasyon tarihinden itibaren tam beş gün boyunca geçerlidir",
-    p5B2: "Kullanıcı uygulamanın tüm özelliklerinden tam olarak yararlanabilir",
-    p5B3: "Beş günlük teknik destek ve güncellemeleri içerir",
-    p5LicenseLabel: "Lisans:",
-    p5PriceVal: "0",
-    disabledTxt: "Tükendi",
-
-    p6Badge: "Gümüş Lisans - 1 Yıllık",
-    p6Desc: "Ürün Adı",
-    p6Title: "Gümüş Özellikli 1 Yıllık Uygulama Lisansı",
-    p6B1: "İlk aktivasyon tarihinden itibaren tam bir yıl boyunca geçerlidir",
-    p6B2: "Uygulamanın tüm efekt ve özelliklerinin kilidi Gümüş lisans kapsamına göre açılır",
-    p6B3: "Bir yıllık teknik destek ve güncellemeleri içerir",
-    p6PriceVal: "950",
-
-    p7Badge: "Altın Lisans - 1 Yıllık",
-    p7Desc: "Ürün Adı",
-    p7Title: "Altın Özellikli 1 Yıllık Uygulama Lisansı",
-    p7B1: "İlk aktivasyon tarihinden itibaren tam bir yıl boyunca geçerlidir",
-    p7B2: "Uygulamanın tüm efekt ve özelliklerinin kilidi açılır",
-    p7B3: "Bir yıllık teknik destek ve güncellemeleri içerir",
-    p7PriceVal: "1200",
-
-    p8Badge: "Lisans - Kalıcı",
-    p8Desc: "Ürün Adı",
-    p8Title: "Tüm Özellikleri İçeren Ömür Boyu Uygulama Lisansı",
-    p8B1: "Ömür boyu geçerlidir",
-    p8B2: "Uygulamanın tüm efekt ve özelliklerinin kilidi açılır",
-    p8B3: "Ömür boyu teknik destek ve güncellemeleri içerir",
-    p8B4: "Gelecekteki tüm uygulamalar ve güncellemeler için %30 indirim",
-    p8PriceVal: "1800",
-
-    p9Badge: "Donanım",
-    p9Desc: "Ürün Adı",
-    p9Title: "iRig Donanım Paketi",
-    p9B1: "Şunları içerir: iRig + Kablo + Piezo Mikrofon",
-    p9PriceVal: "850",
-
-    p10Badge: "Gümüş Lisans - Kalıcı",
-    p10Desc: "Ürün Adı",
-    p10Title: "Gümüş Özellikli Ömür Boyu Uygulama Lisansı",
-    p10B1: "Ömür boyu geçerlidir",
-    p10B2:
-      "Uygulamanın tüm efekt ve özelliklerinin kilidi Gümüş özelliklerine göre açılır",
-    p10B3: "Ömür boyu teknik destek ve güncellemeleri içerir",
-    p10B4: "Gelecekteki tüm uygulamalar ve güncellemeler için %25 indirim",
-    p10PriceVal: "1350",
-
-    p11Badge: "Donanım",
-    p11Desc: "Ürün Adı",
-    p11Title: "iRig Cihazı",
-    p11B1: "iRig Cihazı",
-    p11PriceVal: "450",
-
-    p12Badge: "Donanım",
-    p12Desc: "Ürün Adı",
-    p12Title: "BRig Cihazı",
-    p12B1: "BRig Cihazı",
-    p12PriceVal: "350",
-
-    p13Badge: "Donanım",
-    p13Desc: "Ürün Adı",
-    p13Title: "Stereo Kablo",
-    p13B1: "3.5 mm çift uçlu erkek ses stereo kablosu (Erkek - Erkek)",
-    p13PriceVal: "130",
-
-    p14Badge: "Donanım",
-    p14Desc: "Ürün Adı",
-    p14Title: "Piezo Mikrofon",
-    p14B1: "Piezo Mikrofon",
-    p14PriceVal: "250",
-
-    p15Badge: "Donanım",
-    p15Desc: "Ürün Adı",
-    p15Title: "BRig Donanım Paketi",
-    p15B1: "Şunları içerir: BRig + Kablo + Piezo Mikrofon",
-    p15PriceVal: "750",
-
-    p16Badge: "Altın Lisans - 1 Aylık",
-    p16Title: "Altın Özellikli 1 Aylık Uygulama Lisansı",
-    p16B1: "İlk aktivasyon tarihinden itibaren tam bir ay boyunca geçerlidir",
-    p16B2: "Uygulamanın tüm efekt ve özelliklerinin kilidi açılır",
-    p16B3: "Bir aylık teknik destek ve güncellemeleri içerir",
-    p16PriceVal: "200",
-    footerTxt:
-      "© 2026 Buskit Uygulaması. Tüm hakları tasarımcı ve geliştiriciye aittir.",
-    mPriceLabel: "Fiyat:",
-    mBankHeading: "Ödeme Yapılabilecek Banka Hesapları:",
-    mBankIranLabel: "İran Banka Kartı (Mellat):",
-    mBankIranOwner: "Hesap Sahibi: Mohammad Reza Amouian",
-    mBankTrLabel: "Türkiye Lira Hesabı (Ziraat Bankası):",
-    copyBtnTxt: "Kart Numarasını Kopyala",
-    copyIbanTxt: "IBAN Kopyala",
-    lblFullName: "Alıcının Adı Soyadı:",
-    lblContact: "E-posta veya Telegram Kullanıcı Adı (Lisans teslimi için):",
-    lblReceiptFile: "Ödeme Dekontu Görseli Yükle:",
-    fileLabelText: "Tıklayın veya dekont görselini buraya sürükleyin",
-    btnSubmitForm: "Talebi Gönder ve Lisansı Kaydet",
-    placeholderName: "Örn: Ahmet Yılmaz",
-    placeholderContact: "eposta@ornek.com veya @kullaniciadi",
-    alertNoFile: "Lütfen önce ödeme dekontunun görselini yükleyin.",
-    alertSuccess:
-      "Teşekkür ederiz, dekontunuz ve bilgileriniz başarıyla kaydedildi. Ödeme onaylandıktan sonra lisansınız tarafınıza gönderilecektir.",
-    contactTitle: "İletişim",
-    contactDesc:
-      "Daha fazla bilgi, danışmanlık ve satın alım için benimle iletişime geçin",
-    contactWhatsappLabel: "WhatsApp",
-    contactInstagramLabel: "Instagram",
-    contactTiktokLabel: "TikTok",
-    contactEmailLabel: "E-posta",
-    contactLocationLabel: "Yaşadığı Yer",
-    contactLocationValue: "İstanbul, Türkiye",
-    reviewsTitle: "Kullanıcı Yorumları",
-    reviewsDesc: "Buskit deneyiminizi diğer müzisyenlerle paylaşın.",
-    reviewNameLabel: "İsim:",
-    reviewEmailLabel: "E-posta (İsteğe bağlı):",
-    reviewRatingLabel: "Puanınız:",
-    reviewQuestionsLabel:
-      "Aşağıdaki kriterler hakkında ne düşünüyorsunuz? (İsteğe bağlı — doldurmazsanız, verdiğiniz yıldız puanına göre otomatik tahmin edilir)",
-    reviewSubmitBtn: "Yorumu Gönder",
-    reviewSubmittingTxt: "Gönderiliyor...",
-    reviewsSummaryTitle: "Şu Ana Kadarki Yorumların Özeti",
-    reviewsLoading: "Yorumlar yükleniyor...",
-    reviewsEmptyTxt: "Henüz yorum yapılmamış. İlk yorum yapan siz olun!",
-    reviewsLoadErrorTxt: "Yorumlar yüklenirken bir hata oluştu.",
-    reviewErrName: "Lütfen isminizi girin.",
-    reviewErrRating: "Lütfen bir puan seçin.",
-    reviewErrSubmit: "Yorum gönderilemedi. Lütfen tekrar deneyin.",
-    reviewQuestions: [
-      { short: "Ses Kalitesi", label: "Ses Kalitesi ve Efektler" },
-      {
-        short: "Gecikme",
-        label: "Performans Esnasındaki Gecikme (Latency) Oranı",
-      },
-      {
-        short: "Kullanım Kolaylığı",
-        label: "Uygulamanın Sade ve Kolay Kullanımı",
-      },
-      { short: "Uyumluluk", label: "Telefonunuzla/Cihazınızla Uyumluluk" },
-      { short: "Özellikler", label: "Uygulama Özellikleri" },
-    ],
-    answerExcellent: "Mükemmel",
-    answerGood: "İyi",
-    answerBad: "Kötü",
-    answerDontKnow: "Bilmiyorum",
-    qaTitle: "Soru - Cevap",
-    qaDesc:
-      "Sorunuzu bana yazın, en kısa sürede yanıtlayacağım. Cevap doğrudan mesajınızın altında görüntülenecektir.",
-    qaNameLabel: "İsim:",
-    qaMessageLabel: "Mesajınız / Sorunuz:",
-    qaSubmitBtn: "Mesajı Gönder",
-    qaSubmittingTxt: "Gönderiliyor...",
-    qaLoading: "Mesajlar yükleniyor...",
-    qaEmptyTxt: "Henüz mesaj yazılmamış. İlk yazan siz olun!",
-    qaLoadErrorTxt: "Mesajlar yüklenirken bir hata oluştu.",
-    qaErrName: "Lütfen isminizi girin.",
-    qaErrMessage: "Lütfen mesajınızı yazın.",
-    qaErrSubmit: "Mesaj gönderilemedi. Lütfen tekrar deneyin.",
-    qaReplyLabel: "Yatınım:",
-    qaAwaitingReplyTxt: "Yanıt bekleniyor...",
-
-    // ====== Yeni Eklenen Anahtarlar ======
-    navHowtoUse: "Nasıl Kullanılır",
-    liveMusicToolsTitle: "Uygulamanın Kullanımı",
-    liveMusicToolsSubtitle:
-      'Uygulamayı kullanabilmek için enstrüman sesinin bir şekilde cep telefonuna aktarılması gerekir; bunun için aşağıdaki yöntemler kullanılabilir:\n <ul class="mt-8">\n <li class="bg-[#00f5d4] text-red-900 mb-4">Kulaklık Kullanımı</li>\n <p class="mb-4 max-w-2xl mx-auto text-justify">Kulaklığı telefona bağlamanız, kulaklıkları kulağınıza takıp enstrümanı çalmanız yeterlidir. Enstrümanın sesi kulaklık mikrofonu aracılığıyla telefona aktarılır, ardından uygulama tarafından gerekli işlemler yapılır ve kulaklıktan zengin bir ses duyarsınız.</p>\n <li class="bg-[#00f5d4] text-red-900 mb-4">iRig Cihazı Kullanımı</li>\n <p class="mb-4 max-w-2xl mx-auto text-justify">iRig kablosunu telefona bağlayın ve kulaklık çıkışını bir kulaklığa veya amfiye bağlayın. Enstrümanınızda dahili bir eşik altı mikrofonu veya elektrikli ses çıkışı varsa, bu çıkışı doğrudan iRig cihazının girişine bağlayın. Aksi takdirde, mandallı bir piezo mikrofon yardımıyla enstrümanın sesini iRig cihazına aktarın.</p>\n <li class="bg-[#00f5d4] text-red-900 mb-4">Brig Cihazı Kullanımı</li>\n <p class="mb-4 max-w-2xl mx-auto text-justify">Bu cihaz iRig cihazına benzer ancak Buskit donanım serisinin bir ürünüdür. İhtiyaç halinde bu cihazı da temin edebilirsiniz; çalışma prensibi iRig ile tamamen aynıdır.</p>\n </ul>',
-
-    purchaseModalTitle: "Buskit Ürün Satın Alma Formu",
-    purchaseStepContactDesc:
-      "Fiyatı görmek ve satın almaya devam etmek için lütfen önce adınızı ve e-postanızı girin.",
-    purchaseNameLabel: "Ad Soyad:",
-    purchaseNamePlaceholder: "örn: Ali Yılmaz",
-    purchaseEmailLabel: "E-posta:",
-    purchaseContactError: "Lütfen adınızı ve geçerli bir e-posta girin.",
-    btnPurchaseNextFromContact: "İleri",
-    purchaseStepDiscountDesc:
-      "İndirim kodunuz varsa girin; yoksa bu adımı atlayıp normal fiyatla devam edebilirsiniz.",
-    purchaseDiscountLabel: "İndirim Kodu (isteğe bağlı):",
-    purchaseDiscountPlaceholder: "örn: WELCOME20",
-    btnApplyDiscount: "İndirim Kodunu Uygula",
-    btnSkipDiscount: "Kodsuz devam et",
-    btnBackToContact: "Önceki adıma dön",
-    purchaseDiscountChecking: "İndirim kodu kontrol ediliyor...",
-    purchaseDiscountSuccess:
-      "İndirim kodu onaylandı ve sizin için bir lisans ayrıldı ✅",
-    purchaseDiscountUsed: "Bu indirim kodu daha önce kullanılmış.",
-    purchaseDiscountInvalid: "Bu indirim kodu geçersiz.",
-    purchaseDiscountError: "Sunucu bağlantı hatası. Lütfen tekrar deneyin.",
-    purchaseDiscountRowLabel: "İndirim:",
-    purchaseDiscountAppliedBannerText:
-      "{code} indirim kodu uygulandı ve adınız/e-postanızla bir lisans ayrıldı. Ödemeniz onaylandıktan sonra size gönderilecektir.",
-    purchaseSubtotalLabel: "Ara Toplam:",
-    purchaseSubtotalRialLabel: "Tümen ve Dolar Karşılığı:",
-    purchaseShippingLabel: "Kargo Ücreti:",
-    purchaseTotalLabel: "Toplam Fiyat (Ödenecek Tutar):",
-    purchaseTotalRialLabel: "Ödenecek Tutarın Tümen ve Dolar Karşılığı:",
-    purchaseFinalizeMsg:
-      "Siparişiniz alındı ve lisansınız rezerve edildi. Lütfen belirtilen banka bilgilerine göre ödemeyi yapın ve ödeme dekontunu, satın alma sırasında kaydettiğiniz ad ve e-posta ile birlikte 00905312691609 numaralı WhatsApp hattına gönderin; satın aldığınız lisans WhatsApp ve e-posta yoluyla hemen size gönderilecektir.",
-    btnBackForm: "Geri",
-    btnFinalizeOrder: "Sipariş Oluştur ve Lisans Rezerve Et",
-    purchaseItemNames: {
-      p4: "Bronz Lisans - 1 Aylık",
-      p3: "Bronz Lisans - 1 Yıllık",
-      p1: "Bronz Lisans - Ömür Boyu",
-      p10: "Gümüş Lisans - 1 Aylık",
-      p9: "Gümüş Lisans - 1 Yıllık",
-      p8: "Gümüş Lisans - Ömür Boyu",
-      p7: "Altın Lisans - 1 Aylık",
-      p6: "Altın Lisans - 1 Yıllık",
-      p2: "Altın Lisans - Ömür Boyu",
-      p5: "Donanım Paketi i",
-      p11: "Donanım Paketi B",
-      p12: "iRig Cihazı",
-      p13: "bRig Cihazı",
-      p15: "Piezo Mikrofon",
-      p14: "3.5 mm Kablo",
-    },
-    // ====== Lisans satın alma modalı (USD fiyat, İranlılara özel indirim) ======
-    licenseModalTitle: "Lisans Satın Al",
-    licenseFormTitle: "Alıcı Bilgileri",
-    licenseRateUsdTryLabel: "Dolar/TL kuru:",
-    licenseRateUsdIrrLabel: "Dolar/Riyal kuru:",
-    licenseRateUpdatedLabel: "Kur güncelleme tarihi:",
-    licenseRateLoading: "Kur bilgisi alınıyor...",
-    licensePayableLabel: "Ödenecek tutar:",
-    licensePayableUsd: "50 $",
-    licenseTryLabel: "TL karşılığı:",
-    licenseIrrLabel: "Riyal karşılığı:",
-    licenseDiscountLabel:
-      "İran'daki Bank Mellat hesabına ödeme yapılması halinde İranlılara özel %40 indirim",
-    licenseDiscountIrrLabel: "İndirimli ödenecek tutar (Riyal):",
-    licenseBankHeading: "Ödeme için banka hesapları:",
-    licenseBankIranLabel: "İran banka kartı (Mellat):",
-    licenseBankIranOwner: "MohammadReza Amoeyan",
-    licenseBankTrLabel: "Türkiye TL hesabı (Ziraat Bankası):",
-    licenseBankTrOwner: "MohammadReza Amoeyan",
-    licenseDoneBankHeading: "Geçerli hesap numaraları:",
-    licenseDoneBankIranLabel: "İran banka kartı (Mellat):",
-    licenseDoneBankIranOwner: "MohammadReza Amoeyan",
-    licenseDoneBankTrLabel: "Türkiye TL hesabı (Ziraat Bankası):",
-    licenseDoneBankTrOwner: "MohammadReza Amoeyan",
-    btnLicenseReserve: "Lisans Rezervasyonu",
-    btnLicenseBack: "Geri",
-    licenseFormDesc: "Lütfen ad soyad, e-posta ve WhatsApp numaranızı girin:",
-    licenseNameLabel: "Ad Soyad:",
-    licenseNamePlaceholder: "örn: Ali Yılmaz",
-    licenseEmailLabel: "E-posta:",
-    licenseEmailHint:
-      "(Lütfen erişebildiğiniz bir e-posta adresi girin; lisans bu adrese gönderilecektir)",
-    licenseWhatsappLabel: "WhatsApp numarası:",
-    licenseWhatsappPlaceholder: "+90 532 000 0000",
-    licenseFormError:
-      "Lütfen adınızı, geçerli bir e-posta ve WhatsApp numaranızı girin.",
-    licenseSubmittingTxt: "Talebiniz gönderiliyor...",
-    licenseSubmitError: "Talep gönderilirken hata oluştu. Lütfen tekrar deneyin.",
-    btnLicenseSubmitForm: "Gönder ve Lisansı Al",
-    btnLicenseBackToInfo: "Önceki adıma dön",
-    licenseDoneTitle: "Lisansınız oluşturuldu ve e-posta ile gönderildi",
-    licenseDoneMsg:
-      "Lisansınız oluşturuldu ve girdiğiniz e-posta adresine gönderildi (Gelen Kutusu'nda yoksa lütfen Spam klasörünü de kontrol edin). Lütfen lisans bedelini {{USD_PAREN}} 2 gün içinde belirtilen hesaplardan birine yatırın ve dekontu BuskitApps@gmail.com adresine gönderin; aksi hâlde sistem 2 gün sonra bu lisansı devre dışı bırakacaktır. Herhangi bir sorunuz olursa 00905312691609 numaralı WhatsApp hattından veya belirtilen e-posta adresinden bizimle iletişime geçebilirsiniz.",
-    licenseAlreadyIssued:
-      "Bu e-posta adresi için daha önce bir lisans oluşturulmuş. Lütfen e-posta kutunuzu kontrol edin veya destek ile iletişime geçin.",
-    licenseEmailFailed:
-      "Lisans oluşturuldu ancak e-posta gönderilemedi. Lütfen 00905312691609 numaralı WhatsApp hattından veya BuskitApps@gmail.com adresinden bize ulaşın.",
-
-    text1: "Uygulama Özellikleri",
-    text2: "Tanıtım",
-    text3: "Uygulama Görselleri",
-    appModalDownloadBtn: "Uygulamayı İndir",
-  },
-  de: {
-    dir: "ltr",
-    title: "Buskit-Tools-Anwendungen",
-    navHome: "Startseite",
-    navAboutme: "Über mich",
-    navLiveFX: "Was ist Buskit-Tools",
-    navBuskitFeatures: "BuskitTools-Funktionen",
-    navAppGallery: "App-Beispielansichten",
-    navFeatures: "Warum Buskit-Tools",
-    navUsersReview: "Nutzerbewertungen",
-    navVideos: "Vorstellungsvideos",
-    navShop: "Shop",
-    navMessageme: "Fragen & Antworten",
-    navContacts: "Kontakt",
-    headerCTA: "Pro-Lizenz erhalten",
-    heroBadge: "Die neue Generation von LiveFX ist erschienen",
-    heroAppLabel: "Anwendungsserie von",
-    heroTagline: "Der Traum jedes Musikers",
-    heroHeadline:
-      'Professionelles Live-Effekt-Studio, <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-accentNeon to-teal-400">In deiner Hosentasche & unterwegs</span>',
-    heroDesc: "Keine Latenz und exklusive Funktionen",
-    heroDownloadBtnLiveFX: "Bronze-Lizenz",
-    heroDownloadBtnLMT: "Silber-Lizenz ",
-    heroDownloadBtnLMTpro: "Gold-Lizenz ",
-    heroDownloadBtnTools:
-      "App kostenlos bei Google Play herunterladen",
-    heroTipLiveFX1: "9 Effekte",
-    heroTipLiveFX2: "Chromatisches Stimmgerät",
-    heroTipLiveFX3: "Flexibles Metronom",
-    heroTipLiveFX4: "20+ integrierte Presets",
-    heroTipLMT1: "13 Effekte",
-    heroTipLMT2: "Chromatisches Stimmgerät",
-    heroTipLMT3: "Flexibles Metronom",
-    heroTipLMT4: "40+ integrierte Presets",
-    heroTipLMT5: "Audioaufnahme",
-    heroTipLMT6: "Playback-Track laden",
-    heroTipLMT7: "",
-    heroTipPro1: "18 Effekte",
-    heroTipPro2: "25+ integrierte Presets",
-    heroTipPro3: "Chromatisches + mikrotonales Stimmgerät",
-    heroTipPro4: "Flexibles Metronom",
-    heroTipPro5: "Audioaufnahme",
-    heroTipPro6: "Playback-Track laden",
-    heroTipPro7: "Geschwindigkeitsänderung des Playback-Tracks",
-
-    aboutTitle: "Über mich",
-    aboutP1:
-      'Ich bin <span class="text-accentNeon font-semibold">Mohammad Reza Amoeyan</span>, ein Elektronikingenieur mit über <span class="text-white font-medium">40 Jahren Erfahrung im Entwurf elektronischer Schaltungen und in der Softwareentwicklung, während ich gleichzeitig aktiv</span> Musik spiele und auftrete.',
-    aboutP2:
-      'Ich habe mich entschieden, die wesentlichen Bedürfnisse von Straßenmusikern, kleinen Bands sowie privaten/persönlichen Auftritten für Live-Performances nach und nach mit Musikliebhabern zu teilen — durch eine Reihe von Hardware- und Softwarelösungen unter dem Markennamen <span class="text-accentNeon font-bold">Buskit</span>.',
-    aboutP3:
-      "Jedes dieser Werkzeuge erfüllt ein bestimmtes Bedürfnis von Musikern oder Sängern. Ich bin überzeugt, dass Sie durch die Nutzung dieser Geräte ein unvergessliches Erlebnis und Freude am Musizieren und Auftreten gewinnen werden.",
-    aboutP4:
-      "Diese Website ist ausschließlich mobilen Anwendungen aus der Buskit-Suite gewidmet. Derzeit ist die erste Anwendung mit dem Namen Buskit-Tools für Enthusiasten auf dem Android-Betriebssystem einsatzbereit.\n\nDie gute Nachricht ist, dass weitere Anwendungen ebenfalls entwickelt werden und in naher Zukunft veröffentlicht werden. Diese kommenden Apps werden die Bedürfnisse von Musikern — insbesondere Live-Performance-Musikern — aus völlig neuen Perspektiven ansprechen.",
-    aboutImgAlt: "Mohammad Reza Amouian – Setar-Spieler",
-    liveFXTitle: "Was ist Buskit-Tools",
-    liveFXSubtitle:
-      "Eine Sammlung echter Echtzeit- und latenzfreier Anwendungen — unersetzliche Werkzeuge, um die Auftrittsqualität jedes Musikers oder Sängers zu erleichtern und zu steigern.",
-    liveFXP1:
-      "Die Buskit-Tools-Anwendungsserie geht weit über eine gewöhnliche Begleit-App hinaus und bietet Funktionen, die sonst nur im Traum eines Musikers existieren.",
-    liveFXP2:
-      "Mit dieser App können Sie die folgenden Audioeffekte hinzufügen, die alle gleichzeitig auf das eingehende Audiosignal angewendet werden können. Außerdem können die gespielten Tracks nach Anwendung der gewählten Effekte direkt im Speicher Ihres Smartphones aufgenommen und gespeichert werden.",
-    liveFXTag1: "Equalizer",
-    liveFXTag2: "Kompressor",
-    liveFXTag3: "Flanger",
-    liveFXTag4: "Phaser",
-    liveFXTag5: "Delay",
-    liveFXTag6: "Hall-Typen",
-    liveFXTag7: "Limiter",
-    liveFXTag8: "Exciter",
-    liveFXTag9: "Chorus",
-    liveFXTag10: "Noise Gate",
-    liveFXTag11: "Vorverstärker",
-    liveFXTag12: "Tiefpassfilter",
-    liveFXTag13: "Wah-Wah",
-    liveFXTag14: "Distortion",
-    liveFXTag15: "Overdrive",
-    liveFXChainLabel: "Die Signalkette der Effekte ist wie folgt aufgebaut:",
-    liveFXChainText:
-      "Vorverstärker ← Noise Gate ← Kompressor ← Equalizer ← Wah-Wah ← Overdrive ← Distortion ← Chorus ← Flanger ← Phaser ← Exciter ← Delay ← Hall ← Oktave ← Tiefpassfilter ← Limiter",
-    liveFXChainNote:
-      "Am Ende der Kette ist ein Ausgangspegel-Modul enthalten, mit dem die Gesamtverstärkung des gesamten Setups auf einmal verringert oder erhöht werden kann.",
-    liveFXP3:
-      "Die Anwendung erfasst das eingehende Audiosignal über ein externes Mikrofon, wendet die ausgewählten Echtzeitprozesse an und leitet den Ausgang gleichzeitig ohne Latenz an die Kopfhörerbuchse des Telefons weiter.",
-    liveFXP4:
-      "Zusätzlich zu den genannten Effekten können Sie ein chromatisches Stimmgerät laden, um jede Art von Instrument zu stimmen, sowie Playback-Tracks laden, um Jam-Sessions zu üben, live mitzuspielen oder eigene bzw. fremde Auftritte zu überspielen.",
-    liveFXP5:
-      "Ein weiteres bemerkenswertes Merkmal dieser App ist ihr flexibles Metronom, mit dem Sie mühelos beliebige rhythmische Muster oder ungerade Taktarten ausführen können.",
-    liveFXP6:
-      "Um das Instrumenten- oder Gesangssignal in Ihr Smartphone einzuspeisen, können Sie einfach handelsübliche Kopfhörer mit Mikrofon- und Kopfhöreranschluss verwenden. Wenn Sie den Ausgang jedoch mit einem Verstärker verbinden möchten, benötigen Sie vorhandene iRig-Geräte oder auf Wunsch das Brig-Hardwaregerät aus der Buskit-Serie als passende Hardware für diese App. Das verarbeitete Audiosignal des Telefons wird dann über dieses Gerät in den AUX- oder Gitarreneingang eines beliebigen Verstärkers — sogar Amateurgeräte — geleitet und liefert einen traumhaften, professionellen Klang.",
-    liveFXP7:
-      "Einer der zentralen Vorteile dieses Systems ist, dass teure, schwere professionelle Audio-Setups nicht mehr nötig sind, um einen satten, angenehmen und professionellen Klang zu erzielen.",
-    liveFXP8:
-      "Die Funktionen dieser Anwendung sind in drei Kategorien unterteilt und werden Enthusiasten in Form von drei Lizenztypen zur Verfügung gestellt: Gold, Silber und Bronze — so kann jeder je nach Geschmack und Möglichkeiten von den Vorteilen profitieren.",
-
-    buskitFeaturesTitle: "BuskitTools-Funktionen",
-    buskitFeaturesSubtitle:
-      "Professionelle Version mit vollem Funktionsumfang für Auftritt, Aufnahme und Übung",
-    buskitFeaturesItem1:
-      "Ausgestattet mit fünfzehn weit verbreiteten und bekannten Effekten aus der Musikwelt",
-    buskitFeaturesItem2: "Enthält mehr als 25 Standard-Presets",
-    buskitFeaturesItem3:
-      "Chromatisches + mikrotonales Stimmgerät zum Stimmen oder Anpassen der Vierteltöne iranischer oder türkischer Instrumente mit Cent-genauer Einstellung",
-    buskitFeaturesItem4:
-      "Flexibles Metronom mit der Fähigkeit, jeden komplexen Rhythmus sowie jede rhythmische Vorlage oder Figur zu spielen",
-    buskitFeaturesItem5: "Möglichkeit, Playback-Tracks zu laden",
-    buskitFeaturesItem6:
-      "Möglichkeit, das gemischte Audiosignal aus Playback-Track und Instrument im WAVE-Format im Speicher des Mobiltelefons aufzuzeichnen",
-    buskitFeaturesItem7:
-      "Möglichkeit, die Geschwindigkeit des Playback-Tracks zu ändern, ohne die Tonhöhe zu verändern",
-    buskitFeaturesDescription:
-      "Die Funktionen dieser Anwendung heben sie weit über eine einfache Effektbox oder ein Hardware-Pedalboard hinaus. Die Möglichkeit, Playback-Tracks mit Geschwindigkeitsanpassung ohne Tonhöhenänderung für das Üben von Jam-Sessions zu laden, ein Metronom mit der einzigartigen Fähigkeit, jede gewünschte rhythmische Figur zu erzeugen, einerseits, kombiniert mit der Möglichkeit, das eingehende Audiosignal zusammen mit dem Playback-Track im WAVE-Format im Speicher des Telefons aufzuzeichnen, andererseits, machen sie zum Traum jedes Musikers. Sie ermöglicht es Musikern, ihrem Publikum jederzeit und überall einen traumhaften Klang zu liefern, ohne teure, schwere und sperrige Ausrüstung zu benötigen. Das mikrotonale chromatische Stimmgerät ist ebenfalls eine der Stärken dieser Version der Anwendung und ermöglicht es dem Nutzer, die genaue Abweichung vom Grundton zu bestimmen. Das Vorhandensein von mehr als 40 Presets für den Einsatz unter verschiedenen Bedingungen und mit unterschiedlichen Instrumenten ist eine weitere große Erleichterung bei Musikerauftritten.",
-
-    liveFXGalleryAlt1: "Hauptansicht der Buskit-LiveFX-Anwendung",
-    liveFXGalleryAlt2: "Kompressor-Einstellungen in der Buskit-LiveFX-Anwendung",
-    liveFXGalleryAlt3: "Hall-Typen in der Buskit-LiveFX-Anwendung",
-    liveFXGalleryAlt4: "Funktionsmenü der Buskit-LiveFX-Anwendung",
-    liveFXGalleryAlt5:
-      "Hauptseite für Effekte und Metronom der Buskit-LiveFX-Anwendung",
-    liveFXGalleryAlt6: "Laden eines Playback-Tracks in der Buskit-LiveFX-Anwendung",
-    liveFXGalleryAlt7: "9-Band-Equalizer in der Buskit-LiveFX-Anwendung",
-    liveFXGalleryAlt8:
-      "Alternative Ansicht der Effektseite der Buskit-LiveFX-Anwendung",
-    liveFXGalleryAlt9: "Weitere Ansicht der Benutzeroberfläche der Buskit-LiveFX-Anwendung",
-    liveFXGalleryAlt12: "Weitere Ansicht der Benutzeroberfläche der Buskit-LiveFX-Anwendung",
-    liveFXGalleryAlt13: "Weitere Ansicht der Benutzeroberfläche der Buskit-LiveFX-Anwendung",
-    liveFXGalleryAlt14: "Weitere Ansicht der Benutzeroberfläche der Buskit-LiveFX-Anwendung",
-    liveFXGalleryTitle: "App-Beispielansichten",
-    liveFXGallerySubtitle:
-      "Ein Blick auf die Benutzeroberfläche und verschiedene Ansichten der Buskit-Tools-Anwendung",
-    videosTitle: "Vorstellungsvideos: Einsatzmöglichkeiten der BuskitTools-App",
-    videosDesc:
-      "Funktionen, Einsatzmöglichkeiten und Vorstellung der App",
-    v1Title: "Vorstellungsvideo 1",
-    v2Title: "Vorstellungsvideo 2",
-    v3Title: "Vorstellungsvideo 3",
-    v4Title: "Vorstellungsvideo 4",
-    v5Title: "Vorstellungsvideo 5",
-    v6Title: "Vorstellungsvideo 6",
-    v7Title: "Vorstellungsvideo 7",
-    v8Title: "Vorstellungsvideo 8",
-    v9Title: "Vorstellungsvideo 9",
-    featuresTitle: "Warum entscheiden sich Musiker für Buskit?",
-    featuresDesc:
-      "Eine präzise Mischung aus Hardware-Engineering, Software-Optimierung und einem tiefen Verständnis für die Bedürfnisse eines Musikers auf der Bühne.",
-    f1Title: "Extrem niedrige Latenz",
-    f1Desc:
-      "Dank eines nativen Verarbeitungskerns wird die Audiolatenz auf ein absolutes Minimum (unter wenigen Millisekunden) reduziert, sodass Sie beim Spielen keine Verzögerung spüren.",
-    f2Title: "Flexible, individuelle Presets",
-    f2Desc:
-      "Eine vollständige Bank weit verbreiteter Effekte (Hall, Delay, Chorus, Overdrive) mit vollständiger Parameteranpassung und Speicheroptionen.",
-    f3Title: "Funktionen",
-    f3Desc:
-      'Die Funktionen dieser Anwendung sind für Musiker äußerst attraktiv, darunter: <ul class="list-disc pl-5 space-y-1"><li>Möglichkeit, voreingestellte Rhythmen oder zuvor vom Spieler aufgenommene Tracks zu laden und mitzuspielen</li><li>Hochwertige Aufnahme direkt im Telefonspeicher zum späteren Anhören</li><li>Ein flexibles Metronom, das einfache, zusammengesetzte oder komplexe/ungerade Rhythmen verarbeiten kann</li><li>Ausgestattet mit verschiedenen Standard- und beliebten Effekten zur Klangverbesserung des Instruments</li></ul>',
-    f4Title: "Kompatibilität",
-    f4Desc:
-      "Kompatibel mit verschiedenen auf dem Markt erhältlichen Smartphones, auch älteren Modellen. Funktioniert mit handelsüblichen Kopfhörern, iRig-Geräten und dem speziellen Brig-Gerät aus unserer Serie.",
-    f5Title: "Kostenlose Testversion verfügbar",
-    f5Desc:
-      "Eine 5-tägige kostenlose Testlizenz, um die Software und ihren vollen Funktionsumfang zu testen und die Kompatibilität mit Ihrem Mobilgerät oder Tablet zu prüfen.",
-    f6Title: "Vielfalt verfügbarer Pakete",
-    f6Desc:
-      "Für diese Anwendung wurden drei Lizenztypen entwickelt, die dem Nutzer jeweils bestimmte Funktionen bieten. Zusätzlich stehen für die Nutzung jeder Lizenz drei Laufzeitmodelle zur Verfügung — ein Monat, ein Jahr und lebenslang.",
-    shopTitle: "Shop & Produkte",
-    shopDesc:
-      "In diesem Bereich können Sie Softwarelizenzen und Hardwareprodukte direkt erwerben.",
-    // shopDescPayment:
-    //   "Um Ihre erworbenen Softwarelizenzen zu erhalten, senden Sie bitte Ihren Zahlungsbeleg per WhatsApp an 00905312691609. Der Lizenzcode wird Ihnen über dieselbe Nummer zurückgesendet.",
-    // shopDescHardware:
-    //   "Um Ihre erworbene Hardware zu erhalten, senden Sie bitte Ihren Zahlungsbeleg und Ihre Adresse per WhatsApp an 00905312691609. Die Geräte werden Ihnen dann zugesandt.",
-    shopProductNameLabel: "Produktname:",
-    shopPriceLabel: "Preis:",
-    shopCurrency: "TRY",
-    rialLabel: "Rial",
-    millionLabel: "Million",
-    tomanLabel: "Toman",
-    shopProductTitle: "Buskit-Tools-Anwendung",
-    shopBuyBtn: "Kaufen",
-
-    p1Badge: "Bronze-Lizenz – Permanent",
-    p1Title: "Lebenslange Anwendungslizenz mit Bronze-Funktionen",
-    p1B1: "Diese Lizenz bleibt für immer aktiv",
-    p1B2: "Schaltet alle Effekte und Funktionen der Anwendung im Rahmen der Bronze-Lizenz frei",
-    p1B3: "Enthält lebenslangen technischen Support und Updates",
-    p1B4: "",
-    p1PriceVal: "1000",
-
-    p2Badge: "Silber-Lizenz – 1 Monat",
-    p2Title: "1-Monats-Anwendungslizenz mit Silber-Funktionen",
-    p2B1: "Gültig genau einen Monat ab dem Datum der ersten Aktivierung",
-    p2B2: "Schaltet alle Effekte und Funktionen der Anwendung im Rahmen der Silber-Lizenz frei",
-    p2B3: "Enthält einen Monat technischen Support und Updates",
-    p2PriceVal: "150",
-
-    p3Badge: "Bronze-Lizenz – 1 Jahr",
-    p3Title: "1-Jahres-Anwendungslizenz mit Bronze-Funktionen",
-    p3B1: "Gültig genau ein Jahr ab dem Datum der ersten Aktivierung",
-    p3B2: "Schaltet alle Effekte und Funktionen der Anwendung gemäß den Bronze-Spezifikationen frei",
-    p3B3: "Enthält ein Jahr technischen Support und Updates",
-    p3PriceVal: "600",
-
-    p4Badge: "Bronze-Lizenz – 1 Monat",
-    p4Title: "1-Monats-Anwendungslizenz mit Bronze-Funktionen",
-    p4B1: "Gültig genau einen Monat ab dem Datum der ersten Aktivierung",
-    p4B2: "Schaltet alle Effekte und Funktionen der Anwendung im Rahmen der Bronze-Lizenz frei",
-    p4B3: "Enthält einen Monat technischen Support und Updates",
-    p4PriceVal: "100",
-
-    p5Badge: "Kostenlose Lizenz",
-    p5Title: "Kostenlose Anwendungslizenz",
-    p5B1: "Gültig genau fünf Tage ab dem Datum der ersten Aktivierung",
-    p5B2: "Der Nutzer erhält vollen Zugriff auf alle Funktionen der Anwendung",
-    p5B3: "Enthält fünf Tage technischen Support und Updates",
-    p5LicenseLabel: "Lizenz:",
-    p5PriceVal: "0",
-    disabledTxt: "Nicht vorrätig",
-
-    p6Badge: "Silber-Lizenz – 1 Jahr",
-    p6Desc: "Produktname",
-    p6Title: "1-Jahres-Anwendungslizenz mit Silber-Funktionen",
-    p6B1: "Gültig genau ein Jahr ab dem Datum der ersten Aktivierung",
-    p6B2: "Schaltet alle Effekte und Funktionen der Anwendung im Rahmen der Silber-Lizenz frei",
-    p6B3: "Enthält ein Jahr technischen Support und Updates",
-    p6PriceVal: "950",
-
-    p7Badge: "Gold-Lizenz – 1 Jahr",
-    p7Desc: "Produktname",
-    p7Title: "1-Jahres-Anwendungslizenz mit Gold-Funktionen",
-    p7B1: "Gültig genau ein Jahr ab dem Datum der ersten Aktivierung",
-    p7B2: "Schaltet alle Effekte und Funktionen der Anwendung frei",
-    p7B3: "Enthält ein Jahr technischen Support und Updates",
-    p7PriceVal: "1200",
-
-    p8Badge: "Lizenz – Permanent",
-    p8Desc: "Produktname",
-    p8Title: "Lebenslange Anwendungslizenz mit vollem Funktionsumfang",
-    p8B1: "Lebenslang gültig",
-    p8B2: "Schaltet alle Effekte und Funktionen der Anwendung frei",
-    p8B3: "Enthält lebenslangen technischen Support und Updates",
-    p8B4: "30 % Rabatt auf alle zukünftigen Anwendungen und Updates",
-    p8PriceVal: "1800",
-
-    p9Badge: "Hardware",
-    p9Desc: "Produktname",
-    p9Title: "iRig-Hardware-Paket",
-    p9B1: "Enthält: iRig + Kabel + Piezo-Mikrofon",
-    p9PriceVal: "850",
-
-    p10Badge: "Silber-Lizenz – Permanent",
-    p10Desc: "Produktname",
-    p10Title: "Lebenslange Anwendungslizenz mit Silber-Funktionen",
-    p10B1: "Lebenslang gültig",
-    p10B2:
-      "Schaltet alle Effekte und Funktionen der Anwendung gemäß den Silber-Spezifikationen frei",
-    p10B3: "Enthält lebenslangen technischen Support und Updates",
-    p10B4: "25 % Rabatt auf alle zukünftigen Anwendungen und Updates",
-    p10PriceVal: "1350",
-
-    p11Badge: "Hardware",
-    p11Desc: "Produktname",
-    p11Title: "iRig-Gerät",
-    p11B1: "iRig-Gerät",
-    p11PriceVal: "450",
-
-    p12Badge: "Hardware",
-    p12Desc: "Produktname",
-    p12Title: "BRig-Gerät",
-    p12B1: "BRig-Gerät",
-    p12PriceVal: "350",
-
-    p13Badge: "Hardware",
-    p13Desc: "Produktname",
-    p13Title: "Stereokabel",
-    p13B1: "3,5-mm-Stereo-Audiokabel mit zwei Stecker-Enden (Stecker zu Stecker)",
-    p13PriceVal: "130",
-
-    p14Badge: "Hardware",
-    p14Desc: "Produktname",
-    p14Title: "Piezo-Mikrofon",
-    p14B1: "Piezo-Mikrofon",
-    p14PriceVal: "250",
-
-    p15Badge: "Hardware",
-    p15Desc: "Produktname",
-    p15Title: "BRig-Hardware-Paket",
-    p15B1: "Enthält: BRig + Kabel + Piezo-Mikrofon",
-    p15PriceVal: "750",
-
-    p16Badge: "Gold-Lizenz – 1 Monat",
-    p16Title: "1-Monats-Anwendungslizenz mit Gold-Funktionen",
-    p16B1: "Gültig genau einen Monat ab dem Datum der ersten Aktivierung",
-    p16B2: "Schaltet alle Effekte und Funktionen der Anwendung frei",
-    p16B3: "Enthält einen Monat technischen Support und Updates",
-    p16PriceVal: "200",
-    footerTxt:
-      "© 2026 Buskit-Anwendung. Alle Rechte für Designer und Entwickler vorbehalten.",
-    mPriceLabel: "Preis:",
-    mBankHeading: "Bankkonten für die Zahlung:",
-    mBankIranLabel: "Iranische Bankkarte (Mellat):",
-    mBankIranOwner: "Kontoinhaber: Mohammad Reza Amouian",
-    mBankTrLabel: "Türkisches Lira-Konto (Ziraat Bank):",
-    copyBtnTxt: "Kartennummer kopieren",
-    copyIbanTxt: "IBAN kopieren",
-    lblFullName: "Vollständiger Name des Käufers:",
-    lblContact: "E-Mail oder Telegram-ID (für die Lizenzzustellung):",
-    lblReceiptFile: "Zahlungsbeleg hochladen:",
-    fileLabelText: "Klicken oder Ihren Beleg hierher ziehen",
-    btnSubmitForm: "Bestellung absenden & Lizenz anfordern",
-    placeholderName: "z. B. Max Mustermann",
-    placeholderContact: "email@beispiel.com oder @benutzername",
-    alertNoFile: "Bitte laden Sie zuerst Ihren Zahlungsbeleg hoch.",
-    alertSuccess:
-      "Vielen Dank! Ihr Beleg und Ihre Angaben wurden erfolgreich übermittelt. Ihre Lizenz wird Ihnen zugesandt, sobald die Zahlung geprüft und bestätigt wurde.",
-    contactTitle: "Kontakt",
-    contactDesc: "Kontaktieren Sie mich für weitere Informationen, Beratung und Käufe.",
-    contactWhatsappLabel: "WhatsApp",
-    contactInstagramLabel: "Instagram",
-    contactTiktokLabel: "TikTok",
-    contactEmailLabel: "E-Mail",
-    contactLocationLabel: "Standort",
-    contactLocationValue: "Istanbul, Türkei",
-    reviewsTitle: "Nutzerbewertungen",
-    reviewsDesc:
-      "Teilen Sie Ihre Erfahrungen mit Buskit mit anderen Musikerkollegen.",
-    reviewNameLabel: "Name:",
-    reviewEmailLabel: "E-Mail (optional):",
-    reviewRatingLabel: "Ihre Bewertung:",
-    reviewQuestionsLabel:
-      "Was halten Sie von den folgenden Funktionen? (Optional — wenn leer gelassen, wird automatisch anhand Ihrer Sternebewertung geschätzt)",
-    reviewSubmitBtn: "Bewertung absenden",
-    reviewSubmittingTxt: "Wird gesendet...",
-    reviewsSummaryTitle: "Bisherige Bewertungsübersicht",
-    reviewsLoading: "Bewertungen werden geladen...",
-    reviewsEmptyTxt: "Noch keine Bewertungen. Seien Sie der Erste, der seine Meinung teilt!",
-    reviewsLoadErrorTxt: "Bewertungen konnten nicht geladen werden.",
-    reviewErrName: "Bitte geben Sie Ihren Namen ein.",
-    reviewErrRating: "Bitte geben Sie eine Sternebewertung ab.",
-    reviewErrSubmit: "Bewertung konnte nicht gesendet werden. Bitte versuchen Sie es erneut.",
-    reviewQuestions: [
-      { short: "Klangqualität", label: "Klangqualität & Effekte" },
-      { short: "Latenz", label: "Latenzstufe bei Live-Auftritten" },
-      { short: "Bedienbarkeit", label: "Einfachheit & Bedienbarkeit der App" },
-      { short: "Kompatibilität", label: "Kompatibilität mit Ihrem Gerät" },
-      { short: "Funktionen", label: "Anwendungsfunktionen" },
-    ],
-    answerExcellent: "Ausgezeichnet",
-    answerGood: "Gut",
-    answerBad: "Schlecht",
-    answerDontKnow: "Weiß nicht",
-    qaTitle: "Fragen & Antworten",
-    qaDesc:
-      "Schreiben Sie Ihre Fragen auf. Ich antworte so schnell wie möglich, und die Antwort erscheint direkt unter Ihrer Nachricht.",
-    qaNameLabel: "Name:",
-    qaMessageLabel: "Ihre Nachricht / Frage:",
-    qaSubmitBtn: "Nachricht senden",
-    qaSubmittingTxt: "Wird gesendet...",
-    qaLoading: "Nachrichten werden geladen...",
-    qaEmptyTxt: "Noch keine Nachrichten. Stellen Sie die erste Frage!",
-    qaLoadErrorTxt: "Nachrichten konnten nicht geladen werden.",
-    qaErrName: "Bitte geben Sie Ihren Namen ein.",
-    qaErrMessage: "Bitte geben Sie Ihre Nachricht ein.",
-    qaErrSubmit: "Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut.",
-    qaReplyLabel: "Meine Antwort:",
-    qaAwaitingReplyTxt: "Antwort ausstehend...",
-
-    // ====== New keys for complete translation ======
-    navHowtoUse: "Anleitung",
-    liveMusicToolsTitle: "So verwenden Sie die Anwendung",
-    liveMusicToolsSubtitle:
-      'Um die App zu nutzen, muss das Audiosignal des Instruments in das Mobiltelefon eingespeist werden. Dies kann auf folgende Arten erreicht werden:\n <ul class="mt-8">\n <li class="bg-[#00f5d4] text-red-900 mb-4">Verwendung von Kopfhörern/Headset</li>\n <p class="mb-4 max-w-2xl mx-auto text-justify">Stecken Sie einfach Ihr Headset in das Telefon, setzen Sie die Kopfhörer auf und spielen Sie. Der Klang des Instruments gelangt über das Headset-Mikrofon in das Telefon, wird sofort von der App verarbeitet und kehrt als satter, hochwertiger Klang über Ihre Kopfhörer zurück.</p>\n <li class="bg-[#00f5d4] text-red-900 mb-4">Verwendung eines iRig-Geräts</li>\n <p class="mb-4 max-w-2xl mx-auto text-justify">Verbinden Sie das iRig-Kabel mit dem Telefon und leiten Sie dessen Audioausgang an ein Kopfhörerpaar oder einen Verstärker weiter. Wenn Ihr Instrument über einen integrierten Tonabnehmer oder elektronischen Audioausgang verfügt, schließen Sie ihn direkt an den iRig-Eingang an. Andernfalls nehmen Sie den Klang mit einem aufsteckbaren Piezo-Mikrofon auf, das mit dem iRig verbunden ist.</p>\n <li class="bg-[#00f5d4] text-red-900 mb-4">Verwendung des Brig-Geräts</li>\n <p class="mb-4 max-w-2xl mx-auto text-justify">Dieses Gerät ähnelt einem iRig, gehört aber zur eigenen Hardware-Serie von Buskit. Bei Bedarf können Sie dieses Gerät erwerben, das genau wie ein iRig für eine einwandfreie Signalführung sorgt.</p>\n </ul>',
-
-    purchaseModalTitle: "Buskit-Produktbestellformular",
-    purchaseStepContactDesc:
-      "Um den Preis zu sehen und Ihren Kauf fortzusetzen, geben Sie bitte zuerst Ihren Namen und Ihre E-Mail-Adresse ein.",
-    purchaseNameLabel: "Vollständiger Name:",
-    purchaseNamePlaceholder: "z. B. Max Mustermann",
-    purchaseEmailLabel: "E-Mail:",
-    purchaseContactError: "Bitte geben Sie Ihren Namen und eine gültige E-Mail-Adresse ein.",
-    btnPurchaseNextFromContact: "Weiter",
-    purchaseStepDiscountDesc:
-      "Wenn Sie einen Rabattcode haben, geben Sie ihn unten ein; andernfalls können Sie diesen Schritt überspringen und zum regulären Preis fortfahren.",
-    purchaseDiscountLabel: "Rabattcode (optional):",
-    purchaseDiscountPlaceholder: "z. B. WELCOME20",
-    btnApplyDiscount: "Rabattcode anwenden",
-    btnSkipDiscount: "Ohne Code fortfahren",
-    btnBackToContact: "Zurück zum vorherigen Schritt",
-    purchaseDiscountChecking: "Rabattcode wird geprüft...",
-    purchaseDiscountSuccess:
-      "Rabattcode akzeptiert, und eine Lizenz wurde für Sie reserviert ✅",
-    purchaseDiscountUsed: "Dieser Rabattcode wurde bereits verwendet.",
-    purchaseDiscountInvalid: "Dieser Rabattcode ist ungültig.",
-    purchaseDiscountError: "Serververbindungsfehler. Bitte versuchen Sie es erneut.",
-    purchaseDiscountRowLabel: "Rabatt:",
-    purchaseDiscountAppliedBannerText:
-      "Der Rabattcode {code} wurde angewendet, und eine Lizenz wurde unter Ihrem Namen und Ihrer E-Mail-Adresse reserviert. Sie wird Ihnen zugesandt, sobald Ihre Zahlung bestätigt wurde.",
-    purchaseSubtotalLabel: "Zwischensumme:",
-    purchaseSubtotalRialLabel: "Entspricht in Toman & USD:",
-    purchaseShippingLabel: "Versandkosten:",
-    purchaseTotalLabel: "Gesamtpreis (zu zahlen):",
-    purchaseTotalRialLabel: "Gesamtbetrag in Toman & USD:",
-    purchaseFinalizeMsg:
-      "Ihre Bestellung wurde aufgegeben und Ihre Lizenz wurde reserviert. Bitte tätigen Sie die Zahlung gemäß den angegebenen Bankdaten und senden Sie anschließend den Zahlungsbeleg per WhatsApp an 00905312691609, zusammen mit dem Namen und der E-Mail-Adresse, die Sie beim Kauf angegeben haben, damit Ihre erworbene Lizenz Ihnen umgehend per WhatsApp und E-Mail zugesandt werden kann.",
-    btnBackForm: "Zurück",
-    btnFinalizeOrder: "Bestellung absenden und Lizenz reservieren",
-    purchaseItemNames: {
-      p4: "Bronze-Lizenz – 1 Monat",
-      p3: "Bronze-Lizenz – 1 Jahr",
-      p1: "Bronze-Lizenz – Lebenslang",
-      p10: "Silber-Lizenz – 1 Monat",
-      p9: "Silber-Lizenz – 1 Jahr",
-      p8: "Silber-Lizenz – Lebenslang",
-      p7: "Gold-Lizenz – 1 Monat",
-      p6: "Gold-Lizenz – 1 Jahr",
-      p2: "Gold-Lizenz – Lebenslang",
-      p5: "Hardware-Paket i",
-      p11: "Hardware-Paket B",
-      p12: "iRig-Gerät",
-      p13: "bRig-Gerät",
-      p15: "Piezo-Mikrofon",
-      p14: "3,5-mm-Kabel",
-    },
-    // ====== License purchase modal (USD priced, special Iran discount) ======
-    licenseModalTitle: "Lizenz kaufen",
-    licenseFormTitle: "Käuferdaten",
-    licenseRateUsdTryLabel: "USD-zu-TRY-Kurs:",
-    licenseRateUsdIrrLabel: "USD-zu-IRR-Kurs:",
-    licenseRateUpdatedLabel: "Kurs zuletzt aktualisiert:",
-    licenseRateLoading: "Kurse werden abgerufen...",
-    licensePayableLabel: "Zu zahlender Betrag:",
-    licensePayableUsd: "$50",
-    licenseTryLabel: "Entspricht in TRY:",
-    licenseIrrLabel: "Entspricht in IRR:",
-    licenseDiscountLabel:
-      "Sonderrabatt von 40 % für iranische Kunden bei Zahlung auf das Bank-Mellat-Konto im Iran",
-    licenseDiscountIrrLabel: "Rabattierter zu zahlender Betrag (IRR):",
-    licenseBankHeading: "Bankkonten für die Zahlung:",
-    licenseBankIranLabel: "Iranische Bankkarte (Mellat):",
-    licenseBankIranOwner: "MohammadReza Amoeyan",
-    licenseBankTrLabel: "Türkisches TRY-Konto (Ziraat Bank):",
-    licenseBankTrOwner: "MohammadReza Amoeyan",
-    licenseDoneBankHeading: "Gültige Kontonummern:",
-    licenseDoneBankIranLabel: "Iranische Bankkarte (Mellat):",
-    licenseDoneBankIranOwner: "MohammadReza Amoeyan",
-    licenseDoneBankTrLabel: "Türkisches TRY-Konto (Ziraat Bank):",
-    licenseDoneBankTrOwner: "MohammadReza Amoeyan",
-    btnLicenseReserve: "Lizenz reservieren",
-    btnLicenseBack: "Zurück",
-    licenseFormDesc: "Bitte geben Sie Ihren Namen, Ihre E-Mail-Adresse und Ihre WhatsApp-Nummer ein:",
-    licenseNameLabel: "Vollständiger Name:",
-    licenseNamePlaceholder: "z. B. Max Mustermann",
-    licenseEmailLabel: "E-Mail:",
-    licenseEmailHint:
-      "(Bitte geben Sie eine E-Mail-Adresse ein, auf die Sie Zugriff haben, da die Lizenz an diese Adresse gesendet wird)",
-    licenseWhatsappLabel: "WhatsApp-Nummer:",
-    licenseWhatsappPlaceholder: "+49 151 00000000",
-    licenseFormError:
-      "Bitte geben Sie Ihren Namen, eine gültige E-Mail-Adresse und Ihre WhatsApp-Nummer ein.",
-    licenseSubmittingTxt: "Ihre Anfrage wird gesendet...",
-    licenseSubmitError: "Fehler beim Senden der Anfrage. Bitte versuchen Sie es erneut.",
-    btnLicenseSubmitForm: "Absenden & Lizenz erhalten",
-    btnLicenseBackToInfo: "Zurück zum vorherigen Schritt",
-    licenseDoneTitle: "Ihre Lizenz wurde erstellt und per E-Mail gesendet",
-    licenseDoneMsg:
-      "Ihre Lizenz wurde erstellt und an die von Ihnen angegebene E-Mail-Adresse gesendet (falls sie nicht im Posteingang ist, prüfen Sie bitte auch den Spam-Ordner). Bitte überweisen Sie den Lizenzbetrag {{USD_PAREN}} innerhalb von 2 Tagen auf eines der genannten Konten und senden Sie den Zahlungsbeleg an BuskitApps@gmail.com; andernfalls deaktiviert das System diese Lizenz nach 2 Tagen. Bei Fragen kontaktieren Sie uns per WhatsApp unter 00905312691609 oder über die oben genannte E-Mail-Adresse.",
-    licenseAlreadyIssued:
-      "Für diese E-Mail-Adresse wurde bereits eine Lizenz erstellt. Bitte prüfen Sie Ihren Posteingang oder wenden Sie sich an den Support.",
-    licenseEmailFailed:
-      "Die Lizenz wurde erstellt, aber die E-Mail konnte nicht gesendet werden. Bitte kontaktieren Sie uns per WhatsApp unter 00905312691609 oder unter BuskitApps@gmail.com.",
-
-    text1: "App-Funktionen",
-    text2: "Einführung",
-    text3: "App-Screenshots",
-    appModalDownloadBtn: "Anwendung herunterladen",
-  },
-};
-let currentLang = "tr";
-
-// همگام‌سازی خودکار قیمت‌های نمایش داده‌شده روی کارت‌های فروشگاه (هر ۳ زبان)
-// با GRID_PRICE_MAP — به‌جای این‌که مقدار هر قیمت به‌صورت جداگانه و دستی
-// در متن ترجمه‌ی هر زبان (fa/en/tr) نوشته شده باشه. یعنی از این به بعد فقط
-// کافیه آبجکت prices در بالای فایل رو تغییر بدی؛ همه‌جا (هر ۳ زبان، کارت‌های
-// فروشگاه، و فرم خرید) خودکار به‌روز میشه.
-["fa", "en", "tr", "de"].forEach((lang) => {
-  if (!translations[lang]) return;
+// ====================================================================
+//  🌐 ترجمه‌ها
+// ====================================================================
+// متن همه‌ی زبان‌ها دیگر اینجا نیست؛ هر زبان در فایل خودش است:
+//   lang/fa.js ، lang/en.js ، lang/tr.js ، lang/de.js
+// فهرست زبان‌ها در lang/languages.js و منطق بارگذاری در lang/i18n.js است.
+// برای اضافه کردن زبان جدید فقط یک فایل به پوشه‌ی lang اضافه کنید
+// (راهنما: lang/README.md) — به این فایل لازم نیست دست بزنید.
+// این آبجکت با زبان‌های بارگذاری‌شده پر می‌شود: translations.fa / .en / ...
+const translations = BuskitI18n.translations;
+let currentLang = BuskitI18n.startLang;
+
+// همگام‌سازی خودکار قیمت‌های نمایش داده‌شده روی کارت‌های فروشگاه (برای همه‌ی
+// زبان‌ها) با GRID_PRICE_MAP — به‌جای این‌که مقدار هر قیمت به‌صورت جداگانه و
+// دستی در متن ترجمه‌ی هر زبان نوشته شده باشه. یعنی فقط کافیه آبجکت prices در
+// بالای فایل رو تغییر بدی؛ همه‌جا (همه‌ی زبان‌ها، کارت‌های فروشگاه، و فرم
+// خرید) خودکار به‌روز میشه. این تابع برای هر زبانی که لود بشه اجرا می‌شود.
+BuskitI18n.onRegister((code, data) => {
   Object.keys(GRID_PRICE_MAP).forEach((pid) => {
-    translations[lang][pid + "PriceVal"] = String(GRID_PRICE_MAP[pid]);
+    data[pid + "PriceVal"] = String(GRID_PRICE_MAP[pid]);
   });
 });
 
@@ -2076,7 +183,7 @@ function formatTomanUsdAmount(liraAmount, data) {
 // به‌سادگی نادیده گرفته می‌شود، پس اضافه/کم‌کردن محصولات نیازی به تغییر این تابع ندارد.
 function updateRialPrices() {
   if (!tryToIrrRate) return;
-  const data = translations[currentLang];
+  const data = translations[currentLang] || {};
   const allPriceValEls = document.querySelectorAll('[id$="PriceVal"]');
   allPriceValEls.forEach((valEl) => {
     const pid = valEl.id.replace(/PriceVal$/, "");
@@ -2101,7 +208,33 @@ function updateRialPrices() {
 fetchTryToIrrRate();
 setInterval(fetchTryToIrrRate, 60 * 60 * 1000);
 
+// تغییر زبان: اگر فایل آن زبان هنوز لود نشده باشد اول از lang/<code>.js
+// خوانده می‌شود و بعد متن‌ها روی صفحه اعمال می‌شوند.
+let langRequestId = 0;
 function changeLanguage(lang) {
+  const reqId = ++langRequestId;
+  if (translations[lang]) {
+    applyLanguage(lang);
+    return Promise.resolve();
+  }
+  return BuskitI18n.load(lang)
+    .then(() => {
+      // اگر کاربر در این فاصله زبان دیگری انتخاب کرد، این درخواست قدیمی است
+      if (reqId === langRequestId) applyLanguage(lang);
+    })
+    .catch((err) => {
+      console.error("خطا در بارگذاری فایل زبان:", err);
+      if (reqId === langRequestId) {
+        syncLangDropdown(currentLang);
+        // اگر هیچ زبانی هنوز اعمال نشده، به زبان پیش‌فرض برگرد
+        if (!translations[currentLang] && lang !== window.BUSKIT_DEFAULT_LANG) {
+          return changeLanguage(window.BUSKIT_DEFAULT_LANG);
+        }
+      }
+    });
+}
+
+function applyLanguage(lang) {
   currentLang = lang;
   try {
     localStorage.setItem("buskitLang", lang);
@@ -2115,6 +248,7 @@ function changeLanguage(lang) {
   const body = document.body;
   body.className = "bg-darkBg text-slate-200 antialiased";
   body.classList.add("lang-" + lang);
+  body.classList.add("dir-" + (data.dir === "rtl" ? "rtl" : "ltr"));
 
   // بروزرسانی عنوان تب مرورگر
   document.getElementById("siteTitle").innerText = data.title;
@@ -2126,8 +260,6 @@ function changeLanguage(lang) {
   const navBuskitFeaturesEl = document.getElementById("navBuskitToolsFeatures");
   if (navBuskitFeaturesEl)
     navBuskitFeaturesEl.innerText = data.navBuskitFeatures;
-  const navAppGalleryEl = document.getElementById("navAppGallery");
-  if (navAppGalleryEl) navAppGalleryEl.innerText = data.navAppGallery;
   const navHowtoUseEl = document.getElementById("navHowtoUse");
   if (navHowtoUseEl) navHowtoUseEl.innerText = data.navHowtoUse;
   document.getElementById("navFeatures").innerText = data.navFeatures;
@@ -2145,9 +277,6 @@ function changeLanguage(lang) {
   );
   if (navBuskitFeaturesMobileEl)
     navBuskitFeaturesMobileEl.innerText = data.navBuskitFeatures;
-  const navAppGalleryMobileEl = document.getElementById("navAppGalleryMobile");
-  if (navAppGalleryMobileEl)
-    navAppGalleryMobileEl.innerText = data.navAppGallery;
   const navHowtoUseMobileEl = document.getElementById(
     "navLiveMusicToolsMobile",
   );
@@ -2167,6 +296,8 @@ function changeLanguage(lang) {
   document.getElementById("heroAppLabel").innerText = data.heroAppLabel;
   document.getElementById("heroTagline").innerText = data.heroTagline;
   document.getElementById("heroDesc").innerText = data.heroDesc;
+  const heroVersionsEl = document.getElementById("heroVersions");
+  if (heroVersionsEl) heroVersionsEl.innerText = data.heroVersions;
   const heroDownloadBtnEl = document.getElementById("heroDownloadBtn");
   if (heroDownloadBtnEl) heroDownloadBtnEl.innerText = data.heroDownloadBtn;
   const heroShopBtnEl = document.getElementById("heroShopBtn");
@@ -2182,6 +313,14 @@ function changeLanguage(lang) {
     const line1El = document.getElementById("heroDownloadBtnToolsLine1");
     if (line1El) line1El.innerText = toolsLines[0] || "";
   }
+  const heroMyketTextEl = document.getElementById("heroDownloadBtnMyketText");
+  if (heroMyketTextEl && data.heroDownloadBtnMyket)
+    heroMyketTextEl.innerText = data.heroDownloadBtnMyket;
+  const heroBazaarTextEl = document.getElementById("heroDownloadBtnBazaarText");
+  if (heroBazaarTextEl && data.heroDownloadBtnBazaar)
+    heroBazaarTextEl.innerText = data.heroDownloadBtnBazaar;
+  const line2El = document.getElementById("heroDownloadBtnToolsLine2");
+  if (line2El) line2El.innerText = data.heroDownloadBtnToolsLine2 || "";
 
   // تولتیپ‌های سه دکمه دانلود در بخش هیرو
   [
@@ -2236,6 +375,7 @@ function changeLanguage(lang) {
   document.getElementById("liveFXTag13").innerText = data.liveFXTag13;
   document.getElementById("liveFXTag14").innerText = data.liveFXTag14;
   document.getElementById("liveFXTag15").innerText = data.liveFXTag15;
+  document.getElementById("liveFXTag16").innerText = data.liveFXTag16;
   document.getElementById("liveFXChainLabel").innerText = data.liveFXChainLabel;
   document.getElementById("liveFXChainText").innerText = data.liveFXChainText;
   document.getElementById("liveFXChainNote").innerText = data.liveFXChainNote;
@@ -2246,45 +386,50 @@ function changeLanguage(lang) {
   document.getElementById("liveFXP7").innerText = data.liveFXP7;
   document.getElementById("liveFXP8").innerText = data.liveFXP8;
 
-  // بخش امکانات BuskitTools (نسخه طلایی)
+  // بخش انواع نسخه‌های اپلیکیشن (برنزی، نقره‌ای، طلایی)
   const buskitFeaturesTitleEl = document.getElementById("buskitFeaturesTitle");
   if (buskitFeaturesTitleEl)
     buskitFeaturesTitleEl.innerText = data.buskitFeaturesTitle;
-  const buskitFeaturesSubtitleEl = document.getElementById(
-    "buskitFeaturesSubtitle",
-  );
-  if (buskitFeaturesSubtitleEl)
-    buskitFeaturesSubtitleEl.innerText = data.buskitFeaturesSubtitle;
   [
-    "buskitFeaturesItem1",
-    "buskitFeaturesItem2",
-    "buskitFeaturesItem3",
-    "buskitFeaturesItem4",
-    "buskitFeaturesItem5",
-    "buskitFeaturesItem6",
-    "buskitFeaturesItem7",
-  ].forEach((itemId) => {
-    const itemTextEl = document.querySelector(`#${itemId} span:last-child`);
-    if (itemTextEl && data[itemId]) itemTextEl.innerText = data[itemId];
+    ["buskitBronze", 5],
+    ["buskitSilver", 6],
+    ["buskitGold", 8],
+  ].forEach(([prefix, count]) => {
+    const titleEl = document.getElementById(prefix + "Title");
+    if (titleEl && data[prefix + "Title"])
+      titleEl.innerText = data[prefix + "Title"];
+    for (let i = 1; i <= count; i++) {
+      const itemTextEl = document.querySelector(`#${prefix}${i} span:last-child`);
+      if (itemTextEl && data[prefix + i]) itemTextEl.innerText = data[prefix + i];
+    }
   });
-  const buskitFeaturesDescriptionEl = document.getElementById(
-    "buskitFeaturesDescription",
-  );
-  if (buskitFeaturesDescriptionEl)
-    buskitFeaturesDescriptionEl.innerText = data.buskitFeaturesDescription;
 
-  const liveFXGalleryTitleEl = document.getElementById("liveFXGalleryTitle");
-  if (liveFXGalleryTitleEl)
-    liveFXGalleryTitleEl.innerText = data.liveFXGalleryTitle;
-  const liveFXGallerySubtitleEl = document.getElementById(
-    "liveFXGallerySubtitle",
-  );
-  if (liveFXGallerySubtitleEl)
-    liveFXGallerySubtitleEl.innerText = data.liveFXGallerySubtitle;
-  [1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 13, 14].forEach((n) => {
-    const galEl = document.getElementById("liveFXGalleryImg" + n);
-    if (galEl) galEl.alt = data["liveFXGalleryAlt" + n];
-  });
+  const bronzeGalleryTitleEl = document.getElementById("bronzeGalleryTitle");
+  if (bronzeGalleryTitleEl && data.bronzeGalleryTitle)
+    bronzeGalleryTitleEl.innerText = data.bronzeGalleryTitle;
+  for (let n = 1; n <= 8; n++) {
+    const bronzeImgEl = document.getElementById("bronzeGalleryImg" + n);
+    if (bronzeImgEl && data.bronzeGalleryAlt)
+      bronzeImgEl.alt = data.bronzeGalleryAlt + " " + n;
+  }
+
+  const silverGalleryTitleEl = document.getElementById("silverGalleryTitle");
+  if (silverGalleryTitleEl && data.silverGalleryTitle)
+    silverGalleryTitleEl.innerText = data.silverGalleryTitle;
+  for (let n = 1; n <= 11; n++) {
+    const silverImgEl = document.getElementById("silverGalleryImg" + n);
+    if (silverImgEl && data.silverGalleryAlt)
+      silverImgEl.alt = data.silverGalleryAlt + " " + n;
+  }
+
+  const goldGalleryTitleEl = document.getElementById("goldGalleryTitle");
+  if (goldGalleryTitleEl && data.goldGalleryTitle)
+    goldGalleryTitleEl.innerText = data.goldGalleryTitle;
+  for (let n = 1; n <= 12; n++) {
+    const goldImgEl = document.getElementById("goldGalleryImg" + n);
+    if (goldImgEl && data.goldGalleryAlt)
+      goldImgEl.alt = data.goldGalleryAlt + " " + n;
+  }
 
   // بخش نحوه استفاده
   const liveMusicToolsTitleEl = document.getElementById("liveMusicToolsTitle");
@@ -2485,13 +630,8 @@ function changeLanguage(lang) {
   // لینک صفحه‌ی حریم خصوصی در فوتر (privacy.html) — متن و زبان صفحه‌ی مقصد
   const footerPrivacyEl = document.getElementById("footerPrivacy");
   if (footerPrivacyEl) {
-    const privacyLabels = {
-      fa: "سیاست حفظ حریم خصوصی",
-      en: "Privacy Policy",
-      tr: "Gizlilik Politikası",
-      de: "Datenschutzerklärung",
-    };
-    footerPrivacyEl.innerText = privacyLabels[lang] || privacyLabels.en;
+    footerPrivacyEl.innerText =
+      data.privacyLabel || (translations.en && translations.en.privacyLabel) || "Privacy Policy";
     footerPrivacyEl.href = "privacy.html?lang=" + lang;
   }
 
@@ -2542,10 +682,10 @@ function changeLanguage(lang) {
     data.contactTiktokLabel;
   document.getElementById("contactEmailLabel").innerText =
     data.contactEmailLabel;
-  document.getElementById("contactLocationLabel").innerText =
-    data.contactLocationLabel;
-  document.getElementById("contactLocationValue").innerText =
-    data.contactLocationValue;
+  document.getElementById("contactWhatsappLabel2").innerText =
+    data.contactWhatsappLabel;
+  document.getElementById("contactSocialTitle").innerText =
+    data.contactSocialTitle;
 
   // بخش نظر کاربران
   document.getElementById("reviewsTitle").innerText = data.reviewsTitle;
@@ -3243,206 +1383,8 @@ function recalcPurchaseTotals() {
 }
 
 // ====== مودال معرفی اپ (امکانات + دانلود + راهنمای استفاده) ======
-const appModalDataFA = {
-  livefx: {
-    title: "Buskit Tools - برنز",
-    subtitle: "لایو افکت حرفه‌ای با تاخیر صفر، مخصوص اجرای زنده",
-    features: [
-      "مجهز به هفت افکت محبوب و پر کاربرد",
-      "مجهز به تیونر کروماتیک",
-      "مجهز به مترونوم فلکسیبل",
-      "بیش از 20 تنظیم پیش‌فرض",
-    ],
-
-    description:
-      "در کنار افکتهای محبوب و پر کاربرد ، امکانات اولیه دیگری نیز به این نسخه از اپلیکیشن اضافه شده است ، وجود تیونر در خود اپ به منظور سهولت کوک کردن ساز، و وجود یک مترونوم با قابلیت منحصر به فرد ایجاد کلیه فیگورهای ریتمیک مورد نظر کاربر ،آنرا فراتر از یک افکت باکس قرار داده است مزیت یکتای این اپلیکیشن تاخیر صفر در پروسس صدای ورودی است که لذت یک اجرا را همواره به جان نوازنده گوارا و صدایی رویایی را به گوش مخاطبان میرساند. وجود بیش از 35 پریست  برای استفاده در شرایط و سازهای مختلف تسهیلی دیگر در سرعت بخشیدن به تنظیم و اجراهای نوازندگان میباشد.",
-    screenshots: [
-      "screenshots/b1.jpeg",
-      "screenshots/b2.jpeg",
-      "screenshots/eq.jpeg",
-      "screenshots/reverb.jpeg",
-    ],
-  },
-  lmt: {
-    title: "Buskit Tools - نقره",
-    subtitle: "لایو افکت حرفه‌ای به همراه امکانات اجرای زنده و ضبط",
-    features: [
-      "وجود سیزده افکت پر کاربرد و معروف",
-      "مجهز به تیونر کروماتیک",
-      "مترونوم فلکسیبل با قابلیت اجرای هرگونه ریتم لنگ و هر قالب و فیگور ریتمیک",
-      "مجهز به بیش از 40 تنظیم پیش‌فرض",
-      "امکان ضبط صدا",
-      "امکان لود بکینگ ترک",
-    ],
-
-    description:
-      "امکانات این اپلیکیشن، آنرا در جایگاهی فراتر از یک افکت باکس یا پدال بورد سخت افزاری قرار داده است امکان لود بکینگ ترک با قابلیت تغییر سرعت آن برای تمرین همنوازی همچنین وجود تیونر در خود اپ به منظور سهولت کوک کردن ساز، یا وجود یک مترونوم با قابلیت منحصر به فرد ایجاد کلیه فیگورهای ریتمیک مورد نظر از یک طرف و امکان ضبط صدای ورودی به همراه بکینگ ترک با فرمت wave  در حافظه گوشی آنرا به رویای هر نوازنده تبدیل کرده است که بدون نیاز به تجهیزات گرانقیمت و سنگین و حجیم بتوان در همه جا و همه زمان از ساز خود صدایی رویایی به گوش مخاطبان رسانید وجود بیش از 35 پریست  برای استفاده در شرایط مختلف و سازهای مختلف تسهیلی دیگر در اجراهای نوازندگان میباشد",
-    screenshots: [
-      "screenshots/s1.jpeg",
-      "screenshots/s2.jpeg",
-      "screenshots/s3.jpeg",
-      "screenshots/reverb.jpeg",
-    ],
-  },
-  pro: {
-    title: "Buskit Tools - طلا",
-    subtitle: "نسخه حرفه‌ای با امکانات کامل برای اجرا، ضبط و تمرین",
-    features: [
-      "مجهز به هجده  افکت پر کاربرد و معروف در دنیای موسیقی",
-      "حاوی بیش از 60 تنظیم پیش‌فرض",
-      "تیونر کروماتیک + میکروتونال برای کوک کردن یا تنظیم پرده های سازهای ایرانی یا ترکی با امکان تعیین میزان کوک",
-      "مترونوم فلکسیبل با قابلیت اجرای هرگونه ریتم لنگ و هر قالب و فیگور ریتمیک",
-      "امکان لود بکینگ ترک",
-      "امکان ضبط صدای میکس شده بکینگ ترک و صدای ساز داخل حافظه تلفن همراه با فرمت WAVE",
-      "امکان تغییر سرعت بکینگ ترک بدون تغییر فرکانس",
-    ],
-
-    description:
-      "امکانات این اپلیکیشن، آنرا در جایگاهی فراتر از یک افکت باکس یا پدال بورد سخت افزاری قرار داده است امکان لود بکینگ ترک با قابلیت تغییر سرعت بدون تغییر فرکانس آن برای تمرین همنوازی همچنین وجود یک مترونوم با قابلیت منحصر به فرد ایجاد کلیه فیگورهای ریتمیک مورد نظر از یک طرف و امکان ضبط صدای ورودی به همراه بکینگ ترک با فرمت wave  در حافظه گوشی آنرا به رویای هر نوازنده تبدیل کرده است که بدون نیاز به تجهیزات گرانقیمت و سنگین و حجیم بتوان در همه جا و همه زمان از ساز خود صدایی رویایی به گوش مخاطبان رسانید. تیونر کروماتیک میکروتونال آن نیز از نقاط قوت این نسخه از اپلیکیشن میباشد که امکان تعیین میزان انحراف از نوت اصلی را نیز به کاربر میدهد . وجود بیش از 40 پریست  برای استفاده در شرایط مختلف و سازهای مختلف تسهیلی دیگر در اجراهای نوازندگان میباشد",
-    screenshots: [
-      "screenshots/g1.jpeg",
-      "screenshots/g2.jpg",
-      "screenshots/pro-screen-wahwah.jpg",
-      "screenshots/eq.jpeg",
-    ],
-  },
-};
-const appModalDataEN = {
-  livefx: {
-    title: "Buskit Tools - Bronze",
-    subtitle:
-      "Professional live effect with zero latency, specifically for live performance",
-    features: [
-      "Equipped with 7 popular and widely used effects",
-      "Equipped with a chromatic tuner",
-      "Equipped with a flexible metronome",
-      "More than 20 default presets",
-    ],
-
-    description:
-      "Along with popular and widely used effects, other basic features have been added to this version of the application. The inclusion of a built-in tuner for easy instrument tuning, and a metronome with the unique capability to create any rhythmic figure desired by the user, places it far beyond a simple effects box. The unique advantage of this application is zero latency in processing the input sound, which always delivers the joy of a live performance to the musician and a dreamy sound to the audience's ears. The presence of more than 35 presets for use in different conditions and with various instruments is another convenience to speed up the setup and performances of musicians.",
-    screenshots: [
-      "screenshots/b1.jpeg",
-      "screenshots/b2.jpeg",
-      "screenshots/eq.jpeg",
-      "screenshots/reverb.jpeg",
-    ],
-  },
-  lmt: {
-    title: "Buskit Tools - Silver",
-    subtitle:
-      "Professional live effect along with live performance and recording features",
-    features: [
-      "Inclusion of thirteen widely used and famous effects",
-      "Equipped with a chromatic tuner",
-      "Flexible metronome with the capability to play any complex rhythm and any rhythmic template or figure",
-      "Equipped with more than 40 default presets",
-      "Audio recording capability",
-      "Backing track loading capability",
-    ],
-
-    description:
-      "The features of this application place it far beyond a simple effects box or hardware pedalboard. The ability to load backing tracks with speed adjustment for jam session practice, a built-in tuner for easy instrument tuning, and a metronome with the unique capability to create any desired rhythmic figure on one hand, combined with the ability to record input audio along with the backing track in WAVE format directly into the phone's memory on the other, makes it every musician's dream. It allows musicians to deliver a dreamy sound to their audience anywhere and anytime without the need for expensive, heavy, and bulky equipment. The presence of more than 35 presets for use in various conditions and with different instruments is another great convenience in musicians' performances.",
-    screenshots: [
-      "screenshots/s1.jpeg",
-      "screenshots/s2.jpeg",
-      "screenshots/s3.jpeg",
-      "screenshots/reverb.jpeg",
-    ],
-  },
-  pro: {
-    title: "Buskit Tools - Gold",
-    subtitle:
-      "Professional version with full features for performance, recording, and practice",
-    features: [
-      "Equipped with 18 widely used and famous effects in the music world",
-      "Contains more than 60 default presets",
-      "Chromatic + microtonal tuner for tuning or adjusting the quarter tones of Iranian or Turkish instruments with cents adjustment capability",
-      "Flexible metronome with the capability to play any complex rhythm and any rhythmic template or figure",
-      "Backing track loading capability",
-      "Capability to record the mixed audio of the backing track and instrument into the mobile phone memory in WAVE format",
-      "Backing track speed alteration capability without changing the pitch frequency",
-    ],
-
-    description:
-      "The features of this application place it far beyond a simple effects box or hardware pedalboard. The ability to load backing tracks with speed adjustment without changing the pitch frequency for jam session practice, a metronome with the unique capability to create any desired rhythmic figure on one hand, combined with the ability to record input audio along with the backing track in WAVE format into the phone's memory on the other, makes it every musician's dream. It allows musicians to deliver a dreamy sound to their audience anywhere and anytime without the need for expensive, heavy, and bulky equipment. Its microtonal chromatic tuner is also one of the strengths of this version of the application, allowing the user to determine the exact deviation from the main note. The presence of more than 40 presets for use in various conditions and with different instruments is another great convenience in musicians' performances.",
-    screenshots: [
-      "screenshots/g1.jpeg",
-      "screenshots/g2.jpg",
-      "screenshots/pro-screen-wahwah.jpg",
-      "screenshots/eq.jpeg",
-    ],
-  },
-};
-
-const appModalDataTR = {
-  livefx: {
-    title: "Buskit Tools - Bronz",
-    subtitle:
-      "Canlı performanslar için özel, sıfır gecikmeli profesyonel canlı efekt",
-    features: [
-      "yedi adet popüler ve yaygın kullanılan efekt ile donatılmıştır",
-      "Kromatik akort cihazı (tuner) mevcuttur",
-      "Esnek metronom özelliği içerir",
-      "20'ten fazla hazır ayar (preset)",
-    ],
-
-    description:
-      "Popüler ve yaygın olarak kullanılan efektlerin yanı sıra, uygulamanın bu sürümüne diğer temel özellikler de eklenmiştir. Enstrümanı kolayca akort etmek için uygulama içi tuner ve kullanıcının istediği tüm ritmik figürleri oluşturabilen benzersiz bir metronomun varlığı, onu sıradan bir efekt kutusunun çok ötesine taşır. Bu uygulamanın benzersiz avantajı, giriş sesinin işlenmesinde sıfır gecikme sunmasıdır; bu da müzisyene her zaman canlı bir performansın keyfini yaşatır ve dinleyicilere rüya gibi bir ses sunar. Farklı koşullarda ve çeşitli enstrümanlarla kullanılmak üzere 35'ten fazla hazır ayarın bulunması, müzisyenlerin kurulum ve performans hızını artıran bir diğer kolaylıktır.",
-    screenshots: [
-      "screenshots/b1.jpeg",
-      "screenshots/b2.jpeg",
-      "screenshots/eq.jpeg",
-      "screenshots/reverb.jpeg",
-    ],
-  },
-  lmt: {
-    title: "Buskit Tools - Gümüş",
-    subtitle:
-      "Canlı performans ve kayıt özelliklerine sahip profesyonel canlı efekt",
-    features: [
-      "On üç adet yaygın kullanılan ve ünlü efekt seçeneği",
-      "Kromatik akort cihazı (tuner) mevcuttur",
-      "Her türlü aksak ritmi ve her ritmik kalıbı/figürü çalabilen esnek metronom",
-      "40'ten fazla hazır ayar ile donatılmıştır",
-      "Ses kaydetme imkanı",
-      "Altyapı (backing track) yükleme seçeneği",
-      "Altyapı (backing track) hızını değiştirme özelliği",
-    ],
-
-    description:
-      "Bu uygulamanın özellikleri, onu sıradan bir efekt kutusu veya donanımsal pedalboard'un çok ötesinde bir konuma yerleştirmektedir. Birlikte çalma egzersizleri için hızı ayarlanabilir altyapı parçaları (backing track) yükleme özelliği, kolay akort için dahili tuner ve her türlü ritmik figürü oluşturabilen benzersiz metronom bir yanda; giriş sesini altyapıyla birlikte WAVE formatında doğrudan telefon hafızasına kaydetme imkanı diğer yanda birleşerek bu uygulamayı her müzisyenin rüyası haline getiriyor. Pahalı, ağır ve hacimli ekipmanlara ihtiyaç duymadan, her yerde ve her zaman dinleyicilere büyüleyici bir ses ulaştırmayı sağlar. Çeşitli koşullarda ve farklı enstrümanlarda kullanılmak üzere 35'ten fazla hazır ayarın varlığı, müzisyenlerin performanslarında büyük bir kolaylık sağlamaktadır.",
-    screenshots: [
-      "screenshots/s1.jpeg",
-      "screenshots/s2.jpeg",
-      "screenshots/s3.jpeg",
-      "screenshots/reverb.jpeg",
-    ],
-  },
-  pro: {
-    title: "Buskıt Tools - Altın",
-    subtitle:
-      "Performans, kayıt ve pratik için tam özellikli profesyonel sürüm",
-    features: [
-      "Müzik dünyasında yaygın olarak kullanılan ve ünlü 18 efektle donatılmıştır",
-      "25'tan fazla hazır ayar (preset) içerir",
-      "İran veya Türk enstrümanlarının koma/perde ayarlarını yapmak için sapma miktarını belirleme özellikli kromatik + mikrotonal tuner",
-      "Her türlü aksak ritmi ve her ritmik kalıbı/figürü çalabilen esnek metronom",
-      "Altyapı (backing track) yükleme seçeneği",
-      "Altyapı parçası ile enstrüman sesinin mikslenmiş halini WAVE formatında telefon hafızasına kaydedebilme",
-      "Frekansı (perdeyi) değiştirmeden altyapı (backing track) hızını değiştirebilme özelliği",
-    ],
-
-    description:
-      "Bu uygulamanın özellikleri, onu sıradan bir efekt kutusu veya donanımsal pedalboard'un çok ötesinde bir konuma yerleştirmektedir. Beraber pratik yapmak için frekansı bozmadan hızı ayarlanabilir altyapı parçaları yükleme özelliği, her türlü ritmik figürü oluşturabilen benzersiz metronom bir yanda; giriş sesini altyapıyla birlikte WAVE formatında telefon hafızasına kaydetme imkanı diğer yanda birleşerek bu uygulamayı her müzisyenin rüyası haline getiriyor. Pahalı, ağır ve hacimli ekipmanlara ihtiyaç duymadan, her yerde ve her zaman enstrümanınızdan rüya gibi bir ses çıkarmanızı sağlar. Mikrotonal kromatik akort cihazı (tuner) ise bu sürümün en güçlü yönlerinden biri olup, kullanıcının ana sesten olan sapma miktarını (koma) tam olarak belirlemesine olanak tanır. Çeşitli koşullarda ve farklı enstrümanlarda kullanılmak üzere 40'tan fazla hazır ayarın bulunması, müzisyenlerin performanslarında sağlanan bir diğer büyük kolaylıktır.",
-    screenshots: [
-      "screenshots/g1.jpeg",
-      "screenshots/g2.jpeg",
-      "screenshots/pro-screen-wahwah.jpg",
-      "screenshots/eq.jpeg",
-    ],
-  },
-};
+// متن‌های این پنجره برای هر زبان در فایل خودش است: lang/<code>.js ← کلید appModals
+// (نمونه‌ها: lang/fa.js ، lang/en.js ، lang/tr.js)
 
 // ====== ثبت آمار دانلود هر اپ در Firestore ======
 // source: "site" یعنی دانلود از طریق دکمه‌ی داخل همین سایت (index.html)،
@@ -3483,13 +1425,38 @@ function downloadBuskitTools() {
   document.body.removeChild(link);
 }
 
-function openAppModal(appKey) {
-  let data = appModalDataTR[appKey];
-  const langBtn = document.getElementById("langDropdownBtn");
+// لینک اپلیکیشن در مایکت و کافه‌بازار را اینجا قرار دهید.
+// تا وقتی خالی باشد، دکمه‌ها صفحه‌ی اصلی همان فروشگاه را باز می‌کنند.
+const STORE_LINKS = {
+  myket: "", // مثال: "https://myket.ir/app/your.package.name"
+  bazaar: "", // مثال: "https://cafebazaar.ir/app/your.package.name"
+};
 
-  if (langBtn.innerText === "فارسی") data = appModalDataFA[appKey];
-  else if (langBtn.innerText === "Türkçe") data = appModalDataTR[appKey];
-  else if (langBtn.innerText === "English") data = appModalDataEN[appKey];
+function openStoreLink(appKey, link, fallback) {
+  trackAppDownload(appKey, "site");
+  window.open(link || fallback, "_blank", "noopener");
+}
+
+function downloadBuskitMyket() {
+  openStoreLink("buskit-tools-myket", STORE_LINKS.myket, "https://myket.ir");
+}
+
+function downloadBuskitBazaar() {
+  openStoreLink(
+    "buskit-tools-bazaar",
+    STORE_LINKS.bazaar,
+    "https://cafebazaar.ir",
+  );
+}
+
+function openAppModal(appKey) {
+  // متن پنجره‌ی هر اپ از فایل زبان فعلی (appModals) خوانده می‌شود؛
+  // اگر آن زبان این بخش را نداشت، نسخه‌ی انگلیسی نشان داده می‌شود.
+  const langData = translations[currentLang] || {};
+  const fallbackData = translations.en || {};
+  const data =
+    (langData.appModals && langData.appModals[appKey]) ||
+    (fallbackData.appModals && fallbackData.appModals[appKey]);
 
   if (!data) return;
 
@@ -3557,13 +1524,8 @@ function copyToClipboard(text, button) {
     .writeText(text)
     .then(() => {
       const originalText = button.innerText;
-      const copiedLabels = {
-        fa: "کپی شد!",
-        en: "Copied!",
-        tr: "Kopyalandı!",
-        de: "Kopiert!",
-      };
-      button.innerText = copiedLabels[currentLang] || copiedLabels.en;
+      const copiedData = translations[currentLang] || translations.en || {};
+      button.innerText = copiedData.copiedLabel || "Copied!";
       button.style.color = "#10b981";
       setTimeout(() => {
         button.innerText = originalText;
@@ -3621,23 +1583,13 @@ function computeLicenseUsdAmounts() {
 // تتر» بدون معادل نمایش داده می‌شود.
 function buildLicenseUsdParenText(lang) {
   const amounts = computeLicenseUsdAmounts();
-  const irrText = amounts ? formatLicenseNumber(amounts.irrAmount, 0) : null;
-  const tryText = amounts ? formatLicenseNumber(amounts.liraAmount, 0) : null;
-  const templates = {
-    fa: amounts
-      ? `(۵۰ دلار یا تتر، معادل ${irrText} ریال، همچنین معادل ${tryText} لیر ترکیه)`
-      : "(۵۰ دلار یا تتر)",
-    en: amounts
-      ? `(50 USD or USDT, equivalent to ${irrText} IRR, and also equivalent to ${tryText} Turkish Lira)`
-      : "(50 USD or USDT)",
-    tr: amounts
-      ? `(50 USD veya USDT, ${irrText} IRR karşılığı, ayrıca ${tryText} Türk Lirası karşılığı)`
-      : "(50 USD veya USDT)",
-    de: amounts
-      ? `(50 USD oder USDT, entspricht ${irrText} IRR, sowie entspricht ${tryText} Türkischer Lira)`
-      : "(50 USD oder USDT)",
-  };
-  return templates[lang] || templates.en;
+  const data = translations[lang] || translations.en || {};
+  if (!amounts) return data.licenseUsdParenNoRates || "(50 USD)";
+  const irrText = formatLicenseNumber(amounts.irrAmount, 0);
+  const tryText = formatLicenseNumber(amounts.liraAmount, 0);
+  return (data.licenseUsdParen || "")
+    .replace("{IRR}", irrText)
+    .replace("{TRY}", tryText);
 }
 
 // متن کامل مرحله‌ی پایانی مودال خرید لایسنس، با جایگزینی توکن {{USD_PAREN}}
@@ -3674,8 +1626,7 @@ function updateLicenseModalRatesUI() {
 
   const currencyTry = data.shopCurrency || "لیر";
   const currencyIrr = data.rialLabel || "ریال";
-  const localeMap = { fa: "fa-IR", en: "en-US", tr: "tr-TR", de: "de-DE" };
-  const dateLocale = localeMap[currentLang] || "en-US";
+  const dateLocale = BuskitI18n.locale(currentLang);
 
   if (!tryToUsdRate || !tryToIrrRate) {
     if (rateUsdTryEl)
@@ -3916,18 +1867,15 @@ function disableHardwarePurchasing() {
 
 // بارگذاری اولیه با زبان پیش‌فرض (فارسی)
 window.addEventListener("DOMContentLoaded", () => {
-  let startLang = "tr";
-  try {
-    const saved = localStorage.getItem("buskitLang");
-    if (saved && translations[saved]) startLang = saved;
-  } catch (e) {}
+  buildLangMenu();
+  // زبان شروع (ذخیره‌شده یا پیش‌فرض) از فایل lang/<code>.js خوانده می‌شود.
   // selectLanguage علاوه بر changeLanguage، پرچم/برچسب دراپ‌داون را هم همگام می‌کند
-  if (startLang !== "tr") selectLanguage(startLang);
-  else changeLanguage("tr");
-  disableHardwarePurchasing();
-  if (typeof recalcPurchaseTotals === "function") {
-    recalcPurchaseTotals();
-  }
+  selectLanguage(BuskitI18n.startLang).finally(() => {
+    disableHardwarePurchasing();
+    if (typeof recalcPurchaseTotals === "function") {
+      recalcPurchaseTotals();
+    }
+  });
 });
 
 // ====== بخش نظر کاربران (ذخیره در Firebase Firestore) ======
@@ -3941,11 +1889,11 @@ const REVIEW_QUESTION_KEYS = [0, 1, 2, 3, 4];
 const ANSWER_KEYS = ["excellent", "good", "bad", "dontknow"];
 
 function getReviewQuestions() {
-  return translations[currentLang].reviewQuestions;
+  return (translations[currentLang] || {}).reviewQuestions || [];
 }
 
 function getAnswerLabel(key) {
-  const data = translations[currentLang];
+  const data = translations[currentLang] || {};
   const map = {
     excellent: data.answerExcellent,
     good: data.answerGood,
@@ -4096,7 +2044,7 @@ function hideReviewError() {
 async function submitReview(event) {
   event.preventDefault();
   hideReviewError();
-  const data = translations[currentLang];
+  const data = translations[currentLang] || {};
 
   const name = document.getElementById("reviewName").value.trim();
   const email = document.getElementById("reviewEmail").value.trim();
@@ -4239,7 +2187,7 @@ function renderReviews(snapshot) {
   updateSummary(snapshot);
 
   if (snapshot.empty) {
-    list.innerHTML = `<p class="text-slate-500 text-sm text-center py-6">${translations[currentLang].reviewsEmptyTxt}</p>`;
+    list.innerHTML = `<p class="text-slate-500 text-sm text-center py-6">${(translations[currentLang] || {}).reviewsEmptyTxt}</p>`;
     return;
   }
 
@@ -4271,7 +2219,7 @@ function loadReviews() {
       (err) => {
         console.error("خطا در بارگذاری نظرات:", err);
         document.getElementById("reviewsList").innerHTML =
-          `<p class="text-rose-400 text-sm text-center py-6">${translations[currentLang].reviewsLoadErrorTxt}</p>`;
+          `<p class="text-rose-400 text-sm text-center py-6">${(translations[currentLang] || {}).reviewsLoadErrorTxt}</p>`;
       },
     );
 }
@@ -4291,7 +2239,7 @@ function hideQuestionError() {
 async function submitQuestion(event) {
   event.preventDefault();
   hideQuestionError();
-  const data = translations[currentLang];
+  const data = translations[currentLang] || {};
 
   const name = document.getElementById("questionName").value.trim();
   const message = document.getElementById("questionMessage").value.trim();
@@ -4330,10 +2278,9 @@ async function submitQuestion(event) {
 
 function formatQuestionDate(timestamp) {
   if (!timestamp || !timestamp.toDate) return "";
-  const localeMap = { fa: "fa-IR", en: "en-US", tr: "tr-TR", de: "de-DE" };
   return timestamp
     .toDate()
-    .toLocaleDateString(localeMap[currentLang] || "en-US", {
+    .toLocaleDateString(BuskitI18n.locale(currentLang), {
       year: "numeric",
       month: "long",
       day: "numeric",
@@ -4342,7 +2289,7 @@ function formatQuestionDate(timestamp) {
 
 function renderQuestions(snapshot) {
   const list = document.getElementById("questionsList");
-  const data = translations[currentLang];
+  const data = translations[currentLang] || {};
 
   if (snapshot.empty) {
     list.innerHTML = `<p class="text-slate-500 text-sm text-center py-6">${data.qaEmptyTxt}</p>`;
@@ -4399,36 +2346,51 @@ function loadQuestions() {
       (err) => {
         console.error("خطا در بارگذاری پیام‌ها:", err);
         document.getElementById("questionsList").innerHTML =
-          `<p class="text-rose-400 text-sm text-center py-6">${translations[currentLang].qaLoadErrorTxt}</p>`;
+          `<p class="text-rose-400 text-sm text-center py-6">${(translations[currentLang] || {}).qaLoadErrorTxt}</p>`;
       },
     );
 }
 
 // ====== انتخابگر زبان کاستوم (با پرچم واقعی) ======
-const langFlags = {
-  fa: {
-    flag: "https://flagcdn.com/24x18/ir.png",
-    flag2x: "https://flagcdn.com/48x36/ir.png",
-    label: "فارسی",
-  },
-  en: {
-    flag: "https://flagcdn.com/24x18/gb.png",
-    flag2x: "https://flagcdn.com/48x36/gb.png",
-    label: "English",
-  },
-  tr: {
-    flag: "https://flagcdn.com/24x18/tr.png",
-    flag2x: "https://flagcdn.com/48x36/tr.png",
-    label: "Türkçe",
-  },
-  de: {
-    flag: "https://flagcdn.com/24x18/de.png",
-    flag2x: "https://flagcdn.com/48x36/de.png",
-    label: "Deutsch",
-  },
-};
+// فهرست زبان‌ها (اسم، پرچم، locale) از lang/languages.js می‌آید و آیتم‌های منو
+// خودکار از روی آن ساخته می‌شوند؛ برای زبان جدید اینجا کاری لازم نیست.
+function buildLangMenu() {
+  const list = document.getElementById("langDropdownList");
+  if (!list) return;
+  list.innerHTML = "";
+  list.classList.add("max-h-80", "overflow-y-auto");
+  BuskitI18n.languages.forEach((l) => {
+    const li = document.createElement("li");
+    li.setAttribute("role", "option");
+    li.dataset.lang = l.code;
+    li.className =
+      "flex items-center gap-2 px-3 py-2.5 text-slate-200 hover:bg-white/10 hover:text-accentNeon cursor-pointer transition-colors";
+    li.onclick = () => selectLanguage(l.code);
+    const img = document.createElement("img");
+    img.src = `https://flagcdn.com/24x18/${l.flag}.png`;
+    img.srcset = `https://flagcdn.com/48x36/${l.flag}.png 2x`;
+    img.width = 20;
+    img.height = 15;
+    img.alt = "";
+    img.className = "rounded-[2px] shrink-0";
+    const span = document.createElement("span");
+    span.textContent = l.label;
+    li.append(img, span);
+    list.appendChild(li);
+  });
+}
 
-let langDropdownOpen = false;
+// پرچم و برچسب دکمه‌ی منو را با زبان داده‌شده هماهنگ می‌کند
+function syncLangDropdown(lang) {
+  const info = BuskitI18n.meta(lang);
+  if (!info) return;
+  const flagEl = document.getElementById("langDropdownFlag");
+  flagEl.src = `https://flagcdn.com/24x18/${info.flag}.png`;
+  flagEl.srcset = `https://flagcdn.com/48x36/${info.flag}.png 2x`;
+  document.getElementById("langDropdownLabel").innerText = info.label;
+}
+
+var langDropdownOpen = false;
 
 function toggleLangDropdown() {
   langDropdownOpen = !langDropdownOpen;
@@ -4458,15 +2420,9 @@ function closeLangDropdown() {
 }
 
 function selectLanguage(lang) {
-  const info = langFlags[lang];
-  if (info) {
-    const flagEl = document.getElementById("langDropdownFlag");
-    flagEl.src = info.flag;
-    flagEl.srcset = info.flag2x + " 2x";
-    document.getElementById("langDropdownLabel").innerText = info.label;
-  }
+  syncLangDropdown(lang);
   closeLangDropdown();
-  changeLanguage(lang);
+  return changeLanguage(lang);
 }
 
 // بستن منوی زبان با کلیک بیرون از آن

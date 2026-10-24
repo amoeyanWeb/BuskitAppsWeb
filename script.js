@@ -15,12 +15,6 @@ const prices = {
   mic: 6, // میکروفون گیره‌ای پیزو
   free: 0, // لایسنس رایگان 5 روزه
 };
-// ضریب تعدیل تبدیل لیر به تومان — روی نرخ خام لیر→ریال/تومان (که هر روز از
-// سرور خونده میشه) ضرب میشه. مثلاً اگر نرخ خام میگه ۱۰۰ لیر = ۴۰۰ هزار تومان
-// ولی می‌خوای معادل نمایش‌داده‌شده ۲۴۰ هزار تومان باشه، این عدد رو 0.6 بذار
-// (400,000 × 0.6 = 240,000). فقط همین یک عدد رو تغییر بده، جای دیگه‌ای لازم
-// نیست دستکاری بشه. عدد 1 یعنی بدون هیچ تعدیلی، دقیقاً همون نرخ خام.
-const TOMAN_RATE_ADJUSTMENT = 0.6;
 // نگاشت هر کارت فروشگاه (بر اساس آیدی p1..p16 که در index.html استفاده شده)
 // به مقدار درست از آبجکت prices بالا — این همون ترتیبی هست که در متن اصلی
 // index.html به‌صورت ${prices.XX.YY} مشخص شده بود.
@@ -89,124 +83,6 @@ BuskitI18n.onRegister((code, data) => {
   });
 });
 
-// ====== نرخ لیر ترکیه به ریال/دلار (خوانده‌شده از سرور Firestore) ======
-// نرخ واقعی دیگر در مرورگر کاربر از یک API خارجی خوانده نمی‌شود.
-// در عوض، خودِ سرور لایسنس (Render، index.js) هر روز به وقت استانبول
-// ساعت ۱۳:۰۰ نرخ دلار/لیر (doviz.com و در صورت شکست Frankfurter) و ساعت
-// ۱۵:۰۰ نرخ دلار/ریال بازار آزاد (bonbast و در صورت شکست brsapi) را می‌گیرد
-// و در سند Firestore به آدرس rates/latest ذخیره می‌کند (نگاه کنید به بخش
-// «نرخ ارز» در ابتدای index.js). اگر منبعی جواب ندهد هر ۳۰ دقیقه دوباره
-// تلاش می‌شود و تا آن زمان آخرین نرخ معتبر (حتی مال روز قبل) همچنان همینجا
-// خوانده می‌شود. اینجا فقط همان سند خوانده می‌شود — سریع، بدون CORS و بدون
-// فشار به API بیرونی.
-let tryToIrrRate = null; // ۱ لیر معادل چند ریال است
-let tryToUsdRate = null; // ۱ لیر معادل چند دلار است
-let ratesUpdatedAt = null; // تاریخ به‌روزرسانی نرخ (از فیرستور در صورت وجود، وگرنه لحظه‌ی دریافت در مرورگر)
-
-async function fetchTryToIrrRate() {
-  try {
-    const doc = await db.collection("rates").doc("latest").get();
-    if (!doc.exists) {
-      console.warn("سند نرخ ارز هنوز در Firestore ساخته نشده است.");
-      return;
-    }
-    const data = doc.data();
-    if (data && data.tryToRial) {
-      tryToIrrRate = data.tryToRial;
-      tryToUsdRate = data.tryToUsd || null;
-      // اگر سند فیرستور یک فیلد زمانی معتبر داشته باشد از همان استفاده می‌شود،
-      // در غیر این صورت لحظه‌ی همین دریافت در مرورگر به عنوان تاریخ به‌روزرسانی در نظر گرفته می‌شود
-      const tsField = data.updatedAt || data.lastUpdated || data.date || null;
-      if (tsField && typeof tsField.toDate === "function") {
-        ratesUpdatedAt = tsField.toDate();
-      } else if (tsField) {
-        ratesUpdatedAt = new Date(tsField);
-      } else {
-        ratesUpdatedAt = new Date();
-      }
-      updateRialPrices();
-      if (typeof updateLicenseModalRatesUI === "function") {
-        updateLicenseModalRatesUI();
-      }
-    } else {
-      console.error("داده نرخ ارز در Firestore ناقص است:", data);
-    }
-  } catch (err) {
-    console.error("خطا در خواندن نرخ ارز از Firestore:", err);
-  }
-}
-
-// معادل ریالی هر قیمت رو کنار همون قیمت (لیر) می‌نویسه
-// مبلغ ریالی رو به «میلیون» رند می‌کنه (برای اعداد کوچیک‌تر از ۱۰ میلیون، یک رقم اعشار نگه می‌داره)
-// (این تابع برای سازگاری با کدهای قدیمی نگه داشته شده؛ نمایش فعلی کارت‌ها
-// و فرم خرید از formatTomanUsdAmount استفاده می‌کنند)
-function formatRialAmount(rialAmount, data) {
-  const rialLabel = (data && data.rialLabel) || "ریال";
-  const millionLabel = (data && data.millionLabel) || "میلیون";
-  const millions = rialAmount / 1000000;
-  const rounded =
-    millions >= 10 ? Math.round(millions) : Math.round(millions * 10) / 10;
-  return `≈ ${rounded.toLocaleString("en-US")} ${millionLabel} ${rialLabel}`;
-}
-
-// معادل «تومان» و «دلار» یک مبلغ لیر رو با هم برمی‌گردونه، مثلاً:
-// "≈ 24 میلیون تومان (~$28)"
-// از tryToIrrRate (لیر->ریال) و tryToUsdRate (لیر->دلار) که در Firestore
-// ذخیره شده استفاده می‌کنه. اگه نرخ دلار در دسترس نبود، فقط تومان نشون داده میشه.
-function formatTomanUsdAmount(liraAmount, data) {
-  const tomanLabel = (data && data.tomanLabel) || "تومان";
-  const millionLabel = (data && data.millionLabel) || "میلیون";
-
-  const rialAmount = liraAmount * tryToIrrRate * TOMAN_RATE_ADJUSTMENT;
-  const tomanAmount = rialAmount / 10;
-  const tomanMillions = tomanAmount / 1000000;
-  const roundedToman =
-    tomanMillions >= 10
-      ? Math.round(tomanMillions)
-      : Math.round(tomanMillions * 10) / 10;
-
-  let usdPart = "";
-  if (tryToUsdRate) {
-    const usdAmount = liraAmount * tryToUsdRate;
-    const roundedUsd =
-      usdAmount >= 100
-        ? Math.round(usdAmount)
-        : Math.round(usdAmount * 100) / 100;
-    usdPart = ` (~$${roundedUsd.toLocaleString("en-US")})`;
-  }
-
-  return `≈ ${roundedToman.toLocaleString("en-US")} ${millionLabel} ${tomanLabel}${usdPart}`;
-}
-
-// همان بروزرسانی، برای تمام محصولات (نه فقط p1..p5) روی هر PriceVal/RialVal
-// موجود در صفحه اجرا می‌شود؛ اگر عنصر RialVal برای یک محصول وجود نداشته باشد
-// به‌سادگی نادیده گرفته می‌شود، پس اضافه/کم‌کردن محصولات نیازی به تغییر این تابع ندارد.
-function updateRialPrices() {
-  if (!tryToIrrRate) return;
-  const data = translations[currentLang] || {};
-  const allPriceValEls = document.querySelectorAll('[id$="PriceVal"]');
-  allPriceValEls.forEach((valEl) => {
-    const pid = valEl.id.replace(/PriceVal$/, "");
-    const rialEl = document.getElementById(pid + "RialVal");
-    if (!rialEl) return;
-    const liraPrice = parseFloat(valEl.innerText);
-    if (!liraPrice || isNaN(liraPrice) || liraPrice <= 0) {
-      rialEl.innerText = "";
-      return;
-    }
-    rialEl.innerText = formatTomanUsdAmount(liraPrice, data);
-  });
-  if (typeof recalcPurchaseTotals === "function") {
-    recalcPurchaseTotals();
-  }
-}
-
-// دریافت اولیه‌ی نرخ از Firestore، و بازخوانی دوره‌ای آن هر یک ساعت
-// (نرخ خودش فقط دو بار در روز توسط سرور به‌روز می‌شود؛ این تایمر صرفاً
-// باعث می‌شود اگر کاربر صفحه را برای مدت طولانی باز نگه داشت، آخرین
-// مقدار به‌روزشده روی سرور را هم بدون رفرش صفحه ببیند)
-fetchTryToIrrRate();
-setInterval(fetchTryToIrrRate, 60 * 60 * 1000);
 
 // تغییر زبان: اگر فایل آن زبان هنوز لود نشده باشد اول از lang/<code>.js
 // خوانده می‌شود و بعد متن‌ها روی صفحه اعمال می‌شوند.
@@ -267,6 +143,21 @@ function applyLanguage(lang) {
   document.getElementById("navVideos").innerText = data.navVideos;
   document.getElementById("navMessageme").innerText = data.navMessageme;
   document.getElementById("navContacts").innerText = data.navContacts;
+
+  // منوی دانلودها (دسکتاپ + موبایل)
+  [
+    ["navDownloads", "navDownloads"],
+    ["navDlGooglePlay", "navDlGooglePlay"],
+    ["navDlMyket", "navDlMyket"],
+    ["navDlBazaar", "navDlBazaar"],
+    ["navDlIntro", "navDlIntro"],
+    ["navDlManual", "navDlManual"],
+  ].forEach(([id, key]) => {
+    ["", "Mobile"].forEach((suffix) => {
+      const el = document.getElementById(id + suffix);
+      if (el && data[key]) el.innerText = data[key];
+    });
+  });
 
   // منوی موبایل (همبرگری)
   document.getElementById("navHomeMobile").innerText = data.navHome;
@@ -407,7 +298,7 @@ function applyLanguage(lang) {
   const bronzeGalleryTitleEl = document.getElementById("bronzeGalleryTitle");
   if (bronzeGalleryTitleEl && data.bronzeGalleryTitle)
     bronzeGalleryTitleEl.innerText = data.bronzeGalleryTitle;
-  for (let n = 1; n <= 8; n++) {
+  for (let n = 1; n <= 11; n++) {
     const bronzeImgEl = document.getElementById("bronzeGalleryImg" + n);
     if (bronzeImgEl && data.bronzeGalleryAlt)
       bronzeImgEl.alt = data.bronzeGalleryAlt + " " + n;
@@ -416,7 +307,7 @@ function applyLanguage(lang) {
   const silverGalleryTitleEl = document.getElementById("silverGalleryTitle");
   if (silverGalleryTitleEl && data.silverGalleryTitle)
     silverGalleryTitleEl.innerText = data.silverGalleryTitle;
-  for (let n = 1; n <= 11; n++) {
+  for (let n = 1; n <= 12; n++) {
     const silverImgEl = document.getElementById("silverGalleryImg" + n);
     if (silverImgEl && data.silverGalleryAlt)
       silverImgEl.alt = data.silverGalleryAlt + " " + n;
@@ -728,11 +619,6 @@ function applyLanguage(lang) {
     renderQuestions(lastQuestionsSnapshot);
   }
 
-  // به‌روزرسانی معادل ریالی قیمت‌ها با زبان جدید (از نرخ کش‌شده استفاده می‌کند)
-  if (typeof updateRialPrices === "function") {
-    updateRialPrices();
-  }
-
   const licenseModalTitleEl = document.getElementById("licenseModalTitle");
   if (licenseModalTitleEl && typeof updateLicenseModalTitle === "function") {
     updateLicenseModalTitle();
@@ -742,8 +628,6 @@ function applyLanguage(lang) {
   const licensePayableLabelEl = document.getElementById("licensePayableLabel");
   if (licensePayableLabelEl)
     licensePayableLabelEl.innerText = data.licensePayableLabel;
-  const licenseTryLabelEl = document.getElementById("licenseTryLabel");
-  if (licenseTryLabelEl) licenseTryLabelEl.innerText = data.licenseTryLabel;
   const licenseIrrLabelEl = document.getElementById("licenseIrrLabel");
   if (licenseIrrLabelEl) licenseIrrLabelEl.innerText = data.licenseIrrLabel;
   const licenseDiscountLabelEl = document.getElementById("licenseDiscountLabel");
@@ -1336,8 +1220,6 @@ function recalcPurchaseTotals() {
   const subtotalLiraEl = document.getElementById("purchaseSubtotalLira");
   const shippingLiraEl = document.getElementById("purchaseShippingLira");
   const totalLiraEl = document.getElementById("purchaseTotalLira");
-  const subtotalRialEl = document.getElementById("purchaseSubtotalRial");
-  const totalRialEl = document.getElementById("purchaseTotalRial");
   const discountRowEl = document.getElementById("purchaseDiscountRow");
   const discountRowAmountEl = document.getElementById(
     "purchaseDiscountRowAmount",
@@ -1354,18 +1236,6 @@ function recalcPurchaseTotals() {
     } else {
       discountRowEl.classList.add("hidden");
     }
-  }
-
-  if (tryToIrrRate) {
-    if (subtotalRialEl)
-      subtotalRialEl.innerText =
-        subtotal > 0 ? formatTomanUsdAmount(subtotal, data) : "—";
-    if (totalRialEl)
-      totalRialEl.innerText =
-        total > 0 ? formatTomanUsdAmount(total, data) : "—";
-  } else {
-    if (subtotalRialEl) subtotalRialEl.innerText = "—";
-    if (totalRialEl) totalRialEl.innerText = "—";
   }
 
   // نمایش/الزامی کردن فیلد آدرس پستی فقط در صورت انتخاب کالای سخت‌افزاری
@@ -1540,24 +1410,14 @@ function copyToClipboard(text, button) {
 // ====================================================================
 //  💵 مودال خرید لایسنس با قیمت دلاری (دکمه‌ی «خرید لایسنس» زیر دکمه دانلود)
 // ====================================================================
-// این مودال مستقل از فرم چند مرحله‌ای فروشگاه (purchaseModal) است: یک مبلغ
-// ثابت ۵۰ دلاری را با نرخ لحظه‌ای لیر/ریال (همان نرخی که از Firestore خونده
-// میشه، در بالای فایل: tryToIrrRate و tryToUsdRate) به لیر و ریال تبدیل
-// می‌کند و برای پرداخت از حساب ایران، تخفیف ۴۰٪ ویژه ایرانیان را نیز محاسبه
-// و نمایش می‌دهد. در پایان فقط نام و ایمیل کاربر پرسیده می‌شود (بدون تماس با
-// سرور لایسنس) و به او گفته می‌شود رسید واریزی را به ایمیل ما ارسال کند.
+// این مودال مستقل از فرم چند مرحله‌ای فروشگاه (purchaseModal) است: مبلغ ثابت
+// ۵۰ دلاری و مبلغ ریالیِ ثابت (بدون هیچ نرخ ارز زنده) را نشان می‌دهد و برای
+// پرداخت از حساب ایران، تخفیف ۴۰٪ ویژه ایرانیان را محاسبه و نمایش می‌دهد.
+// در پایان فقط نام و ایمیل کاربر پرسیده می‌شود (بدون تماس با سرور لایسنس) و
+// به او گفته می‌شود رسید واریزی را به ایمیل ما ارسال کند.
 const LICENSE_USD_AMOUNT = 50; // مبلغ پایه لایسنس به دلار
 const LICENSE_IRAN_DISCOUNT = 0.4; // ۴۰٪ تخفیف ویژه واریز به حساب ایران
-// ضریب تعدیل معادل ریالی قیمت لایسنس — هر جا معادل ریال/تومان مبلغ ۵۰ دلاری
-// لایسنس از روی نرخ لحظه‌ای دلار→ریال محاسبه می‌شود (هم متن پایانی مودال خرید
-// لایسنس، هم مبلغ و تخفیف نمایش داده‌شده داخل خود مودال)، همین یک عدد در نرخ
-// دلار→ریال ضرب می‌شود تا مبلغ نمایشی ارزان‌تر شود. مثلاً 0.6 یعنی معادل
-// ریالیِ نمایش‌داده‌شده ۶۰٪ نرخ واقعی است. فقط همین عدد رو تغییر بده؛ روی
-// معادل لیر یا خود مبلغ دلاری تأثیری ندارد. عدد 1 یعنی بدون هیچ تعدیلی.
-const LICENSE_IRR_RATE_ADJUSTMENT = 0.6;
-
-// مبلغ ریالیِ لایسنس، فیکس و مستقل از نرخ ارز: ۴,۶۰۰,۰۰۰ تومان (= ۴۶,۰۰۰,۰۰۰ ریال)
-// این عدد دیگر در نرخ لیر/دلار ضرب نمی‌شود؛ فقط معادل لیری همچنان از نرخ لحظه‌ای محاسبه می‌شود.
+// مبلغ ریالیِ لایسنس، فیکس و مستقل از هر نرخ ارز: ۴,۶۰۰,۰۰۰ تومان (= ۴۶,۰۰۰,۰۰۰ ریال)
 const LICENSE_FIXED_TOMAN_AMOUNT = 4600000;
 const LICENSE_FIXED_IRR_AMOUNT = LICENSE_FIXED_TOMAN_AMOUNT * 10;
 
@@ -1566,122 +1426,41 @@ function formatLicenseNumber(amount, maxFractionDigits) {
   return Number(amount).toLocaleString("en-US", opts);
 }
 
-// محاسبه معادل ریالی (فیکس، ضرب‌نشده در نرخ ارز) و لیری (بر اساس نرخ لحظه‌ای)
-// مبلغ لایسنس. اگر نرخ لیر هنوز از Firestore دریافت نشده باشد null برمی‌گرداند.
-function computeLicenseUsdAmounts() {
-  if (!tryToUsdRate || !tryToIrrRate) return null;
-  const usdToTry = 1 / tryToUsdRate;
-  return {
-    liraAmount: LICENSE_USD_AMOUNT * usdToTry,
-    irrAmount: LICENSE_FIXED_IRR_AMOUNT,
-  };
-}
-
-// متن پرانتزیِ «۵۰ دلار یا تتر، معادل ... ریال، همچنین معادل ... لیر ترکیه»
-// که داخل پیام مرحله‌ی پایانی (Step C) جای توکن {{USD_PAREN}} می‌نشیند؛
-// به هر چهار زبان سایت. اگر نرخ لحظه‌ای هنوز آمده نباشد، فقط «۵۰ دلار یا
-// تتر» بدون معادل نمایش داده می‌شود.
+// متن پرانتزیِ «۵۰ دلار یا تتر» که داخل پیام مرحله‌ی پایانی (Step C) جای توکن
+// {{USD_PAREN}} می‌نشیند. دیگر هیچ نرخ ارزی خوانده یا محاسبه نمی‌شود.
 function buildLicenseUsdParenText(lang) {
-  const amounts = computeLicenseUsdAmounts();
   const data = translations[lang] || translations.en || {};
-  if (!amounts) return data.licenseUsdParenNoRates || "(50 USD)";
-  const irrText = formatLicenseNumber(amounts.irrAmount, 0);
-  const tryText = formatLicenseNumber(amounts.liraAmount, 0);
-  return (data.licenseUsdParen || "")
-    .replace("{IRR}", irrText)
-    .replace("{TRY}", tryText);
+  return data.licenseUsdParenNoRates || "(50 USD)";
 }
 
 // متن کامل مرحله‌ی پایانی مودال خرید لایسنس، با جایگزینی توکن {{USD_PAREN}}
-// داخل رشته‌ی ترجمه‌شده با معادل لحظه‌ای ریال/لیر.
 function buildLicenseDoneMsg(lang) {
   const data = translations[lang] || {};
   const template = data.licenseDoneMsg || "";
   return template.replace("{{USD_PAREN}}", buildLicenseUsdParenText(lang));
 }
 
-// محاسبه و نمایش نرخ‌ها و مبالغ داخل مودال خرید لایسنس، بر اساس نرخ کش‌شده
-// (tryToIrrRate / tryToUsdRate) و زبان فعلی؛ هم بعد از دریافت نرخ از سرور و
-// هم بعد از تغییر زبان صدا زده می‌شود.
+// نمایش مبالغ داخل مودال خرید لایسنس: مبلغ دلاری و مبلغ ریالیِ ثابت (و نسخه‌ی
+// تخفیف‌دار آن). هیچ نرخ ارزی خوانده نمی‌شود.
 function updateLicenseModalRatesUI() {
   const data = translations[currentLang] || {};
 
-  // با هر بار به‌روزرسانی نرخ (یا تغییر زبان)، معادل ریال/لیر داخل پیام
-  // مرحله‌ی پایانی (Step C) هم دوباره محاسبه و جایگزین می‌شود
   const licenseDoneMsgEl = document.getElementById("licenseDoneMsg");
   if (licenseDoneMsgEl)
     licenseDoneMsgEl.innerText = buildLicenseDoneMsg(currentLang);
 
-  const rateUsdTryEl = document.getElementById("licenseRateUsdTry");
-  const rateUsdIrrEl = document.getElementById("licenseRateUsdIrr");
-  const rateUpdatedEl = document.getElementById("licenseRateUpdatedValue");
   const payableUsdEl = document.getElementById("licensePayableUsd");
-  const tryAmountEl = document.getElementById("licenseTryAmount");
   const irrAmountEl = document.getElementById("licenseIrrAmount");
   const irrDiscountedEl = document.getElementById("licenseDiscountIrrAmount");
 
-  if (payableUsdEl) {
-    payableUsdEl.innerText = "$" + LICENSE_USD_AMOUNT;
-  }
+  if (payableUsdEl) payableUsdEl.innerText = "$" + LICENSE_USD_AMOUNT;
 
-  const currencyTry = data.shopCurrency || "لیر";
   const currencyIrr = data.rialLabel || "ریال";
-  const dateLocale = BuskitI18n.locale(currentLang);
+  const irrDiscounted = LICENSE_FIXED_IRR_AMOUNT * (1 - LICENSE_IRAN_DISCOUNT);
 
-  if (!tryToUsdRate || !tryToIrrRate) {
-    if (rateUsdTryEl)
-      rateUsdTryEl.innerText =
-        (data.licenseRateUsdTryLabel || "") + " " + (data.licenseRateLoading || "...");
-    if (rateUsdIrrEl)
-      rateUsdIrrEl.innerText =
-        (data.licenseRateUsdIrrLabel || "") + " " + (data.licenseRateLoading || "...");
-    if (rateUpdatedEl) rateUpdatedEl.innerText = "";
-    if (tryAmountEl) tryAmountEl.innerText = "—";
-    if (irrAmountEl) irrAmountEl.innerText = "—";
-    if (irrDiscountedEl) irrDiscountedEl.innerText = "—";
-    return;
-  }
-
-  // ۱ لیر = tryToUsdRate دلار  ⇐  ۱ دلار = 1/tryToUsdRate لیر
-  const usdToTry = 1 / tryToUsdRate;
-  // ۱ لیر = tryToIrrRate ریال و ۱ لیر = tryToUsdRate دلار ⇐ ۱ دلار = tryToIrrRate/tryToUsdRate ریال
-  // (ضرب‌شده در LICENSE_IRR_RATE_ADJUSTMENT تا معادل ریالی نمایشی ارزان‌تر شود)
-  const usdToIrr =
-    (tryToIrrRate / tryToUsdRate) * LICENSE_IRR_RATE_ADJUSTMENT;
-
-  const liraAmount = LICENSE_USD_AMOUNT * usdToTry;
-  const irrAmount = LICENSE_USD_AMOUNT * usdToIrr;
-  const irrDiscounted = irrAmount * (1 - LICENSE_IRAN_DISCOUNT);
-
-  if (rateUsdTryEl)
-    rateUsdTryEl.innerText =
-      (data.licenseRateUsdTryLabel || "") +
-      " " +
-      formatLicenseNumber(usdToTry, 2) +
-      " " +
-      currencyTry;
-  if (rateUsdIrrEl)
-    rateUsdIrrEl.innerText =
-      (data.licenseRateUsdIrrLabel || "") +
-      " " +
-      formatLicenseNumber(usdToIrr, 0) +
-      " " +
-      currencyIrr;
-  if (rateUpdatedEl) {
-    const updatedDate = ratesUpdatedAt || new Date();
-    rateUpdatedEl.innerText =
-      (data.licenseRateUpdatedLabel || "") +
-      " " +
-      updatedDate.toLocaleDateString(dateLocale, {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      });
-  }
-  if (tryAmountEl)
-    tryAmountEl.innerText = formatLicenseNumber(liraAmount, 0) + " " + currencyTry;
   if (irrAmountEl)
-    irrAmountEl.innerText = formatLicenseNumber(irrAmount, 0) + " " + currencyIrr;
+    irrAmountEl.innerText =
+      formatLicenseNumber(LICENSE_FIXED_IRR_AMOUNT, 0) + " " + currencyIrr;
   if (irrDiscountedEl)
     irrDiscountedEl.innerText =
       formatLicenseNumber(irrDiscounted, 0) + " " + currencyIrr;
@@ -2497,6 +2276,35 @@ function toggleBuskitToolsSubmenu() {
     btn.setAttribute("aria-expanded", "false");
     chevron.style.transform = "";
   }
+}
+
+// ====== زیرمنوی دانلودها در منوی موبایل ======
+let downloadsSubmenuOpen = false;
+
+function toggleDownloadsSubmenu() {
+  downloadsSubmenuOpen = !downloadsSubmenuOpen;
+  const submenu = document.getElementById("navDownloadsMobileSubmenu");
+  const btn = document.getElementById("navDownloadsMobileBtn");
+  const chevron = document.getElementById("navDownloadsMobileChevron");
+  submenu.classList.toggle("hidden", !downloadsSubmenuOpen);
+  submenu.classList.toggle("flex", downloadsSubmenuOpen);
+  btn.setAttribute("aria-expanded", String(downloadsSubmenuOpen));
+  chevron.style.transform = downloadsSubmenuOpen ? "rotate(180deg)" : "";
+}
+
+// ====== دانلود فایل‌های معرفی و راهنما (به زبان فعلی سایت) ======
+// فایل‌ها داخل پوشه‌ی downloads هستند: IntroductionFA / manualFA و ...
+// اگر پسوند فایل‌ها pdf نیست، فقط همین یک خط را عوض کنید.
+const DOC_EXTENSION = "pdf";
+
+function downloadSiteDoc(baseName) {
+  const fileName = baseName + currentLang.toUpperCase() + "." + DOC_EXTENSION;
+  const link = document.createElement("a");
+  link.href = "./downloads/" + fileName;
+  link.download = fileName;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 }
 
 renderStarPicker();

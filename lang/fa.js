@@ -23,6 +23,7 @@ BuskitI18n.register("fa", {
   navDlMyket: "دانلود اپلیکیشن از مایکت",
   navDlBazaar: "دانلود اپلیکیشن از کافه بازار",
   navDlIntro: "دانلود معرفی اپلیکیشن",
+  navDlPoster: "دانلود پوستر معرفی",
   navDlManual: "دانلود دفترچه راهنمای عملکرد",
   headerCTA: "تهیه لایسنس پرو",
   heroBadge: "نسخه جدید لایو افکت نسل جدید صادر شد",
@@ -157,7 +158,6 @@ BuskitI18n.register("fa", {
   goldGalleryTitle: "صفحات نمونه از نسخه طلایی",
 
   goldGalleryAlt: "صفحه نمونه از نسخه طلایی اپلیکیشن",
-
 
   liveFXGalleryAlt1: "نمای اصلی اپلیکیشن باسکیت لایو افکت",
   liveFXGalleryAlt2: "تنظیمات کمپرسور در اپلیکیشن باسکیت لایو افکت",

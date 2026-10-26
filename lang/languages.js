@@ -24,4 +24,4 @@ window.BUSKIT_DEFAULT_LANG = "tr";
 
 // بعد از ویرایش یکی از فایل‌های زبان، این عدد را یکی زیاد کنید تا مرورگرِ
 // بازدیدکننده‌ها نسخه‌ی کهنه‌ی (کش‌شده) فایل را نگه ندارد.
-window.BUSKIT_LANG_VERSION = 2;
+window.BUSKIT_LANG_VERSION = 3;

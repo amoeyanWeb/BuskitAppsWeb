@@ -23,6 +23,7 @@ BuskitI18n.register("tr", {
   navDlMyket: "Uygulamayı Myket'ten indir",
   navDlBazaar: "Uygulamayı Cafe Bazaar'dan indir",
   navDlIntro: "Uygulama tanıtımını indir",
+  navDlPoster: "Uygulama posterini indir",
   navDlManual: "Kullanım kılavuzunu indir",
   headerCTA: "Pro Lisans Satın Al",
   heroBadge: "Yeni nesil LiveFX'in yeni sürümü yayınlandı",
@@ -159,7 +160,6 @@ BuskitI18n.register("tr", {
   goldGalleryTitle: "Altın Sürümden Örnek Sayfalar",
 
   goldGalleryAlt: "Altın sürüm uygulama örnek sayfası",
-
 
   liveFXGalleryAlt1: "Buskit LiveFX Uygulaması Ana Ekranı",
   liveFXGalleryAlt2: "Buskit LiveFX Uygulaması Kompresör Ayarları",

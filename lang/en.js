@@ -23,6 +23,7 @@ BuskitI18n.register("en", {
   navDlMyket: "Download the app from Myket",
   navDlBazaar: "Download the app from Cafe Bazaar",
   navDlIntro: "Download app introduction",
+  navDlPoster: "Download app poster",
   navDlManual: "Download user manual",
   headerCTA: "Get Pro License",
   heroBadge: "The new generation of LiveFX has been released",
@@ -157,7 +158,6 @@ BuskitI18n.register("en", {
   goldGalleryTitle: "Sample Screens of the Gold Version",
 
   goldGalleryAlt: "Gold version app sample screen",
-
 
   liveFXGalleryAlt1: "Main View of Buskit LiveFX Application",
   liveFXGalleryAlt2: "Compressor Settings in Buskit LiveFX Application",

@@ -83,7 +83,6 @@ BuskitI18n.onRegister((code, data) => {
   });
 });
 
-
 // تغییر زبان: اگر فایل آن زبان هنوز لود نشده باشد اول از lang/<code>.js
 // خوانده می‌شود و بعد متن‌ها روی صفحه اعمال می‌شوند.
 let langRequestId = 0;
@@ -151,6 +150,7 @@ function applyLanguage(lang) {
     ["navDlMyket", "navDlMyket"],
     ["navDlBazaar", "navDlBazaar"],
     ["navDlIntro", "navDlIntro"],
+    ["navDlPoster", "navDlPoster"],
     ["navDlManual", "navDlManual"],
   ].forEach(([id, key]) => {
     ["", "Mobile"].forEach((suffix) => {
@@ -290,8 +290,11 @@ function applyLanguage(lang) {
     if (titleEl && data[prefix + "Title"])
       titleEl.innerText = data[prefix + "Title"];
     for (let i = 1; i <= count; i++) {
-      const itemTextEl = document.querySelector(`#${prefix}${i} span:last-child`);
-      if (itemTextEl && data[prefix + i]) itemTextEl.innerText = data[prefix + i];
+      const itemTextEl = document.querySelector(
+        `#${prefix}${i} span:last-child`,
+      );
+      if (itemTextEl && data[prefix + i])
+        itemTextEl.innerText = data[prefix + i];
     }
   });
 
@@ -522,7 +525,9 @@ function applyLanguage(lang) {
   const footerPrivacyEl = document.getElementById("footerPrivacy");
   if (footerPrivacyEl) {
     footerPrivacyEl.innerText =
-      data.privacyLabel || (translations.en && translations.en.privacyLabel) || "Privacy Policy";
+      data.privacyLabel ||
+      (translations.en && translations.en.privacyLabel) ||
+      "Privacy Policy";
     footerPrivacyEl.href = "privacy.html?lang=" + lang;
   }
 
@@ -630,7 +635,9 @@ function applyLanguage(lang) {
     licensePayableLabelEl.innerText = data.licensePayableLabel;
   const licenseIrrLabelEl = document.getElementById("licenseIrrLabel");
   if (licenseIrrLabelEl) licenseIrrLabelEl.innerText = data.licenseIrrLabel;
-  const licenseDiscountLabelEl = document.getElementById("licenseDiscountLabel");
+  const licenseDiscountLabelEl = document.getElementById(
+    "licenseDiscountLabel",
+  );
   if (licenseDiscountLabelEl)
     licenseDiscountLabelEl.innerText = data.licenseDiscountLabel;
   const licenseDiscountIrrLabelEl = document.getElementById(
@@ -641,10 +648,14 @@ function applyLanguage(lang) {
   const licenseBankHeadingEl = document.getElementById("licenseBankHeading");
   if (licenseBankHeadingEl)
     licenseBankHeadingEl.innerText = data.licenseBankHeading;
-  const licenseBankIranLabelEl = document.getElementById("licenseBankIranLabel");
+  const licenseBankIranLabelEl = document.getElementById(
+    "licenseBankIranLabel",
+  );
   if (licenseBankIranLabelEl)
     licenseBankIranLabelEl.innerText = data.licenseBankIranLabel;
-  const licenseBankIranOwnerEl = document.getElementById("licenseBankIranOwner");
+  const licenseBankIranOwnerEl = document.getElementById(
+    "licenseBankIranOwner",
+  );
   if (licenseBankIranOwnerEl)
     licenseBankIranOwnerEl.innerText = data.licenseBankIranOwner;
   const licenseBankTrLabelEl = document.getElementById("licenseBankTrLabel");
@@ -679,7 +690,8 @@ function applyLanguage(lang) {
   if (licenseDoneBankTrOwnerEl)
     licenseDoneBankTrOwnerEl.innerText = data.licenseDoneBankTrOwner;
   const btnLicenseReserveEl = document.getElementById("btnLicenseReserve");
-  if (btnLicenseReserveEl) btnLicenseReserveEl.innerText = data.btnLicenseReserve;
+  if (btnLicenseReserveEl)
+    btnLicenseReserveEl.innerText = data.btnLicenseReserve;
   const btnLicenseBackFromInfoEl = document.getElementById(
     "btnLicenseBackFromInfo",
   );
@@ -1269,7 +1281,8 @@ function trackAppDownload(appKey, source) {
     return;
   }
   const countField = source === "page" ? "pageCount" : "siteCount";
-  const dateField = source === "page" ? "pageLastDownloadAt" : "siteLastDownloadAt";
+  const dateField =
+    source === "page" ? "pageLastDownloadAt" : "siteLastDownloadAt";
   db.collection("downloads")
     .doc(appKey)
     .set(
@@ -1280,7 +1293,9 @@ function trackAppDownload(appKey, source) {
       },
       { merge: true },
     )
-    .then(() => console.log("[trackAppDownload] با موفقیت ثبت شد:", appKey, source))
+    .then(() =>
+      console.log("[trackAppDownload] با موفقیت ثبت شد:", appKey, source),
+    )
     .catch((err) => console.error("خطا در ثبت آمار دانلود اپ:", err));
 }
 
@@ -1570,8 +1585,7 @@ async function submitLicenseReservation() {
 
   if (submitBtn) {
     submitBtn.disabled = true;
-    submitBtn.innerText =
-      data.licenseSubmittingTxt || "در حال ثبت درخواست...";
+    submitBtn.innerText = data.licenseSubmittingTxt || "در حال ثبت درخواست...";
   }
 
   // ── صدور فوری لایسنس ─────────────────────────────────────────────────
@@ -1581,11 +1595,14 @@ async function submitLicenseReservation() {
   // هم سمت سرور انجام می‌شود، پس دیگر لازم نیست سایت خودش چیزی در
   // Firestore بنویسد.
   try {
-    const resp = await fetch(`${LICENSE_SERVER_URL}/request-probation-license`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, whatsapp, lang: currentLang }),
-    });
+    const resp = await fetch(
+      `${LICENSE_SERVER_URL}/request-probation-license`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, whatsapp, lang: currentLang }),
+      },
+    );
     const result = await resp.json().catch(() => ({}));
 
     if (resp.ok && result.success) {
@@ -1627,7 +1644,9 @@ document.addEventListener("keydown", (e) => {
   if (
     e.key === "Escape" &&
     document.getElementById("licensePurchaseModal") &&
-    !document.getElementById("licensePurchaseModal").classList.contains("hidden")
+    !document
+      .getElementById("licensePurchaseModal")
+      .classList.contains("hidden")
   ) {
     closeLicensePurchaseModal();
   }
@@ -2057,13 +2076,11 @@ async function submitQuestion(event) {
 
 function formatQuestionDate(timestamp) {
   if (!timestamp || !timestamp.toDate) return "";
-  return timestamp
-    .toDate()
-    .toLocaleDateString(BuskitI18n.locale(currentLang), {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
+  return timestamp.toDate().toLocaleDateString(BuskitI18n.locale(currentLang), {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
 }
 
 function renderQuestions(snapshot) {
@@ -2298,7 +2315,10 @@ function toggleDownloadsSubmenu() {
 const DOC_EXTENSION = "pdf";
 
 function downloadSiteDoc(baseName) {
-  const fileName = baseName + currentLang.toUpperCase() + "." + DOC_EXTENSION;
+  let fileName = baseName + currentLang.toUpperCase() + ".";
+  if (baseName != "poster") fileName = fileName + DOC_EXTENSION;
+  else fileName = fileName + "png";
+
   const link = document.createElement("a");
   link.href = "./downloads/" + fileName;
   link.download = fileName;

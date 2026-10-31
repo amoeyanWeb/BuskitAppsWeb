@@ -1311,7 +1311,7 @@ function downloadBuskitTools() {
 // لینک اپلیکیشن در مایکت و کافه‌بازار را اینجا قرار دهید.
 // تا وقتی خالی باشد، دکمه‌ها صفحه‌ی اصلی همان فروشگاه را باز می‌کنند.
 const STORE_LINKS = {
-  myket: "", // مثال: "https://myket.ir/app/your.package.name"
+  myket: "https://myket.ir/app/com.Buskitapps",
   bazaar: "", // مثال: "https://cafebazaar.ir/app/your.package.name"
 };
 

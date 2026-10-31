@@ -365,8 +365,8 @@
             <div class="absolute hidden group-hover:flex flex-col top-full left-0 pt-3 w-72 z-50">
               <div class="rounded-xl overflow-hidden shadow-xl text-xs font-semibold" style="background: linear-gradient(135deg, rgba(208, 215, 218, 0.9) 0%, rgba(28, 140, 185, 0.85) 50%, rgba(190, 18, 60, 0.8) 100%); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255, 255, 255, 0.12);">
                 <button type="button" id="navDlGooglePlay" onclick="downloadBuskitTools()" class="block w-full text-start px-4 py-3 text-white hover:bg-white/15 hover:text-accentNeon transition-colors">دانلود اپلیکیشن از گوگل پلی</button>
-                <button type="button" id="navDlMyket" onclick="downloadBuskitMyket()" class="block w-full text-start px-4 py-3 text-white hover:bg-white/15 hover:text-accentNeon transition-colors">دانلود اپلیکیشن از مایکت</button>
-                <button type="button" id="navDlBazaar" onclick="downloadBuskitBazaar()" class="block w-full text-start px-4 py-3 text-white hover:bg-white/15 hover:text-accentNeon transition-colors">دانلود اپلیکیشن از کافه بازار</button>
+                <button type="button" id="navDlMyket" disabled aria-disabled="true" class="block w-full text-start px-4 py-3 text-white transition-colors opacity-40 cursor-not-allowed">دانلود اپلیکیشن از مایکت</button>
+                <button type="button" id="navDlBazaar" disabled aria-disabled="true" class="block w-full text-start px-4 py-3 text-white transition-colors opacity-40 cursor-not-allowed">دانلود اپلیکیشن از کافه بازار</button>
                 <button type="button" id="navDlIntro" onclick="downloadSiteDoc('Introduction')" class="block w-full text-start px-4 py-3 text-white hover:bg-white/15 hover:text-accentNeon transition-colors">دانلود معرفی اپلیکیشن</button>
                 <button type="button" id="navDlPoster" onclick="downloadSiteDoc('poster')" class="block w-full text-start px-4 py-3 text-white hover:bg-white/15 hover:text-accentNeon transition-colors">دانلود پوستر معرفی</button>
                 <button type="button" id="navDlManual" onclick="downloadSiteDoc('manual')" class="block w-full text-start px-4 py-3 text-white hover:bg-white/15 hover:text-accentNeon transition-colors">دانلود دفترچه راهنمای عملکرد</button>
@@ -556,8 +556,8 @@
           </button>
           <div id="navDownloadsMobileSubmenu" class="hidden flex-col pr-3 mr-3 mt-1 mb-1 rounded-lg bg-black/25 border border-white/5">
             <button type="button" id="navDlGooglePlayMobile" onclick="downloadBuskitTools(); closeMobileMenu()" class="text-start py-2.5 px-3 rounded-lg hover:bg-white/10 hover:text-accentNeon transition-colors text-slate-300">دانلود اپلیکیشن از گوگل پلی</button>
-            <button type="button" id="navDlMyketMobile" onclick="downloadBuskitMyket(); closeMobileMenu()" class="text-start py-2.5 px-3 rounded-lg hover:bg-white/10 hover:text-accentNeon transition-colors text-slate-300">دانلود اپلیکیشن از مایکت</button>
-            <button type="button" id="navDlBazaarMobile" onclick="downloadBuskitBazaar(); closeMobileMenu()" class="text-start py-2.5 px-3 rounded-lg hover:bg-white/10 hover:text-accentNeon transition-colors text-slate-300">دانلود اپلیکیشن از کافه بازار</button>
+            <button type="button" id="navDlMyketMobile" disabled aria-disabled="true" class="text-start py-2.5 px-3 rounded-lg transition-colors text-slate-300 opacity-40 cursor-not-allowed">دانلود اپلیکیشن از مایکت</button>
+            <button type="button" id="navDlBazaarMobile" disabled aria-disabled="true" class="text-start py-2.5 px-3 rounded-lg transition-colors text-slate-300 opacity-40 cursor-not-allowed">دانلود اپلیکیشن از کافه بازار</button>
             <button type="button" id="navDlIntroMobile" onclick="downloadSiteDoc('Introduction'); closeMobileMenu()" class="text-start py-2.5 px-3 rounded-lg hover:bg-white/10 hover:text-accentNeon transition-colors text-slate-300">دانلود معرفی اپلیکیشن</button>
             <button type="button" id="navDlPosterMobile" onclick="downloadSiteDoc('poster'); closeMobileMenu()" class="text-start py-2.5 px-3 rounded-lg hover:bg-white/10 hover:text-accentNeon transition-colors text-slate-300">دانلود پوستر معرفی</button>
             <button type="button" id="navDlManualMobile" onclick="downloadSiteDoc('manual'); closeMobileMenu()" class="text-start py-2.5 px-3 rounded-lg hover:bg-white/10 hover:text-accentNeon transition-colors text-slate-300">دانلود دفترچه راهنمای عملکرد</button>
@@ -638,8 +638,8 @@
           <div class="relative group w-full sm:w-[34rem]">
             <button
               id="heroDownloadBtnMyket"
-              onclick="downloadBuskitMyket()"
-              class="w-full sm:w-[34rem] min-h-[4rem] px-4 py-2.5 ltr:bg-gradient-to-r rtl:bg-gradient-to-l from-[#8c5a2b] via-[#c0c0c0] to-[#c99a2e] text-darkBg font-bold rounded-xl shadow-lg shadow-slate-400/30 hover:scale-105 transition-all duration-300 text-center flex items-center justify-center"
+              disabled aria-disabled="true"
+              class="w-full sm:w-[34rem] min-h-[4rem] px-4 py-2.5 ltr:bg-gradient-to-r rtl:bg-gradient-to-l from-[#8c5a2b] via-[#c0c0c0] to-[#c99a2e] text-darkBg font-bold rounded-xl shadow-lg shadow-slate-400/30 transition-all duration-300 text-center flex items-center justify-center opacity-50 cursor-not-allowed grayscale"
             >
               <span id="heroDownloadBtnMyketText">دانلود رایگان اپلیکیشن از سایت Myket</span>
             </button>
@@ -647,8 +647,8 @@
           <div class="relative group w-full sm:w-[34rem]">
             <button
               id="heroDownloadBtnBazaar"
-              onclick="downloadBuskitBazaar()"
-              class="w-full sm:w-[34rem] min-h-[4rem] px-4 py-2.5 ltr:bg-gradient-to-r rtl:bg-gradient-to-l from-[#8c5a2b] via-[#c0c0c0] to-[#c99a2e] text-darkBg font-bold rounded-xl shadow-lg shadow-slate-400/30 hover:scale-105 transition-all duration-300 text-center flex items-center justify-center"
+              disabled aria-disabled="true"
+              class="w-full sm:w-[34rem] min-h-[4rem] px-4 py-2.5 ltr:bg-gradient-to-r rtl:bg-gradient-to-l from-[#8c5a2b] via-[#c0c0c0] to-[#c99a2e] text-darkBg font-bold rounded-xl shadow-lg shadow-slate-400/30 transition-all duration-300 text-center flex items-center justify-center opacity-50 cursor-not-allowed grayscale"
             >
               <span id="heroDownloadBtnBazaarText">دانلود رایگان اپلیکیشن از سایت CafeBazaar</span>
             </button>
@@ -1464,45 +1464,6 @@
                 id="bronzeGalleryImg8"
                 src="./screenshots/bronze-08.jpeg"
                 alt="صفحه نمونه 8 از نسخه برنزی اپلیکیشن"
-                loading="lazy"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </button>
-            <button
-              type="button"
-              class="bronze-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
-              onclick="openScreenshotLightbox('./screenshots/bronze-09.jpeg')"
-            >
-              <img
-                id="bronzeGalleryImg9"
-                src="./screenshots/bronze-09.jpeg"
-                alt="صفحه نمونه 9 از نسخه برنزی اپلیکیشن"
-                loading="lazy"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </button>
-            <button
-              type="button"
-              class="bronze-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
-              onclick="openScreenshotLightbox('./screenshots/bronze-10.jpeg')"
-            >
-              <img
-                id="bronzeGalleryImg10"
-                src="./screenshots/bronze-10.jpeg"
-                alt="صفحه نمونه 10 از نسخه برنزی اپلیکیشن"
-                loading="lazy"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </button>
-            <button
-              type="button"
-              class="bronze-shot aspect-[9/19] rounded-2xl overflow-hidden border border-slate-800/60 shadow-xl group bg-darkCard cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-accentNeon"
-              onclick="openScreenshotLightbox('./screenshots/bronze-11.jpeg')"
-            >
-              <img
-                id="bronzeGalleryImg11"
-                src="./screenshots/bronze-11.jpeg"
-                alt="صفحه نمونه 11 از نسخه برنزی اپلیکیشن"
                 loading="lazy"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />

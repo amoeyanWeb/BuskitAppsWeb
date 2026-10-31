@@ -301,7 +301,7 @@ function applyLanguage(lang) {
   const bronzeGalleryTitleEl = document.getElementById("bronzeGalleryTitle");
   if (bronzeGalleryTitleEl && data.bronzeGalleryTitle)
     bronzeGalleryTitleEl.innerText = data.bronzeGalleryTitle;
-  for (let n = 1; n <= 11; n++) {
+  for (let n = 1; n <= 8; n++) {
     const bronzeImgEl = document.getElementById("bronzeGalleryImg" + n);
     if (bronzeImgEl && data.bronzeGalleryAlt)
       bronzeImgEl.alt = data.bronzeGalleryAlt + " " + n;
@@ -1299,15 +1299,13 @@ function trackAppDownload(appKey, source) {
     .catch((err) => console.error("خطا در ثبت آمار دانلود اپ:", err));
 }
 
-// ====== دانلود مستقیم اپلیکیشن Buskit-Tools (از داخل خود سایت) ======
+// ====== دانلود اپلیکیشن Buskit-Tools از گوگل پلی ======
+const GOOGLE_PLAY_URL =
+  "https://play.google.com/store/apps/details?id=com.BuskitTools&pcampaignid=web_share";
+
 function downloadBuskitTools() {
   trackAppDownload("buskit-tools", "site");
-  const link = document.createElement("a");
-  link.href = "./downloads/BuskitTools_v1.apk";
-  link.download = "BuskitTools_v1.apk";
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+  window.open(GOOGLE_PLAY_URL, "_blank", "noopener");
 }
 
 // لینک اپلیکیشن در مایکت و کافه‌بازار را اینجا قرار دهید.
